@@ -108,7 +108,7 @@ class Generator {
 			break;
 		}*/
         
-        $time=3600*7;
+        //$time=3600*7;
         
 		if (date('Ymd',time()) == date('Ymd',$time)) {
 		//if ((time()-$time) < 24*60*60 && (time()-$time) > 0) {
@@ -132,11 +132,12 @@ class Generator {
 			}
 		}
 		$new = date("H:i",$time);
-        if ($pref=="9"||$pref==9) 
-            return $new;
-        else
-            return array($day,$new);
 		
+        if ($pref=="9"||$pref==9){
+            return $new;
+		} else {
+            return array($day,$new);
+		}
 	}
    
 	public function getBaseID($x,$y) {
