@@ -96,7 +96,11 @@ $tribes = Array(mysql_num_rows($tribe1),mysql_num_rows($tribe2),mysql_num_rows($
 			<td><?php echo $tribes[0]; ?></td>
 			<td>
                 <?php
-                    $percents = 100*($tribes[0] / $users);
+                    if ($users > 0){
+						$percents = 100*($tribes[0] / $users);
+					} else {
+						$percents = 0;
+					}
                     echo $percents = intval ($percents);
                     echo "%";
                 ?>
@@ -107,7 +111,11 @@ $tribes = Array(mysql_num_rows($tribe1),mysql_num_rows($tribe2),mysql_num_rows($
 			<td><?php echo $tribes[1]; ?></td>
 			<td>
                 <?php
-                    $percents = 100*($tribes[1] / $users);
+                    if ($users > 0){
+						$percents = 100*($tribes[1] / $users);
+					} else {
+						$percents = 0;
+					}
                     echo $percents = intval ($percents);
                     echo "%";
                 ?>
@@ -118,7 +126,11 @@ $tribes = Array(mysql_num_rows($tribe1),mysql_num_rows($tribe2),mysql_num_rows($
 			<td><?php echo $tribes[2]; ?></td>
 			<td>
 				<?php
-                    $percents = 100*($tribes[2] / $users);
+                    if ($users > 0){
+						$percents = 100*($tribes[2] / $users);
+					} else {
+						$percents = 0;
+					}
                     echo $percents = intval ($percents);
                     echo "%";
 				?>
@@ -129,7 +141,11 @@ $tribes = Array(mysql_num_rows($tribe1),mysql_num_rows($tribe2),mysql_num_rows($
 			<td><?php echo $tribes[3]; ?></td>
 			<td>
 				<?php
-                    $percents = 100*($tribes[3] / $users);
+                    if ($users > 0){
+						$percents = 100*($tribes[3] / $users);
+					} else {
+						$percents = 0;
+					}
                     echo $percents = intval ($percents);
                     echo "%";
 				?>
@@ -140,7 +156,11 @@ $tribes = Array(mysql_num_rows($tribe1),mysql_num_rows($tribe2),mysql_num_rows($
 			<td><?php echo $tribes[4]; ?></td>
 			<td>
 				<?php
-                    $percents = 100*($tribes[4] / $users);
+                    if ($users > 0){
+						$percents = 100*($tribes[4] / $users);
+					} else {
+						$percents = 0;
+					}
                     echo $percents = intval ($percents);
                     echo "%";
 				?>
