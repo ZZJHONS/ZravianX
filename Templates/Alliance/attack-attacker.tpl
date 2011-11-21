@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
 <head>
 	<title>Travian com10</title>
@@ -8,47 +7,41 @@
 	<meta http-equiv="expires" content="0" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-		<script src="mt-full.js?6a593" type="text/javascript"></script>
-	<script src="unx.js?6a593" type="text/javascript"></script>
-	<script src="new.js?6a593" type="text/javascript"></script>
-	        <link href="gpack/travian_org_default/lang/en/lang.css?6a593" rel="stylesheet" type="text/css" /><link href="gpack/travian_org_default/lang/en/compact.css?6a593" rel="stylesheet" type="text/css" />        <link href="img/travian_basics.css" rel="stylesheet" type="text/css" />	<script type="text/javascript">
+	<script src="mt-full.js" type="text/javascript"></script>
+	<script src="unx.js" type="text/javascript"></script>
+	<script src="new.js" type="text/javascript"></script>
+	<link href="gpack/travian_default/lang/en/lang.css" rel="stylesheet" type="text/css" />
+    <link href="gpack/travian_default/lang/en/compact.css" rel="stylesheet" type="text/css" />
+    <link href="img/travian_basics.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
 		window.addEvent('domready', start);
 	</script>
 </head>
-
-
 <body class="v35 gecko gecko3_5_x">
-<div class="wrapper">
-<img src="img/x.gif" id="msfilter" alt="" />
-<div id="dynamic_header">
-	</div>
-
-<div id="header">
-	<div id="mtop">
-		<a href="dorf1.php" id="n1" accesskey="1"><img src="img/x.gif" title="Village overview" alt="Village overview" /></a>
-		<a href="dorf2.php" id="n2" accesskey="2"><img src="img/x.gif" title="Village centre" alt="Village centre" /></a>
-		<a href="karte.php" id="n3" accesskey="3"><img src="img/x.gif" title="Map" alt="Map" /></a>
-		<a href="statistiken.php" id="n4" accesskey="4"><img src="img/x.gif" title="Statistics" alt="Statistics" /></a>
-
-  		<div id="n5" class="i4">
-			<a class="reports" href="berichte.php" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
-			<a class="messages" href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
-		</div>
-		<a href="plus.php" id="plus"><img src="img/x.gif" id="btn_plus" class="inactive" title="Plus menu" alt="Plus menu" /><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></a>
-		<div class="clear"></div>
-	</div>
-
-</div>
-
-<div id="mid">
+    <div class="wrapper">
+    <img src="img/x.gif" id="msfilter" alt="" />
+    <div id="dynamic_header"></div>
+    <div id="header">
+        <div id="mtop">
+            <a href="dorf1.php" id="n1" accesskey="1"><img src="img/x.gif" title="Village overview" alt="Village overview" /></a>
+            <a href="dorf2.php" id="n2" accesskey="2"><img src="img/x.gif" title="Village centre" alt="Village centre" /></a>
+            <a href="karte.php" id="n3" accesskey="3"><img src="img/x.gif" title="Map" alt="Map" /></a>
+            <a href="statistiken.php" id="n4" accesskey="4"><img src="img/x.gif" title="Statistics" alt="Statistics" /></a>
+            <div id="n5" class="i4">
+                <a class="reports" href="berichte.php" accesskey="5"><img src="img/x.gif" class="l" title="Reports" alt="Reports"/></a>
+                <a class="messages" href="nachrichten.php" accesskey="6"><img src="img/x.gif" class="r" title="Messages" alt="Messages" /></a>
+            </div>
+            <a href="plus.php" id="plus"><img src="img/x.gif" id="btn_plus" class="inactive" title="Plus menu" alt="Plus menu" /><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div id="mid">
 		<div id="side_navi">
 		<a id="logo" href="http://www.travian.com/"><img  src="img/x.gif" alt="Travian" /></a>
 				<p>
 			<a href="http://www.travian.com/">Homepage</a>
             <a href="#" onclick="return Popup(0,0);">Instructions</a>
 			<a href="spieler.php?uid=99387">Profile</a>
-
 			<a href="logout.php">Logout</a>
 		</p>
 		<p>
@@ -56,7 +49,6 @@
 						                                <a href="http://www.travian.com/chat.php?chatname=com10|Nostro" target="_blank">Chat</a>
                 					</p>
 		<p>
-
 			<a href="plus.php?id=3 ">Travian <b><span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></b></a>
 			<a href="support.php">Support</a>
 		</p>

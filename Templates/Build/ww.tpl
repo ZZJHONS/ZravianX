@@ -1,16 +1,22 @@
 <?php
-
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       ww.tpl                                                      ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      Templates/Build/ww.tpl                                      ##
 ##  Developed by:  Dixie                                                       ##
-##  Edited by:     Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Reworked by:   Dzoki                                                       ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-
 ?>
 
 <div id="build" class="gid40"><a href="#" onClick="return Popup(5,4);" class="build_logo">
@@ -53,6 +59,7 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
 <?php
     if($bindicate == 2) {
 		echo "<span class=\"none\">The workers are already at work.</span>";
+
     }
     else if($bindicate == 3) {
 	echo "<span class=\"none\">The workers are already at work. (waiting loop)</span>";

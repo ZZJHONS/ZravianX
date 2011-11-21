@@ -1,16 +1,24 @@
 <?php 
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       links.tpl                                                   ##
-##  Developed by:  Slim, Manuel Mannhardt < manuel_mannhardt@web.de >          ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      Templates/links.tpl                                         ##
+##  Developed by:  Slim, Manuel Mannhardt                                      ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
 // Fetch all links
-$query = $database->getLinks($session->uid);  
+$query = $database->getLinks($session->uid);
 if (mysql_num_rows($query) > 0){
 $links = array();
 while($data = mysql_fetch_assoc($query)) {

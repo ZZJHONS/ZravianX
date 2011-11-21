@@ -1,15 +1,21 @@
 <?php
-
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       celebration.php                                             ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.08                                                  ##
+##  Filename:      celebration.php                                             ##
 ##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Reworked by:   ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-
 
 include("GameEngine/Village.php");
 
@@ -38,9 +44,9 @@ if(isset($_GET['newdid'])) {
 	$clayold = $database->getVillageField($village->wid, 'clay');
 	$ironold = $database->getVillageField($village->wid, 'iron');
 	$cropold = $database->getVillageField($village->wid, 'crop');
-	
-	
-	
+
+
+
 	$feld = $vil['f'.$id.'t'];
 	$level = $vil['f'.$id];
 	$time = Time();
@@ -54,7 +60,7 @@ if($feld == 24)
 			$clay = 6650;		
 			$iron = 5940;
 			$crop = 1340;
-			
+
 			$database->modifyResource($town,$wood,$clay,$iron,$crop,$mode);
 			$database->addCel($town,$endtime,$type);
 
@@ -63,7 +69,7 @@ if($feld == 24)
 	else if($type == 2)
 	{
 			if(29700 < $woodold || 33250 < $clayold || 32000 < $ironold || 6700 < $cropold) {
-			
+
 			$endtime = ($gc[$level]/ SPEED) + $time;
 			$wood= 29700;
 			$clay= 33250;
@@ -75,39 +81,14 @@ if($feld == 24)
 	}
 }
 
-
+include ("Templates/head.tpl");
+include ("Templates/body.tpl");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-	<title><?php echo SERVER_NAME ?></title>
-    <link REL="shortcut icon" HREF="favicon.ico"/>
-	<meta http-equiv="cache-control" content="max-age=0" />
-	<meta http-equiv="pragma" content="no-cache" />
-	<meta http-equiv="expires" content="0" />
-	<meta http-equiv="imagetoolbar" content="no" />
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="refresh" content="0; URL=dorf2.php">
-	<script src="mt-full.js?ebe79" type="text/javascript"></script>
-	<script src="unx.js?ebe79" type="text/javascript"></script>
-	<script src="new.js?ebe79" type="text/javascript"></script>
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css?f4b7c" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css?f4b7c" rel="stylesheet" type="text/css" />
-	<?php
-	if($session->gpack == null || GP_ENABLE == false) {
-	echo "
-	<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
-	} else {
-	echo "
-	<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
-	}
-	?>
-	<script type="text/javascript">
-
-		window.addEvent('domready', start);
-	</script>
-</head>
-
-</html>
+<div id="content" class="player">
+    <h1>
+        Celebration <b>OK</b>
+        <br />
+        Return to Village <a href="dorf2.php">&raquo;</a>
+    </h1>
+</div>
+<?php include ("Templates/end.tpl"); ?>

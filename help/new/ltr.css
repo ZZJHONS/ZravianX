@@ -1,0 +1,93 @@
+/* navigation */
+  #navbox {
+	width: 130px;
+	margin: 4px 0 0 0;
+	padding: 0 0 0 0;
+	line-height: 18px;
+  }
+
+   ul[id] {
+ 	border-right: 1px dashed silver;
+   }
+
+  #navbox li {
+	width: 130px;
+	list-style: none;
+	margin: 1px 0 1px 0;
+	padding: 0 0 0 0;
+	text-indent: 4px;
+  }
+
+  #navbox li li {
+	margin-left: -40px;
+	text-indent: 4px;
+  }
+
+  #navbox li li li {
+	text-indent: 8px;
+  }
+
+  #navbox a {
+	display: block;
+	padding: 0;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	font-size: 12px;
+  }
+
+  #navbox a:hover {
+	background-color: #FFFFFF;
+	color: #00C000;
+	font-weight: normal;
+  }
+
+  #navbox .treenode:hover {
+	background-position : bottom left;
+  }			
+
+  #navbox .treenode {
+	background-image : url('img/un/l1l_g.png');
+	background-repeat : no-repeat;
+	background-position : top left;
+  }
+
+  #navbox .treenode-2:hover {
+	background-position : bottom left;
+  }			
+
+  #navbox .treenode-2 {
+	background-image : url('img/un/l2l_g.png');
+	background-repeat : no-repeat;
+	background-position : top left;
+  }
+
+  #navbox .noexpand {
+	background-image : url('img/un/noexpand_g.png');
+	background-repeat : no-repeat;
+	background-position : top left;
+  }
+
+  #navbox .noexpand:hover {
+	background-position: bottom left;
+  }
+  
+  #navbox .external {
+	background-image : url('img/un/external_l.png');
+	background-repeat : no-repeat;
+	background-position : top left;
+  }
+  
+  #navbox .external:hover {
+	background-position: bottom;
+  }
+/* end of navigation */
+
+/* Misc */
+  .gid, .bimg {
+  	float: right;
+  }
+    
+  .report label, .float {
+   	float: left;	
+  }

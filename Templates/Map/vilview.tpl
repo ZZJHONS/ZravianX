@@ -204,8 +204,9 @@ else if (!$basearray['occupied']) {
 			<td class="none"><?php 
       $mode = CP; 
       $total = count($database->getProfileVillages($session->uid)); 
+
       $need_cps = ${'cp'.$mode}[$total+1]; 
-      $cps = $database->getUserField($session->uid, 'cp',0);      
+      $cps = $session->cp;      
       
       if($cps >= $need_cps) {
         $enough_cp = true;
@@ -228,8 +229,7 @@ else if (!$basearray['occupied']) {
 		
 		
 		"<a href=\"build.php?id=39\">&raquo; Raid $otext oasis. (build a rally point)</a>" : 
-		"&raquo; Raid $otext oasis. (build a rally point)" : 
-		
+		"&raquo; Raid $otext oasis. (build a rally point)" : 		
 		
 		"<a href=\"a2b.php?z=".$_GET['d']."&o\">&raquo; Raid $otext oasis.</a>" :
 		"$test"

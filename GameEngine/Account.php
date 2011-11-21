@@ -183,7 +183,7 @@ class Account {
 			$session->login($_POST['user']);
 		}
 	}
-	
+
 	private function Logout() {
 		global $session,$database;
 		unset($_SESSION['wid']);

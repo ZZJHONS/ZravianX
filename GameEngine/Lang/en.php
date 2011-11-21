@@ -1,16 +1,21 @@
 <?php
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
-//            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
-//                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-                                    //                         //
-									//         ENGLISH         //
-			                        //      Author: Dzoki      //
-									/////////////////////////////
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      GameEngine/Lang/en.php                                      ##
+##  Developed by:  Dzoki & Dixie                                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
 //MAIN MENU
 define("TRIBE1","Romans"); 
@@ -20,23 +25,23 @@ define("TRIBE4","Nature");
 define("TRIBE5","Natars");
 define("TRIBE6","Monsters");
  
-define("HOME","Homepage"); 
-define("INSTRUCT","Instructions");
-define("ADMIN_PANEL","Admin Panel");
-define("MASS_MESSAGE","Mass Message");
-define("LOGOUT","Logout");
-define("PROFILE","Profile");
-define("SUPPORT","Support");
+// define("HOME","Homepage"); 
+// define("INSTRUCT","Instructions");
+// define("ADMIN_PANEL","Admin Panel");
+// define("MASS_MESSAGE","Mass Message");
+// define("LOGOUT","Logout");
+// define("PROFILE","Profile");
+// define("SUPPORT","Support");
 define("UPDATE_T_10","Update Top 10");
-define("SYSTEM_MESSAGE","System message");
-define("TRAVIAN_PLUS","Travian <b><span class=\"plus_g\">P</span><span class=\"plus_o\">l</span><span class=\"plus_g\">u</span><span class=\"plus_o\">s</span></span></span></b>");
+// define("SYSTEM_MESSAGE","System message");
+// define("TRAVIAN_PLUS","Travian <b><span class=\"plus_g\">P</span><span class=\"plus_o\">l</span><span class=\"plus_g\">u</span><span class=\"plus_o\">s</span></span></span></b>");
 define("CONTACT","Contact us!");
 
 //MENU
 define("REG","Register");
 define("FORUM","Forum");
 define("CHAT","Chat");
-define("IMPRINT","Imprint");
+// define("IMPRINT","Imprint");
 define("MORE_LINKS","More Links");
 define("TOUR","Game Tour");
 
@@ -61,7 +66,6 @@ define("PASS_MISMATCH","Passwords do not match");
 define("ALLI_OWNER","Please appoint an alliance owner before deleting");
 define("SIT_ERROR","Sitter already set");
 define("USR_NT_FOUND","Name does not exist.");
-define("LOGIN_PW_ERROR","The password is wrong.");
 define("WEL_TOPIC","Useful tips & information ");
 define("ATAG_EMPTY","Tag empty");
 define("ANAME_EMPTY","Name empty");
@@ -95,7 +99,7 @@ define("CROP_COM",CROP." consumption");
 define("PER_HR","per hour");
 define("PROD_HEADER","Production");
 define("MULTI_V_HEADER","Villages");
-define("ANNOUNCEMENT","Announcement");
+// define("ANNOUNCEMENT","Announcement");
 define("GO2MY_VILLAGE","Go to my village");
 define("VILLAGE_CENTER","Village centre");
 define("FINISH_GOLD","Finish all construction and research orders in this village immediately for 2 Gold?");
@@ -104,7 +108,7 @@ define("HRS","(hrs.)");
 define("DONE_AT","done at");
 define("CANCEL","cancel");
 define("LOYALTY","Loyalty:"); 
-define("CALCULATED_IN","Calculated in");
+// define("CALCULATED_IN","Calculated in");
 define("SEVER_TIME","Server time:");  
 
 //QUEST
@@ -151,9 +155,240 @@ define("Q5_DESC","Build an iron mine and a clay pit. Of iron and clay one can ne
 define("Q5_ORDER","Order:<\/p><ul><li>Extend one iron mine.<\/li><li>Extend one clay pit.<\/li><\/ul>");
 define("Q5_RESP","As you noticed, building orders take rather long. The world of ". SERVER_NAME ." will continue to spin even if you are offline. Even in a few months there will be many new things for you to discover.\r\n<br \/><br \/>\r\nThe best thing to do is occasionally checking your village and giving you subjects new tasks to do.");
 
-//======================================================//
-//================ UNITS - DO NOT EDIT! ================//
-//======================================================//
+//ATTACKS ETC.
+define("TROOP_MOVEMENTS","Troop Movements:");
+define("ARRIVING_REINF_TROOPS","Arriving reinforcing troops");
+define("ARRIVING_REINF_TROOPS_SHORT","Reinf.");
+define("OWN_ATTACKING_TROOPS","Own attacking troops");
+define("ATTACK","Attack");
+define("OWN_REINFORCING_TROOPS","Own reinforcing troops");
+define("TROOPS_DORF","Troops:");
+
+//404.php
+define("NOTHING_HERE","Nothing here!");
+define("WE_LOOKED","We looked 404 times already but can't find anything");
+
+//TIME RELATED
+define("CALCULATED_IN","Calculated in");
+// define("SERVER_TIME","Server time:");
+
+//MASSMESSAGE.php
+define("MASS","Message Content");
+define("MASS_SUBJECT","Subject:");
+define("MASS_COLOR","Message color:");
+define("MASS_REQUIRED","All fields required");
+define("MASS_UNITS","Images (units):");
+define("MASS_SHOWHIDE","Show/Hide");
+define("MASS_READ","Read this: after adding smilie, you have to add left or right after number otherwise image will won't work");
+define("MASS_CONFIRM","Confirmation");
+define("MASS_REALLY","Do you really want to send MassIGM?");
+define("MASS_ABORT","Aborting right now");
+define("MASS_SENT","Mass IGM was sent");
+
+##############################################
+##                                          ##
+##     LANG TEST - (Only edit the text)     ##
+##                                          ##
+##############################################
+
+// Menu items
+
+	define("GAME_TOUR","Game Tour");
+	define("FORUM","Forum");
+	define("FORUM_LINK","http://forum.zzjhons.com");
+	define("MORE_GAMES","More Games");
+	define("REGISTER","Register");
+	define("LOGIN","Login");
+	define("MANUAL","Manual");
+	define("TUTORIAL","Tutorial");
+	define("SCREENSHOTS","Screenshots");
+	define("FAQ","FAQ");
+	define("SPIELREGELN","Game Rules");
+	define("AGB","Terms");
+	define("IMPRINT","Imprint");
+	define("SUPPORT","Support");
+	define("LINKS","Links");
+	define("HOME","Homepage");
+	define("PROFILE","Profile");
+	define("INSTRUCTIONS","Instructions");
+	define("ADMIN_PANEL","Admin Panel");
+	define("MULTIHUNTER_PANEL","Multihunter Panel");
+	define("MASS_MESSAGE","Mass Message");
+	define("UPDATE_TOP_TEN","Update Top 10");
+	define("SYSTEM_MESSAGE","System Message");
+	define("LOGOUT","Logout");
+	define("HELP","Help");
+	define("TRAVIAN_PLUS",SERVER_NAME." <b><span class=\"plus_g\">P</span><span class=\"plus_o\">l</span><span class=\"plus_g\">u</span><span class=\"plus_o\">s</span></span></span></b>");
+
+// Manual steps
+
+	define("THE_TRIBES","The tribes");
+	define("THE_BUILDINGS","The buildings");
+	define("CULTURE_POINTS","Culture points");
+
+// Index
+
+	define("WELCOME","Welcome to ".SERVER_NAME);
+	define("PLAY_NOW","Play now, for free!");
+	define("WHAT_IS","What is ".SERVER_NAME);
+	define("GAME_DESCRIPTION",SERVER_NAME." is a <b>browser game</b> featuring an engaging ancient world with thousands of other real players.</p><p>It`s <strong>free to play</strong> and requires <strong>no downloads</strong>.");
+	define("CLICK_HERE","Click here to play ".SERVER_NAME);
+	define("ABOUT","About the game");
+	define("ABOUT1","You will begin as the chief of a tiny village and will embark on an exciting quest.");
+	define("ABOUT2","Build up villages, wage wars or establish trade routes with your neighbours.");
+	define("ABOUT3","Play with and against thousands of other real players and conquer the world of ".SERVER_NAME.".");
+	define("NEWS","News");
+	define("CHOOSE_WORLD","Choose your world");
+	
+// Index Travian 4
+
+	define("","");
+
+	$lang['index2']['description'] = "Master the art of ancient tactics as Roman, Gaul or Teuton!";
+	$lang['index2']['shop title'] = SERVER_NAME." shop";
+	$lang['index2']['shop'] = "Go to shop";
+	$lang['index2']['shop link'] = "#";
+	$lang['index2']['facebook'] = "http://www.facebook.com/travianx";
+	$lang['index2']['strategy game'] = SERVER_NAME." - The multiplayer strategy game";
+	$lang['index2']['what is'] = SERVER_NAME." is one of the most popular browser games in the world. As a player in ".SERVER_NAME.", you will build your own empire, recruit a mighty army, and fight with your allies for game world hegemony.";
+	$lang['index2']['register free'] = "Register here for free!";
+	$lang['index2']['title1'] = "Latest game world";
+	$lang['index2']['desc1'] = "Register on the latest<br />game world and enjoy<br />the advantages of<br />being one of the<br />first players.";
+	$lang['index2']['text1'] = "Play ".SERVER_NAME." now";
+	$lang['index2']['link1'] = "#serverRegister";
+	$lang['index2']['title2'] = "The new ".SERVER_NAME;
+	$lang['index2']['desc2'] = "Now with a revolutionized<br />hero system,<br />completely new graphics<br />and an interactive<br />map!";
+	$lang['index2']['text2'] = "Explore the new ".SERVER_NAME;
+	$lang['index2']['link2'] = "#serverRegister";
+	$lang['index2']['title3'] = "Community";
+	$lang['index2']['desc3'] = "Become a part of one<br />of the biggest gaming<br />communities in the<br />world.";
+	$lang['index2']['text3'] = "Become part of our community now!";
+	$lang['index2']['link3'] = "#";
+	$lang['index2']['learn more'] = "Learn more<br />about ".SERVER_NAME."!";
+	$lang['index2']['strip1'] = "Upgrade your fields and mines to increase your resource production. You will need resources to construct buildings and train soldiers.";
+	$lang['index2']['strip2'] = "Construct and expand the buildings in your village. Buildings improve your overall infrastructure, increase your resource production and allow you to research, train and upgrade your troops.";
+	$lang['index2']['strip3'] = "View and interact with your surroundings. You can make new friends or new enemies, make use of the nearby oases and observe as your empire grows and becomes stronger.";
+	$lang['index2']['strip4'] = "Follow your improvement and success and compare yourself to other players. Look at the Top 10 rankings and fight to win a weekly medal.";
+	$lang['index2']['strip5'] = "Receive detailed reports about your adventures, trades and battles. Don't forget to check the brand new reports about the happenings taking place in your surroundings.";
+	$lang['index2']['strip6'] = "Exchange information and conduct diplomacy with other players. Always remember that communication is the key to winning new friends and solving old conflicts.";
+
+// Screenshots Travian 3.6
+
+	define("","");
+
+	$lang['screenshots']['title1'] = "Village centre";
+	$lang['screenshots']['title2'] = "Village overview";
+	$lang['screenshots']['title3'] = "Surrounding territory";
+	$lang['screenshots']['title4'] = "Building information";
+	$lang['screenshots']['title5'] = "Battle report";
+	$lang['screenshots']['title6'] = "Medals";
+	$lang['screenshots']['title7'] = "Tasks";
+	$lang['screenshots']['desc1'] = "This is how your village will look before you start to expand to form your empire.";
+	$lang['screenshots']['desc2'] = "Lumber, clay, iron and crop is needed to supply your village with food, building material and troops.";
+	$lang['screenshots']['desc3'] = "Explore the map to meet new friends or encounter new enemies. Look for nearby oases to gather more resources, but watch out for wild animals there.";
+	$lang['screenshots']['desc4'] = "There are lots of buildings to be built in your villages. Choose wisely or ask the Taskmaster for his opinion.";
+	$lang['screenshots']['desc5'] = "Do not forget to build up your own army. You will need it to protect yourself and of course for attacks to gather resources from opposing players.";
+	$lang['screenshots']['desc6'] = "Gain honourable medals in several categories. The top 10 players and alliances of each week will gain such an achievement.";
+	$lang['screenshots']['desc7'] = "Do not miss the Taskmaster. He will guide you through the first steps of ".SERVER_NAME." and will help you with free resources. Just click on the image on the right side of the screen to activate him.";
+
+// Screenshots Travian 4
+
+	define("SCREENSHOTS_T4_TITLE1","Village centre");
+	define("SCREENSHOTS_T4_TITLE2","Village overview");
+	define("SCREENSHOTS_T4_TITLE3","The hero");
+	define("SCREENSHOTS_T4_TITLE4","Building information");
+	define("SCREENSHOTS_T4_TITLE5","Surrounding territories");
+	define("SCREENSHOTS_T4_TITLE6","Battle report");
+	define("SCREENSHOTS_T4_TITLE7","Medals system");
+	define("SCREENSHOTS_T4_TITLE8","Task system");
+	define("SCREENSHOTS_T4_DESC1","Your village could like this one day, becoming the starting point for your vast empire.");
+	define("SCREENSHOTS_T4_DESC2","Lumber, clay, iron and crop are the vital resources which will fuel the economy of your village and feed your people; they will provide you with the materials necessary for construction and war. With these valuable resources, you can train a powerful conquering army.");
+	define("SCREENSHOTS_T4_DESC3","You can send your hero to adventures, where he will have to face great danger and pass difficult challenges. If your hero is successful, he stands a chance of bringing something valuable home.");
+	define("SCREENSHOTS_T4_DESC4","For it to become powerful and productive, your village will need a great number of buildings. At the beginning, choose well what you want to construct first, as resources are scarce.");
+	define("SCREENSHOTS_T4_DESC5","Explore your surrounding territories in order to get to know your neighbors; you can opt for a path of peace, creating alliances and confederacies, or you can wage war and conquer the surrounding lands. There may be rich oases in your vicinity; conquer them to gain various valuable bonuses, but always be aware of the dangerous wild animals that inhabit them.");
+	define("SCREENSHOTS_T4_DESC6","It is wise to train your army early on, so you can defend yourself and attack others. This way, you can raid more resources and build up your empire more quickly.");
+	define("SCREENSHOTS_T4_DESC7","At the end of every week, the very best 10 players and alliances will be elected, topping in different categories; as a reward for their prowess they will receive medals, celebrating their achievements.");
+	define("SCREENSHOTS_T4_DESC8","To assist you when you first start managing your empire, we have sent the Taskmaster; he will guide you with tips and advice in order to help you build up your village. Just click on the image of the Taskmaster to your left to activate him.");
+
+	$lang['screenshots2']['desc1'] = "Your village could like this one day, becoming the starting point for your vast empire.";
+	$lang['screenshots2']['desc2'] = "Lumber, clay, iron and crop are the vital resources which will fuel the economy of your village and feed your people; they will provide you with the materials necessary for construction and war. With these valuable resources, you can train a powerful conquering army.";
+	$lang['screenshots2']['desc3'] = "You can send your hero to adventures, where he will have to face great danger and pass difficult challenges. If your hero is successful, he stands a chance of bringing something valuable home.";
+	$lang['screenshots2']['desc4'] = "For it to become powerful and productive, your village will need a great number of buildings. At the beginning, choose well what you want to construct first, as resources are scarce.";
+	$lang['screenshots2']['desc5'] = "Explore your surrounding territories in order to get to know your neighbors; you can opt for a path of peace, creating alliances and confederacies, or you can wage war and conquer the surrounding lands. There may be rich oases in your vicinity; conquer them to gain various valuable bonuses, but always be aware of the dangerous wild animals that inhabit them.";
+	$lang['screenshots2']['desc6'] = "It is wise to train your army early on, so you can defend yourself and attack others. This way, you can raid more resources and build up your empire more quickly.";
+	$lang['screenshots2']['desc7'] = "At the end of every week, the very best 10 players and alliances will be elected, topping in different categories; as a reward for their prowess they will receive medals, celebrating their achievements.";
+	$lang['screenshots2']['desc8'] = "To assist you when you first start managing your empire, we have sent the Taskmaster; he will guide you with tips and advice in order to help you build up your village. Just click on the image of the Taskmaster to your left to activate him.";
+
+// Player statics
+
+	define("TOTAL_PLAYERS","Total players");
+	define("PLAYERS_ACTIVE","Players active");
+	define("PLAYERS_ONLINE","Players online");
+	define("PLAYERS","Players");
+	define("ACTIVE","Active");
+	define("ONLINE","Online");
+	define("PLAYER_STATISTICS","Players statistics");
+
+//ANMELDEN.php
+
+	define("NICKNAME","Nickname");
+	define("EMAIL","Email");
+//	define("PASSWORD","Password");
+	define("ROMANS","Romans");
+	define("TEUTONS","Teutons");
+	define("GAULS","Gauls");
+	define("NW","North West");
+	define("NE","North East");
+	define("SW","South West");
+	define("SE","South East");
+	define("RANDOM","random");
+	define("ACCEPT_RULES"," I accept the game rules and general terms and conditions.");
+	define("ONE_PER_SERVER","Each player may only own ONE account per server.");
+	define("BEFORE_REGISTER","Before you register an account you should read the <a href='anleitung.php' target='_blank'>instructions</a> of TravianX to see the specific advantages and disadvantages of the three tribes.");
+	define("BUILDING_UPGRADING","Building:");
+	define("HOURS","hours");
+
+// Login Travian 3.6
+
+	define("COOKIES","You must have cookies enabled to be able to log in. If you share this computer with other people you should log out after each session for your own safety.");
+	define("NAME","Name");
+	define("PASSWORD","Password");
+	define("PW_FORGOT","Password forgotten?");
+	define("EMAIL_REQUEST","Then you can request a new one which will be sent to your email address.");
+	define("REQUIRE_FIELDS","All fields required");
+	define("NO_VERIFIED","Email not verified!");
+	define("FOLLOW","Follow this link to activate your account.");
+	define("VERIFI","Verify Email.");
+	define("LOGIN_PW_ERROR","The password is wrong.");
+
+// Login Travian 4
+
+	define("","");
+
+// System message
+
+	define("ANNOUNCEMENT","Announcement");
+	define("HI_USERNAME","Hi");
+	define("GO_TO_MY_VILLAGE","Go to my village");
+
+// Extra
+
+	define("STARTED","The server started ".round((time()-COMMENCE)/86400)." days ago.");
+	define("CALCULATED_IN","Calculated in");
+	define("SERVER_TIME","Server time");
+	
+// Resources
+
+	define("R1","Lumber");
+	define("R2","Clay");
+	define("R3","Iron");
+	define("R4","Crop");
+
+##================================================##
+##========== UNITS - YOU MUST NOT EDIT! ==========##
+##================================================##
+
+// Hero
 define("U0","Hero");
 
 //ROMAN UNITS
@@ -228,128 +463,7 @@ define("U58","Monster Catapult");
 define("U59","Monster Chief");
 define("U60","Monster Settler");
 
-//INDEX.php
-define("LOGIN","Login");
-define("PLAYERS","Players");
-define("ONLINE","Online");
-define("TUTORIAL","Tutorial");
-define("PLAYER_STATISTICS","Player statistics");
-define("TOTAL_PLAYERS","".PLAYERS." in total");
-define("ACTIVE_PLAYERS","Active players");
-define("ONLINE_PLAYERS","".PLAYERS." online");
-define("MP_STRATEGY_GAME","".SERVER_NAME." - the multiplayer strategy game");
-define("WHAT_IS","".SERVER_NAME." is one of the most popular browser games in the world. As a player in ".SERVER_NAME.", you will build your own empire, recruit a mighty army, and fight with your allies for game world hegemony.");
-define("REGISTER_FOR_FREE","Register here for free!");
-define("LATEST_GAME_WORLD","Latest game world");
-define("LATEST_GAME_WORLD2","Register on the latest<br/>game world and enjoy<br/>the advantages of<br/>being one of the<br/>first players.");
-define("PLAY_NOW","Play ".SERVER_NAME." now");
-define("LEARN_MORE","Learn more <br/>about ".SERVER_NAME."!");
-define("LEARN_MORE2","Now with a revolutionised<br>server system, completely new<br>graphics <br>This clone is The Shiz!");
-define("COMUNITY","Community");
-define("BECOME_COMUNITY","Become part of our community now!");
-define("BECOME_COMUNITY2","Become a part of one of<br>the biggest gaming<br>communities in the<br>world.");
-define("NEWS","News");
-define("SCREENSHOTS","Screenshots");
-define("LEARN1","Upgrade your fields and mines to increase your resource production. You will need resources to construct buildings and train soldiers.");
-define("LEARN2","Construct and expand the buildings in your village. Buildings improve your overall infrastructure, increase your resource production and allow you to research, train and upgrade your troops.");
-define("LEARN3","View and interact with your surroundings. You can make new friends or new enemies, make use of the nearby oases and observe as your empire grows and becomes stronger.");
-define("LEARN4","Follow your improvement and success and compare yourself to other players. Look at the Top 10 rankings and fight to win a weekly medal.");
-define("LEARN5","Receive detailed reports about your adventures, trades and battles. Don't forget to check the brand new reports about the happenings taking place in your surroundings.");
-define("LEARN6","Exchange information and conduct diplomacy with other players. Always remember that communication is the key to winning new friends and solving old conflicts.");
-define("LOGIN_TO","Log in to ". SERVER_NAME);
-define("REGIN_TO","Register in ". SERVER_NAME);
-define("P_ONLINE","Players online: ");
-define("P_TOTAL","Players in total: ");
-define("CHOOSE","Please choose a server.");
-define("STARTED"," The server started ". round((time()-COMMENCE)/86400) ." days ago.");
-
-//ANMELDEN.php
-define("NICKNAME","Nickname");
-define("EMAIL","Email");
-define("PASSWORD","Password");
-define("ROMANS","Romans");
-define("TEUTONS","Teutons");
-define("GAULS","Gauls");
-define("NW","North West");
-define("NE","North East");
-define("SW","South West");
-define("SE","South East");
-define("RANDOM","random");
-define("ACCEPT_RULES"," I accept the game rules and general terms and conditions.");
-define("ONE_PER_SERVER","Each player may only own ONE account per server.");
-define("BEFORE_REGISTER","Before you register an account you should read the <a href='../anleitung.php' target='_blank'>instructions</a> of TravianX to see the specific advantages and disadvantages of the three tribes.");
-define("BUILDING_UPGRADING","Building:");
-define("HOURS","hours");
-
-
-//ATTACKS ETC.
-define("TROOP_MOVEMENTS","Troop Movements:");
-define("ARRIVING_REINF_TROOPS","Arriving reinforcing troops");
-define("ARRIVING_REINF_TROOPS_SHORT","Reinf.");
-define("OWN_ATTACKING_TROOPS","Own attacking troops");
-define("ATTACK","Attack");
-define("OWN_REINFORCING_TROOPS","Own reinforcing troops");
-define("TROOPS_DORF","Troops:");
-
-
-//LOGIN.php
-define("COOKIES","You must have cookies enabled to be able to log in. If you share this computer with other people you should log out after each session for your own safety.");
-define("NAME","Name");
-define("PW_FORGOTTEN","Password forgotten?");
-define("PW_REQUEST","Then you can request a new one which will be sent to your email address.");
-define("PW_GENERATE","All fields required");
-define("EMAIL_NOT_VERIFIED","Email not verified!");
-define("EMAIL_FOLLOW","Follow this link to activate your account.");
-define("VERIFY_EMAIL","Verify Email.");
-
-
-//404.php
-define("NOTHING_HERE","Nothing here!");
-define("WE_LOOKED","We looked 404 times already but can't find anything");
-
-//TIME RELATED
-define("CALCULATED","Calculated in");
-define("SERVER_TIME","Server time:");
-
-//MASSMESSAGE.php
-define("MASS","Message Content");
-define("MASS_SUBJECT","Subject:");
-define("MASS_COLOR","Message color:");
-define("MASS_REQUIRED","All fields required");
-define("MASS_UNITS","Images (units):");
-define("MASS_SHOWHIDE","Show/Hide");
-define("MASS_READ","Read this: after adding smilie, you have to add left or right after number otherwise image will won't work");
-define("MASS_CONFIRM","Confirmation");
-define("MASS_REALLY","Do you really want to send MassIGM?");
-define("MASS_ABORT","Aborting right now");
-define("MASS_SENT","Mass IGM was sent");
-
-
-/*
-|--------------------------------------------------------------------------
-|   Index 
-|--------------------------------------------------------------------------
-*/
-
-       $lang['index'][0][1] = "Welcome to " . SERVER_NAME . "";
-       $lang['index'][0][2] = "Manual";
-       $lang['index'][0][3] = "Play now, for free!";
-       $lang['index'][0][4] = "What is " . SERVER_NAME . "";
-       $lang['index'][0][5] = "" . SERVER_NAME . " is a <b>browser game</b> featuring an engaging ancient world with thousands of other real players.</p><p>It`s <strong>free to play</strong> and requires <strong>no downloads</strong>.";
-       $lang['index'][0][6] = "Click here to play " . SERVER_NAME . "";
-       $lang['index'][0][7] = "Total players";
-       $lang['index'][0][8] = "Players active";
-       $lang['index'][0][9] = "Players online";
-       $lang['index'][0][10] = "About the game";
-       $lang['index'][0][11] = "You will begin as the chief of a tiny village and will embark on an exciting quest.";
-       $lang['index'][0][12] = "Build up villages, wage wars or establish trade routes with your neighbours.";
-       $lang['index'][0][13] = "Play with and against thousands of other real players and conquer the the world of Travian.";
-       $lang['index'][0][14] = "News";
-       $lang['index'][0][15] = "FAQ";
-       $lang['index'][0][16] = "Screenshots";
-       $lang['forum'] = "Forum";
-       $lang['register'] = "Register";
-       $lang['login'] = "Login";
-
-
+##================================================##
+##======== END UNITS - YOU MUST NOT EDIT! ========##
+##================================================##
 ?>

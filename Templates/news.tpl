@@ -1,22 +1,23 @@
-<?php 
+<?php
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       news.tpl                                                    ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.10.05                                                  ##
+##  Filename:      Templates/news.tpl                                          ##
 ##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-?>
-<?php
-if(NEWSBOX1){
-	include "News/newsbox1.tpl";
-	}
-if(NEWSBOX2){
-	include "News/newsbox2.tpl";
-	}
-if(NEWSBOX3){
-	include "News/newsbox3.tpl";
-	}
+
+if(NEWSBOX1){include "Templates/News/newsbox1.tpl";}
+if(NEWSBOX2){include "Templates/News/newsbox2.tpl";}
+if(NEWSBOX3){include "Templates/News/newsbox3.tpl";}
 ?>

@@ -8,10 +8,9 @@
 	<meta http-equiv="expires" content="0" />
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-
-		<script src="mt-full.js?6a593" type="text/javascript"></script>
-	<script src="unx.js?6a593" type="text/javascript"></script>
-	<script src="new.js?6a593" type="text/javascript"></script>
+	<script src="mt-full.js" type="text/javascript"></script>
+	<script src="unx.js" type="text/javascript"></script>
+	<script src="new.js" type="text/javascript"></script>
 	        <link href="gpack/travian_org_default/lang/en/lang.css?6a593" rel="stylesheet" type="text/css" /><link href="gpack/travian_org_default/lang/en/compact.css?6a593" rel="stylesheet" type="text/css" />        <link href="img/travian_basics.css" rel="stylesheet" type="text/css" />	<script type="text/javascript">
 		window.addEvent('domready', start);
 	</script>

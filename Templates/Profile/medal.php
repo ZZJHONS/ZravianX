@@ -6,7 +6,6 @@
 	$gpack= $session->gpack;
 	}
 
-	
 //de bird
 if($displayarray['protect'] > time()){
 $uurover=date('H:i:s', ($displayarray['protect']-time())-3600);
@@ -104,8 +103,6 @@ switch ($medal['categorie']) {
         $titel="Receiving this medal shows that you were in the top 10 Rank Climbers of the week ".$medal['points']." in a row.";
         $bonus[$medal['id']]=1;
         break;
-        
-
 }
 
 if(isset($bonus[$medal['id']])){
@@ -114,8 +111,4 @@ $profiel = preg_replace("/\[#".$medal['id']."]/is",'<img src="'.$gpack.'img/t/'.
 $profiel = preg_replace("/\[#".$medal['id']."]/is",'<img src="'.$gpack.'img/t/'.$medal['img'].'.jpg" border="0" onmouseout="med_closeDescription()" onmousemove="med_mouseMoveHandler(arguments[0],\'<table><tr><td>Category:</td><td>'.$titel.'</td></tr><tr><td>Week:</td><td>'.$medal['week'].'</td></tr><tr><td>Rank:</td><td>'.$medal['plaats'].'</td></tr><tr><td>'.$woord.':</td><td>'.$medal['points'].'</td></tr></table>\')">', $profiel, 1);
 }
 }
-
-
-
 ?>
-

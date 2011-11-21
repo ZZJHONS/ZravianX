@@ -32,4 +32,3 @@ if ($_SESSION['qst']!=24 && QUEST==true){?>
 				cache_preload.className = "wood";
 			</script>						
 <?php } ?>
-

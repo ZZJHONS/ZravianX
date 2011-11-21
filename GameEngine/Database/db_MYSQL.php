@@ -1,14 +1,21 @@
 <?php
-
-/** --------------------------------------------------- **\
- * | ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
- * +---------------------------------------------------------+
- * | Credits:     All the developers including the leaders:  |
- * |              Advocaite & Dzoki & Donnchadh              |
- * |                                                         |
- * | Copyright:   TravianX Project All rights reserved       |
- * \** --------------------------------------------------- **/
-
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.02                                                  ##
+##  Filename:      GameEngine/Database/db_MYSQL.php                            ##
+##  Developed by:  Dzoki & Advocaite & Donnchadh                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
         class MYSQL_DB {
 
@@ -261,10 +268,10 @@
         		}
         	}
 
-        	function checkactiveSession($username, $sessid) {
-        		$q = "SELECT username FROM " . TB_PREFIX . "users where username = '$username' and sessid = '$sessid' LIMIT 1";
-        		$result = mysql_query($q, $this->connection);   
-        		if(mysql_num_rows($result) != 0) {
+			function checkactiveSession($username, $sessid) {
+				$q = "SELECT username FROM " . TB_PREFIX . "users where username = '$username' and sessid = '$sessid' LIMIT 1";
+				$result = mysql_query($q, $this->connection);
+				if(mysql_num_rows($result) != 0) {
         			return true;
         		} else {
         			return false;
@@ -437,7 +444,7 @@
             }
             return $troops_o;  
             }
-            
+
 			public function canConquerOasis($vref,$wref) {
 				$AttackerFields = $this->getResourceLevel($vref);
 				for($i=19;$i<=38;$i++) {
@@ -462,8 +469,6 @@
 				}
 			}
 
-           
-            
 			public function conquerOasis($wref,$vref,$uid) {
 				$q = "UPDATE `".TB_PREFIX."odata` SET conqured=$vref,loyalty=100,lastupdated=".time().",$owner=$uid,name='Occupied Oasis' WHERE wref=$wref";
         		return mysql_query($q, $this->connection);
@@ -2429,15 +2434,28 @@
         		return mysql_fetch_array($result);
         	}
 
-            function getLinks($id){
+			function getLinks($id){
                 $q = 'SELECT * FROM `' . TB_PREFIX . 'links` WHERE `userid` = ' . $id . ' ORDER BY `pos` ASC';
-                return mysql_query($q, $this->connection);                
+                return mysql_query($q, $this->connection);
                             
-            }  
-
+            }
         }
         ;
 
         $database = new MYSQL_DB;
-
+		
+		#######-START-########
+		# Vars to statistics #
+		# Made by: ZZJHONS   #
+		######################
+		// Total Registered Users | Example: echo $users; 
+		$users = (mysql_num_rows(mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE id > 0")))-3; 
+		// Total Active Users | Example: echo $active;
+		$active = mysql_num_rows(mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE ".time()."-timestamp < (3600*24)")); 
+		// Total Online Users | Example: echo $online;
+		$online = mysql_num_rows(mysql_query("SELECT * FROM ".TB_PREFIX."users WHERE ".time()."-timestamp < (60*5)"));
+		########-END-#########
+		# Vars to statistics #
+		# Made by: ZZJHONS   #
+		######################
 ?>

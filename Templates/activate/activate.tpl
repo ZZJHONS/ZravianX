@@ -17,8 +17,8 @@ if(isset($show)){
 		<h5><img src="img/x.gif" class="img_u05" alt="registration"/></h5>
 			<p>
 				Hello <?php echo $naam; ?>,
-				<br/>
-				<br/>
+				<br />
+				<br />
 				The registration was successful. In the next few minutes you will receive an email with the access information.
 <br /><br />
 The email will be sent to following address: <span class="important"><?php echo $email; ?></span>

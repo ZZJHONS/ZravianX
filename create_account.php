@@ -1,14 +1,21 @@
 <?php
-
-/** --------------------------------------------------- **\
-| ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
-+---------------------------------------------------------+
-| Credits:     All the developers including the leaders:  |
-|              Advocaite & Dzoki & Donnchadh              |
-|                                                         |
-| Copyright:   TravianX Project All rights reserved       |
-\** --------------------------------------------------- **/
-
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      create_account.php                                          ##
+##  Developed by:  Dzoki & Advocaite & Donnchadh                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
         include_once ("GameEngine/Session.php");
         include_once ("GameEngine/config.php");
@@ -16,15 +23,13 @@
         mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
         mysql_select_db(SQL_DB);
 
-/**
- * If user is not administrator, access is denied!
- */
+// If user is not administrator, access is denied!
+
         if($session->access < ADMIN)
         	die("Access Denied: You are not Admin!");
 
-/**
- * Functions
- */
+// Functions
+
         function generateBase($kid, $uid, $username) {
         	global $database, $message;
         	if($kid == 0) {
@@ -44,18 +49,17 @@
         	$message->sendWelcome($uid, $username);
         }
 
-/**
- * Creating account & capital village
- */
+// Creating account & capital village
+
         $username = "Natars";
-        $password = md5('013ab00e4' . rand(999999999999, 9999999999999999999999999) . 'f248588ed');
-        $email = "natars@travianx.com";
+        $password = md5('password');
+        $email = "natars@zzjhons.com";
         $tribe = 5;
         $desc = "********************
                     [#natars]
                 ********************";
 
-        $q = "INSERT INTO " . TB_PREFIX . "users (id,username,password,access,email,timestamp,tribe,location,act,protect) VALUES (3, '$username', '$password', " . USER . ", '$email', ".time().", $tribe, '', '', 0)";
+        $q = "INSERT INTO ".TB_PREFIX."users (id,username,password,access,email,timestamp,tribe,location,act,protect) VALUES (3, '$username', '$password', ".USER.", '$email', ".time().", $tribe, '', '', 0)";
         mysql_query($q);
         unset($q);
         $uid = $database->getUserField($username, 'id', 1);
@@ -76,9 +80,8 @@
         mysql_query($q4) or die(mysql_error());
 
 
-/**
- * SMALL ARTEFACTS
- */
+// SMALL ARTEFACTS
+
         function Artefact($uid, $type, $size, $art_name, $village_name, $desc, $effect, $img) {
         	global $database;
         	$kid = rand(1, 4);
@@ -109,9 +112,8 @@
         	}
         }
 
-/**
- * THE ARCHITECTS
- */
+// THE ARCHITECTS
+
 
         $desc = 'All buildings in the area of effect are stronger. This means that you will need more catapults to damage buildings protected by this artifacts powers.';
         
@@ -140,10 +142,7 @@
         	Artefact($uid, 1, 3, 'The architects unique secret', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type1.gif');
         }
 
-/**
- * MILITARY HASTE
- */
-
+// MILITARY HASTE
 
         $desc = 'All troops in the area of effect move faster.';
 
@@ -174,10 +173,7 @@
         	Artefact($uid, 2, 3, 'The unique titan boots', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type2.gif');
         }
 
-/**
- * HAWK'S EYESIGHT
- */
-
+// HAWK'S EYESIGHT
 
         $desc = 'All spies (Scouts, Pathfinders, and Equites Legati) increase their spying ability. In addition, with all versions of this artifact you can see the incoming TYPE of troops but not how many there are.';
 
@@ -208,10 +204,7 @@
         	Artefact($uid, 3, 3, 'The eagles unique eyes', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type3.gif');
         }
 
-/**
- * THE DIET
- */
-
+// THE DIET
 
         $desc = 'All troops in the artifacts range consume less wheat, making it possible to maintain a larger army.';
 
@@ -243,10 +236,7 @@
         }
 
 
-/**
- * ACADEMIC ADVANCEMENT
- */
-
+// ACADEMIC ADVANCEMENT
 
         $desc = 'Troops are built a certain percentage faster within the scope of the artifact.';
 
@@ -278,10 +268,7 @@
         }
 
 
-/**
- * STORAGE MASTER PLAN
- */
-
+// STORAGE MASTER PLAN
 
         $desc = 'With this building plan you are able to build the Great Granary or Great Warehouse in the Village with the artifact, or the whole account depending on the artifact. As long as you posses that artifact you are able to build and enlarge those buildings.';
 
@@ -304,10 +291,7 @@
         }
 
 
-/**
- * RIVAL'S CONFUSION
- */
-
+// RIVAL'S CONFUSION
 
         $desc = 'Cranny capacity is increased by a certain amount for each type of artifact. Catapults can only shoot random on villages within this artifacts power. Exceptions are the WW which can always be targeted and the treasure chamber which can always be targeted, except with the unique artifact. When aiming at a resource field only random resource fields can be hit, when aiming at a building only random buildings can be hit.';
 
@@ -338,11 +322,7 @@
         	Artefact($uid, 7, 3, 'Rivals unique confusion', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type7.gif');
         }
 
-
-/**
- * ARTEFACT OF THE FOOL
- */
-
+// ARTEFACT OF THE FOOL
 
         $desc = 'Every 24 hours it gets a random effect, bonus, or penalty (all are possible with the exception of great warehouse, great granary and WW building plans). They change effect AND scope every 24 hours. The unique artifact will always take positive bonuses.';
 
@@ -369,3 +349,5 @@
         for($i > 1; $i < 1; $i++) {
         	Artefact($uid, 8, 3, 'Artefact of the unique fool', '' . $vname . '', '' . $desc . '', '' . $effect . '', 'type8.gif');
         }
+	echo "Done";
+?>

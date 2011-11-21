@@ -174,7 +174,7 @@ for($h=0;$h<=6;$h++) {
 				</script>
                 <?php if($session->plus) {
                 //target="_blank"
-				echo "<a id=\"map_makelarge\" target=\"_blank\" href=\"karte2.php?z=$bigmid\"><img class=\"ml\" src=\"img/x.gif\" alt=\"large map\" title=\"large map\"/></a>";
+				echo "<!-- <a id=\"map_makelarge\" target=\"_blank\" href=\"karte2.php?z=$bigmid\"><img class=\"ml\" src=\"img/x.gif\" alt=\"Large map\" title=\"Large map\"/></a> -->";
                 }
                 ?>
 			<img id="map_navibox" src="img/x.gif" usemap="#map_navibox"/>
@@ -189,10 +189,9 @@ for($h=0;$h<=6;$h++) {
 			<input type="image" id="btn_ok" class="dynamic_img" value="ok" name="s1" src="img/x.gif" alt="OK" />
 			<br />
             <?php if($session->plus != 0) {
-				echo "<a href=\"crop_finder.php\"><img src=\"".GP_LOCATE."img/misc/cropfinder.gif\" /> Crop Finder</a>";
+				echo "<a href=\"crop_finder.php\"><img src=\"".GP_LOCATE."img/misc/cropfinder.gif\" /> Crop Finder</a><br /><a target=\"_blank\" href=\"karte2.php?z=$bigmid\">Large Map</a>";
 			} else {
-				echo "";
+				echo "<a href=\"crop_finder.php\"><img src=\"".GP_LOCATE."img/misc/cropfinder.gif\" /> Crop Finder</a><br /><a id=\"map_makelarge\" target=\"_blank\" href=\"karte2.php?z=$bigmid\">Large Map</a>";
 			} ?>
-
 			</form></div><table cellpadding="1" cellspacing="1" id="map_infobox" class="default"><thead><tr><th colspan="2">Details</th></tr></thead><tbody><tr><th>Player</th><td>-</td></tr><tr><th>Population</th><td>-</td></tr><tr><th>Alliance</th><td>-</td></tr></tbody></table></div>
 </div>

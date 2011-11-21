@@ -1,11 +1,18 @@
 <?php
-
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Session.php                                                 ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.10.30                                                  ##
+##  Filename:      GameEngine/Session.php                                      ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -25,7 +32,7 @@
         include ("Form.php");
         include ("Generator.php");
         include ("Automation.php");
-        include ("Lang/" . LANG . ".php");
+        include ("Lang/".LANG.".php");
         include ("Logging.php");
         include ("Message.php");
         include ("Multisort.php");
@@ -67,9 +74,9 @@
         			include ("Templates/menu.tpl");
         			echo '<div id="content"  class="login">';
         			if($ban['end'] == 0) {
-        				die("We're sorry but you were banned. <br /><br /><b>Reason:</b> " . $ban['reason'] . "<br/><b>Lifts: </B>NEVER</div></div></body><html>");
+        				die("We're sorry but you were banned. <br /><br /><b>Reason:</b> " . $ban['reason'] . "<br /><b>Lifts: </B>NEVER</div></div></body><html>");
         			}
-        			die("We're sorry but you were banned. <br /><br /><b>Reason:</b> " . $ban['reason'] . "<br/><b>Lifts: </B>" . date("d.m.Y G:i:s", $ban['end']) . "</div></div></body><html>");
+        			die("We're sorry but you were banned. <br /><br /><b>Reason:</b> " . $ban['reason'] . "<br /><b>Lifts: </B>" . date("d.m.Y G:i:s", $ban['end']) . "</div></div></body><html>");
         		}
         		if(isset($_SESSION['url'])) {
         			$this->referrer = $_SESSION['url'];
@@ -101,8 +108,8 @@
         		$this->PopulateVar();
 
         		$logging->addLoginLog($this->uid, $_SERVER['REMOTE_ADDR']);
-        		$database->addActiveUser($_SESSION['username'], $this->time); 
-        		$database->updateUserField($_SESSION['username'], "sessid", $_SESSION['sessid'], 0);
+				$database->addActiveUser($_SESSION['username'], $this->time); 
+				$database->updateUserField($_SESSION['username'], "sessid", $_SESSION['sessid'], 0);
 
         		header("Location: dorf1.php");
         	}
@@ -158,6 +165,7 @@
         		$this->alliance = $this->userarray['alliance'];
         		$this->checker = $_SESSION['checker'];
         		$this->mchecker = $_SESSION['mchecker'];
+				$this->cp = $this->userarray['cp'];
         		$this->gold = $this->userarray['gold'];
         		$this->oldrank = $this->userarray['oldrank'];
         		$_SESSION['ok'] = $this->userarray['ok'];

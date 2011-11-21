@@ -17,7 +17,7 @@ As soon as the steward of a town (senator, chief, chieftain) as been researched 
 
 <p class="question">How do I get culture points?</p>
 
-<p class="answer">One gets culture points (CPs) by constructing and extending buildings. Already produced culture points can be seen in the residence and palace. Additionally information about the required culture points for additional villages is displayed there.</p><br/>
+<p class="answer">One gets culture points (CPs) by constructing and extending buildings. Already produced culture points can be seen in the residence and palace. Additionally information about the required culture points for additional villages is displayed there.</p><br />
 
 <table cellspacing="1" cellpadding="2" class="culture_points table_data">
 

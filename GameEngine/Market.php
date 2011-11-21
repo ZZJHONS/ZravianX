@@ -1,13 +1,22 @@
-<?php 
-################################################################################# 
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ## 
-## --------------------------------------------------------------------------- ## 
-##  Filename       Market.php                                                  ## 
-##  Developed by:  Dzoki                                                       ## 
-##  License:       TravianX Project                                            ## 
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ## 
-##                                                                             ## 
-################################################################################# 
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      GameEngine/Market.php                                       ##
+##  Developed by:  Dzoki                                                       ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+
 class Market { 
      
     public $onsale,$onmarket,$sending,$recieving,$return = array(); 

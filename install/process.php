@@ -1,11 +1,18 @@
 <?php
-
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       process.php                                                 ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.06                                                  ##
+##  Filename:      install/process.php                                         ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -88,6 +95,13 @@
         		$text = preg_replace("'%GREAT_WKS%'", $_POST['great_wks'], $text);
         		$text = preg_replace("'%TS_THRESHOLD%'", $_POST['ts_threshold'], $text);
         		$text = preg_replace("'%WW%'", $_POST['ww'], $text);
+				$text = preg_replace("'%INDEX%'", $_POST['index'], $text);
+				$text = preg_replace("'%FAVICON%'", $_POST['favicon'], $text);
+				$text = preg_replace("'%LOGIN%'", $_POST['login'], $text);
+				$text = preg_replace("'%REGISTER%'", $_POST['register'], $text);
+				$text = preg_replace("'%HOME1%'", $_POST['home1'], $text);
+				$text = preg_replace("'%HOME2%'", $_POST['home2'], $text);
+				$text = preg_replace("'%HOME3%'", $_POST['home3'], $text);
 
         		fwrite($fh, $text);
 
@@ -119,10 +133,6 @@
         	function createWdata() {
         		header("Location: include/wdata.php");
         	}
-            
-        }
-        ;
-
+        };
         $process = new Process;
-
 ?>

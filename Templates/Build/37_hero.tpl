@@ -1,12 +1,21 @@
 <?php
-
-/*-------------------------------------------------------*\
-| ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
-+---------------------------------------------------------+
-| Developed by:  Manni < manuel_mannhardt@web.de >        |
-|                Dzoki < dzoki.travian@gmail.com >        |
-| Copyright:     TravianX Project All rights reserved     |
-\*-------------------------------------------------------*/
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      Templates/Build/37_hero.tpl                                 ##
+##  Developed by:  Dzoki & Manni                                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
 include_once("GameEngine/Data/hero_full.php");
 
@@ -34,7 +43,7 @@ include_once("GameEngine/Data/hero_full.php");
 	</tr></thead>
 	<tbody><tr>
 		<th>Offence</th>
-		<td class="val"><?php echo $hero['atk']; ?></td>
+		<td class="val"><?php echo (2*$hero_info['attack'])+1; ($hero['atk']); ?></td>
 		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo (2*$hero_info['attack'])+1; ?>px;" alt="<?php echo $hero['atk']; ?>" title="<?php echo $hero['atk']; ?>" /></td>
 		<td class="up"><span class="none">
         <?php
@@ -49,8 +58,8 @@ include_once("GameEngine/Data/hero_full.php");
 	</tr>
 	<tr>
 		<th>Defence</th>
-		<td class="val"><?php echo $hero['di'] . "/" . $hero['dc']; ?></td>
-		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo (2*$hero_info['defence'])+1; ?>px;" alt="<?php echo $hero['di'] . "/" . $hero['dc']; ?>"  title="<?php echo $hero['di'] . "/" . $hero['dc']; ?>" /></td>
+		<td class="val"><?php echo (2*$hero_info['defence'])+1; ($hero['di']) . "/" . ($hero['dc']); ?></td>
+		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo (2*$hero_info['defence'])+1; ?>px;" alt="<?php echo ($hero['di']) . "/" . ($hero['dc']); ?>"  title="<?php echo ($hero['di']) . "/" . ($hero['dc']); ?>" /></td>
 		<td class="up"><span class="none">
         <?php
         if($hero_info['points'] > 0){
@@ -81,6 +90,7 @@ include_once("GameEngine/Data/hero_full.php");
 		<th>Def-Bonus</th>
 		<td class="val"><?php echo ($hero['db']-1)*100; ?>%</td>
 		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo ($hero['db']-1)*1000+1; ?>px;" alt="<?php echo ($hero['db']-1)*100; ?>%" title="<?php echo ($hero['db']-1)*100; ?>%" /></td>
+
 		<td class="up"><span class="none">
         <?php
         if($hero_info['points'] > 0){
@@ -94,8 +104,8 @@ include_once("GameEngine/Data/hero_full.php");
 	</tr>
 	<tr>
 		<th>Regeneration</th>
-		<td class="val"><?php echo ($hero_info['regeneration']*100*.05*SPEED); ?>%/Day</td>
-		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo ($hero_info['regeneration']*2)+1; ?>px;" alt="<?php echo ($hero_info['regeneration']*100*.05*SPEED); ?>%/Day" title="<?php echo ($hero_info['regeneration']*100*.05*SPEED); ?>%/Day" /></td>
+		<td class="val"><?php echo ($hero_info['regeneration']*100*.05); ?>%/Day</td>
+		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo ($hero_info['regeneration']*2)+1; ?>px;" alt="<?php echo ($hero_info['regeneration']*100*.05); ?>%/Day" title="<?php echo ($hero_info['regeneration']*100*.05); ?>%/Day" /></td>
 		<td class="up"><span class="none">
         <?php
         if($hero_info['points'] > 0){
@@ -112,8 +122,8 @@ include_once("GameEngine/Data/hero_full.php");
 	</tr>
 	<tr>
 		<th title="until the next level">Experience:</th>
-		<td class="val">0%</td>
-		<td class="xp"><img class="bar" src="img/x.gif" style="width:1px;" alt="0%" title="0%" /></td>
+		<td class="val"><?php echo ($hero_info['experience']); ?>%</td>
+		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo ($hero_info['experience']); ?>px;" alt="<?php echo ($hero_info['experience']); ?>%" title="<?php echo ($hero_info['experience']); ?>%" /></td>
 		<td class="up"></td>
 		<td class="rem"><?php echo $hero_info['points']; ?></td>
 	</tr>
@@ -127,7 +137,7 @@ include_once("GameEngine/Data/hero_full.php");
     <?php if($hero_info['level'] <= 3){ ?>
         <p>You can <a href="build.php?id=<?php echo $id; ?>&add=reset">reset</a> your points until you are level <b>3</b> or lower!</p>
     <?php } ?>
-    <p>Your hero has <b><?php echo floor($hero_info['health']); ?></b>% of his hit points.<br/>
+    <p>Your hero has <b><?php echo floor($hero_info['health']); ?></b>% of his hit points.<br />
     Your hero has conquered <b>0</b> <a href="build.php?id=<?php echo $id; ?>&land">oases</a>.</p>
     
     

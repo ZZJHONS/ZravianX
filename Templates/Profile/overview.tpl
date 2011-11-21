@@ -46,34 +46,39 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
     <tr>
         <td class="details">
             <table cellpadding="0" cellspacing="0">
- 
-<?php if($displayarray['access']==BANNED){ echo "<tr><td colspan='2'><center><b>Banned</b></center></td></tr>"; } ?>
-
+                <?php if($displayarray['access']==BANNED){ echo "<tr><td colspan='2'><center><b>Banned</b></center></td></tr>"; } ?>
+				<?php
+                	if($displayarray['access']==ADMIN){
+                    		echo "<tr><th colspan='2'><font color='Red'><center><b>This player is Admin.</b></font></center></th></tr>";
+                        };       
+					if($displayarray['access']==MULTIHUNTER){
+                    		echo "<tr><th colspan='2'><font color='Blue'><center><b>This player is MultiHunter.</b></font></center></th></tr>";
+                        };
+                ?>
 			<tr>
-
                 <th>Rank</th>
                 <td><?php echo $ranking->searchRank($displayarray['username'],"username"); ?></td>
             </tr>
             <tr>
                 <th>Tribe</th>
                 <td><?php 
-                if($displayarray['tribe'] == 1) {
-                echo "Roman";
-                }
-                else if($displayarray['tribe'] == 2) {
-                echo "Teutons";
-                }
-                else if($displayarray['tribe'] == 3) {
-                echo "Gauls";
-                }
-				else if($displayarray['tribe'] == 4) {
-                echo "Nature";
-                
-                }else if($displayarray['tribe'] == 5) {
-                echo "Natars";
-                }				?></td>
+                    if($displayarray['tribe'] == 1) {
+                            echo "<font color='#000'>".TRIBE1."</font>";
+                        }
+                    else if($displayarray['tribe'] == 2) {
+                            echo "<font color='#000'>".TRIBE2."</font>";
+                        }
+                    else if($displayarray['tribe'] == 3) {
+                            echo "<font color='#000'>".TRIBE3."</font>";
+                        }
+                    else if($displayarray['tribe'] == 4) {
+                            echo "<font color='#000'>".TRIBE4."</font>";
+                        }
+                    else if($displayarray['tribe'] == 5) {
+                            echo "<font color='#000'>".TRIBE5."</font>";
+                        }
+ 				?></td>
             </tr>
-
             <tr>
                 <th>Alliance</th>
                 <td><?php if($displayarray['alliance'] == 0) {
@@ -87,7 +92,6 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
             <tr>
                 <th>Villages</th>
                 <td><?php echo count($varray);?></td>
-
             </tr>
             <tr>
                 <th>Population</th>
@@ -103,12 +107,12 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
 				}
             echo "<tr><th>Age</th><td>$age</td></tr>";
             }
-			//Gender
+			// Gender
             if(isset($displayarray['gender']) && $displayarray['gender'] != 0) {
             $gender = ($displayarray['gender']== 1)? "Male" : "Female";
             echo "<tr><th>Gender</th><td>".$gender."</td></tr>";
             }
-			//Location
+			// Location
             if($displayarray['location'] != "") {
             echo "<tr><th>Location</th><td>".$displayarray['location']."</td></tr>";
             }
@@ -131,7 +135,6 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
 							</td>
 						</tr>
             </table>
-
         </td>
         <td class="desc1" >
             <div><?php echo nl2br($profiel[1]); ?>
@@ -140,7 +143,6 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
             
             </div>
         </td>
-
     </tr>
     </tbody>
 </table><table cellpadding="1" cellspacing="1" id="villages">
@@ -150,7 +152,6 @@ if($_GET['uid'] == $session->uid) { include("menu.tpl"); } ?>
     </tr>
     <tr>
         <td>Name</td>
-
         <td>Inhabitants</td>
         <td>Coordinates</td>
     </tr>

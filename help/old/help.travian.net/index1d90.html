@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es">
+
+<!-- Mirrored from help.travian.net/index.php?type=faq&mod=230 by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 03 Feb 2011 12:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+<head>
+	<title>Travian - Juego de Navegador - FAQ - Crear mapas de Travian</title>
+	<link rel="stylesheet" type="text/css" href="un_main2.css" />
+	<link rel="icon" type="image/icon" href="img/icon.ico" />
+	<style type="text/css" media="screen">
+	@import "ltr.css";
+	</style>
+	<meta name="content-language" content="es" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<script src="m_un2.js" type="text/javascript"></script>
+	<style type="text/css" media="all">
+	.save { background-image: url(img/game/es/b/save.gif); }
+	.login { background-image: url(img/game/es/b/login.gif); }
+	.send { background-image: url(img/game/es/b/send.gif); }
+	</style>
+</head>
+<body onload="start()">
+	<div id="ltop1">
+		<div id="flags"></div><script src="flaggen2.js" type="text/javascript"></script><script type="text/javascript">    var region_list=new Array('Europe','America','Asia',' Middle East','Africa','Oceania');   show_flags('net','',region_list);</script>
+	</div>
+	<div id="lmidall">
+		<div id="lmidlc">
+			<div id="lleft">
+				<a href="index-2.html"><img alt="Travian FAQ" src="img/main/es/travian0.gif" class="logo"/></a>
+				<div id="lmenu">
+					<ul id="navbox">
+						<li><a class="treenode" href="indexa179.html?type=start&amp;mod=100">Inicio</a></li>
+						<li><a class="treenode" href="index987d.html?type=faq&amp;mod=200">Tutoriales</a>
+							<ul>
+								<li><a class="treenode-2" href="index63cf.html?type=faq&amp;mod=250">Juego</a></li>
+								<li><a class="treenode-2" href="index81bc.html?type=faq&amp;mod=240">Miscelánea</a>
+									<ul>
+										<li><a  href="index1d90.html?type=faq&amp;mod=230">Crear mapas de Travian</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li><a class="treenode" href="index82e3.html?type=faq&amp;mod=300">Edificios</a></li>
+						<li><a class="treenode" href="indexecdc.html?type=faq&amp;mod=400">Tropas</a></li>
+						<li><a class="treenode" href="index75da.html?type=faq&amp;mod=500">Juego</a></li>
+						<li><a class="treenode" href="index97b1.html?type=faq&amp;mod=600">Preferencias</a></li>
+						<li><a class="treenode" href="index4d16.html?type=faq&amp;mod=700">IRC</a></li>
+						<li><a class="treenode" href="indexab37.html?type=faq&amp;mod=800">Diccionario</a></li>
+						<li><a class="noexpand" href="indexceaf.html?type=sitemap&amp;mod=900">Mapa del sitio</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id="lmid1">
+				<div id="lmid2">
+					<div class="headline"><img src="img/anleitung.png" alt="Head" width="468" height="60" border="0" /></div>
+						<div class="wholebox">
+							<h1>Crear mapas de Travian</h1>
+							<p>Existen muchas páginas externas que recopilan información sobre Travian y la muestran de muy distintas maneras. La mayoría de esas páginas son mapas y/o estadísticas.</p>
+
+<p>Este tutorial se ha escrito para darte algunos consejos sobre cómo programar ese tipo de páginas. Lo primero de todo, este tutorial es sólo un ejemplo para PHP / MySQL (probablemente lo más usado) y debes saber ya cómo funcionan ambos lenguajes, puesto que este tutorial no va a enseñarte a programar.</p>
+
+<h2>Tabla de contenidos</h2> 
+
+<ol>
+ <li><a href="#knw">¿Qué tipo de conocimientos previos necesito?</a></li>
+ <li><a href="#req">¿Qué necesita tener mi servidor/página web?</a></li>
+ <li><a href="#dmp">¿De dónde obtengo los datos?</a></li>
+ <li><a href="#for">¿Qué formato tienen los datos?</a></li>
+ <li><a href="#inf">¿Qué tipo de información puedo obtener?</a></li>
+ <li><a href="#upd">¿Cómo transfiero la información a mi servidor?</a></li>
+ <li><a href="#bsp">Ejemplo: Mapa de alianza estático</a></li> 
+</ol> 
+
+
+<h2 id="knw">¿Qué tipo de conocimientos previos necesito?</h2> 
+
+<p>Debes tener un lenguaje de programación seguro y utilizable en web. Además, este tutorial requiere conocimientos de bases de datos SQL a tu elección.</p>
+
+<h2 id="req">¿Qué necesita tener mi servidor/página web?</h2> 
+<ul>
+ <li>una base de datos (<a href="http://www.mysql.com/">MySQL</a>, <a href="http://www.postgresql.org/">PostgreSQL</a>, <a href="http://www.sqlite.org/">SQLite</a>, etc.)</li>
+ <li>un lenguaje script (<a href="http://www.php.net/">PHP</a>, <a href="http://www.perl.org/">Perl</a>, <a href="http://www.asp.net/">ASP</a>, etc.)</li> 
+</ul> 
+
+<p>Una combinación muy popular es PHP con MySQL, de cualquier forma, debes tener en cuenta que muchos de los hostings de PHP corren en <a href="http://www.php.net/manual/en/features.safe-mode.php">modo seguro</a>. Esto imposibilita la actualización automática de los datos de forma eficiente, aunque el PHP está lejos de estar limitado en esto.</p>
+
+¿Por qué no funciona en modo seguro? 
+
+<ul>
+ <li>los comandos directos del sistema vía <a href="http://www.php.net/manual/en/function.system.php">system()</a> están desactivados</li>
+ <li>se previene el acceso a archivos borrados</li> 
+</ul> 
+
+<p>Puedes leer más sobre esto en la sección "<a href="#upd">¿Cómo transfiero la información a mi servidor?</a>".</p>
+
+<h2 id="dmp">¿De dónde obtengo los datos?</h2> 
+
+<p>Como usar bots o scripts en el juego es ilegal, debe haber una manera diferente de obtener la información. Travian Games GmbH ofrece los SQL-Dumps actualizados de cada servidor, que ofrecen información básica de cada aldea en el servidor concreto.</p>
+
+<p>Dicho archivo es actualizado todos los días sobre las 7 de la mañana (gmt+1) y está disponible en dos versiones diferentes: sin comprimir (extensión .sql) o comprimido (extensión .sql.gz)</p>
+
+<p>El nombre del archivo depende del idioma del servidor. Todos los servidores alemanes usan el nombre "karte.sql[.gz]" mientras el resto de servidores usa "map.sql[.gz]".</p>
+
+<p>El archivo se puede encontrar en el directorio raíz del servidor.</p>
+
+Ejemplos:
+<ul>
+ <li><a href="http://www.travian.org/karte.sql">http://www.travian.org/karte.sql</a></li>
+ <li><a href="http://welt1.travian.de/karte.sql.gz">http://welt1.travian.de/karte.sql.gz</a></li>
+ <li><a href="http://s1.travian.com/map.sql">http://s1.travian.net/map.sql</a></li>
+ <li><a href="http://speed.travian.nl/map.sql.gz">http://speed.travian.net/map.sql.gz</a></li> 
+</ul> 
+
+<h2 id="for">¿Qué formato tienen los datos?</h2> 
+
+<p>Como ya hemos mencionado antes, los archivos son datos SQL, por lo tanto no contienen otra cosa que no sean comandos de insercción en SQL. Es importante tener en cuenta que no se utilizan <a href="http://en.wikipedia.org/wiki/Insert_(SQL)#Advanced_forms">insercciones avanzadas</a> pero que hay una insercción por aldea (si se utilizaran insercciones avanzadas, se podrían recoger varias aldeas en una sola insercción).</p>
+
+<p>La V2 de los servidores de Travian (antigua versión) usaba el estándar <a href="http://es.wikipedia.org/wiki/ANSI">ANSI</a> en los archivos. Hoy en día, todos los datos usan el estándar <a href="http://es.wikipedia.org/wiki/UTF-8">UTF-8</a>.</p> 
+
+<p>Si quieres crear la tabla con los datos del juego, puedes utilizar el siguiente fragmento de código SQL:</p>
+
+<pre> CREATE TABLE `x_world` ( `id` int(9) unsigned NOT NULL default &#x0027;0&#x0027;, `x` smallint(3) NOT NULL default &#x0027;0&#x0027;, `y` smallint(3) NOT NULL default &#x0027;0&#x0027;, `tid` tinyint(1) unsigned NOT NULL default &#x0027;0&#x0027;, `vid` int(9) unsigned NOT NULL default &#x0027;0&#x0027;, `village` varchar(20) NOT NULL default &#x0027;&#x0027;, `uid` int(9) NOT NULL default &#x0027;0&#x0027;, `player` varchar(20) NOT NULL default &#x0027;&#x0027;, `aid` int(9) unsigned NOT NULL default &#x0027;0&#x0027;, `alliance` varchar(8) NOT NULL default &#x0027;&#x0027;, `population` smallint(5) unsigned NOT NULL default &#x0027;0&#x0027;, UNIQUE KEY `id` (`id`) ); </pre>
+
+<h2 id="inf">¿Qué tipo de información puedo obtener?</h2> 
+
+<p>Veamos qué es cada columna:</p> 
+
+<table border="1"> <tr> <th>Columna</th> <th>Explicación</th> </tr> <tr> <th>id</th> <td>Número de la casilla en el mapa de la aldea, empieza en la esquina superior izquierda (-400|400) y termina en la esquina inferior derecha (400|-400)</td> </tr> <tr> <th>x</th> <td>Coordenada x</td> </tr> <tr> <th>y</th> <td>Coordenada y</td> </tr> <tr> <th>tid</th> <td>Número de la raza. 1 = Romana, 2 = Germana, 3 = Gala, 4 = Naturaleza y 5 = Natares</td> </tr> <tr> <th>vid</th> <td>Número de la aldea</td> </tr> <tr> <th>village</th> <td>Nombre de la aldea</td> </tr> <tr> <th>uid</th> <td>Número del jugador, también conocido como User-ID (o ID de usuario)</td> </tr> <tr> <th>player</th> <td>Nombre del jugador</td> </tr> <tr> <th>aid</th> <td>Número de la alianza</td> </tr> <tr> <th>alliance</th> <td>Nombre de la alianza</td> </tr> <tr> <th>population</th> <td>El número de habitantes de la aldea</td> </tr> </table> 
+
+<p><b>Importante:</b>¡Los valores ofensivo y defensivo no están disponibles!</p> 
+
+<h2 id="upd">¿Cómo transfiero la información a mi servidor?</h2> 
+
+<p>Hacer esto manualmente no debería ser mucho problema en la mayoría de los casos: se trata únicamente de descargarse el archivo de datos más reciente e importarlo en la base de datos propia usando, por ejemplo, <a href="http://www.phpmyadmin.net/">PHPmyAdmin</a>.</p>
+
+<p>¿Se podría hacer esto automáticamente todos los días? Lo ideal sería algo parecido a esto:</p>
+
+<ol>
+ <li>Un proceso <a href="http://es.wikipedia.org/wiki/Cron_(unix)">Cron</a> comienza la actualización del script</li>
+ <li>Un gestor de descargas descarga el fichero</li>
+ <li>Un cliente de DBs (bases de datos) importa el fichero en la base de datos</li> 
+</ol> 
+
+<p>Este script de actualización no puede ser un script en PHP o algo similar utilizado para generar una página web, si no que tendría que ser un shell-script que corra en la consola del servidor. Desgraciadamente no todos los usuarios tienen acceso al shell del servidor donde está alojada su página web.</p>
+
+<p>Normalmente esto no sería un problema puesto que se pueden correr estos procesos con el comando system() en un script en PHP normal. Pero como la mayoría de proveedores corren el modo seguro por motivos de seguridad y, por ejemplo, el comando system() está deshabilitado en este modo, la única opción es utilizar PHP para todo.</p>
+
+<p>La mayoría de proveedores limitan el tiempo de ejecución de scripts entre 10 y 30 segundos (bastante poco tiempo para descargar la información de todo el servidor). Además, el acceso a archivos y servicios externos al servidor puede estar prohibido y pueden impedir, incluso, el acceso a los archivos.
+
+<p>Para ser más explícitos: No te plantees utilizar un hosting gratuito si realmente estás considerando escribir una herramienta para crear mapas.</p>
+
+<p>Bien, si finalmente has sido capaz de deshacerte del modo seguro o de conseguir acceso al shell del servidor de tu web, entonces podemos continuar.</p>
+
+<p>El siguiente ejemplo está escrito en PHP y MySQL (necesitarás un servidor y cliente de la línea de comandos "mysql"). También necesitarás <a href="http://www.gnu.org/software/wget/">wget</a> (herramienta en línea de descarga de comandos).
+
+<p>Para ser más claros, se ha omitido parte de la gestión de errores.</p>
+
+<p>Para poder ejecutar el script, debes crear una carpeta llamada "data" en el directorio donde se encuentre el script. Por supuesto, debes dar permisos de escritura al usuario de la web. Adicionalmente, tendrás que crear la base de datos con la tabla "x_world" como se ha descrito anteriormente. Después escribe la información necesaria en la parte superior de la secuencia de comandos.</p>
+
+<h3>Código fuente del script de actualización</h3> 
+
+<div style="overflow:auto; border: 1px solid silver;"> <code> <span style="color: #000000"><span style="color: #0000BB">&lt;?php <br />&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Preferences <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqlhost&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;localhost&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqluser&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;user&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqlpass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;password&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqldb&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;database&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Create&nbsp;database&nbsp;connection&nbsp;and&nbsp;select&nbsp;database <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqlhost</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqluser</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqlpass</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;connect&nbsp;to&nbsp;DB-Server!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$db_select&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqldb</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;select&nbsp;DB!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;load&nbsp;the map.sql&nbsp;via&nbsp;system&nbsp;command&nbsp;using&nbsp;"wget"&nbsp;into&nbsp;the&nbsp;folder&nbsp;data/ <br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;IMPORTANT:&nbsp;PHP&nbsp;has&nbsp;to&nbsp;be&nbsp;allowed&nbsp;to write&nbsp;into&nbsp;that&nbsp;folder,&nbsp;if&nbsp;necessary&nbsp;set&nbsp;the&nbsp;needed&nbsp;rights! <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">system</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;wget&nbsp;http://s1.travian.com/map.sql&nbsp;-O&nbsp;data/tmp.sql&#x0027;</span><span style="color: #007700">); <br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Check&nbsp;whether&nbsp;the&nbsp;file&nbsp;has&nbsp;been&nbsp;downloaded&nbsp;and&nbsp;is&nbsp;larger&nbsp;than&nbsp;zero&nbsp;bytes <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;data/tmp.sql&#x0027;</span><span style="color: #007700">)&nbsp;AND&nbsp;</span><span style="color: #0000BB">filesize</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;data/tmp.sql&#x0027;</span><span style="color: #007700">))&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Empty&nbsp;table <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;TRUNCATE&nbsp;TABLE&nbsp;x_world&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;clear&nbsp;table&nbsp;x_world!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Exceute&nbsp;map.sql&nbsp;using&nbsp;the&nbsp;programme&nbsp;"mysql" <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;IMPORTANT:&nbsp;The&nbsp;charset&nbsp;"latin1"&nbsp;has&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;T2&nbsp;game&nbsp;worlds&nbsp;(if&nbsp;there&nbsp;should&nbsp;be&nbsp;any&nbsp;left&nbsp;with&nbsp;that&nbsp;version) <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">system</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;mysql&nbsp;--host=&#x0027;</span><span style="color: #007700">.</span><span style="color: #0000BB">$mysqlhost</span><span style="color: #007700">.</span><span style="color: #DD0000">&#x0027;&nbsp;--user=&#x0027;</span><span style="color: #007700">.</span><span style="color: #0000BB">$mysqluser</span><span style="color: #007700">.</span><span style="color: #DD0000">&#x0027;&nbsp;--password=&#x0027;</span><span style="color: #007700">.</span><span style="color: #0000BB">$mysqlpass</span><span style="color: #007700">.</span><span style="color: #DD0000">&#x0027;&nbsp;--default-character-set=utf8&nbsp;&#x0027;</span><span style="color: #007700">.</span><span style="color: #0000BB">$mysqldb</span><span style="color: #007700">.</span><span style="color: #DD0000">&#x0027;&nbsp;&lt;&nbsp;data/tmp.sql&#x0027;</span><span style="color: #007700">);<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">&#x0027;Update&nbsp;finished!&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">&#x0027;Failed&nbsp;downloading&nbsp;map.sql&nbsp;or&nbsp;file&nbsp;is&nbsp;empty!&#x0027;</span><span style="color: #007700">; <br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;In&nbsp;case&nbsp;the&nbsp;temporary&nbsp;file&nbsp;exists&nbsp;it&nbsp;will&nbsp;be&nbsp;deleted <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">file_exists</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;data/tmp.sql&#x0027;</span><span style="color: #007700">))&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">unlink</span><span style="color: #007700">(</span><span style="color: #DD0000">&#x0027;data/tmp.sql&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Close&nbsp;database&nbsp;connection <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">@</span><span style="color: #0000BB">mysql_close</span><span style="color: #007700">(</span><span style="color: #0000BB">$db</span><span style="color: #007700">); <br /><br /></span><span style="color: #0000BB">?&gt;</span> </span> </code> </div> 
+
+<h2 id="bsp">Ejemplo: Mapa de alianza estático</h2> 
+
+<img src="images/misc/map.gif" alt="Example map" /> 
+
+<p>El siguiente script muestra cómo crear un sencillo mapa de alianza. En la parte superior, simplemente introduce la información de acceso y el ID de la alianza a destacar. Con dicha información, el script generará un mapa con todas las aldeas del servidor y resaltará las de la alianza en cuestión.</p>
+
+<p>Para ejecutar completa y satisfactoriamente este script, se necesitán las siguientes extensiones de PHP: <a href="http://www.boutell.com/gd/">GD-Lib</a> y <a href="http://www.php.net/manual/en/ref.image.php">funciones de imagen</a> así como la base de datos MySQL y la tabla descrita anteriormente en el script de actualización.</p>
+
+<p>Recuerde no ejecutar este script muy a menudo, dado que consume muchos recursos. Por este motivo no es conveniente poner directamente este script en una página web accesible/visible, si no colocarlo en otro lugar y dejar que actualice el archivo una vez al día. Para hacer esto, basta leer los demás parámetros de la función <a href="http://www.php.net/manual/en/function.imagepng.php">imagepng()</a>.</p>
+
+<h3>Código del script para crear un mapa de alianza</h3> 
+
+<div style="overflow:auto; border: 1px solid silver;"> <code><span style="color: #000000"> <span style="color: #0000BB">&lt;?php <br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;aid&nbsp;of&nbsp;the&nbsp;highlighted&nbsp;Alliance <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$marked_aid&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">2403</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Preferences <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqlhost&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;localhost&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqluser&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;user&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqlpass&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;password&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$mysqldb&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;database&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Create&nbsp;database&nbsp;connection&nbsp;and&nbsp;select&nbsp;database <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$db&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_connect</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqlhost</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqluser</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$mysqlpass</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;connect&nbsp;to&nbsp;DB-Server!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$db_select&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_select_db</span><span style="color: #007700">(</span><span style="color: #0000BB">$mysqldb</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;select&nbsp;DB!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Create&nbsp;image:&nbsp;Map&nbsp;goes&nbsp;from&nbsp;-400&nbsp;to&nbsp;400 <br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;-&gt;&nbsp;sums&nbsp;up&nbsp;tp&nbsp;2*400+1&nbsp;(+1&nbsp;due&nbsp;to&nbsp;the&nbsp;0&nbsp;in&nbsp;the&nbsp;center) <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$image&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecreate</span><span style="color: #007700">(</span><span style="color: #0000BB">801</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">801</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Choose&nbsp;the&nbsp;colors&nbsp;of&nbsp;background,&nbsp;normal&nbsp;village&nbsp;and&nbsp;highlighted&nbsp;alliance <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color_background&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color_normal&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">200</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color_marked&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">imagecolorallocate</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">255</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">); <br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Fill&nbsp;images&nbsp;background&nbsp;with&nbsp;chosen&nbsp;color <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagefill</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$color_background</span><span style="color: #007700">); <br /><br /> &nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Select&nbsp;ALL&nbsp;villages&nbsp;from&nbsp;the&nbsp;DB&nbsp;and&nbsp;order&nbsp;by&nbsp;ascending&nbsp;ID <br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;(Fields&nbsp;are&nbsp;numbered&nbsp;from&nbsp;top&nbsp;left&nbsp;to&nbsp;bottom&nbsp;right) <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">&#x0027;SELECT&nbsp;x,&nbsp;y,&nbsp;aid&nbsp;FROM&nbsp;x_world&nbsp;ORDER&nbsp;BY&nbsp;id&nbsp;ASC&#x0027;</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">)&nbsp;OR&nbsp;die(</span><span style="color: #DD0000">&#x0027;Can&nbsp;not&nbsp;select&nbsp;villages&nbsp;from&nbsp;table&nbsp;x_world!&#x0027;</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Check&nbsp;whether&nbsp;there&nbsp;any&nbsp;villages&nbsp;at&nbsp;all <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">mysql_num_rows</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Select&nbsp;first&nbsp;village <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_fetch_assoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;These&nbsp;variables&nbsp;save&nbsp;the&nbsp;location&nbsp;on&nbsp;which&nbsp;we&nbsp;are&nbsp;currently&nbsp;drawing <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$x_pointer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$y_pointer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Outer&nbsp;loop&nbsp;for&nbsp;the&nbsp;Y-coordinates <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">for(</span><span style="color: #0000BB">$y</span><span style="color: #007700">=</span><span style="color: #0000BB">400</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$y&nbsp;</span><span style="color: #007700">&gt;=&nbsp;-</span><span style="color: #0000BB">400</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">--)&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Inner&nbsp;loop&nbsp;for&nbsp;the&nbsp;X-coordinates <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">for&nbsp;(</span><span style="color: #0000BB">$x</span><span style="color: #007700">=-</span><span style="color: #0000BB">400</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">&lt;=&nbsp;</span><span style="color: #0000BB">400</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$x</span><span style="color: #007700">++)&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Once&nbsp;we&nbsp;reached&nbsp;the&nbsp;coordinates&nbsp;matching&nbsp;the&nbsp;current&nbsp;record&nbsp;selected&nbsp;from&nbsp;the&nbsp;DB: <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">&#x0027;x&#x0027;</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">$x&nbsp;</span><span style="color: #007700">AND&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">&#x0027;y&#x0027;</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">$y</span><span style="color: #007700">)&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Selecting&nbsp;the&nbsp;village&nbsp;color&nbsp;depending&nbsp;on&nbsp;the&nbsp;aid <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if&nbsp;(</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">&#x0027;aid&#x0027;</span><span style="color: #007700">]&nbsp;==&nbsp;</span><span style="color: #0000BB">$marked_aid</span><span style="color: #007700">)&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$color_marked</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$color&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$color_normal</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Drawing&nbsp;the&nbsp;village&nbsp;with&nbsp;the&nbsp;selected&nbsp;color <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagefilledrectangle</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$x_pointer</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$y_pointer</span><span style="color: #007700">,&nbsp;(</span><span style="color: #0000BB">$x_pointer&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">),&nbsp;(</span><span style="color: #0000BB">$y_pointer&nbsp;</span><span style="color: #007700">+&nbsp;</span><span style="color: #0000BB">1</span><span style="color: #007700">),&nbsp;</span><span style="color: #0000BB">$color</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Select&nbsp;next&nbsp;record <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;@</span><span style="color: #0000BB">mysql_fetch_assoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Increase&nbsp;pointer&nbsp;for&nbsp;X-coordinate <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$x_pointer</span><span style="color: #007700">++; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Increase&nbsp;pointer&nbsp;for&nbsp;Y-coordinate <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$y_pointer</span><span style="color: #007700">++; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;We&nbsp;reached&nbsp;the&nbsp;end&nbsp;of&nbsp;a&nbsp;line&nbsp;and&nbsp;have&nbsp;to&nbsp;set&nbsp;the&nbsp;X-pointer&nbsp;to&nbsp;0&nbsp;again <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$x_pointer&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">; <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;} <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Select&nbsp;the&nbsp;HTTP-Header&nbsp;for&nbsp;the&nbsp;selected&nbsp;filetype <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">header</span><span style="color: #007700">(</span><span style="color: #DD0000">"Content-Type:&nbsp;image/png"</span><span style="color: #007700">); <br />&nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Generate&nbsp;image&nbsp;and&nbsp;print&nbsp;it <br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">imagepng</span><span style="color: #007700">(</span><span style="color: #0000BB">$image</span><span style="color: #007700">); <br /><br /> </span><span style="color: #0000BB">?&gt;</span> </span> </code> </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="lright1">
+				<div class="rbox">
+					<span class="subhead c1 b">Buscar</span>
+					<div class="dashed">
+						<form action="http://help.travian.net/index.php?type=search" method="post">
+							<input class="fm" type="text" name="search" value="" maxlength="50"  style="width: 183px;" /> 
+							<p style="text-align:center;"><input class="button send" type="image" src="img/x.gif" name="send" value="send" alt="Enviar" title="Enviar" style="vertical-align: middle;" /></p>
+						</form>
+					</div>
+				</div>
+				<div class="rbox">
+					<span class="subhead c1 b">Configuración del FAQ</span>
+					<div class="dashed">
+						<form action="http://help.travian.net/index.php?type=faq&amp;mod=230" method="post">
+							<select name="gameSpeed"><option value="1" selected="selected">Velocidad de Juego &#x00D7;1</option><option value="3" >Velocidad de Juego &#x00D7;3</option></select>
+							<br /><br />
+							<select name="gameMB"><option value="1" >Edificio Principal: 0-4</option><option value="2" >Edificio Principal: 4-8</option><option value="3" selected="selected">Edificio Principal: 8-12</option><option value="4" >Edificio Principal: 12-16</option><option value="5" >Edificio Principal: 16-20</option></select>
+							<p style="text-align:center;"><input class="button save" type="image" src="img/x.gif" name="gamesettings" value="send" alt="Enviar" title="Enviar" style="vertical-align: middle;" /></p>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div id="lfooter1">
+		<div id="lfooter2">
+			<a class="clink" href="indexbf22.html?type=report&amp;pt=faq&amp;pm=230">Informar de un error</a> |
+			Última actualización: 2007-12-17 23:02:52
+			<br/><a class="clink" href="http://www.travian.com/impressum.php">Imprint</a> | © 2004 - 2011 Travian Games GmbH
+		</div>
+	</div>
+</body>
+
+<!-- Mirrored from help.travian.net/index.php?type=faq&mod=230 by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 03 Feb 2011 12:33:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8"><!-- /Added by HTTrack -->
+</html>

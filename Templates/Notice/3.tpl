@@ -1,9 +1,27 @@
 <?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      Templates/Notice/3.tpl                                      ##
+##  Developed by:  Advocaite                                                   ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 ############################################################
 ##           DO NOT REMOVE THIS NOTICE                    ##
 ##          ADVOCAITE ROCKS TRAVIANX NUTS                 ##
 ##                  GIT HUB REV                           ##  
 ############################################################
+
 $dataarray = explode(",",$message->readingNotice['data']);
 ?>
 <table cellpadding="1" cellspacing="1" id="report_surround">

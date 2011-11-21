@@ -1,5 +1,20 @@
 <?php
-
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.20                                                  ##
+##  Filename:      Templates/Build/16_incomming.tpl                            ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 $units = $database->getMovement("34",$village->wid,1);
 $total_for = count($units);
 
@@ -62,14 +77,13 @@ if ($units[$y]['sort_type']==3){
 		$actionType = "Return from ";
 	}
 
-
 $to = $database->getMInfo($units[$y]['vref']);
 ?>
 <table class="troop_details" cellpadding="1" cellspacing="1">            
 	<thead>
 		<tr>
 			<td class="role"><a href="karte.php?d=<?php echo $village->wid."&c=".$generator->getMapCheck($village->wid); ?>"><?php echo $village->vname; ?></a></td>
-			<td colspan="<?php if($units[$y]['t11'] != 0) {echo"11";}else{echo"10";}?>"><a href="karte.php?d=<?php echo $to['wref']."&c=".$generator->getMapCheck($to['wref']); ?>"><?php echo "Returning to ".$to['name']; ?></a></td>
+			<td colspan="<?php if($units[$y]['t11'] != 0) {echo"10";}else{echo"11";}?>"><a href="karte.php?d=<?php echo $to['wref']."&c=".$generator->getMapCheck($to['wref']); ?>"><?php echo "Returning to ".$to['name']; ?></a></td>
 		</tr>
 	</thead>
 	<tbody class="units">
@@ -88,7 +102,7 @@ $to = $database->getMInfo($units[$y]['vref']);
 			</tr>
  <tr><th>Troops</th>
             <?php
-            for($i=1;$i<($units[$y]['t11'] != 0?12:11);$i++) {
+            for($i=1;$i<12;$i++) {
             	if($units[$y]['t'.$i] == 0) {
                 	echo "<td class=\"none\">";
                 }
@@ -111,7 +125,7 @@ $to = $database->getMInfo($units[$y]['vref']);
 				    echo "on ".$datetime[0]." ";
 				    }
 				    echo "at ".$datetime[1]."</div>";
-    		?>
+				?>
 					</div>
 				</td>
 			</tr>
@@ -119,9 +133,6 @@ $to = $database->getMInfo($units[$y]['vref']);
 </table>
 <?php	
 	}
-	
-	
 	}
-
 //}
-		?>
+?>

@@ -5,7 +5,18 @@ include("Templates/Plus/pmenu.tpl");
 <thead><tr>
 	<th colspan="2">Features of Travian <span class="plus_g">P</span><span class="plus_o">l</span><span class="plus_g">u</span><span class="plus_o">s</span></th>
 
-</tr></thead><tbody><tr>
+</tr></thead><tbody>
+	<tr>
+		<td colspan="2" class="empty"></td>
+	</tr>
+	<tr>
+		<th colspan="2">Crop Finder</th>
+	</tr>
+	<tr>
+		<td class="preview"><a href="plus.php?id=3"><img src="gpack/travian_default/img/g/f6.jpg" alt="Crop finder" title="Crop finder" width="90" height="75" /><img src="gpack/travian_default/img/g/f1.jpg" alt="Crop finder" title="Crop finder" width="90" height="75" /></a></td>
+		<td class="text">You can find croop villages near your village.</td>
+	</tr>
+    <tr>
 		<td colspan="2" class="empty"></td>
 	</tr>
 	<tr>

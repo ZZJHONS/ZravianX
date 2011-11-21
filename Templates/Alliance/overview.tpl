@@ -118,34 +118,29 @@ if($aid == $session->alliance){
 // Alliance Member list loop
 $rank=0;
 foreach($memberlist as $member) {
-
     $rank = $rank+1;
-  $TotalUserPop = $database->getVSumField($member['id'],"pop");
+	$TotalUserPop = $database->getVSumField($member['id'],"pop");
     $TotalVillages = $database->getProfileVillages($member['id']);    
-    
-  echo "    <tr>";
-  echo "    <td class=ra>".$rank.".</td>";
-    echo "    <td class=pla><a href=spieler.php?uid=".$member['id'].">".$member['username']."</a></td>"; 
-    echo "    <td class=hab>".$TotalUserPop."</td>"; 
-    echo "    <td class=vil>".count($TotalVillages)."</td>";
-    
+	echo "<tr>";
+	echo "<td class=ra>".$rank.".</td>";
+    echo "<td class=pla><a href=spieler.php?uid=".$member['id'].">".$member['username']."</a></td>"; 
+    echo "<td class=hab>".$TotalUserPop."</td>"; 
+    echo "<td class=vil>".count($TotalVillages)."</td>";
     if($aid == $session->alliance){    
         if ((time()-600) < $member['timestamp']){ // 0 Min - 10 Min
-            echo "    <td class=on><img class=online1 src=img/x.gif title='Now online' alt='Now online' /></td>";
+            echo "<td class=on><img class=online1 src=img/x.gif title='Online' alt='Online' /></td>";
         }elseif ((time()-86400) < $member['timestamp'] && (time()-600) > $member['timestamp']){ // 10 Min - 1 Days
-            echo "    <td class=on><img class=online2 src=img/x.gif title='Offline' alt='Offline' /></td>";              
+            echo "<td class=on><img class=online2 src=img/x.gif title='Max. 24 hours' alt='Max. 24 hours' /></td>";              
             }elseif ((time()-259200) < $member['timestamp'] && (time()-86400) > $member['timestamp']){ // 1-3 Days
-            echo "    <td class=on><img class=online3 src=img/x.gif title='Last 3 days' alt='Last 3 days' /></td>";    
-        }elseif ((time()-604800) < $member['timestamp'] && (time()-259200) > $member['timestamp']){
-            echo "    <td class=on><img class=online4 src=img/x.gif title='Last 7 days' alt='Last 7 days' /></td>";    
-        }else{
-             echo "    <td class=on><img class=online5 src=img/x.gif title=now online alt=now online /></td>";   
+            echo "<td class=on><img class=online3 src=img/x.gif title='Last 3 days' alt='Last 3 days' /></td>";    
+        }elseif ((time()-604800) < $member['timestamp'] && (time()-259200) > $member['timestamp']){ // 3-7 Days
+            echo "<td class=on><img class=online4 src=img/x.gif title='Last 7 days' alt='Last 7 days' /></td>";    
+        }else{ // More than 7 days
+             echo "<td class=on><img class=online5 src=img/x.gif title='Offline' alt='Offline' /></td>";   
         }
     }
-    
-    echo "    </tr>";    
+    echo "</tr>";    
 }
-
 ?> 
 </tbody>
 </table>

@@ -23,7 +23,7 @@ echo <<<EOT
 			<option value="p_b2">Clay</option>
 			<option value="p_b3">Iron</option>
 			<option value="p_b4">Crop </option>";
-		</select><br/><br/>
+		</select><br /><br />
   <input type="submit" name="plus" value="Get Now"></td></tr>
 </table>
 </form>

@@ -1,12 +1,21 @@
 <?php
-
-/*-------------------------------------------------------*\
-| ********* DO NOT REMOVE THIS COPYRIGHT NOTICE ********* |
-+---------------------------------------------------------+
-| Developed by:  Manni < manuel_mannhardt@web.de >        |
-|                Dzoki < dzoki.travian@gmail.com >        |
-| Copyright:     TravianX Project All rights reserved     |
-\*-------------------------------------------------------*/
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.07                                                  ##
+##  Filename:      crop_finder.php                                             ##
+##  Developed by:  Dzoki & Manni                                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
    include ("GameEngine/Village.php");
 
@@ -22,69 +31,8 @@
        header("Location: ".$_SERVER['PHP_SELF']."?s=3&x=" . $_POST['x'] . '&y=' . $_POST['y']);
    }
 
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <title><?php
-
-   echo SERVER_NAME
-
-?> - Crop Finder</title>
-    <link REL="shortcut icon" HREF="favicon.ico"/>
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="imagetoolbar" content="no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script src="mt-full.js?0faaa" type="text/javascript"></script>
-    <script src="unx.js?0faaa" type="text/javascript"></script>
-    <script src="new.js?0faaa" type="text/javascript"></script>
-    <link href="<?php
-
-   echo GP_LOCATE;
-
-?>lang/en/lang.css?f4b7c" rel="stylesheet" type="text/css" />
-    <link href="<?php
-
-   echo GP_LOCATE;
-
-?>lang/en/compact.css?f4b7c" rel="stylesheet" type="text/css" />
-    <?php
-
-   if($session->gpack == null || GP_ENABLE == false) {
-   echo "
-    <link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
-    <link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
-   }
-   else {
-   echo "
-    <link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
-    <link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
-   }
-
-?>
-    <script type="text/javascript">
-
-        window.addEvent('domready', start);
-    </script>
-</head>
-
- 
-<body class="v35 ie ie8">
-<div class="wrapper">
-<img style="filter:chroma();" src="img/x.gif" id="msfilter" alt="" />
-<div id="dynamic_header">
-    </div>
-<?php
-
-   include ("Templates/header.tpl");
-
-?>
-<div id="mid">
-<?php
-
-   include ("Templates/menu.tpl");
+include ("Templates/head.tpl");
+include ("Templates/body.tpl");
 
    if(is_numeric($_GET['x']) AND is_numeric($_GET['y'])) {
        $coor2['x'] = $_GET['x'];
@@ -103,6 +51,8 @@
 <img width="200" src="gpack/travian_default/img/g/f1.jpg" />
 </center>
 <br /><br />
+<?php if(!$session->plus){include ("Templates/no_plus.tpl");} ?>
+<?php if($session->plus) { ?>
 <form action="<?php echo $_SERVER['PHP_SELF']; ?>?s" method="post">
  <table>
   <tr>
@@ -314,46 +264,6 @@
 
    }
 ?>
+<?php } ?>
 </div>
-<div id="side_info">
-<?php
-
-   include ("Templates/quest.tpl");
-   include ("Templates/news.tpl");
-   include ("Templates/multivillage.tpl");
-   include ("Templates/links.tpl");
-
-?>
-</div>
-<div class="clear"></div>
-</div>
-<div class="footer-stopper"></div>
-<div class="clear"></div>
-
-<?php
-
-   include ("Templates/footer.tpl");
-   include ("Templates/res.tpl");
-
-?>
-<div id="stime">
-<div id="ltime">
-<div id="ltimeWrap">
-Calculated in <b><?php
-
-   echo round(($generator->pageLoadTimeEnd() - $start) * 1000);
-
-?></b> ms
- 
-<br />Server time: <span id="tp1" class="b"><?php
-
-   echo date('H:i:s');
-
-?></span>
-</div>
-    </div>
-</div>
-
-<div id="ce"></div>
-</body>
-</html>
+<?php include ("Templates/end.tpl"); ?>

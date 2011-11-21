@@ -1,11 +1,18 @@
 <?php
-
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Units.php                                                   ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      GameEngine/Units.php                                        ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -383,7 +390,7 @@ class Units {
     $mode = CP; 
     $total = count($database->getProfileVillages($session->uid)); 
     $need_cps = ${'cp'.$mode}[$total];
-    $cps = $database->getUserField($session->uid, 'cp',0);
+    $cps = $session->cp;
 
     if($cps >= $need_cps) {
      $unit = ($session->tribe*10);

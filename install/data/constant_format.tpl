@@ -1,12 +1,19 @@
 <?php
-###############################  S  T  A  R  T   ################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       config.php                                                  ##
-##  Version        4.8.5                                                       ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.06                                                  ##
+##  Filename:      GameEngine/config.php & install/data/constant_format.tpl    ##
 ##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -57,7 +64,6 @@ define("INCREASE_SPEED","%INCSPEED%");
 // Values: 1 (normal), 3 (3x speed) etc...
 define("TRADER_CAPACITY","%TRADERCAP%");
 
-
 // ***** Village Expand
 // 1 = slow village expanding - more Cultural Points needed for every new village
 // 0 = fast village expanding - less Cultural Points needed for every new village
@@ -83,7 +89,7 @@ define("QUEST",%QUEST%);
 // 3600*24 = 1 day
 // 3600*24*3 = 3 days
 // You can choose any value you want!
-define("PROTECTION","%BEGINNER%");
+define("PROTECTION",%BEGINNER%);
 
 // ***** Enable WW Statistics
 define("WW",%WW%);
@@ -103,8 +109,6 @@ define("PLUS_PRODUCTION",%PLUS_PRODUCTION%);
 define("GREAT_WKS",%GREAT_WKS%);
 // ***** Tourn threshold
 define("TS_THRESHOLD",%TS_THRESHOLD%);  
-
-
 
 //////////////////////////////////
 //    **** LOG SETTINGS  ****   //
@@ -126,18 +130,21 @@ define("LOG_MARKET",%LOGMARKET%);
 // LOG ILLEGAL ACTIONS
 define("LOG_ILLEGAL",%LOGILLEGAL%);
 
-
-
 //////////////////////////////////
 // ****  NEWSBOX SETTINGS  **** //
 //////////////////////////////////
 //true = enabled
 //false = disabled
+
+// Game news
 define("NEWSBOX1",%BOX1%);
 define("NEWSBOX2",%BOX2%);
 define("NEWSBOX3",%BOX3%);
 
-
+// Home news
+define("HOME1",%HOME1%);
+define("HOME2",%HOME2%);
+define("HOME3",%HOME3%);
 
 //////////////////////////////////
 //   ****  SQL SETTINGS  ****   //
@@ -168,7 +175,6 @@ define("TB_PREFIX", "%PREFIX%");
 define("DB_TYPE", %CONNECTT%);
 
 
-
 ////////////////////////////////////
 //   ****  EXTRA SETTINGS  ****   //
 ////////////////////////////////////
@@ -180,7 +186,6 @@ define("DB_TYPE", %CONNECTT%);
 // Choose which words do you want to be censored
 //define("CENSORED","%CENWORDS%");
 
-
 // ***** Limit Mailbox
 // Limits mailbox to defined number of mails. (IGM's)
 define("LIMIT_MAILBOX",%LIMIT_MAILBOX%);
@@ -189,8 +194,6 @@ define("MAX_MAIL","%MAX_MAILS%");
 
 // ***** Include administrator in statistics/rank
 define("INCLUDE_ADMIN", %ARANK%);
-
-
 
 ////////////////////////////////////
 //   ****  ADMIN SETTINGS  ****   //
@@ -201,8 +204,6 @@ define("ADMIN_EMAIL", "%AEMAIL%");
 
 // ***** Admin Name
 define("ADMIN_NAME", "%ANAME%");
-
-
 
 //////////////////////////////////////////
 //   ****  DO NOT EDIT SETTINGS  ****   //
@@ -227,7 +228,6 @@ define("ADMIN",9);
 define("COOKIE_EXPIRE", 60*60*24*7); 
 define("COOKIE_PATH", "/"); 
 
-
 ////////////////////////////////////////////
 //   ****  DOMAIN/SERVER SETTINGS  ****   //
 ////////////////////////////////////////////
@@ -235,16 +235,28 @@ define("DOMAIN", "%DOMAIN%");
 define("HOMEPAGE", "%HOMEPAGE%");
 define("SERVER", "%DOMAIN%");
 
+////////////////////////////////////////
+//   ****  TRAVIAN 4 SETTINGS  ****   //
+////////////////////////////////////////
 
-###############################  E    N    D   ##################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
-## --------------------------------------------------------------------------- ##
-##  Filename       config.php                                                  ##
-##  Version        4.8.5                                                       ##
-##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
-##                                                                             ##
-#################################################################################
+// ***** Landing page
+// false = Travian 3.6 Homepage
+// true = Travian 4 Homepage
+define("INDEX", %INDEX%);
+
+// ***** Favicon
+// false = Travian 3.6 Favicon
+// true = Travian 4 Favicon
+// Cambiar nombre: define("FAVICON", "%FAVICON%");
+
+// ***** Login
+// false = Travian 3.6 Login
+// true = Travian 4 Login
+// Cambiar nombre: define("LOGIN", "%LOGIN%");
+
+// ***** Register
+// false = Travian 3.6 Register
+// true = Travian 4 Register
+// Cambiar nombre: define("REGISTER", "%REGISTER%");
 
 ?>

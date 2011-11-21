@@ -1,18 +1,25 @@
 <?php
+#################################################################################
+##                                                                             ##
+##  Only for advanced users, do not edit if you dont know what are you doing!  ##
+##Solo para ususrios avanzados, no lo edites si no sabes lo que estas haciendo!##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       6.0.1                                                       ##
+##  Filename:      GameEngine/Lang/es.php                                      ##
+##  Developed by:  Dzoki & Dixie                                               ##
+##  Reworked by:   Thypoon                                                     ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
-//            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
-//                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-                                    //                         //
-									//         SPANISH         //
-			                        //     author: Thyphoon    //
-									/////////////////////////////
-
-//MAIN MENU
+// MAIN MENU
 define("HOME","P&aacute;gina Principal");
 define("INSTRUCT","Instrucciones");
 define("ADMIN_PANEL","Panel de control");
@@ -25,7 +32,7 @@ define("SYSTEM_MESSAGE","Mens. del sistema");
 define("TRAVIAN_PLUS","Travian <b><span class=\"plus_g\">P</span><span class=\"plus_o\">l</span><span class=\"plus_g\">u</span><span class=\"plus_o\">s</span></span></span></b>");
 define("CONTACT","Contactenos!");
 
-//MENU
+// MENU
 define("REG","Registarse");
 define("FORUM","Foro");
 define("CHAT","Chat");
@@ -33,7 +40,7 @@ define("IMPRINT","Imprimir");
 define("MORE_LINKS","Enlaces");
 define("TOUR","Tutorial");
 
-//ERRORS
+// ERRORS
 define("USRNM_EMPTY","(Nombre de usuario vac&iacute;)");
 define("USRNM_TAKEN","(El nombre ya esta en uso.)");
 define("USRNM_SHORT","(min. ".USRNM_MIN_LENGTH." caracteres)");
@@ -60,14 +67,14 @@ define("ANAME_EMPTY","Nombre vac&iacute;o");
 define("ATAG_EXIST","Etiqueta en uso");
 define("ANAME_EXIST","Nombre en uso");
 
-//COPYRIGHT
+// COPYRIGHT
 define("TRAVIAN_COPYRIGHT","TravianX Clon de Travian 100% C&oacute;digo Libre.");
 
-//BUILD.TPL
+// BUILD.TPL
 define("CUR_PROD","Producci&oacute;n actual ");
 define("NEXT_PROD","Producci&oacute;n al nivel ");
 
-//BUILDINGS
+// BUILDINGS
 define("B1","Le&ntilde;ador");
 define("B1_DESC","El le&ntilde;ador tala &aacute;rboles para producir madera. Cuanto m&aacute;s se aumenta su nivel produce m&aacute;s madera.");
 define("B2","Barrera");
@@ -77,7 +84,7 @@ define("B3_DESC","Aqu&iacute; los mineros producen produce el valioso hierro. Cu
 define("B4","Granja");
 define("B4_DESC","La comida de tu pobleci&oacute;n se produce aqu&iacute;. Incrementando el nivel de las granjas aumentas la producci&oacute;n de grano.");
 
-//DORF1
+// DORF1
 define("LUMBER","Madera");
 define("CLAY","Arcilla");
 define("IRON","Hierro");
@@ -95,8 +102,11 @@ define("WAITING_LOOP","(lazo de espera)");
 define("HRS","(hrs.)");
 define("DONE_AT","listo a las ");
 define("CANCEL","cancelar");
+define("LOYALTY","Lealtad:"); 
+define("CALCULATED_IN","Calculado en");
+define("SEVER_TIME","Hora del servidor:");  
 
-//QUEST
+// QUEST
 define("Q_CONTINUE","Continuar con la siguiente misi&oacute;n.");
 define("Q_REWARD","Su recompensa:");
 define("Q0","&iexcl;Biemvenido a ");
@@ -138,7 +148,9 @@ define("Q6_DESC","Se le informa que tiene un premio del taskmaster esperandolo.<
 //======================================================//
 //================ UNITS - DO NOT EDIT! ================//
 //======================================================//
-//ROMAN UNITS
+define("U0","Heroe");
+
+// ROMAN UNITS
 define("U1","Legionnario");
 define("U2","Praetoriano");
 define("U3","Imperiano");
@@ -150,7 +162,7 @@ define("U8","Catapulta de fuego");
 define("U9","Senador");
 define("U10","Colono");
 
-//TEUTON UNITS
+// TEUTON UNITS
 define("U11","Clubswinger");
 define("U12","Lancero");
 define("U13","Hachero");
@@ -162,7 +174,7 @@ define("U18","Catapulta");
 define("U19","Jefe Teut&oacute;n");
 define("U20","Colono");
 
-//GAUL UNITS
+// GAUL UNITS
 define("U21","Phalange");
 define("U22","Espadach&iacute;n");
 define("U23","Pionero");
@@ -174,7 +186,7 @@ define("U28","Trebuchet");
 define("U29","Jefe Galo");
 define("U30","Colono");
 
-//NATURE UNITS
+// NATURE UNITS
 define("U31","Rata");
 define("U32","Ara&ntilde;a");
 define("U33","Serpiente");
@@ -186,7 +198,7 @@ define("U38","Cocodrilo");
 define("U39","Tigre");
 define("U40","Elefante");
 
-//NATARS UNITS
+// NATARS UNITS
 define("U41","Piquero");
 define("U42","Guerrero Espinoso");
 define("U43","Defensor");
@@ -197,7 +209,7 @@ define("U47","Elefante de Guerra");
 define("U48","Ballesta");
 define("U49","Emperador Natariano");
 
-//INDEX.php
+// INDEX
 define("LOGIN","Entrar");
 define("PLAYERS","Jugadores");
 define("ONLINE","Conectados");
@@ -210,7 +222,7 @@ define("MP_STRATEGY_GAME","".SERVER_NAME." - el juego de estrategia multijugador
 define("WHAT_IS","".SERVER_NAME." es uno de los juegos onlines m&aacute;s conocidos en el mundo. Como jugador de ".SERVER_NAME." puedes construir tu propio imperio, reclutar tu propio ejercito y pelear con tus aliados para la conquista del mundo.");
 define("REGISTER_FOR_FREE","Registrase aqu&iacute; gratis!");
 define("LATEST_GAME_WORLD","Nuevo mundo");
-define("LATEST_GAME_WORLD2","Registrate en el &uacute;ltimo<br/>mundo y disfruta<br/>las ventajas de<br/>ser uno de los<br/>primeros jugadores.");
+define("LATEST_GAME_WORLD2","Registrate en el &uacute;ltimo<br />mundo y disfruta<br />las ventajas de<br />ser uno de los<br />primeros jugadores.");
 define("PLAY_NOW","Jugar ".SERVER_NAME." ahora");
 define("LEARN_MORE","Aprende m&aacute;s sobre ".SERVER_NAME."!");
 define("LEARN_MORE2","Ahora con un revolucionario<br>sistema y gr&aacute;ficos<br>completamente nuevos<br>Este clon es el mejor!");
@@ -232,7 +244,7 @@ define("P_TOTAL","Jugadores en total: ");
 define("CHOOSE","Escoja un servidor por favor.");
 define("STARTED"," El servidor empez&oacute; hace ". round((time()-COMMENCE)/86400) ." d&iacute;as.");
 
-//ANMELDEN.php
+// ANMELDEN
 define("NICKNAME","Sobrenombre");
 define("EMAIL","Correo");
 define("PASSWORD","Contrase&ntilde;a");
@@ -251,7 +263,7 @@ define("BUILDING_UPGRADING","Construyendo:");
 define("HOURS","horas");
 
 
-//ATTACKS ETC.
+// ATTACKS ETC.
 define("TROOP_MOVEMENTS","movimientos de tropa:");
 define("ARRIVING_REINF_TROOPS","Llegando refuerzos");
 define("ARRIVING_REINF_TROOPS_SHORT","Refuer.");
@@ -261,7 +273,7 @@ define("OWN_REINFORCING_TROOPS","Refuerzos despachados");
 define("TROOPS_DORF","Tropas:");
 
 
-//LOGIN.php
+// LOGIN
 define("COOKIES","Tienes que tener las cookies habilitadas para poder entrar. Si compartes ordenador con m&aacute;s jugadores o est&aacute;s en un lugar p&uacute;blico, aseg&uacute;rate de cerrar la sesi&oacute;n cuando salgas por tu propia seguridad.");
 define("NAME","Nombre");
 define("PW_FORGOTTEN","Olvid&oacute; la contrase&ntilde;a?");
@@ -272,15 +284,15 @@ define("EMAIL_FOLLOW","Sigue este v&iacute;nculo para activar este enlace.");
 define("VERIFY_EMAIL","Verificar Correo.");
 
 
-//404.php
+// 404
 define("NOTHING_HERE","No hay nada ah&iacute;!");
 define("WE_LOOKED","Buscamos 404 veces pero no encontramos nada");
 
-//TIME RELATED
-define("CALCULATED","Calculado en");
-define("SERVER_TIME","Tiempo funcionando:");
+// TIME RELATED
+define("CALCULATED_IN","Calculado en");
+define("SERVER_TIME","Hora del servidor:");
 
-//MASSMESSAGE.php
+// MASSMESSAGE
 define("MASS","Contenido del mensaje");
 define("MASS_SUBJECT","Asunto:");
 define("MASS_COLOR","Color del Mensaje:");
@@ -293,7 +305,7 @@ define("MASS_REALLY","Realmente quieres enviar un mensaje en masa?");
 define("MASS_ABORT","Abortar?");
 define("MASS_SENT","El mensaje en masa fue enviado");
 
-//BUILDINGS
+// BUILDINGS
 define("ACADEMY_NAME","Academia");
 define("BARRACK_NAME","Barraca");
 

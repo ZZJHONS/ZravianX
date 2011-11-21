@@ -1,37 +1,71 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.03                                                  ##
+##  Filename:      install/templates/script.tpl                                ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
 <style type="text/css">
     .menu{
-    margin-left: 23px;
-    margin-top: 50px;
+		margin-left: 23px;
+		margin-top: 50px;
 	}
 	.f18 {
-    font-size: 18pt;
+		font-size: 18pt;
 	}
-    span.cc3 {position: absolute;right:10%}
-    span.cc2 {position: absolute;left:10%}
-	
-div.lbox {width: 280px; padding-left: 29px; padding-bottom: 15px;}
-div.rbox {width: 196px; padding-left: 10px; padding-bottom: 15px;}
-div.wholebox {width: 494px; padding-left: 29px; padding-bottom: 15px;}
-div.wholebox div {float:none;}
-div.lbox ul, div.rbox ul {margin: 0 0 0 15px; padding: 0 15px 0 0;}
-
+    span.cc3 {
+		position: absolute;
+		right:10%
+	}
+    span.cc2 {
+		position: absolute;
+		left:10%
+	}
+	div.lbox {
+		width: 280px;
+		padding-left: 29px;
+		padding-bottom: 15px;
+	}
+	div.rbox {
+		width: 196px;
+		padding-left: 10px;
+		padding-bottom: 15px;
+	}
+	div.wholebox {
+		width: 494px;
+		padding-left: 29px;
+		padding-bottom: 15px;
+	}
+	div.wholebox div {
+		float:none;
+	}
+	div.lbox ul, div.rbox ul {
+		margin: 0 0 0 15px;
+		padding: 0 15px 0 0;
+	}
 </style>
 
 <?php
 class IHG_Progressbar {
-    
     protected $bar_id;
-    
     protected $max_ticks;
-    
     protected $ticks;
-    
     protected $label;
-    
+
     public function __construct($max_ticks, $label = '%d van %d') {
         $this->bar_id = uniqid('progressbar');
         $this->label = $label;
-        
         $this->max_ticks = $max_ticks;
         $this->ticks = 0;
     }
@@ -49,45 +83,45 @@ class IHG_Progressbar {
     static public function draw_css() {
         echo '
             <style type="text/css">
-            .ihg_progress_bar {
-                display: block;
-                width: 500px;
-                height: 20px;
-                border: 1px solid gray;
-                padding: 1px;
-                
-                margin: 3px auto;
-                
-                position: relative;
-            }
-            
-            .ihg_progress_ticks {
-                display: block;
-                position: absolute;
-                
-                background-color: orange;
-                width: 0;
-                height: 20px;
-                overflow: hidden;
-            }
-            
-            .ihg_progress_label_a,
-            .ihg_progress_label_b {
-                display: block;
-                position: absolute;
-                
-                width: 500px;
-                height: 20px;
-                text-align: center;
-            }
-            
-            .ihg_progress_label_a {
-                color: black;
-            }
-            
-            .ihg_progress_label_b {
-                color: white;
-            }
+				.ihg_progress_bar {
+					display: block;
+					width: 500px;
+					height: 20px;
+					border: 1px solid gray;
+					padding: 1px;
+					
+					margin: 3px auto;
+					
+					position: relative;
+				}
+				
+				.ihg_progress_ticks {
+					display: block;
+					position: absolute;
+					
+					background-color: orange;
+					width: 0;
+					height: 20px;
+					overflow: hidden;
+				}
+				
+				.ihg_progress_label_a,
+				.ihg_progress_label_b {
+					display: block;
+					position: absolute;
+					
+					width: 500px;
+					height: 20px;
+					text-align: center;
+				}
+				
+				.ihg_progress_label_a {
+					color: black;
+				}
+				
+				.ihg_progress_label_b {
+					color: white;
+				}
             </style>
         ';
     }
@@ -103,17 +137,17 @@ class IHG_Progressbar {
         ';
         echo '
             <script type="text/javascript">
-            (function() {
-                var bar        = document.getElementById("' . $this->bar_id . '");
-                var label_a = document.getElementById("' . $this->bar_id . '_label_a");
-                var label_b = document.getElementById("' . $this->bar_id . '_label_b");
-                
-                window["' . $this->bar_id . '"] = function(width, label) {
-                    bar.style.width = width + "%";
-                    label_a.innerHTML = label;
-                    label_b.innerHTML = label;
-                }
-            })();
+				(function() {
+					var bar        = document.getElementById("' . $this->bar_id . '");
+					var label_a = document.getElementById("' . $this->bar_id . '_label_a");
+					var label_b = document.getElementById("' . $this->bar_id . '_label_b");
+					
+					window["' . $this->bar_id . '"] = function(width, label) {
+						bar.style.width = width + "%";
+						label_a.innerHTML = label;
+						label_b.innerHTML = label;
+					}
+				})();
             </script>
         ';
         
@@ -121,15 +155,12 @@ class IHG_Progressbar {
     }
     
     protected function draw_progress() {
-        
         $width = round($this->ticks / $this->max_ticks * 100, 2);
         $label = sprintf($this->label, $this->ticks, $this->max_ticks);
-        
         echo '
             <script type="text/javascript">
                 window["' . $this->bar_id . '"]("' . $width . '", "' . addslashes($label) . '");
             </script>
-        
         ';
         $this->flush();
     }
@@ -138,8 +169,7 @@ class IHG_Progressbar {
         while(ob_get_level() > 0) {
             ob_end_flush();
         }
-        
         flush();
     }
 }
-?> 
+?>

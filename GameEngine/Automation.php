@@ -1,13 +1,17 @@
 <?php
-
 #################################################################################
+##                                                                             ##
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       Automation.php                                              ##
-##  Developed by:  Dzoki & Dixie Reworked buy Advocaite                        ##
+##  Filename       GameEngine/Automation.php                                   ##
+##  Developed by:  Dzoki & Dixie                                               ##
+##  Reworked by:   Advocaite & Vnnbot                                          ##
+##  Edited by:     ZZJHONS                                                     ##
 ##  Thanks to:     Akakori & Elmar & G3n3s!s & TopErwin & TTMMTT               ##
 ##  License:       TravianX Project                                            ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Webs:          http://www.xtravian.eu & http://zravianx.zzjhons.com        ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -110,10 +114,8 @@ class Automation {
      
         $this->ClearUser();
         $this->ClearInactive();
+		$this->clearDeleting();
         $this->pruneResource();
-        $this->loyaltyRegeneration();
-        $this->updateHero();
-        $this->celebrationComplete();
         if(!file_exists("GameEngine/Prevention/culturepoints.txt") or time()-filemtime("GameEngine/Prevention/culturepoints.txt")>10) {
             $this->culturePoints();
         }
@@ -228,8 +230,10 @@ class Automation {
         }
     }
 
-	private function clearDeleting() {
+	private function clearDeleting() { 
         global $database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/cleardeleting.txt", 'w');
+        @fclose($ourFileHandle);
         $needDelete = $database->getNeedDelete();
         if(count($needDelete) > 0) {
             foreach($needDelete as $need) {
@@ -345,6 +349,8 @@ class Automation {
     
     private function culturePoints() {
         global $database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/culturepoints.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time()-84600;
         $array = array();
         $q = "SELECT id, lastupdate FROM ".TB_PREFIX."users where lastupdate < $time";
@@ -365,6 +371,8 @@ class Automation {
     
     private function buildComplete() {
         global $database,$bid18,$bid10,$bid11,$bid38,$bid39;
+		$ourFileHandle = @fopen("GameEngine/Prevention/build.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $array = array();
         $q = "SELECT * FROM ".TB_PREFIX."bdata where timestamp < $time";
@@ -436,6 +444,8 @@ class Automation {
     
     private function marketComplete() {
         global $database,$generator;
+		$ourFileHandle = @fopen("GameEngine/Prevention/market.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."movement, ".TB_PREFIX."send where ".TB_PREFIX."movement.ref = ".TB_PREFIX."send.id and ".TB_PREFIX."movement.proc = 0 and sort_type = 0 and endtime < $time";
         $dataarray = $database->query_return($q);
@@ -469,6 +479,8 @@ class Automation {
     
     private function sendunitsComplete() {
         global $bid23,$database,$battle,$village,$technology,$logging;
+		$ourFileHandle = @fopen("GameEngine/Prevention/sendunits.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."movement, ".TB_PREFIX."attacks where ".TB_PREFIX."movement.ref = ".TB_PREFIX."attacks.id and ".TB_PREFIX."movement.proc = '0' and ".TB_PREFIX."movement.sort_type = '3' and ".TB_PREFIX."attacks.attack_type != '2' and endtime < $time ORDER BY endtime ASC";
         $dataarray = $database->query_return($q);
@@ -637,8 +649,7 @@ class Automation {
                         }
                         }
                         
-                        
-                            //choose a building to attack
+						//choose a building to attack
                            /* if($catp > 0 and $type=='3'){
                                 if($toF['pop']>'1'){
                                     for ($i=1; $i<2; $i++){
@@ -681,9 +692,8 @@ class Automation {
                             } else { $tblevel = '0'; }
                                     $stonemason = "1";  */
                                     
-                                    $tblevel = '1';                    
-                                    $stonemason = "1";  
-
+							$tblevel = '1';                    
+							$stonemason = "1";
                             
             /*--------------------------------
             // End Battle part
@@ -826,6 +836,73 @@ class Automation {
                 $unitssend_deff[3] = '?,?,?,?,?,?,?,?,?,?,'; 
                 $unitssend_deff[4] = '?,?,?,?,?,?,?,?,?,?,'; 
                 $unitssend_deff[5] = '?,?,?,?,?,?,?,?,?,?,'; 
+                for($i=1;$i<=50;$i++) {
+            $total_def += $dead['u'.$i];
+            }
+            //how many troops died? for battleraport
+            if($battlepart['casualties_attacker'][1] == 0) { $dead1 = 0; } else { $dead1 = $battlepart['casualties_attacker'][1]; }
+            if($battlepart['casualties_attacker'][2] == 0) { $dead2 = 0; } else { $dead2 = $battlepart['casualties_attacker'][2]; }
+            if($battlepart['casualties_attacker'][3] == 0) { $dead3 = 0; } else { $dead3 = $battlepart['casualties_attacker'][3]; }
+            if($battlepart['casualties_attacker'][4] == 0) { $dead4 = 0; } else { $dead4 = $battlepart['casualties_attacker'][4]; }
+            if($battlepart['casualties_attacker'][5] == 0) { $dead5 = 0; } else { $dead5 = $battlepart['casualties_attacker'][5]; }
+            if($battlepart['casualties_attacker'][6] == 0) { $dead6 = 0; } else { $dead6 = $battlepart['casualties_attacker'][6]; }
+            if($battlepart['casualties_attacker'][7] == 0) { $dead7 = 0; } else { $dead7 = $battlepart['casualties_attacker'][7]; }
+            if($battlepart['casualties_attacker'][8] == 0) { $dead8 = 0; } else { $dead8 = $battlepart['casualties_attacker'][8]; }
+            if($battlepart['casualties_attacker'][9] == 0) { $dead9 = 0; } else { $dead9 = $battlepart['casualties_attacker'][9]; }
+            if($battlepart['casualties_attacker'][10] == 0) { $dead10 = 0; } else { $dead10 = $battlepart['casualties_attacker'][10]; }
+
+            
+                    //kill own defence
+                    $q = "SELECT * FROM ".TB_PREFIX."units WHERE vref='".$data['to']."'";
+                    $unitlist = $database->query_return($q); 
+                    $start = ($targettribe-1)*10+1;
+                    $end = ($targettribe*10);
+                        
+                        if($targettribe == 1){ $u = ""; $rom='1'; } else if($targettribe == 2){ $u = "1"; $ger='1'; } else if($targettribe == 3){$u = "2"; $gal='1'; }else if($targettribe == 4){ $u = "3"; $nat='1'; } else { $u = "4"; $natar='1'; }     //FIX
+                            for($i=$start;$i<=$end;$i++) { if($i==$end){ $u=$targettribe; }
+                                if($unitlist){
+                                    $dead[$i]+=round($battlepart[2]*$unitlist[0]['u'.$i]);
+                                    $database->modifyUnit($data['to'],$i,round($battlepart[2]*$unitlist[0]['u'.$i]),0);
+                                }
+                            }
+            //kill other defence in village
+            if(count($database->getEnforceVillage($data['to'],0)) > 0) {
+                foreach($database->getEnforceVillage($data['to'],0) as $enforce) {
+                    $life='';    $notlife=''; $wrong='0';
+                    $tribe = $database->getUserField($database->getVillageField($enforce['from'],"owner"),"tribe",0);
+                    $start = ($tribe-1)*10+1;
+                    
+                    if($tribe == 1){ $rom='1'; } else if($tribe == 2){ $ger='1'; }else if($tribe == 3){ $gal='1'; }else if($tribe == 4){ $nat='1'; } else { $natar='1'; }
+                        for($i=$start;$i<=($start+9);$i++) {
+                            if($enforce['u'.$i]>'0'){
+                                $database->modifyEnforce($enforce['id'],$i,round($battlepart[2]*$enforce['u'.$i]),0);
+                                $dead[$i]+=round($battlepart[2]*$enforce['u'.$i]);
+                                    if($dead[$i]!=$enforce['u'.$i]){
+                                    $wrong='1';
+                                    }
+                            } else {
+                                $dead[$i]='0';
+                            }
+                        $notlife="".$notlife.",".$dead[$i]."";
+                        $life="".$life.",".$enforce['u'.$i.'']."";
+                        }
+                        //NEED TO SEND A RAPPORTAGE!!!
+                        $data2 = ''.$database->getVillageField($enforce['from'],"owner").','.$to['wref'].','.addslashes($to['name']).','.$tribe.''.$life.''.$notlife.'';
+                        $database->addNotice($database->getVillageField($enforce['from'],"owner"),15,'Reinforcement in '.addslashes($to['name']).' was attacked',$data2,$AttackArrivalTime);
+                        //delete reinf sting when its killed all.
+                        if($wrong=='0'){ $database->deleteReinf($enforce['id']); }
+                }
+            }
+                $unitsdead_def[1] = ''.$dead['1'].','.$dead['2'].','.$dead['3'].','.$dead['4'].','.$dead['5'].','.$dead['6'].','.$dead['7'].','.$dead['8'].','.$dead['9'].','.$dead['10'].'';
+                $unitsdead_def[2] = ''.$dead['11'].','.$dead['12'].','.$dead['13'].','.$dead['14'].','.$dead['15'].','.$dead['16'].','.$dead['17'].','.$dead['18'].','.$dead['19'].','.$dead['20'].'';
+                $unitsdead_def[3] = ''.$dead['21'].','.$dead['22'].','.$dead['23'].','.$dead['24'].','.$dead['25'].','.$dead['26'].','.$dead['27'].','.$dead['28'].','.$dead['29'].','.$dead['30'].'';
+                $unitsdead_def[4] = ''.$dead['31'].','.$dead['32'].','.$dead['33'].','.$dead['34'].','.$dead['35'].','.$dead['36'].','.$dead['37'].','.$dead['38'].','.$dead['39'].','.$dead['40'].'';
+                $unitsdead_def[5] = ''.$dead['41'].','.$dead['42'].','.$dead['43'].','.$dead['44'].','.$dead['45'].','.$dead['46'].','.$dead['47'].','.$dead['48'].','.$dead['49'].','.$dead['50'].'';
+                $unitsdead_deff[1] = '?,?,?,?,?,?,?,?,?,?,';
+                $unitsdead_deff[2] = '?,?,?,?,?,?,?,?,?,?,';
+                $unitsdead_deff[3] = '?,?,?,?,?,?,?,?,?,?,';
+                $unitsdead_deff[4] = '?,?,?,?,?,?,?,?,?,?,';
+				$unitssend_deff[5] = '?,?,?,?,?,?,?,?,?,?,'; 
               
             //how many troops died? for battleraport
             if($battlepart['casualties_attacker'][1] == 0) { $dead1 = 0; } else { $dead1 = $battlepart['casualties_attacker'][1]; }
@@ -1664,8 +1741,7 @@ class Automation {
             $info_chief = "".$hero_pic.", Hero gained ".$heroxp." XP";
                 }
               }
-            }
-        
+            }        
             
             
                 if($scout){
@@ -1793,6 +1869,10 @@ class Automation {
                     $database->addNotice($from['owner'],3,''.addslashes($from['name']).' attacks '.addslashes($to['name']).'',$data_fail,$AttackArrivalTime);
                     }
             }
+        
+
+            
+        
         }
 			if(file_exists("GameEngine/Prevention/sendunits.txt")) {
                 @unlink("GameEngine/Prevention/sendunits.txt");
@@ -1801,6 +1881,8 @@ class Automation {
     
     private function sendreinfunitsComplete() {
         global $bid23,$database,$battle;
+		$ourFileHandle = @fopen("GameEngine/Prevention/sendreinfunits.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."movement, ".TB_PREFIX."attacks where ".TB_PREFIX."movement.ref = ".TB_PREFIX."attacks.id and ".TB_PREFIX."movement.proc = '0' and ".TB_PREFIX."movement.sort_type = '3' and ".TB_PREFIX."attacks.attack_type = '2' and endtime < $time";
         $dataarray = $database->query_return($q);
@@ -1860,6 +1942,8 @@ class Automation {
     
     private function returnunitsComplete() {
         global $database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/returnunits.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."movement, ".TB_PREFIX."attacks where ".TB_PREFIX."movement.ref = ".TB_PREFIX."attacks.id and ".TB_PREFIX."movement.proc = '0' and ".TB_PREFIX."movement.sort_type = '4' and endtime < $time";
         $dataarray = $database->query_return($q);
@@ -1901,6 +1985,7 @@ class Automation {
             $database->setMovementProc($data['moveid']);
         }
         $this->pruneResource();
+        
 		if(file_exists("GameEngine/Prevention/returnunits.txt")) {
             @unlink("GameEngine/Prevention/returnunits.txt");
         }
@@ -1908,6 +1993,8 @@ class Automation {
     
     private function sendSettlersComplete() {
         global $database, $building;
+		$ourFileHandle = @fopen("GameEngine/Prevention/settlers.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."movement where proc = 0 and sort_type = 5 and endtime < $time";
         $dataarray = $database->query_return($q);
@@ -1954,6 +2041,8 @@ class Automation {
     
     private function researchComplete() {
         global $database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/research.txt", 'w');
+        @fclose($ourFileHandle);
         $time = time();
         $q = "SELECT * FROM ".TB_PREFIX."research where timestamp < $time";
         $dataarray = $database->query_return($q);
@@ -2302,6 +2391,8 @@ class Automation {
 
     private function trainingComplete() {
         global $database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/training.txt", 'w');
+        @fclose($ourFileHandle);
         $trainlist = $database->getTrainingList();
         if(count($trainlist) > 0) {
             foreach($trainlist as $train) {
@@ -2432,6 +2523,8 @@ class Automation {
     
     private function demolitionComplete() {
         global $building,$database;
+		$ourFileHandle = @fopen("GameEngine/Prevention/demolition.txt", 'w');
+        @fclose($ourFileHandle);
         $varray = $database->getDemolition();
         foreach($varray as $vil) {
             if ($vil['timetofinish'] <= time()) {

@@ -1,4 +1,6 @@
 <div id="map_content">
+<?php if(!$session->plus){ include ("Templates/no_plus.tpl"); } ?>
+<?php if($session->plus) { ?>
 <?php 
 if(isset($_GET['z'])) {
     $currentcoor = $database->getCoor($_GET['z']);
@@ -258,4 +260,5 @@ for($h=0;$h<=12;$h++) {
             <input type="image" id="btn_ok" class="dynamic_img" value="ok" name="s1" src="img/x.gif" alt="OK" />
 
             </form></div><table cellpadding="1" cellspacing="1" id="map_infobox" class="default"><thead><tr><th colspan="2">Details</th></tr></thead><tbody><tr><th>Player</th><td>-</td></tr><tr><th>Population</th><td>-</td></tr><tr><th>Alliance</th><td>-</td></tr></tbody></table></div>
+<?php } ?>
 </div>

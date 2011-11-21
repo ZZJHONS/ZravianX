@@ -1,20 +1,28 @@
 <?php
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-//                                             TRAVIANX                                             //
-//            Only for advanced users, do not edit if you dont know what are you doing!             //
-//                                Made by: Dzoki & Dixie (TravianX)                                 //
-//                              - TravianX = Travian Clone Project -                                //
-//                                 DO NOT REMOVE COPYRIGHT NOTICE!                                  //
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.07                                                  ##
+##  Filename:      install/templates/end.tpl                                   ##
+##  Developed by:  Dzoki & Dixie                                               ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 ?>
 <p>
-Thanks for installing TravianX.
-<h4>Please remove/rename the installation folder.</h4>
-All the files are placed. The database is created, so you can now start playing on your own Travian.
+    Thanks for installing ZravianX.
+    <h4>Please remove/rename the installation folder.</h4>
+    All the files are placed. The database is created, so you can now start playing on your own Travian.
 </p>
-    
 <?php include("../GameEngine/config.php"); ?>
 <p>
-<center><font size="4"><a href="<?php echo HOMEPAGE; ?>">> My TravianX homepage <</font></a></center>
+    <center><font size="4"><a href="<?php echo HOMEPAGE; ?>">&raquo; My TravianX homepage &laquo;</a></font></center>
 </p>
-</div>

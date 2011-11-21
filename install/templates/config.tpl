@@ -1,18 +1,37 @@
 <?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.07                                                  ##
+##  Filename:      install/templates/config.tpl                                ##
+##  Edited by:     ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
 if(isset($_GET['c']) && $_GET['c'] == 1) {
 echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php check cmod.</span></div><br>";
 }
 ?>
 <form action="process.php" method="post" id="dataform">
-
 	<p>
-	<span class="f10 c">SERVER RELATED</span>
-	<table><tr>
-	<td><span class="f9 c6">Server name:</span></td><td width="140"><input type="text" name="servername" id="servername" value="TravianX"></td></tr><tr>
-	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="1" size="2"></td></tr><tr>
-	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="2" size="2"></td></tr><tr>
-	<td><span class="f9 c6">Trader capacity (1 = 1x...):</span></td><td width="140"><input type="text" name="tradercap" id="tradercap" value="1" size="2"></td></tr><tr>
+        <span class="f10 c">SERVER RELATED</span>
+        <table>
+            <tr>
+                <td><span class="f9 c6">Server name:</span></td>
+                <td width="140"><input type="text" name="servername" id="servername" value="ZravianX"></td>
+            </tr>
+        <tr>
+	<td><span class="f9 c6">Server speed:</span></td><td><input name="speed" type="text" id="speed" value="30" size="2"></td></tr><tr>
+	<td><span class="f9 c6">Troop speed:</span></td><td width="140"><input type="text" name="incspeed" id="incspeed" value="15" size="2"></td></tr><tr>
+	<td><span class="f9 c6">Trader capacity (1 = 1x...):</span></td><td width="140"><input type="text" name="tradercap" id="tradercap" value="10" size="2"></td></tr><tr>
 	<td><span class="f9 c6">World size:</span></td><td>
 				<select name="wmax">
 				<option value="10">10x10</option>
@@ -30,7 +49,8 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<td><span class="f9 c6">Homepage:</span></td><td><input name="homepage" type="text" id="homepage" value="http://<?php echo $_SERVER['HTTP_HOST']; ?>/"></td></tr><tr></tr>
 	<td><span class="f9 c6">Language:</span></td><td>
 				<select name="lang">
-				<option value="en" selected="selected">English</option>
+                    <option value="en" selected="selected">English</option>
+                    <option value="es">Spanish</option>
 				</select>
 		</td></tr><tr></tr>
 	<td><span class="f9 c6">Beginners protection length:</span></td><td>
@@ -68,18 +88,18 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 				<option value="3600*24*7">7 days</option>
 				</select>
 		</td></tr><tr></tr>	
-	<td><span class="f9 c6">Storage Multipler:</span></td><td width="140"><input type="text" name="storage_multiplier" id="storage_multiplier" value="1"></td></tr><tr>
+	<td><span class="f9 c6">Storage Multipler:</span></td><td width="140"><input type="text" name="storage_multiplier" id="storage_multiplier" value="10"></td></tr><tr>
 	<td><span class="f9 c6">Tourn Threshold:</span></td><td width="140"><input type="text" name="ts_threshold" id="ts_threshold" value="20"></td></tr><tr>
 	<td><span class="f9 c6">Great Workshop:</span></td><td>
 				<select name="great_wks">
-				<option value="True" selected="selected">True</option>
-				<option value="False">False</option>
+				<option value="true" selected="selected">True</option>
+				<option value="false">False</option>
 				</select>
 		</td></tr><tr></tr>		
 	<td><span class="f9 c6">ww:</span></td><td>
 				<select name="ww">
-				<option value="True" selected="selected">True</option>
-				<option value="False">False</option>
+				<option value="true">True</option>
+				<option value="false" selected="selected">False</option>
 				</select>
 		</td></tr><tr></tr>			
 		</table>
@@ -89,12 +109,12 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f10 c">ADMIN ACCOUNT</span>
 	<table>
 	<tr><td><span class="f9 c6">Admin name:</span></td><td><input type="text" name="aname" id="aname" value=""></td></tr>
-	<tr><td><span class="f9 c6">Admin email:</span></td><td><input type="text" name="aemail" id="aemail" value=""></td></tr>
+	<tr><td><span class="f9 c6">Admin email:</span></td><td><input type="text" name="aemail" id="aemail" value="admin@<?php echo $_SERVER['HTTP_HOST']; ?>"></td></tr>
 
 	<td><span class="f9 c6">Show admin in stats:</span></td><td>
 				<select name="admin_rank">
-				<option value="True" selected="selected">True</option>
-				<option value="False">False</option>
+				<option value="true" selected="selected">True</option>
+				<option value="false">False</option>
 				</select>
 		</td></tr><tr></tr>
 	</table>
@@ -105,7 +125,7 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<table><tr>
 	<td><span class="f9 c6">Hostname:</span></td><td><input name="sserver" type="text" id="sserver" value="localhost"></td></tr><tr>
 	<td><span class="f9 c6">Username:</span></td><td><input name="suser" type="text" id="suser" value=""></td></tr><tr>
-	<td><span class="f9 c6">Password:</span></td><td><input type="text" name="spass" id="spass"></td></tr><tr>
+	<td><span class="f9 c6">Password:</span></td><td><input type="password" name="spass" id="spass"></td></tr><tr>
 	<td><span class="f9 c6">DB name:</span></td><td><input type="text" name="sdb" id="sdb"></td></tr><tr>
 	<td><span class="f9 c6">Prefix:</span></td><td><input type="text" name="prefix" id="prefix" value="s1_" size="5"></td></tr>
 	<td><span class="f9 c6">Type:</span></td><td><select name="connectt">
@@ -115,32 +135,22 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</table>
 	</p>
 
-<!-- <LEFT BOX - ADMIN RELATED> 
+	<p>
+	<span class="f10 c">GPACK RELATED</span>
+	<table><tr>
+    <td><span class="f9 c6">GPack:</span></td><td>
+    	<select name="gpack">
+        <option value="false" selected="selected">No</option>
+        <option value="true" disabled="disabled">Yes</option>
+        </select>
+        </td></tr><tr>
+        <td><span class="f9 c6">GPack Design:</span></td><td>
+        <select name="gp_locate">
+	  <option value="gpack/travian_default/" selected="selected">Travian Default</option>
+	  <option value="gpack/travianx_v1/">ZravianX</option></select>
+      </td></tr>
 
-	<span><center><strong>ADMIN RELATED</strong></center></span><br />
-	<span class="f9 c6 cc2">Admin Name:</span><span class="cc3"><input type="text" name="aname" id="aname"></span><br /><br />
-	<span class="f9 c6 cc2">Admin Email:</span><span class="cc3"><input name="aemail" type="text" id="aemail"></span><br /><br />
-	<span class="f9 c6 cc2">Admin rank:</span><span class="cc3" style="position: absolute;right:20%;"><select name="admin_rank">
-	  <option value="false">No</option>
-	  <option value="true" selected="selected">Yes</option></select></span><br /><br />
-
-<!-- </LEFT BOX - ADMIN RELATED> -->
-
-<!-- <RIGHT BOX - GPACK RELATED> 
-
-	<span><center><strong>GPACK RELATED</strong></center></span><br />
-
-	
-	<span class="f9 c6 c2">GPack:</span><span class="c3"><select name="gpack">
-	  <option value="false" selected="selected">No</option>
-	  <option value="true" disabled="disabled">Yes</option></select></span><br /><br />
-	<span class="f9 c6 c2">GPack Design:</span><span class="c3"><select name="gp_locate">
-	  <option value="gpack/travian_default/" selected="selected">Travian Default
-	  <option value="gpack/travianx_v1/">TravianX v1 by Dzoki</option></select></span><br /><br />
-	
--->
-<!-- </RIGHT BOX - GPACK RELATED> -->
-
+</table></p>
 	 
 	<p>
 	<span class="f10 c">NEWSBOX OPTIONS</span>
@@ -150,12 +160,25 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="false">Disabled</option>
 	</select></td></tr>
 	<td><span class="f9 c6">Newsbox 2:</span></td><td><select name="box2">
+	  <option value="true">Enabled</option>
+	  <option value="false" selected="selected">Disabled</option>
+	</select></td></tr>
+	<td><span class="f9 c6">Newsbox 3:</span></td><td><select name="box3">
+	  <option value="true">Enabled</option>
+	  <option value="false" selected="selected">Disabled</option>
+	</select></td></tr>
+    <tr>
+	<td><span class="f9 c6">Home Newsbox 1:</span></td><td><select name="home1">
 	  <option value="true" selected="selected">Enabled</option>
 	  <option value="false">Disabled</option>
 	</select></td></tr>
-	<td><span class="f9 c6">Newsbox 3:</span></td><td><select name="box3">
-	  <option value="true" selected="selected">Enabled</option>
-	  <option value="false">Disabled</option>
+	<td><span class="f9 c6">Home Newsbox 2:</span></td><td><select name="home2">
+	  <option value="true">Enabled</option>
+	  <option value="false" selected="selected">Disabled</option>
+	</select></td></tr>
+	<td><span class="f9 c6">Home Newsbox 3:</span></td><td><select name="home3">
+	  <option value="true">Enabled</option>
+	  <option value="false" selected="selected">Disabled</option>
 	</select></td></tr>
 	</table>
 	</p>
@@ -164,12 +187,12 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	<span class="f10 c">LOG RELATED</span>
 	<table><tr>
 	<td><span class="f9 c6">Log Building:</span></td><td><select name="log_build">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Tech:</span></td><td><select name="log_tech">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Login:</span></td><td><select name="log_login">
 	  <option value="true" selected="selected">Yes</option>
@@ -185,18 +208,14 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="false">No</option>
 	</select></td></tr>
 	<tr>	<td><span class="f9 c6">Log War:</span></td><td><select name="log_war">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Market:</span></td><td><select name="log_market">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
+	  <option value="true">Yes</option>
+	  <option value="false" selected="selected">No</option>
 	</select></td></tr><tr>
 	<td><span class="f9 c6">Log Illegal:</span></td><td><select name="log_illegal">
-	  <option value="true" selected="selected">Yes</option>
-	  <option value="false">No</option>
-	</select></td></tr><tr>
-	<td><span class="f9 c6">Log :</span></td><td><select name="">
 	  <option value="true" selected="selected">Yes</option>
 	  <option value="false">No</option>
 	</select></td></tr>
@@ -234,19 +253,52 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	  <option value="error_reporting (E_ALL ^ E_NOTICE);" selected="selected">Yes</option>
 	  <option value="error_reporting (0);">No</option>
 	</select></td></tr>
-	<td><span class="f9 c6">Show admin in stats:</span></td><td>
-				<select name="admin_rank">
-				<option value="True" selected="selected">True</option>
-				<option value="False">False</option>
-				</select>
-		</td></tr><tr></tr>
 	</table>
 	</p>
 
+	<p>
+    <span class="f10 c">TRAVIAN 4 OPTIONS</span>
+    <table>
+    	<tr>
+        	<td><span class="f9 c6">Index:</span></td>
+            <td>
+            	<select name="index">
+					<option value="false">Travian 3.6</option>
+					<option value="true" selected="selected">Travian 4</option>
+				</select>
+            </td>
+        </tr>
+        <tr>
+        	<td><span class="f9 c6">Favicon:</span></td>
+            <td>
+				<select name="favicon">
+					<option value="false">Travian 3.6</option>
+					<option value="true" selected="selected">Travian 4</option>
+				</select>
+            </td>
+        </tr>
+        <tr>
+        	<td><span class="f9 c6">Login:</span></td>
+            <td>
+                <select name="login">
+                    <option value="false">Travian 3.6</option>
+                    <option value="true" selected="selected">Travian 4</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+        	<td><span class="f9 c6">Register:</span></td>
+            <td>
+                <select name="register">
+                    <option value="false">Travian 3.6</option>
+                    <option value="true" selected="selected">Travian 4</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    </p>
 
 	<center>
 	<input type="submit" name="Submit" id="Submit" value="Submit">
 	<input type="hidden" name="subconst" value="1"></center>
-	</form>
-
-</div>
+</form>

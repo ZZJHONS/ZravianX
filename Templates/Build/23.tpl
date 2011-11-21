@@ -8,14 +8,82 @@
 	<table cellpadding="1" cellspacing="1" id="build_value">
 	<tr>
 		<th>Currently hidden units per resource:</th>
+<?php
+		if($session->tribe == 1) {
+		?>
 		<td><b><?php echo $bid23[$village->resarray['f'.$id]]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 2) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 3) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]]['attri']*2; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 4) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 5) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
 	</tr>
 	<tr>
 <?php 
         if(!$building->isMax($village->resarray['f'.$id.'t'],$id)) {
         ?>
 		<th>Hidden units per resource at level <?php echo $village->resarray['f'.$id]+1; ?>:</th>
+<?php
+		if($session->tribe == 1) {
+		?>
 		<td><b><?php echo $bid23[$village->resarray['f'.$id]+1]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 2) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]+1]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 3) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]+1]['attri']*2; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 4) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]+1]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
+<?php
+		if($session->tribe == 5) {
+		?>
+		<td><b><?php echo $bid23[$village->resarray['f'.$id]+1]['attri']; ?></b> units</td>
+		<?php
+			}
+		?>
         <?php
             }
             ?>

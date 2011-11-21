@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs">
+<head>
+<title>Objekt nenalezen!</title>
+<link rev="made" href="mailto:you@example.com" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Objekt nenalezen!</h1>
+<p>
+
+
+    Požadované URL nebylo na tomto serveru nalezeno.
+
+  
+
+    Zdá se, že odkaz na
+    <a href="http://www.travmania10.eu/%23">odkazující
+    stránce</a> je chybný nebo zastaralý. Informujte, prosím, autora
+    <a href="http://www.travmania10.eu/%23">této stránky</a>
+    o&nbsp;chybě.
+
+  
+
+</p>
+<p>
+Pokud si myslíte, že toto je chyba serveru, kontaktujte, prosím,
+<a href="mailto:you@example.com">webmastera</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">www.travmania10.eu</a><br />
+  
+  <span>Sun 18 Sep 2011 04:46:03 PM UTC<br />
+  Apache/2.2.17 (Unix) DAV/2 mod_ssl/2.2.17 OpenSSL/1.0.0c PHP/5.3.5 mod_apreq2-20090110/2.7.1 mod_perl/2.0.4 Perl/v5.10.1</span>
+</address>
+</body>
+</html>
+

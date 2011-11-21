@@ -1,0 +1,67 @@
+body {margin:0; padding:0;color:#432601;background:#ebd572 url(../images/bg.jpg) center top no-repeat; font-family:Arial, Helvetica, sans-serif; height:100%;}
+#container {margin:0 auto; width:915px; height:773px;}
+#row_banner{ height:137px; text-align:center; }
+#row_content{background:url(../images/content_bg1.gif) left top no-repeat;  height:636px;}
+#logo{ text-align:center; padding-top:10px;}
+#c-row-one{ float:left; clear:left; height:180px; width:100%;}
+#c-row-one #stat{ float:left; display:inline; margin-top:95px; margin-left:84px; width:218px; font-size:14px;}
+#c-row-one #stat #stat-head{margin-bottom:4px;}
+#c-row-one #stat .sl {width:122px;}
+#c-row-one #stat .sr {text-align:left;font-weight:600;}
+#c-row-one #news{ float:left; display:inline; margin-top:15px; margin-left:140px;}
+.nes-header{font-size:14px; font-style:italic; font-weight:bold; margin-bottom:5px; margin-top:5px;}
+#c-row-one #screenshot{ float:right; display:inline;margin-right:40px; margin-top:25px;}
+#c-row-one #screenshot #ss-head{ margin-bottom:10px;}
+#c-row-one #screenshot img{ display:block;}
+#c-row-two{float:left; clear:left; height:404px; width:100%;}
+#c-row-two #info-box{ float:left; display:inline; margin-left:22px; margin-top:30px; width:167px;}
+#c-row-two #info-text{ margin-top:5px;font-size:14px;}
+#c-row-two #info-text2{font-size:14px; color:#ff4900; font-weight:bold;}
+#c-row-two #registration-box{ float:right; display:inline;margin-right:47px; width:376px;}
+#registration-box #header{ text-align:center; margin-bottom:8px;}
+#registration-box .row{ clear:left; float:left;font-size:13px; margin:auto;}
+.row .space{ margin-right:5px; }
+.row .column{ width:122px; text-align:center; float:left; background-color:#e3d591; font-weight:bold; }
+.column .character{}
+#vid1,#vid2,#vid3,.button label {cursor:pointer;}
+.column .text{ font-size:10px; padding:8px 5px 8px 5px; height:60px; font-weight:bold; }
+.column .button{ font-size:13px; border:2px solid #432601; background-color:#ffffff; width:80%; margin:auto; padding-bottom:2px; }
+.input_form{width:100%;}
+.input_form #info{height:19px; color:#dd1d03; padding-top:2px; padding-left:12px;}
+.regForm_input {width: 176px;padding: 1px;border: 2px solid #432601;}
+#reg_details .fleft{ text-align:right;}
+.box-header{font-size:14px; font-style:italic; font-weight:bold; margin-bottom:5px; margin-top:5px;}
+#type2{ font-size:24px;}
+#btn{background:url(../images/register.gif) left top no-repeat; width:211px; height:37px; border:0; cursor:pointer; font-size:19px; color:#ffffff; text-align:left; font-weight:bold; padding-left:35px; padding-top:0px;}
+#footer {float:right; clear:both; font-size:11px; text-align:right; padding-right:30px;}
+#containerSlider {display:none;position:fixed;_position:absolute;height:500px;width:700px;;z-index:102;overflow-x: hidden;overflow-y: hidden;}
+#backgroundSlider{display:none;position:fixed;_position:absolute;height:100%;width:100%;top:0;left:0;background:#000000;z-index:101;}
+#sliderClose{cursor:pointer; color:#ffffff; right:15px; position: absolute; font-weight: bold;}
+a.brown {color:#432601;	text-decoration:underline;}
+a.brown hover {	color:#432601;	text-decoration:underline;}
+a.brown active {color:#432601;	text-decoration:underline;}
+a.brown visited {color:#432601;	text-decoration:underline;}
+a.orange {color:#ff4900;}
+a.orange hover {color:#ff4900;}
+a.orange active {color:#ff4900;}
+a.orange visited {color:#ff4900;}
+a,input {position:relative;}
+
+/* Easy Slider */
+#slider{ display:block;}
+#slider ul, #slider li{ margin:0;padding:0;list-style:none;}
+#slider li{ width:530px; height:500px; overflow:hidden;}
+#prevBtn, #nextBtn{   display:block; width:32px; height:62px; position:absolute; left:3px; top:200px;}
+#nextBtn{   left:665px;}
+#prevBtn a, #nextBtn a{ display:block; width:32px; height:62px;  background:url(../images/btn_prev.gif) no-repeat 0 0;}
+#nextBtn a{   background:url(../images/btn_next.gif) no-repeat 0 0;}
+
+#agb_box {margin-top: 6px;}
+
+/* Div Layer f?r die Zeitanzeige */
+.div3 {position:absolute; width:220px; height:15px; z-index:3; left:5px; top:0px; color:#FFF; font-size:10px;
+}
+.l0 {position:absolute; width:430px; z-index:5; left: 250px; top: 160px; background:#FFFEDD; background-image:url(../images/sww2.gif);}
+.l1 {color:#432601; margin-left:15px; margin-bottom:10px; margin-top:-10px;}
+.l2 {color:#432601; margin-left:15px; margin-right:20px; margin-bottom:10px; border-style:dashed; border-width:1px; border-color:#FFFEDD; padding:6px;}
+.l3 {position:absolute; right:20px; margin-left:20px; text-align:right;}

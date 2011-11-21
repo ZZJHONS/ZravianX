@@ -325,7 +325,7 @@
 
         	public function sendWelcome($uid, $username) {
         		global $database;
-        		$welcomemsg = file_get_contents("GameEngine/Admin/welcome.tpl");
+        		$welcomemsg = file_get_contents("Templates/welcome.tpl");
         		$welcomemsg = preg_replace("'%USER%'", $username, $welcomemsg);
         		$welcomemsg = preg_replace("'%START%'", date("y.m.d", COMMENCE), $welcomemsg);
         		$welcomemsg = preg_replace("'%TIME%'", date("H:i", COMMENCE), $welcomemsg);
