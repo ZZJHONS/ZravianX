@@ -1,11 +1,23 @@
-Title : README
-Author : Advocaite
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.21                                                  ##
+##  Filename:      README                                                      ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
 
-TravianX Brought to you by Advocaite & donn
-This clone has seen many authors allkori,dzoki,dixxie PLus many more
-the install process is fairly easy to do just make sure
-GameEngine/Config.php Dose not exsist if it dose exsist delete it 
-Then run server in localhost you should be directed to a install page
-folow instructions then play and enjoy.
-
-thankyou for you time
+Hi, I'm ZZJHONS and I will improve TravianX.
+Then I created this project: ZravianX
+I'm working on new T4 graphics and fixing some bug.
+You can download this Game, but please, don't remove the copyright.
+If you have any ask can contact my with Skype: ZZJHONS
+And my e-mail: zzjhons@gmail.com
