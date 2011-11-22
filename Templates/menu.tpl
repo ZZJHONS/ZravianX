@@ -107,8 +107,4 @@ if(!$session->logged_in) {
     </div>
 </div>
 <div id="ce"></div>
-<?php
-die();
-}
-}
-?>
+<?php die();} } ?>
