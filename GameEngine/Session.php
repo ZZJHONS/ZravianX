@@ -6,9 +6,9 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.10.30                                                  ##
+##  Version:       2011.11.22                                                  ##
 ##  Filename:      GameEngine/Session.php                                      ##
-##  Edited by:     ZZJHONS                                                     ##
+##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
 ##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
 ##  URLs:          http://zravianx.zzjhons.com                                 ##
@@ -165,6 +165,8 @@
         		$this->alliance = $this->userarray['alliance'];
         		$this->checker = $_SESSION['checker'];
         		$this->mchecker = $_SESSION['mchecker'];
+				$this->sit1 = $this->userarray['sit1'];
+				$this->sit2 = $this->userarray['sit2'];
 				$this->cp = $this->userarray['cp'];
         		$this->gold = $this->userarray['gold'];
         		$this->oldrank = $this->userarray['oldrank'];
