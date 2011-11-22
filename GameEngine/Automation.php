@@ -1738,7 +1738,7 @@ class Automation {
 					}
                 }
 			}
-        }        
+        }
             
             
                 if($scout){

@@ -455,7 +455,7 @@
                     $troopcount = $this->countOasisTroops($wref);
 					if($OasisInfo['conqured'] == 0 || $OasisInfo['conqured'] != 0 && $OasisInfo['loyalty'] < 99 / min(3,(4-$this->VillageOasisCount($OasisInfo['conqured']))) && $troopcount == 0) {
 						$CoordsVillage = $this->getCoor($vref);
-			            $CoordsOasis = $this->getCoor($wref);
+						$CoordsOasis = $this->getCoor($wref);
 						if(abs($CoordsOasis['x']-$CoordsVillage['x'])<=3 && abs($CoordsOasis['y']-$CoordsVillage['y'])<=3) {
 							return True;
 						} else {
@@ -469,6 +469,8 @@
 				}
 			}
 
+           
+            
 			public function conquerOasis($vref,$wref) {
 				$vinfo = $this->getVillage($vref);
 				$uid = $vinfo['owner'];
@@ -486,7 +488,7 @@
 					}
 				}
 			}
-
+			
         	function populateOasis() {
         		$q = "SELECT * FROM " . TB_PREFIX . "wdata where oasistype != 0";
         		$result = mysql_query($q, $this->connection);
