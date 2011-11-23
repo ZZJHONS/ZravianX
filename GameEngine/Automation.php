@@ -1,17 +1,13 @@
 <?php
+
 #################################################################################
-##                                                                             ##
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       GameEngine/Automation.php                                   ##
-##  Developed by:  Dzoki & Dixie                                               ##
-##  Reworked by:   Advocaite & Vnnbot                                          ##
-##  Edited by:     ZZJHONS                                                     ##
+##  Filename       Automation.php                                              ##
+##  Developed by:  Dzoki & Dixie Reworked buy Advocaite                        ##
 ##  Thanks to:     Akakori & Elmar & G3n3s!s & TopErwin & TTMMTT               ##
 ##  License:       TravianX Project                                            ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
-##  Webs:          http://www.xtravian.eu & http://zravianx.zzjhons.com        ##
-##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 
@@ -649,8 +645,9 @@ class Automation {
                         }
                         }
                         
-						//choose a building to attack
-                           /* if($catp > 0 and $type=='3'){
+                        
+                            //choose a building to attack
+                            if($catp > 0 and $type=='3'){
                                 if($toF['pop']>'1'){
                                     for ($i=1; $i<2; $i++){
                                         //$rand=rand(1,39);
@@ -690,10 +687,8 @@ class Automation {
                                     }
                                 } else { $empty='1'; }
                             } else { $tblevel = '0'; }
-                                    $stonemason = "1";  */
-                                    
-							$tblevel = '1';                    
-							$stonemason = "1";
+                                    $stonemason = "1";
+
                             
             /*--------------------------------
             // End Battle part
@@ -836,74 +831,6 @@ class Automation {
                 $unitssend_deff[3] = '?,?,?,?,?,?,?,?,?,?,'; 
                 $unitssend_deff[4] = '?,?,?,?,?,?,?,?,?,?,'; 
                 $unitssend_deff[5] = '?,?,?,?,?,?,?,?,?,?,'; 
-                for($i=1;$i<=50;$i++) {
-            $total_def += $dead['u'.$i];
-            }
-            //how many troops died? for battleraport
-            if($battlepart['casualties_attacker'][1] == 0) { $dead1 = 0; } else { $dead1 = $battlepart['casualties_attacker'][1]; }
-            if($battlepart['casualties_attacker'][2] == 0) { $dead2 = 0; } else { $dead2 = $battlepart['casualties_attacker'][2]; }
-            if($battlepart['casualties_attacker'][3] == 0) { $dead3 = 0; } else { $dead3 = $battlepart['casualties_attacker'][3]; }
-            if($battlepart['casualties_attacker'][4] == 0) { $dead4 = 0; } else { $dead4 = $battlepart['casualties_attacker'][4]; }
-            if($battlepart['casualties_attacker'][5] == 0) { $dead5 = 0; } else { $dead5 = $battlepart['casualties_attacker'][5]; }
-            if($battlepart['casualties_attacker'][6] == 0) { $dead6 = 0; } else { $dead6 = $battlepart['casualties_attacker'][6]; }
-            if($battlepart['casualties_attacker'][7] == 0) { $dead7 = 0; } else { $dead7 = $battlepart['casualties_attacker'][7]; }
-            if($battlepart['casualties_attacker'][8] == 0) { $dead8 = 0; } else { $dead8 = $battlepart['casualties_attacker'][8]; }
-            if($battlepart['casualties_attacker'][9] == 0) { $dead9 = 0; } else { $dead9 = $battlepart['casualties_attacker'][9]; }
-            if($battlepart['casualties_attacker'][10] == 0) { $dead10 = 0; } else { $dead10 = $battlepart['casualties_attacker'][10]; }
-
-            
-                    //kill own defence
-                    $q = "SELECT * FROM ".TB_PREFIX."units WHERE vref='".$data['to']."'";
-                    $unitlist = $database->query_return($q); 
-                    $start = ($targettribe-1)*10+1;
-                    $end = ($targettribe*10);
-                        
-                        if($targettribe == 1){ $u = ""; $rom='1'; } else if($targettribe == 2){ $u = "1"; $ger='1'; } else if($targettribe == 3){$u = "2"; $gal='1'; }else if($targettribe == 4){ $u = "3"; $nat='1'; } else { $u = "4"; $natar='1'; }     //FIX
-                            for($i=$start;$i<=$end;$i++) { if($i==$end){ $u=$targettribe; }
-                                if($unitlist){
-                                    $dead[$i]+=round($battlepart[2]*$unitlist[0]['u'.$i]);
-                                    $database->modifyUnit($data['to'],$i,round($battlepart[2]*$unitlist[0]['u'.$i]),0);
-                                }
-                            }
-            //kill other defence in village
-            if(count($database->getEnforceVillage($data['to'],0)) > 0) {
-                foreach($database->getEnforceVillage($data['to'],0) as $enforce) {
-                    $life='';    $notlife=''; $wrong='0';
-                    $tribe = $database->getUserField($database->getVillageField($enforce['from'],"owner"),"tribe",0);
-                    $start = ($tribe-1)*10+1;
-                    
-                    if($tribe == 1){ $rom='1'; } else if($tribe == 2){ $ger='1'; }else if($tribe == 3){ $gal='1'; }else if($tribe == 4){ $nat='1'; } else { $natar='1'; }
-                        for($i=$start;$i<=($start+9);$i++) {
-                            if($enforce['u'.$i]>'0'){
-                                $database->modifyEnforce($enforce['id'],$i,round($battlepart[2]*$enforce['u'.$i]),0);
-                                $dead[$i]+=round($battlepart[2]*$enforce['u'.$i]);
-                                    if($dead[$i]!=$enforce['u'.$i]){
-                                    $wrong='1';
-                                    }
-                            } else {
-                                $dead[$i]='0';
-                            }
-                        $notlife="".$notlife.",".$dead[$i]."";
-                        $life="".$life.",".$enforce['u'.$i.'']."";
-                        }
-                        //NEED TO SEND A RAPPORTAGE!!!
-                        $data2 = ''.$database->getVillageField($enforce['from'],"owner").','.$to['wref'].','.addslashes($to['name']).','.$tribe.''.$life.''.$notlife.'';
-                        $database->addNotice($database->getVillageField($enforce['from'],"owner"),15,'Reinforcement in '.addslashes($to['name']).' was attacked',$data2,$AttackArrivalTime);
-                        //delete reinf sting when its killed all.
-                        if($wrong=='0'){ $database->deleteReinf($enforce['id']); }
-                }
-            }
-                $unitsdead_def[1] = ''.$dead['1'].','.$dead['2'].','.$dead['3'].','.$dead['4'].','.$dead['5'].','.$dead['6'].','.$dead['7'].','.$dead['8'].','.$dead['9'].','.$dead['10'].'';
-                $unitsdead_def[2] = ''.$dead['11'].','.$dead['12'].','.$dead['13'].','.$dead['14'].','.$dead['15'].','.$dead['16'].','.$dead['17'].','.$dead['18'].','.$dead['19'].','.$dead['20'].'';
-                $unitsdead_def[3] = ''.$dead['21'].','.$dead['22'].','.$dead['23'].','.$dead['24'].','.$dead['25'].','.$dead['26'].','.$dead['27'].','.$dead['28'].','.$dead['29'].','.$dead['30'].'';
-                $unitsdead_def[4] = ''.$dead['31'].','.$dead['32'].','.$dead['33'].','.$dead['34'].','.$dead['35'].','.$dead['36'].','.$dead['37'].','.$dead['38'].','.$dead['39'].','.$dead['40'].'';
-                $unitsdead_def[5] = ''.$dead['41'].','.$dead['42'].','.$dead['43'].','.$dead['44'].','.$dead['45'].','.$dead['46'].','.$dead['47'].','.$dead['48'].','.$dead['49'].','.$dead['50'].'';
-                $unitsdead_deff[1] = '?,?,?,?,?,?,?,?,?,?,';
-                $unitsdead_deff[2] = '?,?,?,?,?,?,?,?,?,?,';
-                $unitsdead_deff[3] = '?,?,?,?,?,?,?,?,?,?,';
-                $unitsdead_deff[4] = '?,?,?,?,?,?,?,?,?,?,';
-				$unitssend_deff[5] = '?,?,?,?,?,?,?,?,?,?,'; 
-              
             //how many troops died? for battleraport
             if($battlepart['casualties_attacker'][1] == 0) { $dead1 = 0; } else { $dead1 = $battlepart['casualties_attacker'][1]; }
             if($battlepart['casualties_attacker'][2] == 0) { $dead2 = 0; } else { $dead2 = $battlepart['casualties_attacker'][2]; }
@@ -1182,473 +1109,63 @@ class Automation {
                     }                  
                 }
             }
-           if ($type=='3')
-{
-    if ($catp!='0')
-    {
-        
-        if($toF['pop']<=0)
-        {
-            $info_cat = ",".$catp_pic.", Village already destroyed.";
-        }
-        else
-        {
-            $basearray = $data['to']; 
-            
-            if ($data['ctar2']==0)
-            {                               
-                $bdo2=mysql_query("select * from " . TB_PREFIX . "fdata where vref = $basearray");
-                $bdo=mysql_fetch_array($bdo2);
-                
-                $rand=$data['ctar1'];
-                
-                if ($rand != 0)
-                {
-                    $_rand=array();
-                    $__rand=array();
-                    $j=0;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i.'t']==$rand && $bdo['f'.$i]>0) 
-                        {
-                            $j++;
-                            $_rand[$j]=$bdo['f'.$i];    
-                            $__rand[$j]=$i;             
-                        }
-                    }
-                    if (count($_rand)>0)
-                    {
-                        if (max($_rand)<=0) $rand=0;
-                        else
-                        {
-                            $rand=rand(1, $j);
-                            $rand=$__rand[$rand];
-                        }  
-                    }                                
-                    else
-                    {
-                        $rand=0;
-                    }                                 
-                }
-                
-                if ($rand == 0)
-                {
-                    $list=array();
-                    $j=1;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i] > 0)
-                        {
-                            $list[$j]=$i;
-                            $j++;
-                        }
-                    }
-                    $rand=rand(1, $j);
-                    $rand=$list[$rand];
-                }
-                                            
-                $tblevel = $bdo['f'.$rand];
-                $tbgid = $bdo['f'.$rand.'t'];
-                $tbid = $rand; 
-                $needed_cata = round((($battlepart[5] * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$battlepart[6]))/200) / (1 * $bid34[$stonemason]['attri']/100))) + 0.5);
-                if ($battlepart[4]>$needed_cata)
-                {
-                    $info_cat = "".$catp_pic.", ".$this->procResType($tbgid)." destroyed.";
-                    $database->setVillageLevel($data['to'],"f".$tbid."",'0');
-                    if($tbid>=19) { $database->setVillageLevel($data['to'],"f".$tbid."t",'0'); }
-                    $buildarray = $GLOBALS["bid".$tbgid];
-                    if ($tbgid==10 || $tbgid==38) {
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxstore=$t_sql['maxstore']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxstore<800) $tmaxstore=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }
-                    if ($tbgid==11 || $tbgid==39) {                    
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxcrop=$t_sql['maxcrop']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxcrop<800) $tmaxcrop=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }                                    
-                    $pop=$this->recountPop($data['to']);
-                    if($pop=='0')
-                    { 
-                        $varray = $database->getProfileVillages($to['owner']);
-                        if(count($varray)!='1' AND $to['capital']!='1'){
-                                $q = "DELETE FROM ".TB_PREFIX."abdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."bdata where wid = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."enforcement where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."fdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."market where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."movement where to = ".$data['to']." or from = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."odata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."research where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."tdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."training where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."units where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."vdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "UPDATE ".TB_PREFIX."wdata set occupied = 0 where id = ".$data['to'];
-                                $database->query($q);
-                                $logging->VillageDestroyCatalog($data['to']);
-                        }
-                    }
-                }
-                elseif ($battlepart[4]==0)
-                {                        
-                    $info_cat = "".$catp_pic.",".$this->procResType($tbgid)." was not damaged.";
-                }
-                else
-                {                
-                    $demolish=$battlepart[4]/$needed_cata;
-                    $totallvl = round(sqrt(pow(($tblevel+0.5),2)-($battlepart[4]*8)));
-                    if ($tblevel==$totallvl) 
-                        $info_cata=" was not damaged.";
-                    else
-                    {
-                        $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b>.";
-                        $buildarray = $GLOBALS["bid".$tbgid];
-                        if ($tbgid==10 || $tbgid==38) {
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxstore=$t_sql['maxstore']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxstore<800) $tmaxstore=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }
-                        if ($tbgid==11 || $tbgid==39) {                    
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxcrop=$t_sql['maxcrop']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxcrop<800) $tmaxcrop=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }       
-                        $pop=$this->recountPop($data['to']);
-                    }
-                    $info_cat = "".$catp_pic.",".$this->procResType($tbgid).$info_cata;
-                    $database->setVillageLevel($data['to'],"f".$tbid."",$totallvl);
-                }
-            }
-            else
-            {
-                $bdo2=mysql_query("select * from " . TB_PREFIX . "fdata where vref = $basearray");
-                $bdo=mysql_fetch_array($bdo2);
-                $rand=$data['ctar1'];
-                if ($rand != 0)
-                {
-                    $_rand=array();
-                    $__rand=array();
-                    $j=0;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i.'t']==$rand && $bdo['f'.$i]>0)
-                        {
-                            $j++;
-                            $_rand[$j]=$bdo['f'.$i];  
-                            $__rand[$j]=$i;           
-                        }
-                    }
-                    if (count($_rand)>0)
-                    {
-                        if (max($_rand)<=0) $rand=0;
-                        else
-                        {
-                            $rand=rand(1, $j);
-                            $rand=$__rand[$rand];
-                        }  
-                    }                                
-                    else
-                    {
-                        $rand=0;
-                    }                                 
-                }
-                
-                if ($rand == 0)
-                {
-                    $list=array();
-                    $j=0;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i] > 0)
-                        {
-                            $j++;
-                            $list[$j]=$i;
-                        }
-                    }
-                    $rand=rand(1, $j);
-                    $rand=$list[$rand];
-                }
-                                            
-                $tblevel = $bdo['f'.$rand];
-                $tbgid = $bdo['f'.$rand.'t'];
-                $tbid = $rand; 
-                $needed_cata = round((($battlepart[5] * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$battlepart[6]))/200) / (1 * $bid34[$stonemason]['attri']/100))) + 0.5);
-                if (($battlepart[4]/2)>$needed_cata)
-                {
-                    $info_cat = "".$catp_pic.", ".$this->procResType($tbgid)." destroyed.";
-                    $database->setVillageLevel($data['to'],"f".$tbid."",'0');
-                    if($tbid>=19) { $database->setVillageLevel($data['to'],"f".$tbid."t",'0'); }
-                    $buildarray = $GLOBALS["bid".$tbgid];
-                    if ($tbgid==10 || $tbgid==38) {
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxstore=$t_sql['maxstore']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxstore<800) $tmaxstore=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }
-                    if ($tbgid==11 || $tbgid==39) {                    
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxcrop=$t_sql['maxcrop']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxcrop<800) $tmaxcrop=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }                                    
-                    $pop=$this->recountPop($data['to']);
-                    if($pop=='0')
-                    { 
-                        $varray = $database->getProfileVillages($to['owner']);
-                        if(count($varray)!='1' AND $to['capital']!='1'){
-                                $q = "DELETE FROM ".TB_PREFIX."abdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."bdata where wid = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."enforcement where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."fdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."market where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."movement where to = ".$data['to']." or from = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."odata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."research where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."tdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."training where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."units where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."vdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "UPDATE ".TB_PREFIX."wdata set occupied = 0 where id = ".$data['to'];
-                                $database->query($q);
-                                $logging->VillageDestroyCatalog($data['to']);
-                        }
-                    }
-                }
-                elseif ($battlepart[4]==0)
-                {                        
-                    $info_cat = "".$catp_pic.",".$this->procResType($tbgid)." was not damaged.";
-                }
-                else
-                {                
-                    $demolish=($battlepart[4]/2)/$needed_cata;
-                    $totallvl = round(sqrt(pow(($tblevel+0.5),2)-(($battlepart[4]/2)*8)));
-                    if ($tblevel==$totallvl) 
-                        $info_cata=" was not damaged.";
-                    else
-                    {
-                        $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b>.";
-                        $buildarray = $GLOBALS["bid".$tbgid];
-                        if ($tbgid==10 || $tbgid==38) {
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxstore=$t_sql['maxstore']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxstore<800) $tmaxstore=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }
-                        if ($tbgid==11 || $tbgid==39) {                    
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxcrop=$t_sql['maxcrop']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxcrop<800) $tmaxcrop=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }       
-                        $pop=$this->recountPop($data['to']);
-                    }
-                    $info_cat = "".$catp_pic.",".$this->procResType($tbgid).$info_cata;
-                    $database->setVillageLevel($data['to'],"f".$tbid."",$totallvl);
-                }
-                $bdo2=mysql_query("select * from " . TB_PREFIX . "fdata where vref = $basearray");
-                $bdo=mysql_fetch_array($bdo2);
-                $rand=$data['ctar2'];
-                if ($rand != 99)
-                {
-                    $_rand=array();
-                    $__rand=array();
-                    $j=0;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i.'t']==$rand && $bdo['f'.$i]>0) 
-                        {
-                            $j++;
-                            $_rand[$j]=$bdo['f'.$i];   
-                            $__rand[$j]=$i;             
-                        }
-                    }
-                    if (count($_rand)>0)
-                    {
-                        if (max($_rand)<=0) $rand=99;
-                        else
-                        {
-                            $rand=rand(1, $j);
-                            $rand=$__rand[$rand];
-                        }  
-                    }                                
-                    else
-                    {
-                        $rand=99;
-                    }                                 
-                }
-                
-                if ($rand == 99)
-                {
-                    $list=array();
-                    $j=0;
-                    for ($i=1;$i<=41;$i++)
-                    {
-                        if ($i==41) $i=99;
-                        if ($bdo['f'.$i] > 0)
-                        {
-                            $j++;
-                            $list[$j]=$i;
-                        }
-                    }
-                    $rand=rand(1, $j);
-                    $rand=$list[$rand];
-                }
-                                            
-                $tblevel = $bdo['f'.$rand];
-                $tbgid = $bdo['f'.$rand.'t'];
-                $tbid = $rand; 
-                $needed_cata = round((($battlepart[5] * (pow($tblevel,2) + $tblevel + 1)) / (8 * (round(200 * pow(1.0205,$battlepart[6]))/200) / (1 * $bid34[$stonemason]['attri']/100))) + 0.5);
-                if (($battlepart[4]/2)>$needed_cata)
-                {
-                    $info_cat .= "<br><tbody class=\"goods\"><tr><th>Information</th><td colspan=\"11\">
-                    <img class=\"unit u".$catp_pic."\" src=\"img/x.gif\" alt=\"Catapult\" title=\"Catapult\" /> ".$this->procResType($tbgid)." destroyed.</td></tr></tbody>";
-                    $database->setVillageLevel($data['to'],"f".$tbid."",'0');
-                    if($tbid>=19) { $database->setVillageLevel($data['to'],"f".$tbid."t",'0'); }
-                    $buildarray = $GLOBALS["bid".$tbgid];
-                    if ($tbgid==10 || $tbgid==38) {
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxstore=$t_sql['maxstore']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxstore<800) $tmaxstore=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }
-                    if ($tbgid==11 || $tbgid==39) {                    
-                        $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                        $t_sql=mysql_fetch_array($tsql);
-                        $tmaxcrop=$t_sql['maxcrop']-$buildarray[$tblevel]['attri'];
-                        if ($tmaxcrop<800) $tmaxcrop=800;
-                        $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                        $database->query($q);
-                    }                                  
-                    $pop=$this->recountPop($data['to']);
-                    if($pop=='0')
-                    { 
-                        $varray = $database->getProfileVillages($to['owner']);
-                        if(count($varray)!='1' AND $to['capital']!='1'){
-                                $q = "DELETE FROM ".TB_PREFIX."abdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."bdata where wid = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."enforcement where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."fdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."market where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."movement where to = ".$data['to']." or from = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."odata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."research where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."tdata where vref = ".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."training where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."units where vref =".$data['to'];
-                                $database->query($q);
-                                $q = "DELETE FROM ".TB_PREFIX."vdata where wref = ".$data['to'];
-                                $database->query($q);
-                                $q = "UPDATE ".TB_PREFIX."wdata set occupied = 0 where id = ".$data['to'];
-                                $database->query($q);
-                                $logging->VillageDestroyCatalog($data['to']);
-                        }
-                    }
-                }
-                elseif ($battlepart[4]==0)
-                {                        
-                    $info_cat .= "<br><tbody class=\"goods\"><tr><th>Information</th><td colspan=\"11\">
-                    <img class=\"unit u".$catp_pic."\" src=\"img/x.gif\" alt=\"Catapult\" title=\"Catapult\" /> ".$this->procResType($tbgid)." was not damaged.</td></tr></tbody>";
-                }
-                else
-                {                
-                    $demolish=($battlepart[4]/2)/$needed_cata;
-                    $totallvl = round(sqrt(pow(($tblevel+0.5),2)-(($battlepart[4]/2)*8)));
-                    if ($tblevel==$totallvl) 
-                        $info_cata=" was not damaged.";
-                    else
-                    {
-                        $info_cata=" damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b>.";
-                        $buildarray = $GLOBALS["bid".$tbgid];
-                        if ($tbgid==10 || $tbgid==38) {
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxstore=$t_sql['maxstore']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxstore<800) $tmaxstore=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxstore`='".$tmaxstore."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }
-                        if ($tbgid==11 || $tbgid==39) {                    
-                            $tsql=mysql_query("select `maxstore`,`maxcrop` from ".TB_PREFIX."vdata where wref=".$data['to']."");
-                            $t_sql=mysql_fetch_array($tsql);
-                            $tmaxcrop=$t_sql['maxcrop']+$buildarray[$totallvl]['attri']-$buildarray[$tblevel]['attri'];
-                            if ($tmaxcrop<800) $tmaxcrop=800;
-                            $q = "UPDATE ".TB_PREFIX."vdata SET `maxcrop`='".$tmaxcrop."' WHERE wref=".$data['to'];
-                            $database->query($q);
-                        }       
-                        $pop=$this->recountPop($data['to']);
-                    }
+            if ($type=='3'){
+                if ($catp!='0'){
+                    if (isset($empty)){
+                        $info_cat = ",".$catp_pic.",Village already destroyed.";
+                    } else 
+                    if ($battlepart[4]>$battlepart[3]){
                         
-                    $info_cat .= "<br><tbody class=\"goods\"><tr><th>Information</th><td colspan=\"11\">
-                    <img class=\"unit u".$catp_pic."\" src=\"img/x.gif\" alt=\"Catapult\" title=\"Catapult\" /> ".$this->procResType($tbgid).$info_cata."</td></tr></tbody>";
-                    $database->setVillageLevel($data['to'],"f".$tbid."",$totallvl);
+                        $info_cat = "".$catp_pic.",".$this->procResType($tbgid)." destroyed.";
+                            $database->setVillageLevel($data['to'],"f".$tbid."",'0');
+                            if($tbid>=19){ $database->setVillageLevel($data['to'],"f".$tbid."t",'0'); }
+                            $pop=$this->recountPop($data['to']);
+                                if($pop=='0'){ //village destroyed!
+                                $varray = $database->getProfileVillages($to['owner']);
+                                    //kijken of laatste dorp is, of hoofddorp
+                                    if(count($varray)!='1' AND $to['capital']!='1'){
+                                            $q = "DELETE FROM ".TB_PREFIX."abdata where wref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."bdata where wid = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."enforcement where vref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."fdata where vref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."market where vref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."movement where to = ".$data['to']." or from = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."odata where wref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."research where vref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."tdata where vref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."training where vref =".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."units where vref =".$data['to'];
+                                            $database->query($q);
+                                            $q = "DELETE FROM ".TB_PREFIX."vdata where wref = ".$data['to'];
+                                            $database->query($q);
+                                            $q = "UPDATE ".TB_PREFIX."wdata set occupied = 0 where id = ".$data['to'];
+                                            $database->query($q);
+                                            $logging->VillageDestroyCatalog($data['to']);
+                                    }
+                                }
+                    }elseif ($battlepart[4]==0){
+                    
+                        $info_cat = "".$catp_pic.",".$this->procResType($tbgid)." was not damaged.";
+                    }else{
+            
+                        $demolish=$battlepart[4]/$battlepart[3];
+                        $totallvl = round(sqrt(pow(($tblevel+0.5),2)-($battlepart[4]*8)));
+                    $info_cat = "".$catp_pic.",".$this->procResType($tbgid)." damaged from level <b>".$tblevel."</b> to level <b>".$totallvl."</b>.";
+                            $database->setVillageLevel($data['to'],"f".$tbid."",$totallvl);
 
+                    }
                 }
             }
-        }    
-    }
-}  
             
             
         //chiefing village
@@ -1716,29 +1233,19 @@ class Automation {
             }
         }
         
-        if($data['t11'] > 0){
-			if ($isoasis != 0) {
-				if ($database->canConquerOasis($data['from'],$data['to'])) {
-					$database->conquerOasis($data['from'],$data['to']);
-					$info_chief = $hero_pic." Your hero has conquered this oasis and gained ".$heroxp." XP";
-				} else {
-	                $OasisInfo = $database->getOasisInfo($data['to']);
-					if ($OasisInfo['conqured'] != 0) {
-			            $Oloyaltybefore =  $OasisInfo['loyalty'];
-				        $database->modifyOasisLoyalty($data['to']);
-			            $OasisInfo = $database->getOasisInfo($data['to']);
-				        $Oloyaltynow =  $OasisInfo['loyalty'];
-					    $info_chief = $hero_pic." Your hero has reduced oasis loyalty to ".$Oloyaltynow." from ".$Oloyaltybefore." and gained ".$heroxp." XP";
-					} else {
-						if ($heroxp == 0) {
-							$info_chief = $hero_pic." Your hero had nothing to kill therfore gains no XP at all";
-						} else {
-							$info_chief = $hero_pic." Your hero gained ".$heroxp." XP";
-						}
-					}
-                }
-			}
-        }
+        if($data['t11']>0){
+            if ($isoasis != 0){
+            $farmdistance = $this->getfieldDistance($tocoor['x'],$tocoor['y'],$fromcoor['x'],$fromcoor['y']);
+            if ($farmdistance < 4){
+                //do some take over code here make sure oasis has 0 troops before takeover
+            }
+                $info_chief = "".$hero_pic.",The hero came along to watch this fight.He has also noticed that this oases is ".$farmdistance." distance from your village. Hero gained ".$heroxp." XP";
+                
+            }else{
+            $info_chief = "".$hero_pic.",The hero came along to watch this fight.Soon he will be capable to join in. Hero gained ".$heroxp." XP";
+            }
+            }
+        
             
             
                 if($scout){
