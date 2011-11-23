@@ -6,13 +6,13 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       6.0.1                                                       ##
+##  Version:       2011.11.23                                                  ##
 ##  Filename:      GameEngine/Lang/en.php                                      ##
 ##  Developed by:  Dzoki & Dixie                                               ##
-##  Edited by:     ZZJHONS                                                     ##
+##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
 ##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
@@ -336,7 +336,7 @@ define("MASS_SENT","Mass IGM was sent");
 	define("ACCEPT_RULES"," I accept the game rules and general terms and conditions.");
 	define("ONE_PER_SERVER","Each player may only own ONE account per server.");
 	define("BEFORE_REGISTER","Before you register an account you should read the <a href='anleitung.php' target='_blank'>instructions</a> of TravianX to see the specific advantages and disadvantages of the three tribes.");
-	define("BUILDING_UPGRADING","Building:");
+	define("BUILDING_UPGRADING","Building");
 	define("HOURS","hours");
 
 // Login Travian 3.6
@@ -374,6 +374,74 @@ define("MASS_SENT","Mass IGM was sent");
 	define("R2","Clay");
 	define("R3","Iron");
 	define("R4","Crop");
+	
+# New version T4
+
+	$lang["instructions"] = "Instructions";
+	$lang["cancel"] = "cancel";
+	$lang["ok"] = "OK";
+	$lang["no_search_results_found"] = "No search results found";
+	$lang['resources_overview'] = "Resources";
+	$lang['buildings'] = "Buildings";
+	$lang['map'] = "Map";
+	$lang['statistics'] = "Statistics";
+	$lang['reports'] = "Reports";
+	$lang['messages'] = "Messages";
+	$lang['new'] = "New";
+	$lang['new_reports'] = "(s) report(s)";
+	$lang['new_messages'] = "(s) message(s)";
+	$lang['help'] = "Help";
+	$lang['field']['1'] = "Woodcutter";
+	$lang['field']['2'] = "Clay pit";
+	$lang['field']['3'] = "Iron mine";
+	$lang['field']['3'] = "Cropland";
+	$lang['level'] = "Level";
+	$lang['finish_for_gold'] = "Finish all construction and research orders in this village immediately for 2 Gold?";
+	$lang['gold'] = "Gold";
+	$lang['silver'] = "Silver";
+	$lang['waiting_loop'] = "waiting loop";
+	$lang['hours_short'] = "hrs";
+	$lang['hours'] = "hours";
+	$lang['done_at'] = "done at";
+	$lang['building'] = "Building";
+	$lang['troop_movements'] = "Troop Movements";
+	$lang['arriving_reinforcing'] = "Arriving reinforcing troops";
+	$lang['arriving_reinforcing_short'] = "Reinf.";
+	$lang['in'] = "in";
+	$lang['own_attacking'] = "Own attacking troops";
+	$lang['attack'] = "Attack";
+	$lang['own_reinforcing'] = "Own reinforcing troops";
+	$lang['own_reinforcing_short'] = "Reinf.";
+	$lang['incomming_troops'] = "Incomming troops";
+	$lang['production_per_hour'] = "Production per hour";
+	$lang['production'] = "Production";
+	$lang['resources']['1'] = "Lumber";
+	$lang['resources']['2'] = "Clay";
+	$lang['resources']['3'] = "Iron";
+	$lang['resources']['4'] = "Crop";
+	$lang['troops'] = "Troops";
+	$lang['none'] = "none";
+	$lang['hero'] = "Hero";
+	$lang['adventure'] = "Adventure";
+	$lang['auctions'] = "Auction(s)";
+	$lang['tribe'] = "Tribe";
+	$lang['profile'] = "Profile";
+	$lang['village_overview'] = "Village overview";
+	$lang['villages'] = "Villages";
+	$lang['home'] = "Homepage";
+	$lang['forum'] = "Forum";
+	$lang['server_time'] = "Server time";
+	$lang['plus_menu'] = "Plus menu";
+	$lang['consumption'] = $lang['resources']['4']." consumption";
+	$lang['balance'] = $lang['resources']['4']." balance";
+	$lang['all_consumption'] = "Consumption";
+	$lang['change_village_name'] = "Change village name";
+	$lang['new_village_name'] = "New village name";
+	$lang['loyalty'] = "Loyalty";
+	$lang['to_the_quest'] = "To the quest";
+	$lang['close'] = "close";
+	$lang['save'] = "Save";
+	$lang['click_change_village_name'] = "ouble click to change name of the village";
 
 ##================================================##
 ##========== UNITS - YOU MUST NOT EDIT! ==========##

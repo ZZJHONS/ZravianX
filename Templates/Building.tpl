@@ -1,10 +1,29 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.23                                                  ##
+##  Filename:      Templates/Building.tpl                                      ##
+##  Improved by:   ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+
+?>
 <div class="boxes buildingList"><div class="boxes-tl"></div><div class="boxes-tr"></div><div class="boxes-tc"></div><div class="boxes-ml"></div><div class="boxes-mr"></div><div class="boxes-mc"></div><div class="boxes-bl"></div><div class="boxes-br"></div><div class="boxes-bc"></div><div class="boxes-contents">
             <table cellpadding="1" cellspacing="1" id="building_contract">
                 <thead>
                     <tr>
                         <th colspan="4"><?php echo BUILDING_UPGRADING;?> 
                         <?php if($session->gold >= 2) {   ?>
-                            <div class="finishNow" title="Finish all construction and research orders in this village immediately for 2 Gold?"><a class="arrow" href="?buildingFinish=1" onclick="return confirm('Finish all construction and research orders in this village immediately for 2 Gold?');">complete construction immediately </a> (costs: <img src="img/x.gif" class="gold" alt="Gold" title="Gold"/> <b>2</b> )
+                            <div class="finishNow" title="Finish all construction and research orders in this village immediately for 2 Gold?"><a class="arrow" href="?buildingFinish=1" onclick="return confirm('Finish all construction and research orders in this village immediately for 2 Gold?');">Complete immediately </a> (costs: <img src="img/x.gif" class="gold" alt="Gold" title="Gold"/> <b>2</b> )
                     </div><?php } ?></th>
 
                     </tr>
@@ -26,7 +45,7 @@
             echo $building->procResType($jobs['type'])." (Level ".($village->resarray['f'.$jobs['field']]+($jobs['field']==$BuildFirst?2:1 )).")";
             if($jobs['loopcon'] == 0) { $BuildFirst = $jobs['field']; }
             if($jobs['loopcon'] == 1) {
-                echo " (waiting loop)";
+                echo ' <span class="none">(waiting loop)</span>';
             }
             echo "</td><td><span id=\"timer".$timer."\">";
             echo $generator->getTimeFormat($jobs['timestamp']-time());

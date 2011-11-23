@@ -2,10 +2,10 @@
     <?php 
         $coorarray = array(1=>"190,88,28","280,89,28","348,101,28","132,127,28","245,140,28","302,147,28","387,145,28","72,178,28","153,179,28","343,179,28","430,179,28","80,239,28","153,229,28","289,265,28","411,234,28","184,319,28","275,324,28","365,301,28");
         for($i=1;$i<=18;$i++) {
-                echo "<area href=\"build.php?id=$i\" coords=\"$coorarray[$i]\" shape=\"circle\" title=\"".$building->procResType($village->resarray['f'.$i.'t'])." Level ".$village->resarray['f'.$i]."\"/>";
+                echo "<area href=\"build.php?id=$i\" coords=\"$coorarray[$i]\" shape=\"circle\" title=\"&lt;b&gt;".$building->procResType($village->resarray['f'.$i.'t'])."&lt;/b&gt;||".$lang['level']." ".$village->resarray['f'.$i]."\" alt=\"".$building->procResType($village->resarray['f'.$i.'t'])." ".$lang['level']." ".$village->resarray['f'.$i]."\"/>";
             }
     ?>
-    <area href="dorf2.php" coords="250,191,32" shape="circle" alt="" title="Village Center">
+    <area href="dorf2.php" coords="250,191,32" shape="circle" alt="" title="<?php echo $lang['buildings']; ?>">
 </map>
 <div id="village_map" class="f<?php echo $village->type; ?>">
     <?php 
@@ -14,19 +14,19 @@
             $text = "";
             switch($i) {
                 case 1:
-                $text = "Woodcutter Level";
+                $text = $lang['field']['1'].$lang['level'];
                 $style = "left:179px;top:79px;";
                 break;
                 case 2:
-                $text = "Clay Pit Level";
+                $text = $lang['field']['2'].$lang['level'];
                 $style = "left:269px;top:80px;";
                 break;
                 case 3:
-                $text = "Iron Mine Level";
+                $text = $lang['field']['3'].$lang['level'];
                 $style = "left:337px;top:92px;";
                 break;
                 case 4:
-                $text = "Cropland Level";
+                $text = $lang['field']['4'].$lang['level'];
                 $style = "left:121px;top:118px;";
                 break;
                 case 5:
@@ -72,7 +72,7 @@
                 $style = "left:354px;top:292px;";
                 break;
             }
-            echo "<div class=level style=".$style.">".$village->resarray['f'.$i]."</div> ";
+            echo "<div class=\"level\" style=".$style.">".$village->resarray['f'.$i]."</div>";
             }
         }
     ?>     

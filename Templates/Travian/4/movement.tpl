@@ -13,7 +13,7 @@
 			<?php
 				$aantal=(count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
 				if($aantal > 0){
-					echo	'<table id="movements" cellpadding="1" cellspacing="1"><thead><tr><th colspan="3">'.TROOP_MOVEMENTS.'</th></tr></thead><tbody>';
+					echo	'<table id="movements" cellpadding="1" cellspacing="1"><thead><tr><th colspan="3">'.$lang['troop_movements'].':</th></tr></thead><tbody>';
 				}
                 /* Units comming back from Reinf,attack,raid */
                 $aantal = count($database->getMovement(4,$village->wid,1));
@@ -22,13 +22,13 @@
                             foreach($aantal2 as $receive) {
                                 $action = 'def1';
                                 $aclass = 'd1';
-                                $title = ''.ARRIVING_REINF_TROOPS.'';
-                                $short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
+                                $title = $lang['arriving_reinforcing'];
+                                $short = $lang['arriving_reinforcing_short'];
                             }
                         echo '
                         <tr>
                             <td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-                            <td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+                            <td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
                         </tr>';
                 $timer += 1;
                 }
@@ -43,13 +43,13 @@
 							foreach($aantal2 as $receive) {
 								$action = 'att1';
 								$aclass = 'a1';
-								$title = ''.OWN_ATTACKING_TROOPS.'';
-								$short = ''.ATTACK.'';
+								$title = $lang['own_attacking'];
+								$short = $lang['attack'];
 							}
 						echo '
 						<tr>
 							<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 						</tr>';
 				$timer += 1;
 				}
@@ -64,13 +64,13 @@
 							foreach($aantal2 as $receive) {
 								$action = 'att2';
 								$aclass = 'a2';
-								$title = ''.OWN_ATTACKING_TROOPS.'';
-								$short = ''.ATTACK.'';
+								$title = $lang['own_attacking'];
+								$short = $lang['attack'];
 							}
 						echo '
 						<tr>
 							<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 						</tr>';
 				$timer += 1;
 				}
@@ -86,13 +86,13 @@
 							foreach($aantal2 as $receive) {
 								$action = 'def2';
 								$aclass = 'd2';
-								$title = ''.OWN_REINFORCING_TROOPS.'';
-								$short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
+								$title = $lang['own_reinforcing'];
+								$short = $lang['own_reinforcing_short'];
 							}
 						echo '
 						<tr>
 							<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-							<td><div class="mov"><span class="'.$aclass.'">'.$lala.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+							<td><div class="mov"><span class="'.$aclass.'">'.$lala.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 						</tr>';
 				$timer += 1;
 				}
@@ -107,13 +107,13 @@
 							foreach($aantal2 as $receive) {
 								$action = 'def1';
 								$aclass = 'd1';
-								$title = ''.OWN_REINFORCING_TROOPS.'';
-								$short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
+								$title = $lang['own_reinforcing'];
+								$short = $lang['own_reinforcing_short'];
 								}
 						echo '
 						<tr>
 							<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-							<td><div class="mov"><span class="'.$aclass.'">'.$lala.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+							<td><div class="mov"><span class="'.$aclass.'">'.$lala.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 						</tr>';
 				$timer += 1;
 				}
@@ -129,13 +129,13 @@
 							foreach($aantal2 as $receive) {
 								$action = 'att1';
 								$aclass = 'a1';
-								$title = 'Incomming troops';
-								$short = 'Attack';
+								$title = $lang['incomming_troops'];
+								$short = $lang['attack'];
 							}
 						echo '
 						<tr>
 							<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&laquo;</span></td>
-							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+							<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 						</tr>';
 				$timer += 1;
 				}
@@ -152,14 +152,14 @@
 				//			foreach($aantal2 as $receive) {
 				//				$action = 'att2';
 				//				$aclass = 'a2';
-				//				$title = ''.OWN_ATTACKING_TROOPS.'';
-				//				$short = ''.ATTACK.'';
+				//				$title = $lang['own_attacking'];
+				//				$short = $lang['attack'];
 				//			}
 				//			
 				//		echo '
 				//		<tr>
 				//			<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
-				//			<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
+				//			<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">'.$lang['in'].'&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.$lang['hours'].'</div></div></td>
 				//		</tr>';
 				//		
 				//$timer += 1;

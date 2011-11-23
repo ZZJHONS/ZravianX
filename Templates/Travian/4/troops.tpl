@@ -12,14 +12,14 @@
         <table id="troops" cellpadding="1" cellspacing="1">
             <thead>
                 <tr>
-                    <th colspan="3"><?php echo TROOPS_DORF; ?></th>
+                    <th colspan="3"><?php echo $lang['troops']; ?>:</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                     $units = $technology->getUnitList();
                     if(count($units) == 0) {
-                        echo "<tr><td>none</td></tr>";
+                        echo "<tr><td>".$lang['none']."</td></tr>";
                     } else {
                         foreach($units as $unit) {
                             echo "<tr><td class=\"ico\"><a href=\"build.php?id=39\"><img class=\"unit u".$unit['id']."\" src=\"img/x.gif\" alt=\"".$unit['name']."\" title=\"".$unit['name']."\" /></a></td>";	

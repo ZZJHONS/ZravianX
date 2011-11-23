@@ -235,9 +235,13 @@ define("DOMAIN", "%DOMAIN%");
 define("HOMEPAGE", "%HOMEPAGE%");
 define("SERVER", "%DOMAIN%");
 
+$requse = 0;
+
 ////////////////////////////////////////
 //   ****  TRAVIAN 4 SETTINGS  ****   //
 ////////////////////////////////////////
+
+define("TRAVIAN4",true);
 
 // ***** Landing page
 // false = Travian 3.6 Homepage

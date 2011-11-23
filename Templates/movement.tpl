@@ -1,15 +1,22 @@
-<?php 
+<?php
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       movement.tpl                                                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.22                                                  ##
+##  Filename:      Templates/movement.tpl                                      ##
 ##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Improved by:   ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-?>
-<?php
+
 $aantal=(count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
 if($aantal > 0){
 
@@ -131,11 +138,9 @@ $timer += 1;
 }
 
 ?>
-
 <?php
 /* Units send to reinf. (to my town) */
 $aantal = count($database->getMovement(3,$village->wid,1)); $lala=$aantal;
-
 $aantal2 = $database->getMovement(3,$village->wid,1);
 for($i=0;$i<$aantal;$i++){
 	if(($aantal2[$i]['attack_type']==1) or ($aantal2[$i]['attack_type']==3) or ($aantal2[$i]['attack_type']==4)){
@@ -148,25 +153,16 @@ for($i=0;$i<$aantal;$i++){
 				$title = ''.OWN_REINFORCING_TROOPS.'';
 				$short = ''.ARRIVING_REINF_TROOPS_SHORT.'';
 				}
-			
 		echo '
 		<tr>
 			<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&raquo;</span></td>
 			<td><div class="mov"><span class="'.$aclass.'">'.$lala.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
 		</tr>';
-		
 $timer += 1;
-
 }
-
 ?>
-
-
-
 <?php
-
 /* Units comming back from ATTACK 
-
 $gettroops = $database->getMovement(3,$village->wid,1);
 	for($i=0;$i<count($gettroops);$i++){
 		if($gettroops[$i]['attack_type'] == 1)
@@ -181,14 +177,11 @@ $aantal = count($aantal2);
 				$title = 'Incomming troops';
 				$short = 'Attack';
 			}
-			
 		echo '
 		<tr>
 			<td class="typ"><a href="build.php?id=39"><img src="img/x.gif" class="'.$action.'" alt="'.$title.'" title="'.$title.'" /></a><span class="'.$aclass.'">&laquo;</span></td>
 			<td><div class="mov"><span class="'.$aclass.'">'.$aantal.'&nbsp;'.$short.'</span></div><div class="dur_r">in&nbsp;<span id="timer'.$timer.'">'.$generator->getTimeFormat($receive['endtime']-time()).'</span>&nbsp;'.HOURS.'</div></div></td>
 		</tr>';
-
-		
 $timer += 1;
 
 }
@@ -223,5 +216,4 @@ $timer += 1;
 
 ?>
 	</tbody>
-
 </table>

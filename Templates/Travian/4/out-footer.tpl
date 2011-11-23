@@ -11,5 +11,5 @@
     <p class="copyright">© 2011 ZravianX - By <a href="http://zzjhons.com/" style="color:#FFF;">ZZJHONS</a></p>
 </div>
 <div id="anwersQuestionMark">
-    <a href="<?php echo HOMEPAGE; ?>/help" target="_blank" title="ZravianX Help">&nbsp;</a>
+    <a href="<?php echo HOMEPAGE; ?>index.php#help" target="_blank" title="ZravianX Help">&nbsp;</a>
 </div>
