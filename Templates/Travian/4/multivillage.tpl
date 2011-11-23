@@ -9,8 +9,8 @@
 				if($session->villages[$i-1] == $village->wid)
 					{$select = "active";}
 				else{$select = "";}
-				echo '<li class="entry '.$select.' title="">';
-				echo '<a href=\"?newdid='.$session->villages[$i-1].'\">'.$database->getVillageField($session->villages[$i-1],'name').'</a></td>';
+				echo '<li class="entry '.$select.'" title="'.$database->getVillageField($session->villages[$i-1],'name').'">';
+				echo '<a href="?newdid='.$session->villages[$i-1].'" accesskey="b" class="active">'.$database->getVillageField($session->villages[$i-1],'name').'</a></td>';
 				echo '</li>';
             }
         ?>

@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.10.30                                                  ##
+##  Version:       2011.11.22                                                  ##
 ##  Filename:      logout.php                                                  ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Edited by:     ZZJHONS                                                     ##
@@ -23,7 +23,7 @@ $start = $generator->pageLoadTimeStart();
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title><?php echo SERVER_NAME; ?></title>
+	<title><?php echo SERVER_NAME; ?></title>
     <meta name="content-language" content="<?php echo LANG; ?>" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="imagetoolbar" content="no" />
@@ -35,54 +35,50 @@ $start = $generator->pageLoadTimeStart();
 	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css" rel="stylesheet" type="text/css" />
 	<?php
-	if($session->gpack == null || GP_ENABLE == false) {
-	echo "
-	<link href='".GP_LOCATE."travian.css' rel='stylesheet' type='text/css' />
-	<link href='".GP_LOCATE."lang/en/lang.css' rel='stylesheet' type='text/css' />";
-	} else {
-	echo "
-	<link href='".$session->gpack."travian.css' rel='stylesheet' type='text/css' />
-	<link href='".$session->gpack."lang/en/lang.css' rel='stylesheet' type='text/css' />";
-	}
+		if($session->gpack == null || GP_ENABLE == false) {
+		echo "
+		<link href='".GP_LOCATE."travian.css?e21d2' rel='stylesheet' type='text/css' />
+		<link href='".GP_LOCATE."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+		} else {
+		echo "
+		<link href='".$session->gpack."travian.css?e21d2' rel='stylesheet' type='text/css' />
+		<link href='".$session->gpack."lang/en/lang.css?e21d2' rel='stylesheet' type='text/css' />";
+		}
 	?>
 	<script type="text/javascript">
 		window.addEvent('domready', start);
 	</script>
 </head>
-<body class="v35">
-	<div class="wrapper">
-		<img style="filter:chroma();" src="img/x.gif" id="msfilter" alt="" />
-		<div id="dynamic_header"></div>
-		<div id="header"></div>
-		<div id="mid">
+<body class="v35 webkit">
+    <div class="wrapper">
+        <img style="filter:chroma();" src="img/x.gif" id="msfilter" alt="" />
+        <div id="dynamic_header"></div>
+        <div id="header"></div>
+        <div id="mid">
 			<?php include("Templates/menu.tpl"); ?>
             <div id="content" class="logout">
                 <h1>Logout successful.</h1>
                 <img class="roman" src="img/x.gif" alt="">
                 <p>Thank you for your visit.</p>
-				<p>
-                If other people use this computer too, you should delete your cookies for your own safety:
-                <br />
-                <a href="login.php?del_cookie">&raquo; delete cookies</a>
-                </p>
+                <p>If other people use this computer too, you should delete your cookies for your own safety:<br /><a href="login.php?del_cookie">&raquo; delete cookies</a></p>
             </div>
-            <div id="side_info">
-				<?php include("Templates/news.tpl"); ?>
-            </div>
-            <div class="clear"></div>
+        <div id="side_info">
+			<?php include("Templates/news.tpl"); ?>
         </div>
-        <div class="footer-stopper"></div>
         <div class="clear"></div>
-		<?php include("Templates/footer.tpl"); ?>
-        <div id="stime">
-            <div id="ltime">
-                <div id="ltimeWrap">
-                    Calculated in <b><?php echo round(($generator->pageLoadTimeEnd()-$start)*1000); ?></b> ms
-                    <br />
-                    Server time: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
-                </div>
+    </div>
+    <div class="footer-stopper"></div>
+    <div class="clear"></div>
+	<?php include("Templates/footer.tpl"); ?>
+    <div id="stime">
+        <div id="ltime">
+            <div id="ltimeWrap">
+                Calculated in <b><?php echo round(($generator->pageLoadTimeEnd()-$start)*1000); ?></b> ms
+				<br />
+                Server time: <span id="tp1" class="b"><?php echo date('H:i:s'); ?></span>
             </div>
-        </div>
+		</div>
+    </div>
     <div id="ce"></div>
 </body>
 </html>

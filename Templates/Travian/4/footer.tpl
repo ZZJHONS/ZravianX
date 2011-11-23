@@ -9,7 +9,3 @@
 	</div>
 	<p class="copyright">© 2011 ZravianX</p>
 </div>
-<div id="anwersQuestionMark">
-    <a href="http://t4.answers.travian.us/index.php?aid=21#go2answer" target="_blank">&nbsp;</a>
-</div>
-</div>

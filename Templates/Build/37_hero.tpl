@@ -6,13 +6,13 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       6.0.1                                                       ##
+##  Version:       2011.11.22                                                  ##
 ##  Filename:      Templates/Build/37_hero.tpl                                 ##
 ##  Developed by:  Dzoki & Manni                                               ##
-##  Edited by:     ZZJHONS                                                     ##
+##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
 ##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
@@ -27,7 +27,6 @@ include_once("GameEngine/Data/hero_full.php");
 	}
 
 	$hero = $units->Hero($session->uid);
-
 ?>
     <table id="distribution" cellpadding="1" cellspacing="1">
 	<thead><tr>
@@ -122,14 +121,13 @@ include_once("GameEngine/Data/hero_full.php");
 	</tr>
 	<tr>
 		<th title="until the next level">Experience:</th>
-		<td class="val"><?php echo ($hero_info['experience']); ?>%</td>
-		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo ($hero_info['experience']); ?>px;" alt="<?php echo ($hero_info['experience']); ?>%" title="<?php echo ($hero_info['experience']); ?>%" /></td>
+		<td class="val"><?php echo floor(($hero_info['experience']-$hero_levels[$hero_info['level']])/($hero_levels[$hero_info['level']+1]-$hero_levels[$hero_info['level']])*100)."%"; ?></td>
+		<td class="xp"><img class="bar" src="img/x.gif" style="width:<?php echo floor(($hero_info['experience']-$hero_levels[$hero_info['level']])/($hero_levels[$hero_info['level']+1]-$hero_levels[$hero_info['level']])*100)*2; ?>px;" alt="<?php echo floor(($hero_info['experience']-$hero_levels[$hero_info['level']])/($hero_levels[$hero_info['level']+1]-$hero_levels[$hero_info['level']])*100); ?>%" title="<?php echo floor(($hero_info['experience']-$hero_levels[$hero_info['level']])/($hero_levels[$hero_info['level']+1]-$hero_levels[$hero_info['level']])*100); ?>%" /></td>
 		<td class="up"></td>
 		<td class="rem"><?php echo $hero_info['points']; ?></td>
 	</tr>
 	</tbody>
 </table>
-
     <?php if(isset($_GET['e'])){
         echo "<p><font size=\"1\" color=\"red\"><b>Error: name too short</b></font></p>";
     }
@@ -138,12 +136,8 @@ include_once("GameEngine/Data/hero_full.php");
         <p>You can <a href="build.php?id=<?php echo $id; ?>&add=reset">reset</a> your points until you are level <b>3</b> or lower!</p>
     <?php } ?>
     <p>Your hero has <b><?php echo floor($hero_info['health']); ?></b>% of his hit points.<br />
-    Your hero has conquered <b>0</b> <a href="build.php?id=<?php echo $id; ?>&land">oases</a>.</p>
-    
-    
-    
+    Your hero has conquered <b><?php echo $database->VillageOasisCount($village->wid); ?></b> <a href="build.php?id=<?php echo $id; ?>&land">oases</a>.</p>
     <?php 
-    
     if(isset($_GET['add'])) {
         	if($_GET['add'] == "reset") {
         		if($hero_info['level'] <= 3){
