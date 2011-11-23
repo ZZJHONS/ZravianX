@@ -1,5 +1,5 @@
-<div class="news news1">
-	<a href="#" class="newsContent newsContentWithLink" onclick="$H({data: {cmd: 'news', id: '1'}}).dialog(); return false;">
+<div class="news news3">
+	<a href="#" class="newsContent newsContentWithLink" onclick="$H({data: {cmd: 'news', id: '3'}}).dialog(); return false;">
 		New version of ZravianX is coming.
         <br />
         <br />
