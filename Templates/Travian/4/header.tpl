@@ -88,7 +88,7 @@
     <div id="wrapper">
         <img id="staticElements" src="img/x.gif" alt="">
         <div id="logoutContainer">
-            <a id="logout" href="logout.php" title="Logout">&nbsp;</a>
+            <a id="logout" href="logout.php" title="<?php echo $lang['logout']; ?>">&nbsp;</a>
         </div>
         <div class="bodyWrapper">
             <img style="" src="img/x.gif" id="msfilter" alt="">
