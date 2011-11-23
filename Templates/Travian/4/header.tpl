@@ -29,17 +29,17 @@
                 if($message->unread && !$message->nunread) {
                     $display_reports = "0";
                     $display_report = "none";
-					$display_messages = "+1";
+					$display_messages = "New";
 					$display_message = "block";
                 } else if(!$message->unread && $message->nunread) {
-                    $display_reports = "+1";
+                    $display_reports = "New";
                     $display_report = "block";
 					$display_messages = "0";
 					$display_message = "hide";
                 } else if($message->unread && $message->nunread) {
-                    $display_reports = "+1";
+                    $display_reports = "New";
                     $display_report = "block";
-					$display_messages = "+1";
+					$display_messages = "New";
 					$display_message = "block";
                 } else {
                     $display_reports = "0";
@@ -50,7 +50,7 @@
 			?>
 
             <a class="<?php echo $reportactive; ?>" href="berichte.php" accesskey="5" title="Reports"></a>
-            <div class="ltr bubble" title="<?php echo $display_reports; ?> new(s) report(s)" style="display:<?php echo $display_report; ?>">
+            <div class="ltr bubble" title="<?php echo $display_reports; ?>(s) report(s)" style="display:<?php echo $display_report; ?>">
                 <div class="bubble-background-l"></div>
                 <div class="bubble-background-r"></div>
                 <div class="bubble-content"><?php echo $display_reports; ?></div>
@@ -58,7 +58,7 @@
         </li>
         <li id="n6" class="messages">
             <a class="<?php echo $messageactive; ?>" href="nachrichten.php" accesskey="6" title="Messages"></a>
-            <div class="ltr bubble" title="<?php echo $display_messages; ?> new(s) message(s)" style="display:<?php echo $display_message; ?>">
+            <div class="ltr bubble" title="<?php echo $display_messages; ?>(s) message(s)" style="display:<?php echo $display_message; ?>">
                 <div class="bubble-background-l"></div>
                 <div class="bubble-background-r"></div>
                 <div class="bubble-content"><?php echo $display_messages; ?></div>
