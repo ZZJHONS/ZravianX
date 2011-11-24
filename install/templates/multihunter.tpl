@@ -32,7 +32,7 @@
                 <td><input type="text" name="mhpw" id="mhpw" value=""></td>
             </tr>
 			<tr>
-                <td>Note: Rember this password! You need it for the ACP</td>
+                <td>Note: Remember this password! You need it for the ACP</td>
                 <td></td>
             </tr>
 		</table>

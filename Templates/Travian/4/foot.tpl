@@ -160,7 +160,7 @@
         </div>
         <?php /* End test code */ ?>
         <div id="anwersQuestionMark">
-            <a href="?php echo HOMEPAGE; ?>#help" target="_blank" title="<?php echo SERVER_NAME." ".$lang['help']; ?>">&nbsp;</a>
+            <a href="<?php echo HOMEPAGE; ?>#help" target="_blank" title="<?php echo SERVER_NAME." ".$lang['help']; ?>">&nbsp;</a>
         </div>
         <div id="ce"></div>
 	</div>
