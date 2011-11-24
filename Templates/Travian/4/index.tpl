@@ -6,13 +6,13 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       6.0.1                                                       ##
+##  Version:       2011.11.24                                                  ##
 ##  Filename:      Templates/Travian/4/index.tpl                               ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
 ##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://www.xtravian.com & http://zravianx.zzjhons.com       ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################

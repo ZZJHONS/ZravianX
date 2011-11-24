@@ -1,11 +1,18 @@
-<?php 
+<?php
 #################################################################################
-##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
 ## --------------------------------------------------------------------------- ##
-##  Filename       dorf2.tpl                                                   ##
-##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.24                                                  ##
+##  Filename:      Templates/Travian/4/builds.tpl                              ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
 ?>
@@ -146,16 +153,18 @@
 
 		if($village->resarray['f40'] == 0) { 
 			if($building->walling()) {
-				$wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
-				echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."bBottom \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
+				$wtitle = $building->procResType($building->walling())." ".$lang['level']." ".$village->resarray['f40'];
+				echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."bBottom \" alt=\"$wtitle ".$lang['level']." ".$village->resarray['f40']."\">";
 			}
 		}else {
-			$wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
+			$wtitle = $building->procResType($building->walling())." ".$lang['level']." ".$village->resarray['f40'];
 			echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Top \" alt=\"$wtitle ".$lang['level']." ".$village->resarray['f40']."\">";
 			echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Bottom \" alt=\"$wtitle ".$lang['level']." ".$village->resarray['f40']."\">";
 		}
 	?>
-	<div id="levels"><div style="left:300px; top:122px" class="aid26">1</div></div>
+	<div id="levels">
+    	<?php /* Demo: <div style="left:300px; top:122px" class="aid26">1</div> */ ?>
+    </div>
     <img src="img/x.gif" id="lswitch" class="lswitchPlus" title="show / hide building levels" onclick="
 				$('lswitch').toggleClass('lswitchMinus');
 				$('lswitch').toggleClass('lswitchPlus');

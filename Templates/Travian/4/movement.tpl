@@ -1,4 +1,27 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.24                                                  ##
+##  Filename:      Templates/Travian/4/movement.tpl                            ##
+##  Improved by:   ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
 <div class="movements">
+	<?php
+		$aantal=(count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
+		if($aantal > 0){
+			if($aantal > 0){
+    ?>
     <div class="boxes villageList movements">
         <div class="boxes-tl"></div>
         <div class="boxes-tr"></div>
@@ -11,8 +34,6 @@
         <div class="boxes-bc"></div>
         <div class="boxes-contents">
 			<?php
-				$aantal=(count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
-				if($aantal > 0){
 					echo	'<table id="movements" cellpadding="1" cellspacing="1"><thead><tr><th colspan="3">'.$lang['troop_movements'].':</th></tr></thead><tbody>';
 				}
                 /* Units comming back from Reinf,attack,raid */
@@ -169,4 +190,5 @@
             </table>
         </div>
 	</div>
+    <?php } ?>
 </div>

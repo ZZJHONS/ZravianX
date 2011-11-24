@@ -447,9 +447,6 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['building_site'] = "Building site";
 	$lang['rally_point_building_site'] = "Rally Point building site";
 	$lang['rally_point'] = "Rally Point";
-	$lang['save'] = "Save";
-	$lang['save'] = "Save";
-	$lang['save'] = "Save";
 
 ##================================================##
 ##========== UNITS - YOU MUST NOT EDIT! ==========##

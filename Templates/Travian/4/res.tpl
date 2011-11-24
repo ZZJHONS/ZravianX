@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.22                                                  ##
+##  Version:       2011.11.23                                                  ##
 ##  Filename:      Templates/Travian/4/res.tpl                                 ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Improved by:   ZZJHONS                                                     ##
