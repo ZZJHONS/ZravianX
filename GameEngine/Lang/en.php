@@ -441,7 +441,15 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['to_the_quest'] = "To the quest";
 	$lang['close'] = "close";
 	$lang['save'] = "Save";
+	$lang['logout'] = "Logout";
 	$lang['click_change_village_name'] = "ouble click to change name of the village";
+	$lang['worldwonder'] = "WorldWonder";
+	$lang['building_site'] = "Building site";
+	$lang['rally_point_building_site'] = "Rally Point building site";
+	$lang['rally_point'] = "Rally Point";
+	$lang['save'] = "Save";
+	$lang['save'] = "Save";
+	$lang['save'] = "Save";
 
 ##================================================##
 ##========== UNITS - YOU MUST NOT EDIT! ==========##

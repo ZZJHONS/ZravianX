@@ -1,9 +1,32 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.24                                                  ##
+##  Filename:      Templates/Travian/4/field.tpl                               ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+
+# Load default array position
+$coorarray = array(1=>"190,88,28","280,89,28","348,101,28","132,127,28","245,140,28","302,147,28","387,145,28","72,178,28","153,179,28","343,179,28","430,179,28","80,239,28","153,229,28","289,265,28","411,234,28","184,319,28","275,324,28","365,301,28");
+
+# Load level & type
+$arrayVillage = $village->resarray;
+?>
 <map name="rx" id="rx">
     <?php 
-        $coorarray = array(1=>"190,88,28","280,89,28","348,101,28","132,127,28","245,140,28","302,147,28","387,145,28","72,178,28","153,179,28","343,179,28","430,179,28","80,239,28","153,229,28","289,265,28","411,234,28","184,319,28","275,324,28","365,301,28");
         for($i=1;$i<=18;$i++) {
-                echo "<area href=\"build.php?id=$i\" coords=\"$coorarray[$i]\" shape=\"circle\" title=\"&lt;b&gt;".$building->procResType($village->resarray['f'.$i.'t'])."&lt;/b&gt;||".$lang['level']." ".$village->resarray['f'.$i]."\" alt=\"".$building->procResType($village->resarray['f'.$i.'t'])." ".$lang['level']." ".$village->resarray['f'.$i]."\"/>";
-            }
+			echo "<area href=\"build.php?id=$i\" coords=\"$coorarray[$i]\" shape=\"circle\" title=\"&lt;b&gt;".$building->procResType($arrayVillage['f'.$i.'t'])."&lt;/b&gt;||".$lang['level']." ".$arrayVillage['f'.$i]."\" alt=\"".$building->procResType($arrayVillage['f'.$i.'t'])." ".$lang['level']." ".$arrayVillage['f'.$i]."\"/>\r\n";
+		}
     ?>
     <area href="dorf2.php" coords="250,191,32" shape="circle" alt="" title="<?php echo $lang['buildings']; ?>">
 </map>
@@ -72,7 +95,7 @@
                 $style = "left:354px;top:292px;";
                 break;
             }
-            echo "<div class=\"level\" style=".$style.">".$village->resarray['f'.$i]."</div>";
+            echo "<div class=\"level\" style=".$style.">".$arrayVillage['f'.$i]."</div>";
             }
         }
     ?>     
