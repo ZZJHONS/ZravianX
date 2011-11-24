@@ -15,8 +15,8 @@
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-
-?><div id="footer">
+?>
+<div id="footer">
 	<div id="mfoot">
 		<a href="<?php echo HOMEPAGE; ?>" target="_blank"><?php echo $lang['home']; ?></a>
 		<a href="#" target="_blank"><?php echo $lang['forum']; ?></a>
