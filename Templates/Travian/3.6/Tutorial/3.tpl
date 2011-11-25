@@ -7,7 +7,7 @@
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
 ##  Version:       2011.11.06                                                  ##
-##  Filename:      Templates/Tutorial/3.tpl                                    ##
+##  Filename:      Templates/Travian/3.6/Tutorial/3.tpl                        ##
 ##  Edited by:     ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
 ##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##

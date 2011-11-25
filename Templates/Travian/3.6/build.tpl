@@ -6,8 +6,8 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.07                                                  ##
-##  Filename:      build.php                                                   ##
+##  Version:       2011.11.24                                                  ##
+##  Filename:      Templates/Travian/3.6/build.tpl                             ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##

@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.11.25                                                  ##
 ##  Filename:      Templates/Travian/4/field.tpl                               ##
 ##  Developed by:  ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -33,7 +33,7 @@ $arrayVillage = $village->resarray;
 <div id="village_map" class="f<?php echo $village->type; ?>">
     <?php 
         for($i=1;$i<=18;$i++) {
-            if($village->resarray['f'.$i.'t'] != 0) {
+            if($arrayVillage['f'.$i.'t'] != 0) {
             $text = "";
             switch($i) {
                 case 1:
@@ -95,7 +95,9 @@ $arrayVillage = $village->resarray;
                 $style = "left:354px;top:292px;";
                 break;
             }
-            echo "<div class=\"level\" style=".$style.">".$arrayVillage['f'.$i]."</div>";
+            echo "<div class=\"level\" style=".$style.">";
+			if($arrayVillage['f'.$i] != 0){echo $arrayVillage['f'.$i];}
+			echo "</div>";
             }
         }
     ?>     
