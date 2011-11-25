@@ -12,14 +12,14 @@
 <?php
 $units_type = $database->getMovement("34",$village->wid,1);
 
-$units_incoming = count($units_type);
-for($i=0;$i<$units_incoming;$i++){
+$units_incomming = count($units_type);
+for($i=0;$i<$units_incomming;$i++){
 	if($units_type[$i]['attack_type'] == 1)
-		$units_incoming -= 1;
+		$units_incomming -= 1;
 }
-if($units_incoming >= 1){
+if($units_incomming >= 1){
 ?>
-<h4>Incoming troops (<?php echo $units_incoming; ?>)</h4>
+<h4>Incomming troops (<?php echo $units_incomming; ?>)</h4>
 	<?php include("16_incomming.tpl"); 
 	} 
 ?>
@@ -31,7 +31,7 @@ if($units_incoming >= 1){
 			<td class="role"><a href="karte.php?d=<?php echo $village->wid."&c=".$generator->getMapCheck($village->wid); ?>"><?php echo $village->vname; ?></a></td><td colspan="<?php if($village->unitarray['hero'] == 0) {echo"10";}else{echo"11";}?>">
             <a href="spieler.php?uid=<?php echo $session->uid; ?>">Own troops</a></td></tr></thead>
             <tbody class="units">
-           <?php include("Templates/Build/16_troops.tpl"); 
+           <?php include("16_troops.tpl"); 
           
            ?>
             </tbody></table>
@@ -103,14 +103,14 @@ if($units_incoming >= 1){
 <?php
 $units_type = $database->getMovement("3",$village->wid,0);
 $settlers = $database->getMovement("5",$village->wid,0);
-$units_incoming = count($units_type);
-for($i=0;$i<$units_incoming;$i++){
+$units_incomming = count($units_type);
+for($i=0;$i<$units_incomming;$i++){
 	if($units_type[$i]['vref'] != $village->wid)
-		$units_incoming -= 1;
+		$units_incomming -= 1;
 }
-$units_incoming += count($settlers);
+$units_incomming += count($settlers);
 
-if($units_incoming >= 1){
+if($units_incomming >= 1){
 	echo "<h4>Troops on their way</h4>";
 	include("16_walking.tpl"); 
 }

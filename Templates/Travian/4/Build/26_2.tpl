@@ -1,3 +1,21 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.22                                                  ##
+##  Filename:      Templates/Build/26_2.tpl                                    ##
+##  Improved by:   ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
 <div id="build" class="gid26"><h1>Palace <span class="level">level <?php echo $village->resarray['f'.$id]; ?></span></h1>
 <p class="build_desc">
 	<a href="#" onClick="return Popup(26,4, 'gid');"
@@ -18,7 +36,7 @@
 </tr>
 <tr>
 	<th>Production of all villages:</th>
-	<td><b><?php echo $database->getVSumField($session->uid, 'cp'); ?></b> Culture points per day</td>
+	<td><b><?php echo $session->cp; ?></b> Culture points per day</td>
 </tr>
-</table><p>Your villages have produced <b><?php echo $database->getUserField($session->uid, 'cp',0); ?></b> points in total. To found or conquer a new village you need <b><?php $mode = CP; $total = count($database->getProfileVillages($session->uid)); echo ${'cp'.$mode}[$total+1]; ?></b> points.</p>
+</table><p>Your villages have produced <b><?php echo $session->cp; ?></b> points in total. To found or conquer a new village you need <b><?php $mode = CP; $total = count($database->getProfileVillages($session->uid)); echo ${'cp'.$mode}[$total+1]; ?></b> points.</p>
 </div>

@@ -1,8 +1,8 @@
 <?php
 echo "<tr><td class=\"desc\">
 					<div class=\"tit\">
-						<img class=\"unit u11\" src=\"img/x.gif\" alt=\"Clubswinger\" title=\"Clubswinger\" />
-						<a href=\"#\" onClick=\"return Popup(11,1);\"> Clubswinger</a> <span class=\"info\">(Available: ".$village->unitarray['u11'].")</span>
+						<img class=\"unit u11\" src=\"img/x.gif\" alt=\"Clubswinger\" title=\"Pikemanm\" />
+						<a href=\"#\" onClick=\"return Popup(11,1);\"> Clubswinger</a> <span class=\"info\">(Available: ".$village->unitarray['u41'].")</span>
 					</div>
 					<div class=\"details\">
 						<img class=\"r1\" src=\"img/x.gif\" alt=\"Wood\" title=\"Wood\" />95|<img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" />75|<img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" />40|<img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />40|<img class=\"r5\" src=\"img/x.gif\" alt=\"Crop consumption\" title=\"Crop consumption\" />1|<img class=\"clock\" src=\"img/x.gif\" alt=\"Duration\" title=\"Duration\" />";
