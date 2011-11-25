@@ -34,70 +34,70 @@ $arrayVillage = $village->resarray;
     <?php 
         for($i=1;$i<=18;$i++) {
             if($arrayVillage['f'.$i.'t'] != 0) {
-            $text = "";
-            switch($i) {
-                case 1:
-                $text = $lang['field']['1'].$lang['level'];
-                $style = "left:179px;top:79px;";
-                break;
-                case 2:
-                $text = $lang['field']['2'].$lang['level'];
-                $style = "left:269px;top:80px;";
-                break;
-                case 3:
-                $text = $lang['field']['3'].$lang['level'];
-                $style = "left:337px;top:92px;";
-                break;
-                case 4:
-                $text = $lang['field']['4'].$lang['level'];
-                $style = "left:121px;top:118px;";
-                break;
-                case 5:
-                $style = "left:234px;top:131px;";
-                break;
-                case 6:
-                $style = "left:291px;top:138px;";
-                break;
-                case 7:
-                $style = "left:376px;top:136px;";
-                break;
-                case 8:
-                $style = "left:61px;top:169px;";
-                break;
-                case 9:
-                $style = "left:142px;top:170px;";
-                break;
-                case 10:
-                $style = "left:332px;top:170px;";
-                break;
-                case 11:
-                $style = "left:419px;top:170px;";
-                break;
-                case 12:
-                $style = "left:69px;top:230px;";
-                break;
-                case 13:
-                $style = "left:142px;top:220px;";
-                break;
-                case 14:
-                $style = "left:278px;top:256px;";
-                break;
-                case 15:
-                $style = "left:400px;top:225px;";
-                break;
-                case 16:
-                $style = "left:173px;top:310px;";
-                break;
-                case 17:
-                $style = "left:264px;top:315px;";
-                break;
-                case 18:
-                $style = "left:354px;top:292px;";
-                break;
+                $text = "";
+                switch($i) {
+                    case 1:
+                    $text = $lang['field']['1'].$lang['level'];
+                    $style = "left:179px;top:79px;";
+                    break;
+                    case 2:
+                    $text = $lang['field']['2'].$lang['level'];
+                    $style = "left:269px;top:80px;";
+                    break;
+                    case 3:
+                    $text = $lang['field']['3'].$lang['level'];
+                    $style = "left:337px;top:92px;";
+                    break;
+                    case 4:
+                    $text = $lang['field']['4'].$lang['level'];
+                    $style = "left:121px;top:118px;";
+                    break;
+                    case 5:
+                    $style = "left:234px;top:131px;";
+                    break;
+                    case 6:
+                    $style = "left:291px;top:138px;";
+                    break;
+                    case 7:
+                    $style = "left:376px;top:136px;";
+                    break;
+                    case 8:
+                    $style = "left:61px;top:169px;";
+                    break;
+                    case 9:
+                    $style = "left:142px;top:170px;";
+                    break;
+                    case 10:
+                    $style = "left:332px;top:170px;";
+                    break;
+                    case 11:
+                    $style = "left:419px;top:170px;";
+                    break;
+                    case 12:
+                    $style = "left:69px;top:230px;";
+                    break;
+                    case 13:
+                    $style = "left:142px;top:220px;";
+                    break;
+                    case 14:
+                    $style = "left:278px;top:256px;";
+                    break;
+                    case 15:
+                    $style = "left:400px;top:225px;";
+                    break;
+                    case 16:
+                    $style = "left:173px;top:310px;";
+                    break;
+                    case 17:
+                    $style = "left:264px;top:315px;";
+                    break;
+                    case 18:
+                    $style = "left:354px;top:292px;";
+                    break;
             }
-            echo "<div class=\"level\" style=".$style.">";
+			echo "<div class=\"level\" style=".$style.">";
 			if($arrayVillage['f'.$i] != 0){echo $arrayVillage['f'.$i];}
-			echo "</div>";
+			echo "</div>\r\n";
             }
         }
     ?>     
