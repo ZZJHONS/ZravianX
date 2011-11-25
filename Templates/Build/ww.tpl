@@ -94,7 +94,7 @@ if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {
 	else {
 	echo "<a class=\"build\" href=\"dorf2.php?a=$id&c=$session->checker\">Upgrade to level ";
 	}
-		echo $village->resarray['f99']+1;
+		echo $village->resarray['f99']+2;
 		echo ".</a> <span class=\"none\">(waiting loop)</span> ";
     }
 }
