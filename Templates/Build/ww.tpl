@@ -25,9 +25,9 @@
 	<h1>Wonder of the World <br /><span class="level">Level <?php echo $village->resarray['f99']; ?></span></h1>
 	<p class="build_desc">The World Wonder (otherwise known as a Wonder of the World) is as wonderful as it sounds. "This building" is built in order to win the server. Each level of the World Wonder costs hundreds of thousands (even millions) of resources to build.</p>
 	<form action="GameEngine/Game/WorldWonderName.php" method="POST">
-		<input type="hidden" name="vref" value="<?php echo $database->getVillageID($session->uid); ?>" />
+		<input type="hidden" name="vref" value="<?php echo $_SESSION['wid']; /* Test $database->getVillageID($session->uid); */ ?>" />
 		<?php
-            $vref = $database->getVillageID($session->uid);
+            $vref = $_SESSION['wid']; /* Test $database->getVillageID($session->uid); */
             $wwname = $database->getWWName($vref);
             if($village->resarray['f99'] < 15){
                 echo 'You need to have World Wonder level 15 to be able to change its name.<center><br />World Wonder name: <input class="text" name="wwname" id="wwname" disabled="disabled" value="'.$wwname.'" maxlength="20"></center><p class="btn"><input type="image" value="" tabindex="9" name="s1" disabled="disabled" id="btn_ok" class="dynamic_img" src="img/x.gif" alt="OK" /></p>';

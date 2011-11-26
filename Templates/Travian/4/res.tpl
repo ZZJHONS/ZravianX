@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.23                                                  ##
+##  Version:       2011.11.26                                                  ##
 ##  Filename:      Templates/Travian/4/res.tpl                                 ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Improved by:   ZZJHONS                                                     ##
@@ -24,36 +24,36 @@ $crop = round($village->getProd("crop"));
 $totalproduction = $village->allcrop; // all crops + bakery + grain mill
 ?> 
 <ul id="res">
-	<li class="r1" title="<?php echo $lang['resources']['1']."||".$lang['production'].": ".$village->getProd("wood"); ?>">
+	<li class="r1" title="<?php echo $lang['res1']."||".$lang['production'].": ".$village->getProd("wood"); ?>">
 		<p>
-            <img src="img/x.gif" alt="<?php echo $lang['resources']['1']; ?>">
+            <img src="img/x.gif" alt="<?php echo $lang['res1']; ?>">
             <span id="l1" class="value "><?php echo round($village->awood)."/".$village->maxstore; ?></span>
         </p>
 		<div class="bar-bg">
 			<div id="lbar1" class="bar" style="width:0%; background-color: #006900"></div>
         </div>
 	</li>
-	<li class="r2" title="<?php echo $lang['resources']['2']."||".$lang['production'].": ".$village->getProd("clay"); ?>">
+	<li class="r2" title="<?php echo $lang['res2']."||".$lang['production'].": ".$village->getProd("clay"); ?>">
         <p>
-            <img src="img/x.gif" alt="<?php echo $lang['resources']['2']; ?>">
+            <img src="img/x.gif" alt="<?php echo $lang['res2']; ?>">
             <span id="l2" class="value "><?php echo round($village->aclay)."/".$village->maxstore; ?></span>
         </p>
 		<div class="bar-bg">
             <div id="lbar2" class="bar" style="width:0%; background-color: #006900"></div>
         </div>
 	</li>
-	<li class="r3" title="<?php echo $lang['resources']['3']."||".$lang['production'].": ".$village->getProd("iron"); ?>">
+	<li class="r3" title="<?php echo $lang['res3']."||".$lang['production'].": ".$village->getProd("iron"); ?>">
         <p>
-            <img src="img/x.gif" alt="<?php echo $lang['resources']['3']; ?>">
+            <img src="img/x.gif" alt="<?php echo $lang['res3']; ?>">
             <span id="l3" class="value "><?php echo round($village->airon)."/".$village->maxstore; ?></span>
         </p>
 		<div class="bar-bg">
             <div id="lbar3" class="bar" style="width:0%; background-color: #006900"></div>
         </div>
 	</li>
-	<li class="r4" title="<?php echo $lang['resources']['4']."||".$lang['production'].": ".$village->getProd("crop"); ?>">
+	<li class="r4" title="<?php echo $lang['res4']."||".$lang['production'].": ".$village->getProd("crop"); ?>">
         <p>
-            <img src="img/x.gif" alt="<?php echo $lang['resources']['4']; ?>">
+            <img src="img/x.gif" alt="<?php echo $lang['res4']; ?>">
             <span id="l4" class="value "><?php echo round($village->acrop)."/".$village->maxcrop; ?></span>
         </p>
 		<div class="bar-bg">

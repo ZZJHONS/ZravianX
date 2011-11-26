@@ -10,7 +10,6 @@
 		<th>Current capacity:</th>
 		<td><b><?php echo $bid11[$village->resarray['f'.$id]]['attri']*STORAGE_MULTIPLIER; ?></b> units</td>
 	</tr>
-    
 	<tr>
 <?php 
         if(!$building->isMax($village->resarray['f'.$id.'t'],$id)) {

@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.11.26                                                  ##
 ##  Filename:      Templates/Travian/4/production.tpl                          ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -35,23 +35,23 @@
             </thead>
             <tbody>	
                 <tr>
-                    <td class="ico"><img class="r1" src="img/x.gif" alt="<?php echo $lang['resources']['1']; ?>" title="<?php echo $lang['resources']['1']; ?>" /></td>
-                    <td class="res"><?php echo $lang['resources']['1']; ?>:</td>
+                    <td class="ico"><img class="r1" src="img/x.gif" alt="<?php echo $lang['res1']; ?>" title="<?php echo $lang['res1']; ?>" /></td>
+                    <td class="res"><?php echo $lang['res1']; ?>:</td>
                     <td class="num"><?php echo $village->getProd("wood"); ?></td>
                 </tr>
                 <tr>
-                    <td class="ico"><img class="r2" src="img/x.gif" alt="<?php echo $lang['resources']['2']; ?>" title="<?php echo $lang['resources']['2']; ?>" /></td>
-                    <td class="res"><?php echo $lang['resources']['2']; ?>:</td>
+                    <td class="ico"><img class="r2" src="img/x.gif" alt="<?php echo $lang['res2']; ?>" title="<?php echo $lang['res2']; ?>" /></td>
+                    <td class="res"><?php echo $lang['res2']; ?>:</td>
                     <td class="num"><?php echo $village->getProd("clay"); ?></td>
                 </tr>
                 <tr>
-                    <td class="ico"><img class="r3" src="img/x.gif" alt="<?php echo $lang['resources']['3']; ?>" title="<?php echo $lang['resources']['3']; ?>" /></td>
-                    <td class="res"><?php echo $lang['resources']['3']; ?>:</td>
+                    <td class="ico"><img class="r3" src="img/x.gif" alt="<?php echo $lang['res3']; ?>" title="<?php echo $lang['res3']; ?>" /></td>
+                    <td class="res"><?php echo $lang['res3']; ?>:</td>
                     <td class="num"><?php echo $village->getProd("iron"); ?></td>
                 </tr>
                 <tr>
-                    <td class="ico"><img class="r4" src="img/x.gif" alt="<?php echo $lang['resources']['4']; ?>" title="<?php echo $lang['resources']['4']; ?>" /></td>
-                    <td class="res"><?php echo $lang['resources']['4']; ?>:</td>
+                    <td class="ico"><img class="r4" src="img/x.gif" alt="<?php echo $lang['res4']; ?>" title="<?php echo $lang['res4']; ?>" /></td>
+                    <td class="res"><?php echo $lang['res4']; ?>:</td>
                     <td class="num"><?php echo $village->getProd("crop"); ?></td>
                 </tr>
             </tbody>	

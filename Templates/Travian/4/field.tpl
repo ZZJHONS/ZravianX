@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.25                                                  ##
+##  Version:       2011.11.26                                                  ##
 ##  Filename:      Templates/Travian/4/field.tpl                               ##
 ##  Developed by:  ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -37,19 +37,19 @@ $arrayVillage = $village->resarray;
                 $text = "";
                 switch($i) {
                     case 1:
-                    $text = $lang['field']['1'].$lang['level'];
+                    $text = $lang['build1'].$lang['level'];
                     $style = "left:179px;top:79px;";
                     break;
                     case 2:
-                    $text = $lang['field']['2'].$lang['level'];
+                    $text = $lang['build2'].$lang['level'];
                     $style = "left:269px;top:80px;";
                     break;
                     case 3:
-                    $text = $lang['field']['3'].$lang['level'];
+                    $text = $lang['build3'].$lang['level'];
                     $style = "left:337px;top:92px;";
                     break;
                     case 4:
-                    $text = $lang['field']['4'].$lang['level'];
+                    $text = $lang['build4'].$lang['level'];
                     $style = "left:121px;top:118px;";
                     break;
                     case 5:
