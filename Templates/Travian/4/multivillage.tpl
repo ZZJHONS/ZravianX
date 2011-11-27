@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.11.27                                                  ##
 ##  Filename:      Templates/Travian/4/multivillage.tpl                        ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -30,7 +30,15 @@
 				} else {
 					$select = "";
 				}
-				echo '<li class="entry '.$select.'" title="'.htmlspecialchars($returnVillageArray[$i-1]['name']).'">';
+				$attack_coming = (count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
+				if($attack_coming > 0){
+					$village_attack = "attack ";
+					$village_title = "Incoming attack on a village: ".$attack_coming;
+				} else {
+					$village_attack = "";
+					$village_title = htmlspecialchars($returnVillageArray[$i-1]['name']);
+				}
+				echo "<li class=\"entry ".$village_attack.$select."\" title=\"".$village_title."\">";
 				echo '<a href="?newdid='.$returnVillageArray[$i-1]['wref'].(($id>=19) ? "&id=".$id : "&id=0").'" accesskey="b" class="'.$select.'" title="'.htmlspecialchars($returnVillageArray[$i-1]['name']).' ('.$returnVillageArray[$i-1]['x'].'|'.$returnVillageArray[$i-1]['y'].')">'.$returnVillageArray[$i-1]['name'].'</a>';
 				echo '</li>';
 			}
