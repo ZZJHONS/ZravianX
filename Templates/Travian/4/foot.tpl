@@ -20,7 +20,6 @@
                             <div class="clear">&nbsp;</div>
                         </div>
                         <div class="clear"></div>
-                    </div>
                     <div class="contentFooter">&nbsp;</div>
                 </div>
                 <div id="side_info">

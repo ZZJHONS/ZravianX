@@ -21,5 +21,6 @@ $filecontent = "village2";
 include("Templates/Travian/4/header.tpl");
 include("Templates/Travian/4/builds.tpl");
 if($building->NewBuilding) {include("Templates/Travian/4/Building.tpl");}
+echo "</div>";
 include("Templates/Travian/4/foot.tpl");
 ?>

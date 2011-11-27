@@ -23,12 +23,13 @@ include("Templates/Travian/4/field.tpl");
 $timer = 1;
 if($building->NewBuilding){include("Templates/Travian/4/Building.tpl");}
 ?>                    
-<div id="map_details">
-    <?php
-        include("Templates/Travian/4/movement.tpl"); 
-        include("Templates/Travian/4/production.tpl"); 
-        include("Templates/Travian/4/troops.tpl"); 
-    ?>
-    <div class="clear"></div>
+    <div id="map_details">
+        <?php
+            include("Templates/Travian/4/movement.tpl"); 
+            include("Templates/Travian/4/production.tpl"); 
+            include("Templates/Travian/4/troops.tpl"); 
+        ?>
+        <div class="clear"></div>
+    </div>
 </div>
 <?php include("Templates/Travian/4/foot.tpl"); ?>

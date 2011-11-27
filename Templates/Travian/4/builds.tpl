@@ -16,6 +16,7 @@
 ##                                                                             ##
 #################################################################################
 ?>
+<div id="content" class="village2">
 <div id="village_map">
     <map name="clickareas" id="clickareas">
         <?php
@@ -138,7 +139,7 @@
 						$text = $building->procResType($job['type'])." ".$lang['level']." ".$village->resarray['f'.$job['field']];
 					}
 				}
-				echo "<img src=\"img/x.gif\" style=\"$style\" class=\"building g$i $img\" alt=\"$text\" />";
+				echo "<img src=\"img/x.gif\" style=\"$style\" class=\"building $img\" alt=\"$text\" />";
 			}
 		}
 		if($village->resarray['f39'] == 0) {

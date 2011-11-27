@@ -30,8 +30,8 @@
 	$lang['reports'] = "Reports";
 	$lang['messages'] = "Messages";
 	$lang['new'] = "New";
-	$lang['new_reports'] = "(s) report(s)";
-	$lang['new_messages'] = "(s) message(s)";
+	$lang['new_reports'] = " report(s)";
+	$lang['new_messages'] = " message(s)";
 	$lang['help'] = "Help";
 	$lang['level'] = "Level";
 	$lang['level_'] = "level";

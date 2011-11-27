@@ -15,20 +15,21 @@
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-
+?>
+<div id="contract" class="contractWrapper">
+<?php
 $bindicate = $building->canBuild($id,$village->resarray['f'.$id.'t']);
 if($bindicate == 1) {
-	echo "<p><span class=\"none\">".$lang['build_max_level']."</span></p>";
+	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_max_level']."</span></p></div>";
 } else if($bindicate == 10) {
-	echo "<p><span class=\"none\">".$lang['build_max_level_construction']."</span></p>";
+	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_max_level_construction']."</span></p></div>";
 } else if($bindicate == 11) {
-	echo "<p><span class=\"none\">".$lang['build_being_demolished']."</span></p>";
+	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_being_demolished']."</span></p></div>";
 } else {
 	$loopsame = ($building->isCurrent($id) || $building->isLoop($id))?1:0;
 	$doublebuild = ($building->isCurrent($id) && $building->isLoop($id))?1:0;
 	$uprequire = $building->resourceRequired($id,$village->resarray['f'.$id.'t'],($loopsame > 0 ? 2:1)+$doublebuild);
 ?>
-<div id="contract" class="contractWrapper">
     <div class="contractText">
         <b><?php echo $lang['costs']; ?></b> <?php echo $lang['for_up_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1)+$doublebuild; ?>:
     </div>
@@ -101,6 +102,6 @@ if($bindicate == 1) {
             </div>
         </button>
         <span class="none">(<?php echo $lang['waiting_loop']; ?>)</span>
-    <?php } }?>
+    <?php } } ?>
     </div>
 </div>

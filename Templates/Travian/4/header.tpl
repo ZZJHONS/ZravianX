@@ -150,4 +150,3 @@
                 <div id="contentOuterContainer">
                     <div class="contentTitle">&nbsp;</div>
                     <div class="contentContainer">
-						<div id="content" class="<?php echo $filecontent; ?>">

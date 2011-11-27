@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.11.27                                                  ##
 ##  Filename:      Templates/Travian/4/build.tpl                               ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -17,17 +17,15 @@
 ##                                                                             ##
 #################################################################################
 
-$filecontent = "build gidRessources";
+$filecontent = "build";
 include("Templates/Travian/4/header.tpl");
 if(isset($_GET['id'])) {
-	if(isset($_GET['s']))
-	{
+	if(isset($_GET['s'])) {
 		if (!ctype_digit($_GET['s'])) {
 			$_GET['s'] = null;
 		}
 	}
-	if(isset($_GET['t']))
-	{
+	if(isset($_GET['t'])) {
 		if (!ctype_digit($_GET['t'])) {
 			$_GET['t'] = null;
 		}
@@ -37,22 +35,18 @@ if(isset($_GET['id'])) {
 	}
 	$id = $_GET['id'];
 	if($id=='99' AND $village->resarray['f99t'] == 40){
-	include("Templates/Travian/4/Build/ww.tpl");
-	} else
-	if($village->resarray['f'.$_GET['id'].'t'] == 0 && $_GET['id'] >= 19) {
+		include("Templates/Travian/4/Build/ww.tpl");
+	} else if($village->resarray['f'.$_GET['id'].'t'] == 0 && $_GET['id'] >= 19) {
 		include("Templates/Travian/4/Build/avaliable.tpl");
-	}
-	else {
+	} else {
 		if(isset($_GET['t'])) {
 			if($_GET['t'] == 1) {
-			$_SESSION['loadMarket'] = 1;
+				$_SESSION['loadMarket'] = 1;
 			}
 			include("Templates/Travian/4/Build/".$village->resarray['f'.$_GET['id'].'t']."_".$_GET['t'].".tpl");
-		} else
-		if(isset($_GET['s'])) {
+		} else if(isset($_GET['s'])) {
 			include("Templates/Travian/4/Build/".$village->resarray['f'.$_GET['id'].'t']."_".$_GET['s'].".tpl");
-		}
-		else {
+		} else {
 			include("Templates/Travian/4/Build/".$village->resarray['f'.$_GET['id'].'t'].".tpl");
 		}
 	}
