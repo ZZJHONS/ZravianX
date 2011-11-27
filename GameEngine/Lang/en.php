@@ -103,13 +103,13 @@
 	$lang['res4'] = "Crop";
 	$lang['build0'] = "Error";
 	$lang['build1'] = "Woodcutter";
-	$lang['build1_desc'] = "The ".$lang['build1']." cuts down trees in order to produce ".$lang['res1'].". The further you extend the ".$lang['build1']." the more ".$lang['res1']." is produced by him.";
+	$lang['build1_desc'] = "The ".$lang['build1']." cuts down trees in order to produce ".$lang['res1'].". The further you extend the ".$lang['build1'].", the more ".$lang['res1']." is produced.";
 	$lang['build2'] = "Clay pit";
-	$lang['build2_desc'] = $lang['res2']." is produced here. By increasing its level you increase its ".$lang['res2']." production.";
+	$lang['build2_desc'] = $lang['res2']." is produced here. By increasing its ".$lang['level_'].", you increase the ".$lang['res2']." production.";
 	$lang['build3'] = "Iron mine";
-	$lang['build3_desc'] = "Here miners produce the precious resource ".$lang['res3'].". By increasing the mine`s level you increase its ".$lang['res3']." production.";
+	$lang['build3_desc'] = "Here miners produce the precious resource of ".$lang['res3'].". By increasing the mine`s ".$lang['level_'].", you increase the ".$lang['res3']." production.";
 	$lang['build4'] = "Cropland";
-	$lang['build4_desc'] = "Your population`s food is produced here. By increasing the farm`s level you increase its ".$lang['res4']." production.";
+	$lang['build4_desc'] = "Your population`s food is produced here. By increasing the farm`s ".$lang['level_'].", you increase the ".$lang['res4']." production.";
 	$lang['build5'] = "Sawmill";
 	$lang['build5_desc'] = "Sawmill";
 	$lang['build6'] = "Brickyard";

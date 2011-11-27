@@ -30,7 +30,7 @@ if($bindicate == 1) {
 ?>
 <div id="contract" class="contractWrapper">
     <div class="contractText">
-        <b><?php echo $lang['costs']; ?></b><?php echo $lang['for_up_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1)+$doublebuild; ?>:
+        <b><?php echo $lang['costs']; ?></b> <?php echo $lang['for_up_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1)+$doublebuild; ?>:
     </div>
 	<div class="contractCosts">
     	<div class="showCosts">
