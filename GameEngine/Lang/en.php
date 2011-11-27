@@ -55,10 +55,6 @@
 	$lang['per_hour'] = "per hour";	
 	$lang['production'] = "Production";
 	$lang['production_per_hour'] = $lang['production'].$lang['per_hour'];
-	$lang['res1'] = "Lumber";
-	$lang['res2'] = "Clay";
-	$lang['res3'] = "Iron";
-	$lang['res4'] = "Crop";
 	$lang['troops'] = "Troops";
 	$lang['none'] = "none";
 	$lang['hero'] = "Hero";
@@ -92,7 +88,7 @@
 	$lang['build_max_level_construction'] = "Building max level under construction";
 	$lang['build_being_demolished'] = "Building presently being demolished";
 	$lang['costs'] = "Costs";
-	$lang['for_up_level'] = "for upgrading to level";
+	$lang['for_up_level'] = "for upgrading to ".$lang['level_'];
 	$lang['npc_trade'] = "NPC trade";
 	$lang['worker_already_work'] = "The workers are already at work";
 	$lang['no_enough_food'] = "Not enough food";
@@ -101,15 +97,19 @@
 	$lang['to'] = "to";
 	$lang['enough_resources'] = "Enough resources";
 	$lang['up_to_level'] = $lang['upgrade']." ".$lang['to']." ".$lang['level_'];
+	$lang['res1'] = "Lumber";
+	$lang['res2'] = "Clay";
+	$lang['res3'] = "Iron";
+	$lang['res4'] = "Crop";
 	$lang['build0'] = "Error";
 	$lang['build1'] = "Woodcutter";
-	$lang['build1_desc'] = "The ".$lang['build1']." cuts down trees in order to produce lumber. The further you extend the bid1 the more lumber is produced by him";
+	$lang['build1_desc'] = "The ".$lang['build1']." cuts down trees in order to produce ".$lang['res1'].". The further you extend the ".$lang['build1']." the more ".$lang['res1']." is produced by him.";
 	$lang['build2'] = "Clay pit";
-	$lang['build2_desc'] = "Clay pit";
+	$lang['build2_desc'] = $lang['res2']." is produced here. By increasing its level you increase its ".$lang['res2']." production.";
 	$lang['build3'] = "Iron mine";
-	$lang['build3_desc'] = "Iron mine";
+	$lang['build3_desc'] = "Here miners produce the precious resource ".$lang['res3'].". By increasing the mine`s level you increase its ".$lang['res3']." production.";
 	$lang['build4'] = "Cropland";
-	$lang['build4_desc'] = "Cropland";
+	$lang['build4_desc'] = "Your population`s food is produced here. By increasing the farm`s level you increase its ".$lang['res4']." production.";
 	$lang['build5'] = "Sawmill";
 	$lang['build5_desc'] = "Sawmill";
 	$lang['build6'] = "Brickyard";
@@ -188,7 +188,7 @@
 	$lang['build42_desc'] = "Great Workshop";
 	$lang['current_prod'] = "Current production";
 	$lang['next_prod'] = "Production at level";
-	$lang['test'] = "Test";
+	$lang['at'] = "at";
 	$lang['test'] = "Test";
 
 # End new translation version #

@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.26                                                  ##
+##  Version:       2011.11.27                                                  ##
 ##  Filename:      Templates/Build/upgrade.tpl                                 ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -46,7 +46,7 @@ if($bindicate == 1) {
             echo "<span class=\"none\">".$lang['upgrade']." ".$lang['build11'].".</span>";
         } else if($bindicate == 7) {
             $neededtime = $building->calculateAvaliable($id,$village->resarray['f'.$id.'t'],($loopsame > 0 ? 2:1));
-            echo "<span class=\"none\">".$lang['enough_resources']." ".$neededtime[0]." at  ".$neededtime[1]."</span>";
+            echo "<span class=\"none\">".$lang['enough_resources']." ".$neededtime[0]." ".$lang['at']." ".$neededtime[1]."</span>";
         } else if($bindicate == 8) {
             if($id <= 18) {
                 echo "<a class=\"build\" href=\"dorf1.php?a=$id&c=$session->checker\">".$lang['up_to_level']." ";
