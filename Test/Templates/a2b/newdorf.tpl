@@ -23,21 +23,34 @@ echo '</pre>';
 		<table class="troop_details" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-			<td class="role"><a href="karte.php?d=<?php echo $founder['0']; ?>&c=<?php echo $generator->getMapCheck($founder['0']); ?>"><?php echo $session->username; ?></a></td><td colspan="10"><a href="karte.php?d=<?php echo $newvillage['id']; ?>&c=<?php echo $generator->getMapCheck($newvillage['0']) ?>">Found new village (<?php echo $newvillage['x']; ?>|<?php echo $newvillage['y']; ?>)</a></td>
+			<td class="role"><a href="karte.php?d=<?php echo $founder['0']; ?>&c=<?php echo $generator->getMapCheck($founder['0']); ?>"><?php echo $database->getUserField($session->uid,'username',0); ?></a></td><td colspan="10"><a href="karte.php?d=<?php echo $newvillage['id']; ?>&c=<?php echo $generator->getMapCheck($newvillage['0']) ?>">Found new village (<?php echo $newvillage['x']; ?>|<?php echo $newvillage['y']; ?>)</a></td>
 		</tr>
 	</thead>
 	<tbody class="units">
 		<tr>
 			<th>&nbsp;</th>
-				<?php for($i=($session->tribe-1)*10+1;$i<=$session->tribe*10;$i++) {
-					echo "<td><img src=\"img/x.gif\" class=\"unit u".$i."\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";
-				} ?>
+				<td><img src="img/x.gif" class="unit u11" title="Knuppelvechter" alt="Knuppelvechter" /></td>
+				<td><img src="img/x.gif" class="unit u12" title="Speervechter" alt="Speervechter" /></td>
+				<td><img src="img/x.gif" class="unit u13" title="Bijlvechter" alt="Bijlvechter" /></td>
+				<td><img src="img/x.gif" class="unit u14" title="Verkenner" alt="Verkenner" /></td>
+				<td><img src="img/x.gif" class="unit u15" title="Paladijn" alt="Paladijn" /></td>
+				<td><img src="img/x.gif" class="unit u16" title="Germaanse Ridder" alt="Germaanse Ridder" /></td>
+				<td><img src="img/x.gif" class="unit u17" title="Ram" alt="Ram" /></td>
+				<td><img src="img/x.gif" class="unit u18" title="Katapult" alt="Katapult" /></td>
+				<td><img src="img/x.gif" class="unit u19" title="Leider" alt="Leider" /></td>
+				<td><img src="img/x.gif" class="unit u20" title="Kolonist" alt="Kolonist" /></td>
 		</tr>
 		<tr>
 			<th>Troops</th>
-				<?php for($i=1;$i<=9;$i++) {
-					echo "<td class=\"none\">0</td>";
-				} ?>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
+				<td class="none">0</td>
 				<td>3</td>
 		</tr>
 	</tbody>
@@ -63,7 +76,7 @@ echo '</pre>';
 $mode = CP; 
 $total = count($database->getProfileVillages($session->uid)); 
 $need_cps = ${'cp'.$mode}[$total];
-$cps = $session->cp;
+$cps = $database->getUserField($session->uid, 'cp',0);
 
 if($cps >= $need_cps) {
 ?>

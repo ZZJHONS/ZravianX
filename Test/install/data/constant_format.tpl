@@ -4,7 +4,7 @@
 ## --------------------------------------------------------------------------- ##
 ##  Filename       config.php                                                  ##
 ##  Version        4.8.5                                                       ##
-##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
+##  Developed by:  Dzoki Edited by Advocaite                                   ##
 ##  License:       TravianX Project                                            ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##
@@ -47,16 +47,11 @@ define("WORLD_MAX", "%MAX%");
 //!!!!!!!!!!!! DO NOT ENABLE !!!!!!!!!!!!
 define("GP_ENABLE",false);
 // Graphic pack location (default: gpack/travian_default/)
-define("GP_LOCATE", "gpack/travian_default/");
+define("GP_LOCATE", "%GP_LOCATE%");
 
 // ***** Troop Speed
 // Values: 1 (normal), 3 (3x speed) etc...
 define("INCREASE_SPEED","%INCSPEED%");
-
-// ***** Trader capacity
-// Values: 1 (normal), 3 (3x speed) etc...
-define("TRADER_CAPACITY","%TRADERCAP%");
-
 
 // ***** Village Expand
 // 1 = slow village expanding - more Cultural Points needed for every new village
@@ -68,10 +63,6 @@ define("CP", %VILLAGE_EXPAND%);
 // demolish. Min value = 1, max value = 20
 // Default: 10
 define("DEMOLISH_LEVEL_REQ","%DEMOLISH%");
-
-// ***** Change storage capacity
-define("STORAGE_MULTIPLIER","%STORAGE_MULTIPLIER%");
-define("STORAGE_BASE",800*STORAGE_MULTIPLIER);
 
 // ***** Quest
 // Ingame quest enabled/disabled.
@@ -136,6 +127,16 @@ define("LOG_ILLEGAL",%LOGILLEGAL%);
 define("NEWSBOX1",%BOX1%);
 define("NEWSBOX2",%BOX2%);
 define("NEWSBOX3",%BOX3%);
+
+
+///////////////////////////////////////
+// ****  HOME NEWSBOX SETTINGS  **** //
+///////////////////////////////////////
+//true = enabled
+//false = disabled
+define("HOME1",%HOME1%);
+define("HOME2",%HOME2%);
+define("HOME3",%HOME3%);
 
 
 
@@ -226,6 +227,7 @@ define("MULTIHUNTER",8);
 define("ADMIN",9);
 define("COOKIE_EXPIRE", 60*60*24*7); 
 define("COOKIE_PATH", "/"); 
+define("SUBDOMAIN", %SUBDOM%);
 
 
 ////////////////////////////////////////////
@@ -235,14 +237,13 @@ define("DOMAIN", "%DOMAIN%");
 define("HOMEPAGE", "%HOMEPAGE%");
 define("SERVER", "%DOMAIN%");
 
-$requse = 0;
 
 ###############################  E    N    D   ##################################
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       config.php                                                  ##
 ##  Version        4.8.5                                                       ##
-##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
+##  Developed by:  Dzoki Edited by Advocaite                                   ##
 ##  License:       TravianX Project                                            ##
 ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
 ##                                                                             ##

@@ -19,17 +19,13 @@ if ($units[$y]['sort_type']==3){
                   echo "<a href=\"spieler.php?uid=".$database->getVillageField($units[$y]['from'],"owner")."\">".$database->getUserField($database->getVillageField($units[$y]['from'],"owner"),"username",0)."'s troops</a>";
                   echo "</td></tr></thead><tbody class=\"units\">";
                   $tribe = $database->getUserField($database->getVillageField($units[$y]['from'],"owner"),"tribe",0);
-                  $start = ($tribe-1)*10+1;
-                  $end = ($tribe*10);
+                  $start = ($tribe == 1)? 1 : (($tribe == 2)? 11 : 21);
                   echo "<tr><th>&nbsp;</th>";
-                  for($i=$start;$i<=($end);$i++) {
+                  for($i=$start;$i<=($start+9);$i++) {
                   	echo "<td><img src=\"img/x.gif\" class=\"unit u$i\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";	
                   }
-                  if($units[$y]['t11'] != 0) {
-                   echo "<td><img src=\"img/x.gif\" class=\"unit uhero\" title=\"Hero\" alt=\"Hero\" /></td><td class=\"none\">?</td>";    
-                  }
                   echo "</tr><tr><th>Troops</th>";
-                  for($i=$start;$i<=($end);$i++) {
+                  for($i=$start;$i<=($start+9);$i++) {
                  		echo "<td class=\"none\">?</td>";
                   }
                   echo "</tr></tbody>";
@@ -38,7 +34,7 @@ if ($units[$y]['sort_type']==3){
 									<tr>
 										<th>Arrival</th>
 										<td colspan="10">
-										<div class="in small"><span id=timer'.$timer.'>'.$generator->getTimeFormat($units[$y]['endtime']-time()).'</span> h</div>';
+										<div class="in small"><span id=timer$timer>'.$generator->getTimeFormat($units[$y]['endtime']-time()).'</span> h</div>';
 										    $datetime = $generator->procMtime($units[$y]['endtime']);
 										    echo "<div class=\"at small\">";
 										    if($datetime[0] != "today") {
@@ -69,26 +65,22 @@ $to = $database->getMInfo($units[$y]['vref']);
 	<thead>
 		<tr>
 			<td class="role"><a href="karte.php?d=<?php echo $village->wid."&c=".$generator->getMapCheck($village->wid); ?>"><?php echo $village->vname; ?></a></td>
-			<td colspan="<?php if($units[$y]['t11'] != 0) {echo"11";}else{echo"10";}?>"><a href="karte.php?d=<?php echo $to['wref']."&c=".$generator->getMapCheck($to['wref']); ?>"><?php echo "Returning to ".$to['name']; ?></a></td>
+			<td colspan="10"><a href="karte.php?d=<?php echo $to['wref']."&c=".$generator->getMapCheck($to['wref']); ?>"><?php echo "Returning to ".$to['name']; ?></a></td>
 		</tr>
 	</thead>
 	<tbody class="units">
 			<?php
-				  $tribe = $session->tribe;
-                  $start = ($tribe-1)*10+1;
-                  $end = ($tribe*10);
+				$tribe = $session->tribe;
+                  $start = ($tribe == 1)? 1 : (($tribe == 2)? 11 : 21);
                   echo "<tr><th>&nbsp;</th>";
-                  for($i=$start;$i<=($end);$i++) {
+                  for($i=$start;$i<=($start+9);$i++) {
                   	echo "<td><img src=\"img/x.gif\" class=\"unit u$i\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";	
-                  }
-                  if($units[$y]['t11'] != 0) {
-                   echo "<td><img src=\"img/x.gif\" class=\"unit uhero\" title=\"Hero\" alt=\"Hero\" /></td>";    
                   }
 			?>
 			</tr>
  <tr><th>Troops</th>
             <?php
-            for($i=1;$i<($units[$y]['t11'] != 0?12:11);$i++) {
+            for($i=1;$i<11;$i++) {
             	if($units[$y]['t'.$i] == 0) {
                 	echo "<td class=\"none\">";
                 }
@@ -102,9 +94,9 @@ $to = $database->getMInfo($units[$y]['vref']);
 		<tbody class="infos">
 			<tr>
 				<th>Arrival</th>
-				<td colspan="<?php if($units[$y]['t11'] == 0) {echo"10";}else{echo"11";}?>">
+				<td colspan="10">
 				<?php
-				    echo "<div class=\"in small\"><span id=timer".$timer.">".$generator->getTimeFormat($units[$y]['endtime']-time())."</span> h</div>";
+				    echo "<div class=\"in small\"><span id=timer$timer>".$generator->getTimeFormat($units[$y]['endtime']-time())."</span> h</div>";
 				    $datetime = $generator->procMtime($units[$y]['endtime']);
 				    echo "<div class=\"at small\">";
 				    if($datetime[0] != "today") {

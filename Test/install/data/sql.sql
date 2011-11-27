@@ -6,6 +6,15 @@
 -- Generation Time: Jul 21, 2011 at 02:49 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
+-- #################################################################################
+-- ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+-- ## --------------------------------------------------------------------------- ##
+-- ##  Filename       sql.sql                                                     ##
+-- ##  Developed by:  Dzoki & Dixie                                               ##
+-- ##  License:       TravianX Project                                            ##
+-- ##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+-- ##                                                                             ##
+-- #################################################################################
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -45,21 +54,6 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%a2b` (
 -- Dumping data for table `%PREFIX%a2b`
 --
 
---
--- Table structure for table `%PREFIX%links`
---
-
-CREATE TABLE `%PREFIX%links` (
-  `id` INT( 25 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-  `userid` INT( 25 ) NOT NULL ,
-  `name` VARCHAR( 50 ) NOT NULL ,
-  `url` VARCHAR( 150 ) NOT NULL ,
-  `pos` INT( 10 ) NOT NULL
-) ENGINE = MYISAM;
-
---
--- Dumping data for table `%PREFIX%links`
---
 
 -- --------------------------------------------------------
 
@@ -170,31 +164,6 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%allimedal` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `%PREFIX%artefacts`
---
-
-CREATE TABLE IF NOT EXISTS `%PREFIX%artefacts` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `vref` int(10) unsigned NOT NULL,
-  `owner` int(10) unsigned NOT NULL,
-  `type` int(3) unsigned NOT NULL,
-  `size` int(10) unsigned NOT NULL,
-  `conquered` int(10) unsigned NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `desc` text NOT NULL,
-  `effect` varchar(45) NOT NULL,
-  `img` varchar(20) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Table structure for table `s1_artefacts`
---
--- --------------------------------------------------------
-
 --
 -- Table structure for table `%PREFIX%alidata`
 --
@@ -213,10 +182,10 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%alidata` (
   `ap` bigint(255) unsigned NOT NULL DEFAULT '0',
   `dp` bigint(255) unsigned NOT NULL DEFAULT '0',
   `Rc` bigint(255) unsigned NOT NULL DEFAULT '0',
-  `RR` bigint(255)  NOT NULL DEFAULT '0',
+  `RR` bigint(255) unsigned NOT NULL DEFAULT '0',
   `Aap` bigint(255) unsigned NOT NULL DEFAULT '0',
   `Adp` bigint(255) unsigned NOT NULL DEFAULT '0',
-  `clp` bigint(255) NOT NULL DEFAULT '0',
+  `clp` bigint(255) unsigned NOT NULL DEFAULT '0',
   `oldrank` bigint(255) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -317,14 +286,6 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%attacks` (
   `ctar1` int(11) unsigned NOT NULL, 
   `ctar2` int(11) unsigned NOT NULL,
   `spy` int(11) unsigned NOT NULL, 
-  `b1` tinyint(1) unsigned NOT NULL, 
-  `b2` tinyint(1) unsigned NOT NULL, 
-  `b3` tinyint(1) unsigned NOT NULL, 
-  `b4` tinyint(1) unsigned NOT NULL, 
-  `b5` tinyint(1) unsigned NOT NULL, 
-  `b6` tinyint(1) unsigned NOT NULL, 
-  `b7` tinyint(1) unsigned NOT NULL, 
-  `b8` tinyint(1) unsigned NOT NULL, 
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -481,9 +442,9 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%diplomacy` (
   `alli1` int(10) unsigned NOT NULL,
   `alli2` int(10) unsigned NOT NULL,
   `type` tinyint(1) unsigned NOT NULL,
-  `accepted` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
 --
 -- Dumping data for table `%prefix%diplomacy`
 --
@@ -547,7 +508,6 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%enforcement` (
   `u48` int(11) unsigned NOT NULL DEFAULT '0',
   `u49` int(11) unsigned NOT NULL DEFAULT '0',
   `u50` int(11) unsigned NOT NULL DEFAULT '0',
-  `hero` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `from` int(10) unsigned NOT NULL DEFAULT '0',
   `vref` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -767,30 +727,24 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%gold_fin_log` (
 --
 
 CREATE TABLE IF NOT EXISTS `%PREFIX%hero` (
-  `heroid` smallint(2) unsigned NOT NULL AUTO_INCREMENT,
-  `uid` smallint(2) unsigned NOT NULL,
-  `unit` smallint(2) unsigned NOT NULL,
-  `name` tinytext NOT NULL,
-  `wref` mediumint(3) unsigned NOT NULL,
-  `level` tinyint(1) unsigned NOT NULL,
-  `points` smallint(2) unsigned NOT NULL,
-  `experience` mediumint(3) NOT NULL,
-  `dead` tinyint(1) unsigned NOT NULL,
-  `health` float(12,9) unsigned NOT NULL,
-  `attack` tinyint(1) unsigned NOT NULL,
-  `defence` tinyint(1) unsigned NOT NULL,
-  `attackbonus` tinyint(1) unsigned NOT NULL,
-  `defencebonus` tinyint(1) unsigned NOT NULL,
-  `regeneration` tinyint(1) unsigned NOT NULL,
-  `autoregen` int(2) NOT NULL,
-  `trainingtime` mediumint(3) unsigned NOT NULL,
-  PRIMARY KEY (`heroid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+  `pointgain` text NOT NULL,
+  `uid` text NOT NULL,
+  `heroname` text NOT NULL,
+  `type` text NOT NULL,
+  `healthofhero` text NOT NULL,
+  `timetoborn` text NOT NULL,
+  `hero` text NOT NULL,
+  `attackpower` text NOT NULL,
+  `defpower` text NOT NULL,
+  `attackbonus` text NOT NULL,
+  `defbonus` text NOT NULL,
+  `regspeed` text NOT NULL,
+  `pointused` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `%prefix%hero`
 --
-
 
 
 -- --------------------------------------------------------
@@ -973,16 +927,6 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%odata` (
   `wref` int(10) unsigned NOT NULL,
   `type` tinyint(2) unsigned NOT NULL,
   `conqured` int(10) unsigned NOT NULL,
-  `wood` int(10) unsigned NOT NULL,
-  `iron` int(10) unsigned NOT NULL,
-  `clay` int(10) unsigned NOT NULL,
-  `maxstore` int(10) unsigned NOT NULL,
-  `crop` int(10) unsigned NOT NULL,
-  `maxcrop` int(10) unsigned NOT NULL,
-  `lastupdated` int(10) unsigned NOT NULL,
-  `loyalty` int(10) NOT NULL DEFAULT '100',
-  `owner` int(10) unsigned NOT NULL DEFAULT '2',
-  `name` varchar(32) NOT NULL DEFAULT 'Unoccupied Oasis',
   PRIMARY KEY (`wref`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -1251,10 +1195,10 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `gpack` varchar(255) NOT NULL DEFAULT 'gpack/travian_default/',
   `cp` int(10) unsigned NOT NULL DEFAULT '1',
   `lastupdate` int(11) unsigned NOT NULL,
-  `RR` int(255) NOT NULL DEFAULT '0',
-  `Rc` int(255) NOT NULL DEFAULT '0',
+  `RR` int(255) unsigned NOT NULL DEFAULT '0',
+  `Rc` int(255) unsigned NOT NULL DEFAULT '0',
   `ok` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `clp` bigint(255) NOT NULL DEFAULT '0',
+  `clp` bigint(255) unsigned NOT NULL DEFAULT '0',
   `oldrank` bigint(255) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
@@ -1267,6 +1211,7 @@ INSERT INTO `%PREFIX%users` (`id`, `username`, `password`, `email`, `tribe`, `ac
 (0, 'Multihunter', '', 'multihunter@travianx.mail', 0, 9, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
 (1, 'Support', '', 'support@travianx.mail', 1, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
 (2, 'Nature', '', 'support@travianx.mail', 4, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
+(3, 'Nartars', '', 'support@travianx.mail', 5, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
 (4, 'Taskmaster', '', 'support@travianx.mail', 1, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -1291,7 +1236,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%vdata` (
   `crop` float(12,2) NOT NULL,
   `maxcrop` int(10) unsigned NOT NULL,
   `lastupdate` int(11) unsigned NOT NULL,
-  `loyalty` float(9,6) unsigned NOT NULL DEFAULT '100',
+  `loyalty` int(3) NOT NULL DEFAULT '100',
   `exp1` int(10) NOT NULL,
   `exp2` int(10) NOT NULL,
   `exp3` int(10) NOT NULL,

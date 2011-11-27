@@ -1,118 +1,81 @@
-<?php include("templates/script.tpl"); 
-               
-	if(!isset($_GET['s'])) {
-		$_GET['s']=0;
-	}
-
-	if(file_exists("../GameEngine/config.php")){
-	$_GET['s']=6;
-	}
- 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<?php
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Filename       index.php                                                   ##
+##  License:       TravianX Project                                            ##
+##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+#################################################################################
 ?>
- 
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>TravianX Installation</title>
-    <link rel="shortcut icon" href="favicon.ico" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="imagetoolbar" content="no" />
-    <meta http-equiv="content-type" content="text/html; charset=us-ascii" />
-    <script src="mt-full.js?0ac36" type="text/javascript"></script>
-    <script src="unx.js?0ac36" type="text/javascript"></script>
-    <script src="new.js?0ac36" type="text/javascript"></script>
-    <link href="../gpack/travian_default/lang/en/lang.css?f4b7c" rel="stylesheet" type="text/css" />
-    <link href="../gpack/travian_default/lang/en/compact.css?f4b7c" rel="stylesheet" type="text/css" />
-    <link href="../gpack/travian_default/travian.css?e21d2" rel="stylesheet" type="text/css" />
-    <link href="../gpack/travian_default/lang/en/lang.css?e21d2" rel="stylesheet" type="text/css" />
+<title>TravianX Installation</title>
+<link rel=stylesheet type="text/css" href="main.css"/>
+<meta name="content-language" content="en"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="imagetoolbar" content="no"/>
+<style type="text/css" media="screen"></style>
 </head>
 <body>
-    <div class="wrapper">
-        <img class="c1" src="img/x.gif" id="msfilter" alt="" name="msfilter" />
-
-        <div id="dynamic_header"></div>
-
-        <div id="header">
-            <div id="mtop"></div>
-        </div>
-
-        <div id="mid">
-            <div id="side_navi">
-                <?php include("templates/menu.tpl"); ?>
-            </div>
-			
-				<div id="content" class="login">
-					<?php
-					IHG_Progressbar::draw_css();
-					$bar = new IHG_Progressbar(7, 'Step %d from %d ');
-					$bar->draw();
-					for($i = 0; $i < ($_GET['s']+1); $i++) {
-						$bar->tick();
-					}
-					?>
-				<div class="headline"><center>
-				<span class="f18 c5">TravianX Installation Script</span>
-				</center></div>
-
-                <?php 
-				if(substr(sprintf('%o', fileperms('../')), -4)<'700'){
-					echo"<span class='f18 c5'>ERROR!</span><br />It's not possible to write the config file. Change the permission to '777'. After that, refresh this page!";
-				} else 
-                    switch($_GET['s']){
-                        case 0:
-                        include("templates/greet.tpl");
-                        break;
-                        case 1:
-                        include("templates/config.tpl");
-                        break;
-                        case 2:
-                        include("templates/dataform.tpl");
-                        break;
-                        case 3:
-                        include("templates/field.tpl");
-                        break;
-                        case 4:
-                        include("templates/multihunter.tpl");
-                        break;
-                        case 5:
-                        include("templates/oasis.tpl");
-                        break;
-                        case 6:
-                        include("templates/end.tpl");
-                        break;
-                    }
-                ?>
-
-            <div id="side_info" class="outgame"></div>
-
-            <div class="clear"></div>
-        </div>
-
-        <div class="footer-stopper outgame"></div>
-
-        <div class="clear"></div>
-
-        <div id="footer">
-            <div class="footer-menu c3" id="mfoot">
-                <br />
-
-                <div class="copyright">
-                    &copy; 2010 - 2011 TravianX All rights reserved
-                </div>
-
-                <div class="copyright">
-                    Server running on: <b><font color="red">v6.0.0</font></b>
-                </div>
-            </div>
-
-            <div id="cfoot"></div>
-        </div>
-    </div>
-
-    <div id="ce"></div>
-</body>
-</html>
+<div id="ltop1">
+</div><!--End of ltop1-->
+<div id="lmidall"><div id="lmidlc">
+<div id="lleft">	
+<div id="lmenu">
+<ul>
+<?php
+// C2 = Current step
+// C3 = Previous step
+// C1 = Next step
+if(isset($_GET['s'])) {
+	switch($_GET['s']) {
+		case 1:
+		echo "<li class=\"c3 f9\">Intro</li><li class=\"c2 f9\">Configuration</li><li class=\"c1 f9\">Database</li><li class= \"c1 f9\">Field</li><li class=\"c1 f9\">End</li>";
+		break;
+		case 2:
+		echo "<li class=\"c3 f9\">Intro</li><li class=\"c3 f9\">Configuration</li><li class=\"c2 f9\">Database</li><li class= \"c1 f9\">Field</li><li class=\"c1 f9\">End</li>";
+		break;
+		case 3:
+		echo "<li class=\"c3 f9\">Intro</li><li class=\"c3 f9\">Configuration</li><li class=\"c3 f9\">Database</li><li class= \"c2 f9\">Field</li><li class=\"c1 f9\">End</li>";
+		break;
+		case 4:
+		echo "<li class=\"c3 f9\">Intro</li><li class=\"c3 f9\">Configuration</li><li class=\"c3 f9\">Database</li><li class= \"c3 f9\">Field</li><li class=\"c2 f9\">End</li>";
+		break;
+	}
+}
+else {
+	echo "<li class=\"c2 f9\">Intro</li><li class=\"c1 f9\">Configuration</li><li class=\"c1 f9\">Database</li><li class= \"c1 f9\">Field</li><li class=\"c1 f9\">End</li>";
+}
+?>
+</ul>
+</div></div>
+<div id="lmid1">
+<div id="lmid2">
+<?php 
+if(!isset($_GET['s'])) {
+include("templates/greet.tpl");
+}
+else {
+	switch($_GET['s']){
+		case 1:
+		include("templates/config.tpl");
+		break;
+		case 2:
+		include("templates/dataform.tpl");
+		break;
+		case 3:
+		include("templates/field.tpl");
+		break;
+		case 4:
+		include("templates/end.tpl");
+		break;
+	}
+}
+?>
+</div></div>
+<div id="lright1">
+</div>
+<style media="screen" type="text/css">#lmidall{width:950px;}</style>
+</div></div><!--End of lmidall & lmidlc-->
+</body></html>

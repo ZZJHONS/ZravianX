@@ -66,13 +66,19 @@ class Generator {
 		else {
 			$speed = $ref;
 			if($building->getTypeLevel(14) != 0) {
-				$speed = $distance <= TS_THRESHOLD ? $speed : $speed * ( ( TS_THRESHOLD + ( $distance - TS_THRESHOLD ) * $bid14[$building->gettypeLevel(14)]['attri'] / 100 ) / $distance ) ;
+				$speed = $distance <= TS_THRESHOLD ? $speed : $speed * ( ( TS_THRESHOLD + ( $distance - TS_THRESHOLD ) * $bid14[$this->getsort_typeLevel(14,$resarray)]['attri'] / 100 ) / $distance ) ;
 			}
 		}
 		return round(($distance/$speed) * 3600 / INCREASE_SPEED);
 	}
    
    public function getTimeFormat($time) {
+	   /*if ($time%10 < 5) {
+			$time = $time-($time%10);
+		}
+		else {
+			$time = $time + (10 - $time%10);
+		}*/
 	   $min = 0;
 	   $hr = 0;
 	   $days = 0;
@@ -93,45 +99,37 @@ class Generator {
 		return $hr.":".$min.":".$time;
    }
 
-public function procMtime($time, $pref = 3) {
-        /*
-        $timezone = 7;
-        switch($timezone) {
-            case 7:
-            $time -= 3600;
-            break;
-        }
-        */
-        $time += 3600*7; //Edit this yourself
-
-
-        if (date('Ymd',time()) == date('Ymd',$time)) {
-        //if ((time()-$time) < 24*60*60 && (time()-$time) > 0) {
-            $day = "today";
-        }
-        else {            
-            switch($pref) {
-            case 1:
-            $day = date("m/j/y",$time);
-            break;
-            case 2:
-            $day = date("j/m/y",$time);
-            break;
-            case 3:
-            $day = date("j.m.y",$time);
-            break;
-            default:
-            $day = date("y/m/j",$time);
-            break;
-            }
-        }
-        $new = date("H:i:s",$time);
-        if ($pref=="9"||$pref==9) 
-            return $new;
-        else
-            return array($day,$new);
-    }  
-
+	public function procMtime($time) {
+		/*$timezone = 7;
+		switch($timezone) {
+			case 7:
+			$time -= 3600;
+			break;
+		}*/
+		if (date('Ymd',time()) == date('Ymd',$time)) {
+		//if ((time()-$time) < 24*60*60 && (time()-$time) > 0) {
+			$day = "today";
+		}
+		else {
+			$pref = 3;
+			switch($pref) {
+			case 1:
+			$day = date("m/j/y",$time);
+			break;
+			case 2:
+			$day = date("j/m/y",$time);
+			break;
+			case 3:
+			$day = date("j.m.y",$time);
+			break;
+			default:
+			$day = date("y/m/j",$time);
+			break;
+			}
+		}
+		$new = date("H:i",$time);
+		return array($day,$new);
+	}
    
 	public function getBaseID($x,$y) {
 	return ((WORLD_MAX-$y) * (WORLD_MAX*2+1)) + (WORLD_MAX +$x + 1);

@@ -12,8 +12,8 @@
 
 class Technology {
 	
-	private $unarray = array(1=>U1,U2,U3,U4,U5,U6,U7,U8,U9,U10,U11,U12,U13,U14,U15,U16,U17,U18,U19,U20,U21,U22,U23,U24,U25,U26,U27,U28,U29,U30,U31,U32,U33,U34,U35,U36,U37,U38,U39,U40,U41,U42,U43,U44,U45,U46,U47,U48,U49,U50,U0);
-    
+	private $unarray = array(1=>"Legionnaire","Praetorian","Imperian","Equites Legati","Equites Imperatoris","Equites Caesaris","Battering Ram","Fire Catapult","Senator","Settler","Clubswinger","Spearman","Axeman","Scout","Paladin","Teutonic Knight","Ram","Catapult","Chief","Settler","Phalanx","Swordsman","Pathfinder","Theutates Thunder","Druidrider","Haeduan","Ram","Trebuchet","Chieftain","Settler","Rat","Spider","Snake","Bat","Wild Boar","Wolf","Bear","Crocodile","Tiger","Elephant","Pikeman","Thorned Warrior","Guardsman","Birds Of Prey","Axerider","Natarian Knight","War Elephant","Ballista","Natarian Emperor","Settler");
+	
 	public function grabAcademyRes() {
 		global $village;
 		$holder = array();
@@ -137,12 +137,23 @@ class Technology {
 	
 	public function getUnitList() {
 		global $database,$village;
-		$unitcheck = $database->getUnit($village->wid);
-		for($i=1;$i<=50;$i++) {
-			if($unitcheck['u'.$i] >= "4000000") {
-				mysql_query("UPDATE ".TB_PREFIX."units set u".$i." = '0' where vref = $village->wid");
-			}
-		}
+
+// get unit list of the village
+$unitcheck = $database->getUnit($village->wid);
+
+// check from u1 to u50
+for($i=1;$i<=50;$i++) {
+
+// if unit above 4 milion reset them to 0
+if($unitcheck['u'.$i] >= "4000000") {
+
+// reset command
+mysql_query("UPDATE ".TB_PREFIX."units set u".$i." = '0' where vref = $village->wid");
+
+}
+
+}
+
 		$unitarray = func_num_args() == 1? $database->getUnit(func_get_arg(0)) : $village->unitall;
 		$listArray = array();
 		for($i=1;$i<count($this->unarray);$i++) {
@@ -153,12 +164,7 @@ class Technology {
 				$holder['amt'] = $unitarray['u'.$i];
 				array_push($listArray,$holder);
 			}
-		}if($unitarray['hero'] != 0 && $unitarray['hero'] != "") {
-                $holder['id'] = "hero";
-                $holder['name'] = $this->unarray[$i];
-                $holder['amt'] = $unitarray['hero'];
-                array_push($listArray,$holder);
-            }
+		}
 		return $listArray;
 	}
 	
@@ -209,25 +215,19 @@ class Technology {
 		return $ownunit;
 	}
 	
-	function getAllUnits($base,$InVillageOnly=False) {
+	function getAllUnits($base) { echo"hoi";
+
 		global $database;
 		$ownunit = $database->getUnit($base);
 		$enforcementarray = $database->getEnforceVillage($base,0);
 		if(count($enforcementarray) > 0) {
+
 			foreach($enforcementarray as $enforce) {
+
 				for($i=1;$i<=50;$i++) {
+
 					$ownunit['u'.$i] += $enforce['u'.$i];
 				}
-				$ownunit['hero'] += $enforce['hero'];
-			}
-		}
-		if(!$InVillageOnly) {
-			$movement = $database->getVillageMovement($base);
-			if(!empty($movement)) {
-				for($i=1;$i<=50;$i++) {
-					$ownunit['u'.$i] += $movement['u'.$i];
-				}
-				$ownunit['hero'] += $movement['hero'];
 			}
 		}
 		return $ownunit;
@@ -321,9 +321,18 @@ class Technology {
 	
 	private function procTrain($post,$great=false) {
 		global $session;
-        $start = ($session->tribe-1)*10+1;
-        $end = ($session->tribe*10);
-        for($i=$start;$i<=($end);$i++) {
+		if ($session->tribe == 1){
+            $start = 1;
+        }else if ($session->tribe == 2){
+            $start = 11;
+        }else if ($session->tribe == 3){
+            $start = 21;
+        }else if ($session->tribe == 4){
+            $start = 31;
+        }else if ($session->tribe == 5){
+            $start = 41;
+        }
+        for($i=$start;$i<=($start+9);$i++) {
 			if(isset($post['t'.$i]) && $post['t'.$i] != 0) {
 				$amt = $post['t'.$i];
 				$amt = intval($amt);
@@ -334,11 +343,7 @@ class Technology {
 		header("Location: build.php?id=".$post['id']);
 	}
 	
-	public function getUpkeep($array,$type,$vid=0) {
-		global $database,$session,$village;
-		if($vid==0) { $vid=$village->wid; }
-		$buildarray = array();
-		$buildarray = $database->getResourceLevel($vid);
+	public function getUpkeep($array,$type) {
 		$upkeep = 0;
 		switch($type) {
 			case 0:
@@ -367,28 +372,16 @@ class Technology {
             break;
 		}	
 		for($i=$start;$i<=$end;$i++) {
-			$hdt = 0;
-			if($i>=4 && $i<=6) {
-				for($j=19;$j<=38;$j++) {
-					if($buildarray['f'.$j.'t'] == 41) { 
-						$hdt = 1;
-					}
-				}
-			}
 			$unit = "u".$i;
 			global $$unit;
 			$dataarray = $$unit;
-			$upkeep += ($dataarray['pop'] - $hdt) * $array[$unit];
+			$upkeep += $dataarray['pop'] * $array[$unit];
 		}
-         //   $unit = "hero";
-         //   global $$unit;
-         //   $dataarray = $$unit; 
-            $upkeep += $array['hero'] * 6;
 		return $upkeep;
 	}
 
 private function trainUnit($unit,$amt,$great=false) {
-        global $session,$database,${'u'.$unit},$building,$village,$bid19,$bid20,$bid21,$bid25,$bid26,$bid29,$bid30,$bid41,$bid42;        
+        global $session,$database,${'u'.$unit},$building,$village,$bid19,$bid20,$bid21,$bid25,$bid26,$bid29,$bid30,$bid42;        
         
         if($this->getTech($unit) || $unit%10 <= 1) {
             $footies = array(1,2,3,11,12,13,14,21,22,31,32,33,34,41,42,43,44);
@@ -404,14 +397,14 @@ private function trainUnit($unit,$amt,$great=false) {
             }
             if(in_array($unit,$calvary)) {
 				if($great) {
-					$each = round(($bid30[$building->getTypeLevel(30)]['attri'] * ($building->getTypeLevel(41)>=1?(1/$bid41[$building->getTypeLevel(41)]['attri']):1) / 100) * ${'u'.$unit}['time'] / SPEED);
+					$each = round(($bid20[$building->getTypeLevel(30)]['attri'] / 100) * ${'u'.$unit}['time'] / SPEED);
 				} else {
-					$each = round(($bid20[$building->getTypeLevel(20)]['attri'] * ($building->getTypeLevel(41)>=1?(1/$bid41[$building->getTypeLevel(41)]['attri']):1) / 100) * ${'u'.$unit}['time'] / SPEED);
+					$each = round(($bid20[$building->getTypeLevel(20)]['attri'] / 100) * ${'u'.$unit}['time'] / SPEED);
 				}
             }
             if(in_array($unit,$workshop)) {
 				if($great) {
-					$each = round(($bid42[$building->getTypeLevel(42)]['attri'] / 100) * ${'u'.$unit}['time'] / SPEED);
+					$each = round(($bid21[$building->getTypeLevel(42)]['attri'] / 100) * ${'u'.$unit}['time'] / SPEED);
 				} else {
 					$each = round(($bid21[$building->getTypeLevel(21)]['attri'] / 100) * ${'u'.$unit}['time'] / SPEED);
 				}
@@ -537,13 +530,11 @@ private function trainUnit($unit,$amt,$great=false) {
 	}
 	
 	private function upgradeSword($get) {
-		global $database,$session,$bid12,$building,$village,$logging;
+		global $database,$session,${'ab'.$get['a']},$bid12,$building,$village,$logging;
 		$ABTech = $database->getABTech($village->wid);
 		$CurrentTech = $ABTech["b".$get['a']];
-		$unit = ($session->tribe-1)*10+intval($get['a']);
-		if(($this->getTech($unit) || ($unit % 10) == 1) && ($CurrentTech < $building->getTypeLevel(12)) && $get['c'] == $session->mchecker) {
-			global ${'ab'.strval($unit)};
-			$data = ${'ab'.strval($unit)};
+		if(($this->getTech(($session->tribe-1)*10+$get['a']) || ($get['a'] % 10) == 1) && ($CurrentTech < $building->getTypeLevel(12)) && $get['c'] == $session->mchecker) {
+			$data = ${'ab'.$get['a']};
 			$time = time() + round(($data[$CurrentTech+1]['time'] * ($bid12[$building->getTypeLevel(12)]['attri'] / 100))/SPEED);
 			if ($database->modifyResource($village->wid,$data[$CurrentTech+1]['wood'],$data[$CurrentTech+1]['clay'],$data[$CurrentTech+1]['iron'],$data[$CurrentTech+1]['crop'],0)) {
 				$database->addResearch($village->wid,"b".$get['a'],$time);
@@ -555,13 +546,11 @@ private function trainUnit($unit,$amt,$great=false) {
 	}
 	
 	private function upgradeArmour($get) {
-		global $database,$session,$bid13,$building,$village,$logging;
+		global $database,$session,${'ab'.$get['a']},$bid13,$building,$village,$logging;
 		$ABTech = $database->getABTech($village->wid);
 		$CurrentTech = $ABTech["a".$get['a']];
-		$unit = ($session->tribe-1)*10+intval($get['a']);
-		if(($this->getTech($unit) || ($unit % 10) == 1) && ($CurrentTech < $building->getTypeLevel(13)) && $get['c'] == $session->mchecker) {
-			global ${'ab'.strval($unit)};
-			$data = ${'ab'.strval($unit)};
+		if(($this->getTech(($session->tribe-1)*10+$get['a']) || ($get['a'] % 10) == 1) && ($CurrentTech < $building->getTypeLevel(13)) && $get['c'] == $session->mchecker) {
+			$data = ${'ab'.$get['a']};
 			$time = time() + round(($data[$CurrentTech+1]['time'] * ($bid13[$building->getTypeLevel(13)]['attri'] / 100))/SPEED);
 			if ($database->modifyResource($village->wid,$data[$CurrentTech+1]['wood'],$data[$CurrentTech+1]['clay'],$data[$CurrentTech+1]['iron'],$data[$CurrentTech+1]['crop'],0)) {
 				$database->addResearch($village->wid,"a".$get['a'],$time);
@@ -582,23 +571,21 @@ private function trainUnit($unit,$amt,$great=false) {
 		$database->query($q);
     }
 	
-	public function calculateAvaliable($id,$resarray=array()) {
+	public function calculateAvaliable($id) {
 		global $village,$generator,${'r'.$id};
-		if(count($resarray)==0) {
-			$resarray['wood'] = ${'r'.$id}['wood'];
-			$resarray['clay'] = ${'r'.$id}['clay'];
-			$resarray['iron'] = ${'r'.$id}['iron'];
-			$resarray['crop'] = ${'r'.$id}['crop'];
-		}
-		$rwtime = ($resarray['wood']-$village->awood) / $village->getProd("wood") * 3600;
-		$rcltime = ($resarray['clay']-$village->aclay) / $village->getProd("clay") * 3600;
-		$ritime = ($resarray['iron']-$village->airon) / $village->getProd("iron") * 3600;
-		$rctime = ($resarray['crop']-$village->acrop) / $village->getProd("crop") * 3600;
-		$reqtime = max($rwtime,$rctime,$ritime,$rcltime);
+		$rwood = ${'r'.$id}['wood']-$village->awood;
+		$rclay = ${'r'.$id}['clay']-$village->aclay;
+		$rcrop = ${'r'.$id}['crop']-$village->acrop;
+		$riron = ${'r'.$id}['iron']-$village->airon;
+		$rwtime = $rwood / $village->getProd("wood") * 3600;
+		$rcltime = $rclay / $village->getProd("clay")* 3600;
+		$rctime = $rcrop / $village->getProd("crop")* 3600;
+		$ritime = $riron / $village->getProd("iron")* 3600;
+		$reqtime = max($rwtime,$rctime,$rcltime,$ritime);
 		$reqtime += time();
 		return $generator->procMtime($reqtime);
 	}
-
+	
 	public function checkReinf($id) {
 		global $database;
 		$enforce=$database->getEnforceArray($id,0);

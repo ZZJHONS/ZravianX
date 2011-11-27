@@ -9,6 +9,9 @@
 ##                                                                             ##
 #################################################################################
 
+//date_default_timezone_set('Europe/Amsterdam');
+date_default_timezone_set('Pacific/Auckland');
+
 include("Session.php");
 include("Building.php");
 include("Market.php");
@@ -66,7 +69,7 @@ class Village {
 		$this->unitarray = $database->getUnit($this->wid);
 		$this->enforcetome = $database->getEnforceVillage($this->wid,0);
 		$this->enforcetoyou = $database->getEnforceVillage($this->wid,1);
-		$this->unitall =  $technology->getAllUnits($this->wid);
+		$this->unitall =  $technology->getUnits($this->unitarray,$this->enforcetome);
 		$this->techarray = $database->getTech($this->wid);
 		$this->abarray = $database->getABTech($this->wid);
 		$this->researching = $database->getResearching($this->wid);
@@ -92,27 +95,12 @@ class Village {
 	}
 	
 	private function calculateProduction() { 
-		global $technology,$database,$session;
-        $normalA = $database->getOwnArtefactInfoByType($_SESSION['wid'],4);  
-		$largeA = $database->getOwnUniqueArtefactInfo($session->uid,4,2);
-        $uniqueA = $database->getOwnUniqueArtefactInfo($session->uid,4,3);
-        $upkeep = $technology->getUpkeep($this->unitall,0,$this->wid);
-        $this->production['wood'] = $this->getWoodProd();
+		global $technology;
+		$this->production['wood'] = $this->getWoodProd();
 		$this->production['clay'] = $this->getClayProd();
 		$this->production['iron'] = $this->getIronProd();
-        if ($uniqueA['size']==3 && $uniqueA['owner']==$session->uid){
-        $this->production['crop'] = $this->getCropProd()-$this->pop-(($upkeep)-round($upkeep*0.50));  
-        
-        }else if ($normalA['type']==4 && $normalA['size']==1 && $normalA['owner']==$session->uid){
-        $this->production['crop'] = $this->getCropProd()-$this->pop-(($upkeep)-round($upkeep*0.25));
-        
-        }else if ($largeA['size']==2 && $largeA['owner']==$session->uid){
-         $this->production['crop'] = $this->getCropProd()-$this->pop-(($upkeep)-round($upkeep*0.25));   
-       
-        }else{
-		$this->production['crop'] = $this->getCropProd()-$this->pop-$upkeep;
+		$this->production['crop'] = $this->getCropProd()-$this->pop-$technology->getUpkeep($this->unitall,0);
 	}
-    }
 	
 	
 	private function processProduction() {
@@ -130,7 +118,7 @@ class Village {
 	
 	private function getWoodProd() {
 		global $bid1,$bid5,$session;
-		$basewood = $sawmill = 0;
+		$wood = $sawmill = 0;
 		$woodholder = array();
 		for($i=1;$i<=38;$i++) {
 			if($this->resarray['f'.$i.'t'] == 1) {
@@ -140,21 +128,24 @@ class Village {
 				$sawmill = $this->resarray['f'.$i];
 			}
 		}
-		for($i=0;$i<=count($woodholder)-1;$i++) { $basewood+= $bid1[$this->resarray[$woodholder[$i]]]['prod']; }
-		$wood = $basewood + $basewood * 0.25 * $this->ocounter[0];
+		for($i=0;$i<=count($woodholder)-1;$i++) { $wood+= $bid1[$this->resarray[$woodholder[$i]]]['prod']; }
 		if($sawmill >= 1) {
-			$wood += $basewood / 100 * $bid5[$sawmill]['attri'];
+			$wood += $wood /100 * $bid5[$sawmill]['attri'];
+		}
+		if($this->ocounter[0] != 0) {
+			$wood += $wood*0.25*$this->ocounter[0];
 		}
 		if($session->bonus1 == 1) {
 			$wood *= 1.25;
 		}
+		$wood += $wood*$this->ocounter[0]*0.25;
 		$wood *= SPEED;
 		return round($wood);
 	}
 	
 	private function getClayProd() {
 		global $bid2,$bid6,$session;
-		$baseclay = $clay = $brick = 0;
+		$clay = $brick = 0;
 		$clayholder = array();
 		for($i=1;$i<=38;$i++) {
 			if($this->resarray['f'.$i.'t'] == 2) {
@@ -164,21 +155,24 @@ class Village {
 				$brick = $this->resarray['f'.$i];
 			}
 		}
-		for($i=0;$i<=count($clayholder)-1;$i++) { $baseclay+= $bid2[$this->resarray[$clayholder[$i]]]['prod']; }
-		$clay = $baseclay + $baseclay * 0.25 * $this->ocounter[1];
+		for($i=0;$i<=count($clayholder)-1;$i++) { $clay+= $bid2[$this->resarray[$clayholder[$i]]]['prod']; }
 		if($brick >= 1) {
-			$clay += $baseclay / 100 * $bid6[$brick]['attri'];
+			$clay += $clay /100 * $bid6[$brick]['attri'];
+		}
+		if($this->ocounter[1] != 0) {
+			$clay += $clay*0.25*$this->ocounter[1];
 		}
 		if($session->bonus2 == 1) {
 			$clay *= 1.25;
 		}
+		$clay += $clay*$this->ocounter[1]*0.25;
 		$clay *= SPEED;
 		return round($clay);
 	}
 	
 	private function getIronProd() {
 		global $bid3,$bid7,$session;
-		$baseiron = $foundry = 0;
+		$iron = $foundry = 0;
 		$ironholder = array();
 		for($i=1;$i<=38;$i++) {
 			if($this->resarray['f'.$i.'t'] == 3) {
@@ -188,21 +182,24 @@ class Village {
 				$foundry = $this->resarray['f'.$i];
 			}
 		}
-		for($i=0;$i<=count($ironholder)-1;$i++) { $baseiron+= $bid3[$this->resarray[$ironholder[$i]]]['prod']; }
-		$iron = $baseiron + $baseiron * 0.25 * $this->ocounter[2];
+		for($i=0;$i<=count($ironholder)-1;$i++) { $iron+= $bid3[$this->resarray[$ironholder[$i]]]['prod']; }
 		if($foundry >= 1) {
-			$iron += $baseiron / 100 * $bid7[$foundry]['attri'];
+			$iron += $iron /100 * $bid7[$foundry]['attri'];
+		}
+		if($this->ocounter[2] != 0) {
+			$iron += $iron*0.25*$this->ocounter[2];
 		}
 		if($session->bonus3 == 1) {
 			$iron *= 1.25;
 		}
+		$iron += $iron*$this->ocounter[2]*0.25;
 		$iron *= SPEED;
 		return round($iron);
 	}
 	
 	private function getCropProd() {
 		global $bid4,$bid8,$bid9,$session;
-		$basecrop = $grainmill = $bakery = 0;
+		$crop = $grainmill = $bakery = 0;
 		$cropholder = array();
 		for($i=1;$i<=38;$i++) {
 			if($this->resarray['f'.$i.'t'] == 4) {
@@ -215,55 +212,63 @@ class Village {
 				$bakery = $this->resarray['f'.$i];
 			}
 		}
-		for($i=0;$i<=count($cropholder)-1;$i++) { $basecrop+= $bid4[$this->resarray[$cropholder[$i]]]['prod']; }
-		$crop = $basecrop + $basecrop * 0.25 * $this->ocounter[3];
+		for($i=0;$i<=count($cropholder)-1;$i++) { $crop+= $bid4[$this->resarray[$cropholder[$i]]]['prod']; }
+//		if($grainmill >= 1 && $bakery == 0) {
+//			$crop += $crop /100 * $bid8[$grainmill]['attri'];
+//		} elseif($grainmill == 0 && $bakery >= 1) {
+//			$crop += $crop /100 * $bid9[$bakery]['attri'];
+//		} elseif($grainmill >= 1 && $bakery >= 1) {
+//			$crop += $crop /100 * ($bid8[$grainmill]['attri'] + $bid9[$bakery]['attri']);
+//		}
 		if($grainmill >= 1 || $bakery >= 1) {
-			$crop += $basecrop /100 * ($bid8[$grainmill]['attri'] + $bid9[$bakery]['attri']);
+			$crop += $crop /100 * ($bid8[$grainmill]['attri'] + $bid9[$bakery]['attri']);
+		}
+		if($this->ocounter[3] != 0) {
+			$crop += $crop*0.25*$this->ocounter[3];
 		}
 		if($session->bonus4 == 1) {
 			$crop *= 1.25;
 		}
+		$crop += $crop*$this->ocounter[3]*0.25;
 		$crop *= SPEED;
 		return round($crop);
 	}
 	
 	private function sortOasis() {
 		$crop = $clay = $wood = $iron = 0;
-		if (!empty($this->oasisowned)) {
-			foreach ($this->oasisowned as $oasis) {
-			switch($oasis['type']) {
-					case 1:
-					case 2:
-					$wood += 1;
-					break;
-					case 3:
-					$wood += 1;
-					$crop += 1;
-					break;
-					case 4:
-					case 5:
-					$clay += 1;
-					break;
-					case 6:
-					$clay += 1;
-					$crop += 1;
-					break;
-					case 7:
-					case 8:
-					$iron += 1;
-					break;
-					case 9:
-					$iron += 1;
-					$crop += 1;
-					break;
-					case 10:
-					case 11:
-					$crop += 1;
-					break;
-					case 12:
-					$crop += 2;
-					break;
-				}
+		foreach ($this->oasisowned as $oasis) {
+		switch($oasis['type']) {
+				case 1:
+				case 2:
+				$wood += 1;
+				break;
+				case 3:
+				$wood += 1;
+				$crop += 1;
+				break;
+				case 4:
+				case 5:
+				$clay += 1;
+				break;
+				case 6:
+				$clay += 1;
+				$crop += 1;
+				break;
+				case 7:
+				case 8:
+				$iron += 1;
+				break;
+				case 9:
+				$iron += 1;
+				$crop += 1;
+				break;
+				case 10:
+				case 11:
+				$crop += 1;
+				break;
+				case 12:
+				$crop += 2;
+				break;
 			}
 		}
 		return array($wood,$clay,$iron,$crop);

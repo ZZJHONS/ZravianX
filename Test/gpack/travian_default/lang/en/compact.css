@@ -7416,31 +7416,31 @@ div#build.gid27 table td.icon img {
     height: 16px;
     width: 16px;
 }
-div#build.gid27 table td.icon img.artefact_icon_ww {
+div#build.gid27 table td.icon img.artefact_icon_1 {
     background-position: 0 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_1 {
+div#build.gid27 table td.icon img.artefact_icon_2 {
     background-position: -16px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_2 {
+div#build.gid27 table td.icon img.artefact_icon_4 {
     background-position: -32px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_3 {
+div#build.gid27 table td.icon img.artefact_icon_5 {
     background-position: -48px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_4 {
+div#build.gid27 table td.icon img.artefact_icon_6 {
     background-position: -64px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_5 {
+div#build.gid27 table td.icon img.artefact_icon_8 {
     background-position: -80px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_6 {
+div#build.gid27 table td.icon img.artefact_icon_9 {
     background-position: -96px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_7 {
+div#build.gid27 table td.icon img.artefact_icon_10 {
     background-position: -112px 0;
 }
-div#build.gid27 table td.icon img.artefact_icon_8 {
+div#build.gid27 table td.icon img.artefact_icon_fool {
     background-position: -128px 0;
 }
 img.cropfinder_icon {
@@ -8962,5 +8962,3 @@ div#side_navi img.wm_logo {
 td.wm_getippt {
     background-color: #E2FFB9;
 }
-input.cancel{width:12px;height:12px;background-image:url(../../img/a/del.gif);}
-input.accept{width:12px;height:12px;background-image:url(../../img/a/acc.gif);}

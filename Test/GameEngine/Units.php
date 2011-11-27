@@ -71,7 +71,7 @@ class Units {
 				// Busqueda por nombre de pueblo
 				// Confirmamos y buscamos las coordenadas por nombre de pueblo
 				if(	!$post['t1'] && !$post['t2'] && !$post['t3'] && !$post['t4'] && !$post['t5'] && 
-					!$post['t6'] && !$post['t7'] && !$post['t8'] && !$post['t9'] && !$post['t10'] && !$post['t11']){
+					!$post['t6'] && !$post['t7'] && !$post['t8'] && !$post['t9'] && !$post['t10']){
 				$form->addError("error","You need to mark min. one troop");				
 				}				
 				
@@ -96,11 +96,10 @@ class Units {
 						$form->addError("error","Coordinates do not exist");
 					}
 					if ($session->tribe == 1){$Gtribe = "";}elseif ($session->tribe == 2){$Gtribe = "1";}elseif ($session->tribe == 3){$Gtribe = "2";}elseif ($session->tribe == 4){$Gtribe = "3";}elseif ($session->tribe == 5){$Gtribe = "4";}
-					for($i=1; $i<10; $i++)
+					for($i=1; $i<11; $i++)
 					{
 						if(isset($post['t'.$i]))
 						{
-                            
 							if ($post['t'.$i] > $village->unitarray['u'.$Gtribe.$i])
 							{
 								$form->addError("error","You can't send more units than you have");
@@ -112,24 +111,15 @@ class Units {
 								$form->addError("error","You can't send negative units.");
 								break;
 							}
-
 						}												
 					}
-                    if ($post['t11'] > $village->unitarray['hero'])
-                            {
-                                $form->addError("error","You can't send more units than you have");
-                                break;
-                            }
-                            
-                            if($post['t11']<0)
-                            {
-                                $form->addError("error","You can't send negative units.");
-                                break;
-                            }
 				}
-                if ($database->isVillageOases($id) == 0) {
-				if($database->hasBeginnerProtection($id)==1) {
-	                $form->addError("error","Player is under beginners protection. You can't attack him");
+                //check if has beginners protection
+                $villageOwner = $database->getVillageField($id,'owner');
+                $userprotect = $database->getUserField($villageOwner,'protect',0);
+                if($data2['protect'] > time()) {
+                $form->addError("error","Player is under beginners protection. You can't attack him");
+                                
                 }    
                 
 				//check if banned:
@@ -159,23 +149,7 @@ class Units {
 				array_push($post, "$id", "$villageName", "$villageOwner","$timetaken");
 				return $post;
 				
-			}
-                  }else{
-                      
-                      if($form->returnErrors() > 0) {
-                    $_SESSION['errorarray'] = $form->getErrors();
-                    $_SESSION['valuearray'] = $_POST;
-                    header("Location: a2b.php");        
-                }else{                
-
-                $villageName = "Unoccupied Oasis";
-                $speed= 300;
-                $timetaken = $generator->procDistanceTime($coor,$village->coor,INCREASE_SPEED,1);                                
-                array_push($post, "$id", "$villageName", "2","$timetaken");
-                return $post;
-                
-            }
-                  }	
+			}	
 	
 	}
 	private function sendTroops($post) {
@@ -187,10 +161,9 @@ class Units {
 		
 		 $Gtribe = "";
 		if ($session->tribe == '2'){ $Gtribe = "1"; } else if ($session->tribe == '3'){ $Gtribe = "2"; }else if ($session->tribe == '4'){ $Gtribe = "3"; }else if ($session->tribe == '5'){ $Gtribe = "4"; }
-				for($i=1; $i<10; $i++){
+				for($i=1; $i<9; $i++){
 						if(isset($data['u'.$i])){
-							
-                            if ($data['u'.$i] > $village->unitarray['u'.$Gtribe.$i])
+							if ($data['u'.$i] > $village->unitarray['u'.$Gtribe.$i])
 							{
 								$form->addError("error","You can't send more units than you have");
 								break;
@@ -201,20 +174,8 @@ class Units {
 								$form->addError("error","You can't send negative units.");
 								break;
 							}
-
 						}												
 					}
-                    if ($data['u11'] > $village->unitarray['hero'])
-                            {
-                                $form->addError("error","You can't send more units than you have");
-                                break;
-                            }
-                            
-                            if($data['u11']<0)
-                            {
-                                $form->addError("error","You can't send negative units.");
-                                break;
-                            }
 				if($form->returnErrors() > 0) {
 					$_SESSION['errorarray'] = $form->getErrors();
 					$_SESSION['valuearray'] = $_POST;
@@ -235,7 +196,7 @@ class Units {
 		$database->modifyUnit($village->wid,$u."8",$data['u8'],0);
 		$database->modifyUnit($village->wid,$u."9",$data['u9'],0);
 		$database->modifyUnit($village->wid,$u.$session->tribe."0",$data['u10'],0);
-		$database->modifyUnit($village->wid,"hero",$data['u11'],0);
+		$database->modifyUnit($village->wid,$u.$session->tribe."1",$data['u11'],0);
 		
     $query1 = mysql_query('SELECT * FROM `' . TB_PREFIX . 'vdata` WHERE `wref` = ' . mysql_escape_string($data['to_vid']));
     $data1 = mysql_fetch_assoc($query1);
@@ -255,35 +216,29 @@ class Units {
         $start = ($data21['tribe']-1)*10+1;
         $end = ($data21['tribe']*10);
         
-		$speeds = array();
-		$scout = 1;
+			$speeds = array();
+			$scout = 1;
 
-		//find slowest unit.
-		for($i=1;$i<=10;$i++){
-			if (isset($data['u'.$i])){
-				if($data['u'.$i] != '' && $data['u'.$i] > 0){
-					if($unitarray) { reset($unitarray); }
-					$unitarray = $GLOBALS["u".(($session->tribe-1)*10+$i)];
-					$speeds[] = $unitarray['speed'];
-                }
-			}
-		}
-		if (isset($data['u11'])) {
-			if($data['u11'] != '' && $data['u11'] > 0){
-				$heroarray = $database->getHero($session->uid);
-				$herodata = $GLOBALS["u".$heroarray[0]['unit']];
-				$speeds[] = $herodata['speed'];
-			}
-		}
+				//find slowest unit.
+				for($i=1;$i<=10;$i++){
+					if (isset($data['u'.$i])){
+						if( $data['u'.$i] != '' && $data['u'.$i] > 0){
+                        if($unitarray) { reset($unitarray); }
+                        $unitarray = $GLOBALS["u".(($session->tribe-1)*10+$i)];
+                        $speeds[] = $unitarray['speed'];
+                        }
+					}
+				}
 				
 		$time = $generator->procDistanceTime($from,$to,min($speeds),1);
         if (isset($post['ctar1'])){$post['ctar1'] = $post['ctar1'];}else{ $post['ctar1'] = 0;}
         if (isset($post['ctar2'])){$post['ctar2'] = $post['ctar2'];}else{ $post['ctar2'] = 0;}  
-        if (isset($post['spy'])){$post['spy'] = $post['spy'];}else{ $post['spy'] = 0;} 
-		$abdata = $database->getABTech($village->wid);
-		$reference = $database->addAttack(($village->wid),$data['u1'],$data['u2'],$data['u3'],$data['u4'],$data['u5'],$data['u6'],$data['u7'],$data['u8'],$data['u9'],$data['u10'],$data['u11'],$data['type'],$post['ctar1'],$post['ctar2'],$post['spy'],$abdata['b1'],$abdata['b2'],$abdata['b3'],$abdata['b4'],$abdata['b5'],$abdata['b6'],$abdata['b7'],$abdata['b8']);
+        if (isset($post['spy'])){$post['spy'] = $post['spy'];}else{ $post['spy'] = 0;}  
+		$reference = $database->addAttack(($village->wid),$data['u1'],$data['u2'],$data['u3'],$data['u4'],$data['u5'],$data['u6'],$data['u7'],$data['u8'],$data['u9'],$data['u10'],$data['u11'],$data['type'],$post['ctar1'],$post['ctar2'],$post['spy']);
   		$database->addMovement(3,$village->wid,$data['to_vid'],$reference,($time+time()));
    
+			
+		
 		if($form->returnErrors() > 0) {
 			$_SESSION['errorarray'] = $form->getErrors();
 			$_SESSION['valuearray'] = $_POST;
@@ -360,7 +315,7 @@ class Units {
 					}
 				}
 				$time = $generator->procDistanceTime($fromCor,$toCor,min($speeds),1);
-				$reference = $database->addAttack($enforce['from'],$post['t1'],$post['t2'],$post['t3'],$post['t4'],$post['t5'],$post['t6'],$post['t7'],$post['t8'],$post['t9'],$post['t10'],0,2,0,0,0,0);
+				$reference = $database->addAttack($enforce['from'],$post['t1'],$post['t2'],$post['t3'],$post['t4'],$post['t5'],$post['t6'],$post['t7'],$post['t8'],$post['t9'],$post['t10'],0,2,0,0,0);
 				$database->addMovement(4,$village->wid,$enforce['from'],$reference,($time+time()));
 				$technology->checkReinf($post['ckey']);
 
@@ -383,7 +338,7 @@ class Units {
     $mode = CP; 
     $total = count($database->getProfileVillages($session->uid)); 
     $need_cps = ${'cp'.$mode}[$total];
-    $cps = $session->cp;
+    $cps = $database->getUserField($session->uid, 'cp',0);
 
     if($cps >= $need_cps) {
      $unit = ($session->tribe*10);
@@ -402,22 +357,8 @@ class Units {
       header("Location: build.php?id=39");
     }	
 	}
-
-	public function Hero($uid) {
-		global $database;
-		$heroarray = $database->getHero($uid);
-		$herodata = $GLOBALS["h".$heroarray[0]['unit']];
-		
-		$h_atk = $herodata['atk'] + 5 * floor($heroarray[0]['attack'] * $herodata['atkp'] / 5);
-		$h_di = $herodata['di'] + 5 * floor($heroarray[0]['defence'] * $herodata['dip'] / 5);
-		$h_dc = $herodata['dc'] + 5 * floor($heroarray[0]['defence'] * $herodata['dcp'] / 5);
-		$h_ob = 1 + 0.002 * $heroarray[0]['attackbonus'];
-		$h_db = 1 + 0.002 * $heroarray[0]['defencebonus'];
-
-		return array('heroid'=>$heroarray[0]['heroid'],'unit'=>$heroarray[0]['unit'],'atk'=>$h_atk,'di'=>$h_di,'dc'=>$h_dc,'ob'=>$h_ob,'db'=>$h_db,'health'=>$heroarray[0]['health']);
-	}	
+	
 };
 
 $units = new Units;
-
 ?>

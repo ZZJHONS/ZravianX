@@ -12,14 +12,14 @@
 <?php
 $units_type = $database->getMovement("34",$village->wid,1);
 
-$units_incoming = count($units_type);
-for($i=0;$i<$units_incoming;$i++){
+$units_incomming = count($units_type);
+for($i=0;$i<$units_incomming;$i++){
 	if($units_type[$i]['attack_type'] == 1)
-		$units_incoming -= 1;
+		$units_incomming -= 1;
 }
-if($units_incoming >= 1){
+if($units_incomming >= 1){
 ?>
-<h4>Incoming troops (<?php echo $units_incoming; ?>)</h4>
+<h4>Incomming troops (<?php echo $units_incomming; ?>)</h4>
 	<?php include("16_incomming.tpl"); 
 	} 
 ?>
@@ -28,11 +28,15 @@ if($units_incoming >= 1){
         <table class="troop_details" cellpadding="1" cellspacing="1">
 	<thead>
 		<tr>
-			<td class="role"><a href="karte.php?d=<?php echo $village->wid."&c=".$generator->getMapCheck($village->wid); ?>"><?php echo $village->vname; ?></a></td><td colspan="<?php if($village->unitarray['hero'] == 0) {echo"10";}else{echo"11";}?>">
+			<td class="role"><a href="karte.php?d=<?php echo $village->wid."&c=".$generator->getMapCheck($village->wid); ?>"><?php echo $village->vname; ?></a></td><td colspan="10">
             <a href="spieler.php?uid=<?php echo $session->uid; ?>">Own troops</a></td></tr></thead>
             <tbody class="units">
-           <?php include("16_troops.tpl"); 
-          
+           <?php include("16_".$session->tribe.".tpl"); 
+           for($i=31;$i<=40;$i++) {
+           	if($village->unitarray['u'.$i] > 0) {
+            	include("16_4.tpl");
+            }
+           }
            ?>
             </tbody></table>
             
@@ -45,10 +49,19 @@ if($units_incoming >= 1){
                   echo "<a href=\"spieler.php?uid=".$database->getVillageField($enforce['from'],"owner")."\">".$database->getUserField($database->getVillageField($enforce['from'],"owner"),"username",0)." troops</a>";
                   echo "</td></tr></thead><tbody class=\"units\">";
                   $tribe = $database->getUserField($database->getVillageField($enforce['from'],"owner"),"tribe",0);
-                  $start = ($tribe-1)*10+1;
-                  $end = ($tribe*10);
+                  if ($tribe == 1){
+                  $start = 1;
+                  }else if ($tribe == 2){
+                  $start = 11;
+                  }else if ($tribe == 3){
+                  $start = 21;
+                  }else if ($tribe == 4){
+                  $start = 31;
+                  }else if ($tribe == 5){
+                  $start = 41;
+                  }
                   echo "<tr><th>&nbsp;</th>";
-                  for($i=$start;$i<=($end);$i++) {
+                  for($i=$start;$i<=($start+9);$i++) {
                   	echo "<td><img src=\"img/x.gif\" class=\"unit u$i\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";	
                   }
                   echo "</tr><tr><th>Troops</th>";
@@ -76,10 +89,18 @@ if($units_incoming >= 1){
                   echo "<a href=\"spieler.php?uid=".$database->getVillageField($enforce['from'],"owner")."\">".$database->getUserField($database->getVillageField($enforce['from'],"owner"),"username",0)." troops</a>";
                   echo "</td></tr></thead><tbody class=\"units\">";
                   $tribe = $database->getUserField($database->getVillageField($enforce['from'],"owner"),"tribe",0);
-                  $start = ($tribe-1)*10+1;
-                  $end = ($tribe*10);
-                  echo "<tr><th>&nbsp;</th>";
-                  for($i=$start;$i<=($end);$i++) {
+                  if ($tribe == 1){
+                  $start = 1;
+                  }else if ($tribe == 2){
+                  $start = 11;
+                  }else if ($tribe == 3){
+                  $start = 21;
+                  }else if ($tribe == 4){
+                  $start = 31;
+                  }else if ($tribe == 5){
+                  $start = 41;
+                  }echo "<tr><th>&nbsp;</th>";
+                  for($i=$start;$i<=($start+9);$i++) {
                   	echo "<td><img src=\"img/x.gif\" class=\"unit u$i\" title=\"".$technology->getUnitName($i)."\" alt=\"".$technology->getUnitName($i)."\" /></td>";	
                   }
                   echo "</tr><tr><th>Troops</th>";
@@ -102,17 +123,19 @@ if($units_incoming >= 1){
 
 <?php
 $units_type = $database->getMovement("3",$village->wid,0);
-$settlers = $database->getMovement("5",$village->wid,0);
-$units_incoming = count($units_type);
-for($i=0;$i<$units_incoming;$i++){
+$units_incomming = count($units_type);
+for($i=0;$i<$units_incomming;$i++){
 	if($units_type[$i]['vref'] != $village->wid)
-		$units_incoming -= 1;
+		$units_incomming -= 1;
 }
-$units_incoming += count($settlers);
+if($units_incomming >= 1){
+	echo "<h4>Troops on there way</h4>";
+	include("16_".$session->tribe."_walking.tpl"); 
+}
 
-if($units_incoming >= 1){
-	echo "<h4>Troops on their way</h4>";
-	include("16_walking.tpl"); 
+$settler_walking = $database->getMovement("5",$village->wid,0);
+if($settler_walking){
+	include("16_5_walking.tpl"); 
 }
 
 include("upgrade.tpl");

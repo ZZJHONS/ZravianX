@@ -23,11 +23,12 @@ INDELING CATEGORIEEN:
 == 9. in top 3 - overval     ==
 ******************************/
 $geregistreerd=date('d-m-Y', ($allianceinfo['timestamp']));
+$profiel = preg_replace("/\[#0]/i",'<img src="'.$gpack.'img/t/tnd.gif" border="0" >', $profiel, 1);
 
-$profiel = preg_replace("/\[war]/s",'At war with<br>'.$database->getAllianceDipProfile($aid,3), $profiel, 1); 
-$profiel = preg_replace("/\[ally]/s",'Confederacies<br>'.$database->getAllianceDipProfile($aid,1), $profiel, 1); 
-$profiel = preg_replace("/\[nap]/s",'NAPs<br>'.$database->getAllianceDipProfile($aid,2), $profiel, 1); 
-$profiel = preg_replace("/\[diplomatie]/s",'Confederacies<br>'.$database->getAllianceDipProfile($aid,1).'<br>NAPs<br>'.$database->getAllianceDipProfile($aid,2).'<br>At war with<br>'.$database->getAllianceDipProfile($aid,3), $profiel, 1); 
+$profiel = preg_replace("/\[war]/s",'WAR With<br>'.$database->getAllianceDipProfile($aid,3), $profiel, 1); 
+$profiel = preg_replace("/\[ally]/s",'Confeds With<br>'.$database->getAllianceDipProfile($aid,2), $profiel, 1); 
+$profiel = preg_replace("/\[nap]/s",'NAPS With<br>'.$database->getAllianceDipProfile($aid,1), $profiel, 1); 
+$profiel = preg_replace("/\[diplomatie]/s",'WAR With<br>'.$database->getAllianceDipProfile($aid,3).'NAPS With<br>'.$database->getAllianceDipProfile($aid,1).'Confeds With<br>'.$database->getAllianceDipProfile($aid,2), $profiel, 1); 
 
 
 foreach($varmedal as $medal) {

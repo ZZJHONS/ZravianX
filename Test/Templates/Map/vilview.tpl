@@ -158,14 +158,14 @@ else if (!$basearray['occupied']) {
         $uinfo = $database->getUserArray($basearray['owner'],1); ?>
 		<tbody><tr>
 			<th>Tribe</th>
-			<td><?php switch($uinfo['tribe']) { case 1: echo TRIBE1; break; case 2: echo TRIBE2; break; case 3: echo TRIBE3; break; case 4: echo TRIBE4; break; case 5: echo TRIBE5; break;} ?></td>
+			<td><?php switch($uinfo['tribe']) { case 1: echo "Romans"; break; case 2: echo "Teutons"; break; case 3: echo "Gauls"; break; } ?></td>
 		</tr>
 		<tr>
 			<th>Alliance</th>
 			<?php if($uinfo['alliance'] == 0){
 			echo '<td>-</td>';
 			} else echo '
-			<td><a href="allianz.php?aid='.$uinfo['alliance'].' ">'.$database->getUserAlliance($basearray['owner']).'</a></td>'; ?>
+			<td><a href="allianz.php?aid='.$uinfo['alliance'].' ?>">'.$database->getUserAlliance($basearray['owner']).'</a></td>'; ?>
 		</tr>
 		<tr>
 			<th>Owner</th>
@@ -204,8 +204,8 @@ else if (!$basearray['occupied']) {
 			<td class="none"><?php 
       $mode = CP; 
       $total = count($database->getProfileVillages($session->uid)); 
-      $need_cps = ${'cp'.$mode}[$total+1]; 
-      $cps = $session->cp;      
+      $need_cps = ${'cp'.$mode}[$total];
+      $cps = $database->getUserField($session->uid, 'cp',0);      
       
       if($cps >= $need_cps) {
         $enough_cp = true;
@@ -230,8 +230,8 @@ else if (!$basearray['occupied']) {
 		"<a href=\"build.php?id=39\">&raquo; Raid $otext oasis. (build a rally point)</a>" : 
 		"&raquo; Raid $otext oasis. (build a rally point)" : 
 		
-		
-		"<a href=\"a2b.php?z=".$_GET['d']."&o\">&raquo; Raid $otext oasis.</a>" :
+		"&raquo; Raid $otext oasis. (Not possible)" :
+		//"<a href=\"a2b.php?z=".$_GET['d']."&o\">&raquo; Raid $otext oasis.</a>" :
 		"$test"
 			?>
 		</tr>

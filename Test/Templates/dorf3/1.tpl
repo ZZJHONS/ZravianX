@@ -36,8 +36,7 @@
 			$bui .= '<a href="build.php?newdid='.$vid.'&id='.$b['field'].'"><img class="bau" src="img/x.gif" title="'.$building->procResType($b['type']).'" alt="'.$building->procResType($b['type']).'"></a>';
 		}	
 		foreach($unit as $c){
-			$gid = in_array($c['unit'],$unitsbytype['infantry'])?19:(in_array($c['unit'],$unitsbytype['cavalry'])?20:(in_array($c['unit'],$unitsbytype['siege'])?21:($building->getTypeLevel(26)>0?26:25)));
-			$tro .= '<a href="build.php?newdid='.$vid.'&gid='.$gid.'"><img class="unit u'.$c['unit'].'" src="img/x.gif" title="'.$c['amt'].'x '.$technology->getUnitName($c['unit']).'" alt="'.$c['amt'].'x '.$technology->getUnitName($c['unit']).'"></a>';
+			$tro .= '<a href="build.php?newdid='.$vid.'&gid=19"><img class="unit u'.$c['unit'].'" src="img/x.gif" title="'.$c['amt'].'x '.$technology->getUnitName($c['unit']).'" alt="'.$c['amt'].'x '.$technology->getUnitName($c['unit']).'"></a>';
 		}
 		if($vdata['capital'] == 1) { $class = 'hl'; } else {$class = ''; }
 
@@ -47,7 +46,7 @@ echo '
 <td class="att">'.$att.'</td>
 <td class="bui">'.$bui.'</td>
 <td class="tro">'.$tro.'</td>
-<td class="tra lc">'.($totalmerchants>0?'<a href="build.php?newdid='.$vid.'&amp;gid=17">':'').$availmerchants.'/'.$totalmerchants.'</a></td>
+<td class="tra lc"><a href="build.php?newdid='.$vid.'&amp;gid=17">'.$availmerchants.'/'.$totalmerchants.'</a></td>
 </tr>';
 
 	}
