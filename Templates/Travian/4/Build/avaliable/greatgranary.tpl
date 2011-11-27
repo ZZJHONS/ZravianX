@@ -1,18 +1,29 @@
-
-	<h2>Great Granary</h2>
-
-<table class="new_building" cellpadding="1" cellspacing="1">
-	<tbody><tr>
-		<td class="desc">Crop produced by your farms is stored in the granary. The great granary offers you more space and keeps your crops drier and safer than the normal one.</td>
-		<td rowspan="3" class="bimg">
-							<a href="#" onClick="return Popup(39,4);">
-				<img class="building g39" src="img/x.gif" alt="Great Granary" title="Great Granary" /></a>
-					</td>
-	</tr>
-	<tr>
-		<?php
-        $_GET['bid'] = 39;
-        include("availupgrade.tpl");
-        ?>
-	</tr>
-</table>
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.27                                                  ##
+##  Filename:      TEmplates/Travian/4/Build/avaliable/greatgranary.tpl        ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
+<h2>Great Granary</h2>
+<div class="build_desc">
+	<a href="#" onclick="return Travian.Game.iPopup(39,4);" class="build_logo">
+		<img class="building big white g39" src="img/x.gif" alt="Great Granary">
+	</a>
+	Crop produced by your farms is stored in the granary. The great granary offers you more space and keeps your crops drier and safer than the normal one.
+</div>
+<?php
+	$_GET['bid'] = 39;
+	include("availupgrade.tpl");
+?>

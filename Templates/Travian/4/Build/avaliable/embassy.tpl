@@ -1,17 +1,29 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.27                                                  ##
+##  Filename:      TEmplates/Travian/4/Build/avaliable/embassy.tpl             ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
 <h2>Embassy</h2>
-
-<table class="new_building" cellpadding="1" cellspacing="1">
-	<tbody><tr>
-		<td class="desc">The embassy is a place for diplomats. The higher its level the more options the king gains.</td>
-		<td rowspan="3" class="bimg">
-							<a href="#" onClick="return Popup(18,4);">
-				<img class="building g18" src="img/x.gif" alt="Embassy" title="Embassy" /></a>
-					</td>
-	</tr>
-	<tr>
-		<?php
-        $_GET['bid'] = 18;
-        include("availupgrade.tpl");
-        ?>
-	</tr>
-</table>
+<div class="build_desc">
+	<a href="#" onclick="return Travian.Game.iPopup(18,4);" class="build_logo">
+		<img class="building big white g18" src="img/x.gif" alt="Embassy">
+	</a>
+	The embassy is a place for diplomats. The higher its level the more options the king gains.
+</div>
+<?php
+	$_GET['bid'] = 18;
+	include("availupgrade.tpl");
+?>
