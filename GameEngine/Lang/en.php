@@ -111,15 +111,15 @@
 	$lang['build4'] = "Cropland";
 	$lang['build4_desc'] = "Your population`s food is produced here. By increasing the farm`s ".$lang['level_'].", you increase the ".$lang['res4']." production.";
 	$lang['build5'] = "Sawmill";
-	$lang['build5_desc'] = "Sawmill";
+	$lang['build5_desc'] = "Here wood delivered by your Woodcutters is processed. Based on its level your sawmill can increase your wood production by up to 25 percent.";
 	$lang['build6'] = "Brickyard";
-	$lang['build6_desc'] = "Brickyard";
+	$lang['build6_desc'] = "Here clay is processed into bricks. Based on its level your Brickyard can increase your clay production by up to 25 percent.";
 	$lang['build7'] = "Iron Foundry";
-	$lang['build7_desc'] = "Iron Foundry";
+	$lang['build7_desc'] = "Iron is smelted here. Based on its level your Iron Foundry can increase your iron production by up to 25 percent.";
 	$lang['build8'] = "Grain Mill";
-	$lang['build8_desc'] = "Grain Mill";
+	$lang['build8_desc'] = "Here your grain is milled in order to produce flour. Based on its level your grain mill can increase your crop production by up to 25 percent.";
 	$lang['build9'] = "Bakery";
-	$lang['build9_desc'] = "Bakery";
+	$lang['build9_desc'] = "Here the flour produced in your mill is used to bake bread. In addition with the Grain Mill the increase in crop production can go up to 50 percent.";
 	$lang['build10'] = "Warehouse";
 	$lang['build10_desc'] = "Warehouse";
 	$lang['build11'] = "Granary";
@@ -189,6 +189,15 @@
 	$lang['current_prod'] = "Current production";
 	$lang['next_prod'] = "Production at level";
 	$lang['at'] = "at";
+	$lang['current_crop_bonus'] = "Current crop bonus";
+	$lang['current_iron_bonus'] = "Current iron bonus";
+	$lang['current_clay_bonus'] = "Current clay bonus";
+	$lang['current_wood_bonus'] = "Current wood bonus";
+	$lang['percent'] = "Percent";
+	$lang['crop_bonus_level'] = "Crop bonus at level";
+	$lang['iron_bonus_level'] = "Iron bonus at level";
+	$lang['clay_bonus_level'] = "Clay bonus at level";
+	$lang['wood_bonus_level'] = "Wood bonus at level";
 	$lang['test'] = "Test";
 
 # End new translation version #
