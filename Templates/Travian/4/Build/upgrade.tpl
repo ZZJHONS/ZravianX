@@ -20,11 +20,11 @@
 <?php
 $bindicate = $building->canBuild($id,$village->resarray['f'.$id.'t']);
 if($bindicate == 1) {
-	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_max_level']."</span></p></div>";
+	echo "<p><span class=\"none\">".$lang['build_max_level']."</span></p>";
 } else if($bindicate == 10) {
-	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_max_level_construction']."</span></p></div>";
+	echo "<p><span class=\"none\">".$lang['build_max_level_construction']."</span></p>";
 } else if($bindicate == 11) {
-	echo "<div class=\"none\"><p><span class=\"none\">".$lang['build_being_demolished']."</span></p></div>";
+	echo "<p><span class=\"none\">".$lang['build_being_demolished']."</span></p>";
 } else {
 	$loopsame = ($building->isCurrent($id) || $building->isLoop($id))?1:0;
 	$doublebuild = ($building->isCurrent($id) && $building->isLoop($id))?1:0;

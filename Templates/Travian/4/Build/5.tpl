@@ -14,11 +14,11 @@
             </tr>
             <?php if(!$building->isMax($village->resarray['f'.$id.'t'],$id)) { ?>
             <tr>
-                <th><?php echo $lang['wood_bonus_level']; echo " ".$village->resarray['f'.$id]+1; ?>:</th>
+                <th><?php echo $lang['wood_bonus_level']; ?> <?php echo $village->resarray['f'.$id]+1; ?>:</th>
                 <td><b><?php echo $bid5[$village->resarray['f'.$id]+1]['attri']; ?></b> <?php echo $lang['percent']; ?></td>
             </tr>
             <?php } else {echo "<tr><th></th><td></td></tr>";} ?>
         </table>
 		<?php include("upgrade.tpl"); ?>
-	<?php if($bindicate == 3 or $bindicate == 4 or $bindicate == 5 or $bindicate == 6 or $bindicate == 7 or $bindicate == 8 or $bindicate == 9){echo "</div>";} ?>
+	<?php if($bindicate >= 2 or $bindicate >= 9){echo "</div>";} ?>
 </div>

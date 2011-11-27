@@ -1,18 +1,4 @@
-@CHARSET "UTF-8";@import "compact1.css";#header img.cooperationLogo.loggedOut,#header img.cooperationLogo.loggedIn.logoVillage1{display:none;}
-body.loader #header img.cooperationLogo.loggedIn,body.login #header img.cooperationLogo.loggedIn,body.logout #header img.cooperationLogo.loggedIn,body.signup #header img.cooperationLogo.loggedIn,body.support #header img.cooperationLogo.loggedIn,body.activate #header img.cooperationLogo.loggedIn,body.error_site #header img.cooperationLogo.loggedIn,body.fatal_error #header img.cooperationLogo.loggedIn,body.banned_cn #header img.cooperationLogo.loggedIn,body.support_form #header img.cooperationLogo.loggedIn,body.village1 #header img.cooperationLogo.loggedIn{display:hidden;}
-body.loader #header img.cooperationLogo.loggedOut,body.login #header img.cooperationLogo.loggedOut,body.logout #header img.cooperationLogo.loggedOut,body.signup #header img.cooperationLogo.loggedOut,body.support #header img.cooperationLogo.loggedOut,body.activate #header img.cooperationLogo.loggedOut,body.error_site #header img.cooperationLogo.loggedOut,body.fatal_error #header img.cooperationLogo.loggedOut,body.banned_cn #header img.cooperationLogo.loggedOut,body.support_form #header img.cooperationLogo.loggedOut,body.village1 #header img.cooperationLogo.loggedIn.logoVillage1{display:block;}
-div#side_navi{float:left;display:none;color:#F00;position:absolute;font-size:13px;left:14px;top:129px;width:160px;height:222px;}
-body.loader div#side_navi,body.login div#side_navi,body.logout div#side_navi,body.signup div#side_navi,body.support div#side_navi,body.activate div#side_navi,body.error_site div#side_navi,body.fatal_error div#side_navi,body.banned_cn div#side_navi,body.support_form div#side_navi{display:block;}
-body.fatal_error #side_navi li.support,body.fatal_error #ingameManual{display:none;}
-div#side_navi ul{list-style-type:none;margin:35px 0 0 4px;padding:0;}div#side_navi ul li{margin:1px 0;padding:0;width:151px;line-height:23px;height:25px;font-size:14px;background-image:url(../../img/layout/outsideMenu-ltr.png);}
-.ie7 div#side_navi ul li{margin:0;height:23px;}.ie6 div#side_navi ul li{height:18px;margin:0;background-image:url(../../img/layout/outsideMenu-ltr.gif);}
-div#side_navi ul li.active{background-position:0 -25px;}div#side_navi ul li a{display:block;padding-left:20px;color:#381A00;}
-div#side_navi ul li.active a{color:#FFF;}div#medal_mouseover{width:250px;position:absolute;z-index:999;border:1px solid #BBB;padding:2px 5px;background-color:#F5F5F5;}
-div#medal_mouseover table{background:none;}div#medal_mouseover table th,div#medal_mouseover table td{background:none;}
-div#medal_mouseover table th{width:50px;padding-right:10px;}ul.autocompleter-choices{position:absolute;margin:0;padding:0;list-style:none;border:1px solid #7c7c7c;border-left-color:#c3c3c3;border-right-color:#c3c3c3;border-bottom-color:#ddd;background-color:#fff;text-align:left;font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;z-index:50;background-color:#fff;}
-ul.autocompleter-choices li{position:relative;margin:-2px 0 0 0;padding:.2em 1.5em .2em 1em;display:block;float:none!important;cursor:pointer;font-weight:normal;white-space:nowrap;font-size:1em;line-height:1.5em;}
-ul.autocompleter-choices li.autocompleter-selected{background-color:#444;color:#fff;}
-ul.autocompleter-choices span.autocompleter-queried{display:inline;float:none;font-weight:bold;margin:0;padding:0;}
+@CHARSET "UTF-8";@import "compact1.css";ul.autocompleter-choices span.autocompleter-queried{display:inline;float:none;font-weight:bold;margin:0;padding:0;}
 ul.autocompleter-choices li.autocompleter-selected span.autocompleter-queried{color:#9FCFFF;}
 div.fatal_error{text-align:center;}div.fatal_error h1{text-align:left;}div.fatal_error img.fatalErrorImage{width:493px;height:190px;background-image:url(../../img/a/fatalErrorImage.jpg);}
 div.fatal_error p.errorText{font-size:16px;font-weight:bold;line-height:30px;margin-top:35px;}
