@@ -30,11 +30,11 @@ if($bindicate == 1) {
 ?>
 <div id="contract" class="contractWrapper">
     <div class="contractText">
-        <?php echo "<b>".$lang['costs']."</b>".$lang['for_up_level']." ".$village->resarray['f'.$id]+($loopsame > 0 ? 2:1)+$doublebuild; ?>:
+        <b><?php echo $lang['costs']; ?></b><?php echo $lang['for_up_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1)+$doublebuild; ?>:
     </div>
 	<div class="contractCosts">
     	<div class="showCosts">
-    		<span class="resources r1"><img class="r1" src="img/x.gif" alt="<?php echo $lang['res1']; ?>" title="<?php echo $lang['res1']; ?>" />><?php echo $uprequire['wood']; ?></span><span class="resources r2"><img class="r2" src="img/x.gif" alt="<?php echo $lang['res2']; ?>" title="<?php echo $lang['res2']; ?>" />><?php echo $uprequire['clay']; ?></span><span class="resources r3"><img class="r3" src="img/x.gif" alt="<?php echo $lang['res3']; ?>" title="<?php echo $lang['res3']; ?>" />><?php echo $uprequire['iron']; ?></span><span class="resources r4"><img class="r4" src="img/x.gif" alt="<?php echo $lang['res3']; ?>" title="<?php echo $lang['res3']; ?>" />><?php echo $uprequire['crop']; ?></span><span class="resources r5"><img class="r5" src="img/x.gif" alt="<?php echo $lang['consumption']; ?>" title="<?php echo $lang['consumption']; ?>" />><?php echo $uprequire['pop']; ?></span><div class="clear"></div><span class="clocks"><img class="clock" src="img/x.gif" alt="<?php echo $lang['duration']; ?>" title="<?php echo $lang['duration']; ?>" /><?php echo $generator->getTimeFormat($uprequire['time']); if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {echo "|<a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"".$lang['npc_trade']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"".$lang['npc_trade']."\" /></a>";} ?></span>
+    		<span class="resources r1"><img class="r1" src="img/x.gif" alt="<?php echo $lang['res1']; ?>" title="<?php echo $lang['res1']; ?>" /><?php echo $uprequire['wood']; ?></span><span class="resources r2"><img class="r2" src="img/x.gif" alt="<?php echo $lang['res2']; ?>" title="<?php echo $lang['res2']; ?>" /><?php echo $uprequire['clay']; ?></span><span class="resources r3"><img class="r3" src="img/x.gif" alt="<?php echo $lang['res3']; ?>" title="<?php echo $lang['res3']; ?>" /><?php echo $uprequire['iron']; ?></span><span class="resources r4"><img class="r4" src="img/x.gif" alt="<?php echo $lang['res3']; ?>" title="<?php echo $lang['res3']; ?>" /><?php echo $uprequire['crop']; ?></span><span class="resources r5"><img class="r5" src="img/x.gif" alt="<?php echo $lang['consumption']; ?>" title="<?php echo $lang['consumption']; ?>" /><?php echo $uprequire['pop']; ?></span><div class="clear"></div><span class="clocks"><img class="clock" src="img/x.gif" alt="<?php echo $lang['duration']; ?>" title="<?php echo $lang['duration']; ?>" /><?php echo $generator->getTimeFormat($uprequire['time']); ?></span><?php if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) >= 1) {echo "<div class=\"clear\"></div><span class=\"npcs\"><a href=\"build.php?gid=17&t=3&r1=".$uprequire['wood']."&r2=".$uprequire['clay']."&r3=".$uprequire['iron']."&r4=".$uprequire['crop']."\" title=\"".$lang['npc_trade']."\"><img class=\"npc\" src=\"img/x.gif\" alt=\"".$lang['npc_trade']."\" /></a></span>";} ?>
             <div class="clear"></div>
         </div>
     </div>
@@ -55,7 +55,7 @@ if($bindicate == 1) {
                     echo "<span class=\"none\">".$lang['enough_resources']." ".$neededtime[0]." ".$lang['at']."  ".$neededtime[1]."</span>";
                 } else if($bindicate == 8) {
 		?>
-        <button type="button" value="<?php echo $lang['up_to_level']." ".$village->resarray['f'.$id]+1; ?>" class="build" onclick="window.location.href = 'dorf<?php if($id <= 18) {echo "1";} else {echo "2";} ?>.php?a=<?php echo $id."&c=".$session->checker; ?>'; return false;">
+        <button type="button" value="<?php echo $lang['up_to_level']; ?> <?php echo $village->resarray['f'.$id]+1; ?>" class="build" onclick="window.location.href = 'dorf<?php if($id <= 18) {echo "1";} else {echo "2";} ?>.php?a=<?php echo $id."&c=".$session->checker; ?>'; return false;">
             <div class="button-container">
                 <div class="button-position">
                     <div class="btl">
@@ -74,12 +74,11 @@ if($bindicate == 1) {
                         </div>
                     </div>
                 </div>
-                <div class="button-contents"><?php echo $lang['up_to_level']." ".$village->resarray['f'.$id]+1; ?></div>
+                <div class="button-contents"><?php echo $lang['up_to_level']; ?> <?php echo $village->resarray['f'.$id]+1; ?></div>
             </div>
         </button>
-        <?php
-    } else if($bindicate == 9) { ?>
-        <button type="button" value="<?php echo $lang['up_to_level']." ".$village->resarray['f'.$id]+($loopsame > 0 ? 2:1); ?>" class="build" onclick="window.location.href = 'dorf<?php if($id <= 18) {echo "1";} else {echo "2";} ?>.php?a=<?php echo $id."&c=".$session->checker; ?>'; return false;">
+        <?php } else if($bindicate == 9) { ?>
+        <button type="button" value="<?php echo $lang['up_to_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1); ?>" class="build" onclick="window.location.href = 'dorf<?php if($id <= 18) {echo "1";} else {echo "2";} ?>.php?a=<?php echo $id."&c=".$session->checker; ?>'; return false;">
             <div class="button-container">
                 <div class="button-position">
                     <div class="btl">
@@ -98,7 +97,7 @@ if($bindicate == 1) {
                         </div>
                     </div>
                 </div>
-                <div class="button-contents"><?php echo $lang['up_to_level']." ".$village->resarray['f'.$id]+($loopsame > 0 ? 2:1); ?></div>
+                <div class="button-contents"><?php echo $lang['up_to_level']; ?> <?php echo $village->resarray['f'.$id]+($loopsame > 0 ? 2:1); ?></div>
             </div>
         </button>
         <span class="none">(<?php echo $lang['waiting_loop']; ?>)</span>
