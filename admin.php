@@ -26,9 +26,9 @@ include("GameEngine/Admin/database.php");
 <head>
     <link rel="shortcut icon" href="../favicon.ico" />
     <title><?php if($_SESSION['access'] == ADMIN){ echo 'Admin Control Panel - '.SERVER_NAME; } else if($_SESSION['access'] == MULTIHUNTER){ echo 'Multihunter Control Panel - '.SERVER_NAME; } ?></title>    
-	<link href="<?php echo GP_LOCATE; ?>lang/en/compact.css" rel="stylesheet" type="text/css" />
-	<link href="<?php echo GP_LOCATE; ?>lang/en/lang.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo GP_LOCATE; ?>travian.css" rel='stylesheet' type='text/css' />
+	<link href="travian3.6/lang/en/compact.css" rel="stylesheet" type="text/css" />
+	<link href="travian3.6/lang/en/lang.css" rel="stylesheet" type="text/css" />
+    <link href="travian3.6/travian.css" rel='stylesheet' type='text/css' />
     <link rel=stylesheet type="text/css" href="img/admin/admin.css">
     <link rel=stylesheet type="text/css" href="img/admin/acp.css">
     <link rel=stylesheet type="text/css" href="img/img.css">
@@ -39,15 +39,15 @@ include("GameEngine/Admin/database.php");
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="imagetoolbar" content="no">
 </head>
-<body class="v35 ie ie8">
+<body class="v35">
 	<script language="javascript">
 		function aktiv() {this.srcElement.className='fl1'; }
 		function inaktiv() {event.srcElement.className='fl2'; }
 		function del(e,id){
-		if(e == 'did'){ var conf = confirm('Dou you really want delete village id '+id+'?'); } 
-		if(e == 'unban'){ var conf = confirm('Dou you really want unban player '+id+'?'); } 
-		if(e == 'stopDel'){ var conf = confirm('Dou you really want stop deleting user '+id+'?'); } 
-		if(conf){return true;}else{return false;}
+			if(e == 'did'){ var conf = confirm('Dou you really want delete village id '+id+'?'); } 
+			if(e == 'unban'){ var conf = confirm('Dou you really want unban player '+id+'?'); } 
+			if(e == 'stopDel'){ var conf = confirm('Dou you really want stop deleting user '+id+'?'); } 
+			if(conf){return true;}else{return false;}
 		}
     </script>
 	<div class="wrapper">
