@@ -79,9 +79,9 @@ class Building {
 						$soonPop += $buildarray[$database->getFieldLevel($village->wid,$j['field'])+1]['pop'];
 					}
 				}
-				if(($village->getProd("crop") - $soonPop - $resRequiredPop) <= 1 && $village->resarray['f'.$id.'t'] <> 4) {  
+				if(($village->getProd("crop") - $soonPop - $resRequiredPop) <= 1 && $village->resarray['f'.$id.'t'] <> 4) {
 					return 4;
-				}
+				} 
 				else {
 					switch($this->checkResource($tid,$id)) {
 						case 1:
@@ -153,7 +153,7 @@ class Building {
 				return 2;
 			}
 		}
-	}
+	} 
 
 	public function walling() {
 		global $session;
@@ -696,7 +696,7 @@ class Building {
 				return $i;
 			}
 		}
-	}
+	} 
 	
 	public function calculateAvaliable($id,$tid,$plus=1) {
 		global $village,$generator;

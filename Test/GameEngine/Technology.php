@@ -137,13 +137,24 @@ class Technology {
 	
 	public function getUnitList() {
 		global $database,$village;
-		$unitcheck = $database->getUnit($village->wid);
-		for($i=1;$i<=50;$i++) {
-			if($unitcheck['u'.$i] >= "4000000") {
-				mysql_query("UPDATE ".TB_PREFIX."units set u".$i." = '0' where vref = $village->wid");
-			}
-		}
-		$unitarray = func_num_args() == 1? $database->getUnit(func_get_arg(0)) : $village->unitarray;
+
+// get unit list of the village
+$unitcheck = $database->getUnit($village->wid);
+
+// check from u1 to u50
+for($i=1;$i<=50;$i++) {
+
+// if unit above 4 milion reset them to 0
+if($unitcheck['u'.$i] >= "4000000") {
+
+// reset command
+mysql_query("UPDATE ".TB_PREFIX."units set u".$i." = '0' where vref = $village->wid");
+
+}
+
+}
+
+		$unitarray = func_num_args() == 1? $database->getUnit(func_get_arg(0)) : $village->unitall;
 		$listArray = array();
 		for($i=1;$i<count($this->unarray);$i++) {
 			$holder = array();
@@ -204,21 +215,19 @@ class Technology {
 		return $ownunit;
 	}
 	
-	function getAllUnits($base) {
+	function getAllUnits($base) { echo"hoi";
+
 		global $database;
 		$ownunit = $database->getUnit($base);
 		$enforcementarray = $database->getEnforceVillage($base,0);
 		if(count($enforcementarray) > 0) {
+
 			foreach($enforcementarray as $enforce) {
+
 				for($i=1;$i<=50;$i++) {
+
 					$ownunit['u'.$i] += $enforce['u'.$i];
 				}
-			}
-		}
-		$movement = $database->getVillageMovement($base);
-		if(!empty($movement)) {
-			for($i=1;$i<=50;$i++) {
-				$ownunit['u'.$i] += $movement['u'.$i];
 			}
 		}
 		return $ownunit;
@@ -562,23 +571,21 @@ private function trainUnit($unit,$amt,$great=false) {
 		$database->query($q);
     }
 	
-	public function calculateAvaliable($id,$resarray=array()) {
+	public function calculateAvaliable($id) {
 		global $village,$generator,${'r'.$id};
-		if(count($resarray)==0) {
-			$resarray['wood'] = ${'r'.$id}['wood'];
-			$resarray['clay'] = ${'r'.$id}['clay'];
-			$resarray['iron'] = ${'r'.$id}['iron'];
-			$resarray['crop'] = ${'r'.$id}['crop'];
-		}
-		$rwtime = ($resarray['wood']-$village->awood) / $village->getProd("wood") * 3600;
-		$rcltime = ($resarray['clay']-$village->aclay) / $village->getProd("clay") * 3600;
-		$ritime = ($resarray['iron']-$village->airon) / $village->getProd("iron") * 3600;
-		$rctime = ($resarray['crop']-$village->acrop) / $village->getProd("crop") * 3600;
-		$reqtime = max($rwtime,$rctime,$ritime,$rcltime);
+		$rwood = ${'r'.$id}['wood']-$village->awood;
+		$rclay = ${'r'.$id}['clay']-$village->aclay;
+		$rcrop = ${'r'.$id}['crop']-$village->acrop;
+		$riron = ${'r'.$id}['iron']-$village->airon;
+		$rwtime = $rwood / $village->getProd("wood") * 3600;
+		$rcltime = $rclay / $village->getProd("clay")* 3600;
+		$rctime = $rcrop / $village->getProd("crop")* 3600;
+		$ritime = $riron / $village->getProd("iron")* 3600;
+		$reqtime = max($rwtime,$rctime,$rcltime,$ritime);
 		$reqtime += time();
 		return $generator->procMtime($reqtime);
 	}
-
+	
 	public function checkReinf($id) {
 		global $database;
 		$enforce=$database->getEnforceArray($id,0);

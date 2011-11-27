@@ -1,14 +1,41 @@
-<?php ###################################################################################              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 #### --------------------------------------------------------------------------- ####  Filename       menu.tpl                                                    ####  Developed by:  Dzoki                                                       ####  License:       TravianX Project                                            ####  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ####                                                                             ###################################################################################?><?php
+<?php 
+#################################################################################
+##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
+## --------------------------------------------------------------------------- ##
+##  Filename       menu.tpl                                                    ##
+##  Developed by:  Dzoki                                                       ##
+##  License:       TravianX Project                                            ##
+##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##                                                                             ##
+#################################################################################
+?>
+<?php
 if(!$session->logged_in) {
 ?>
-	<div id="side_navi">
-				<a id="logo" href="<?php echo HOMEPAGE; ?>"><img src="img/x.gif" alt="Travian" /></a>
-		<p>
-			<a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a>
-			<a href="login.php"><?php echo LOGIN; ?></a>
-			<a href="anmelden.php"><?php echo REG; ?></a>
-		</p>
-	</div>
+                        <div id="side_navi">
+    <ul>
+        <li class="">
+            <a href="index.php"><?php echo HOME; ?></a>
+        </li>
+
+        <li class="<?php echo $logactive; ?>"> 
+            <a href="login.php"><?php echo LOGIN; ?></a>
+        </li>
+
+        <li class="<?php echo $regactive; ?>">
+            <a href="anmelden.php"><?php echo REG; ?></a>
+        </li>
+
+                <li class="">
+            <a href="" target="_blank">FORUM</a>
+        </li>
+        
+        <li class="support">
+            <a href="support.php">SUPPORT</a>
+        </li>
+    </ul>
+</div>                                                <div class="clear"></div>
+	
 <?php
 }
 else {
@@ -19,7 +46,9 @@ else {
 			<a href="<?php echo HOMEPAGE; ?>"><?php echo HOME; ?></a>
 			<a href="spieler.php?uid=<?php echo $session->uid ?>"><?php echo PROFILE; ?></a>
 			<a href="#" onclick="return Popup(0,0,1);"><?php echo INSTRUCT; ?></a>
-			<?php if($session->access == MULTIHUNTER) {			echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">Multihunter Panel</font></a>";			} ?>
+			<?php if($session->access == MULTIHUNTER) {
+			echo "<a href=\"Admin/admin.php\"><font color=\"Blue\">Multihunter Panel</font></a>";
+			} ?>
             <?php if($session->access == ADMIN) {
             echo "<a href=\"Admin/admin.php\"><font color=\"Red\">Admin Panel</font></a>";
             echo "<a href=\"massmessage.php\">Mass Message</a>";
@@ -27,7 +56,10 @@ else {
             echo "<a href=\"sysmsg.php\">System message</a>";
             } ?>
 			<a href="logout.php"><?php echo LOGOUT; ?></a>
-		</p><p>	<a href="#">Forum</a>	</p>
+		</p>
+<p>
+	<a href="#">Forum</a>
+	</p>
 		<p>
 					</p>
 		<p>

@@ -25,4 +25,4 @@
 
 <?php 
 include("upgrade.tpl");
-?></p></div>
+?></p>

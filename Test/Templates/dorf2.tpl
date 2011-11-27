@@ -9,26 +9,36 @@
 ##                                                                             ##
 #################################################################################
 ?>
-<map name="map1" id="map1">
+<div id="village_map">
+<map name="clickareas" id="clickareas">
 <?php
-if($building->walling()) {
-	$wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
-}
-else {
-	$wtitle = ($village->resarray['f40'] == 0)? "Outer building site" : $building->procResType($village->resarray['f40t'],0)." Level ".$village->resarray['f40'];
-}
-?>
-	<area href="build.php?id=40" title="<?php echo $wtitle; ?>" coords="325,225,180" shape="circle" alt="" />
-	<area href="build.php?id=40" title="<?php echo $wtitle; ?>" coords="220,230,185" shape="circle" alt="" />
-
-</map>
-<map name="map2" id="map2">
-<?php
-$coords = array(19=>"53,91,91,71,127,91,91,112","136,66,174,46,210,66,174,87","196,56,234,36,270,56,234,77","270,69,308,49,344,69,308,90","327,117,365,97,401,117,365,138","14,129,52,109,88,129,52,150","97,137,135,117,171,137,135,158","182,119,182,65,257,65,257,119,220,140","337,156,375,136,411,156,375,177","2,199,40,179,76,199,40,220","129,164,167,144,203,164,167,185","92,189,130,169,166,189,130,210","342,216,380,196,416,216,380,237","22,238,60,218,96,238,60,259","167,232,205,212,241,232,205,253","290,251,328,231,364,251,328,272","95,273,133,253,169,273,133,294","222,284,260,264,296,284,260,305","80,306,118,286,154,306,118,327","199,316,237,296,273,316,237,337","270,158,303,135,316,155,318,178,304,211,288,227,263,238,250,215");
-for($t=19;$t<=39;$t++) {
-	if(($village->resarray['f99t'] == 40 AND ($t)=='25') or ($village->resarray['f99t'] == 40 AND ($t)=='26') or ($village->resarray['f99t'] == 40 AND ($t)=='29') or ($village->resarray['f99t'] == 40 AND ($t)=='30') or ($village->resarray['f99t'] == 40 AND ($t)=='33')) {
-	echo "<area href=\"build.php?id=99\" title=\"WorldWonder Level ".$village->resarray['f99']."\" coords=\"$coords[$t]\" shape=\"poly\"/>";
-	} else {
+$coords = array(19=>
+"110,135,132,120,132,121,160,122,179,136,179,151,158,163,128,163,109,149",
+"202,93,223,79,223,79,251,80,271,95,271,109,249,121,220,121,200,108",
+"290,76,311,61,311,62,339,63,359,77,359,92,337,104,308,104,289,90",
+"384,105,406,91,406,91,434,92,453,106,453,121,432,133,402,133,383,120",
+"458,147,479,133,479,133,507,134,527,149,527,164,505,175,476,175,457,162",
+"71,184,92,170,92,171,120,172,140,186,139,201,118,213,88,213,69,199",
+"516,196,538,182,538,182,566,183,585,198,585,212,564,224,534,224,515,211",
+"280,113,301,98,301,99,329,100,349,114,348,169,327,181,298,181,278,168",
+"97,320,118,306,118,307,146,308,166,322,165,337,144,349,114,349,95,335",
+"59,244,80,230,80,230,108,231,128,246,128,260,106,272,77,272,57,259",
+"477,249,498,235,498,235,526,236,546,251,545,265,524,277,494,277,475,264",
+"181,259,202,245,202,245,230,246,250,261,250,275,228,287,199,287,180,274",
+"182,189,203,175,203,175,231,176,251,190,251,205,229,217,200,217,181,204",
+"254,308,276,294,276,294,304,295,324,309,323,324,302,336,272,336,253,323",
+"505,317,526,303,526,303,554,304,574,319,573,333,552,345,522,345,503,332",
+"182,379,204,365,204,365,232,366,251,380,251,395,230,407,200,407,181,394",
+"324,370,345,356,345,357,373,358,393,372,392,387,371,398,341,398,322,385",
+"433,334,454,320,454,321,482,322,502,336,502,351,480,362,451,362,432,349",
+"271,412,292,398,292,399,320,400,340,414,339,429,318,440,289,440,269,427",
+"396,396,417,381,417,382,445,383,465,397,464,412,443,424,413,424,394,410",
+"398,212,412,250,369,301,394,323,445,286,453,233,427,183",
+"71,450,2,374,3,374,-10,243,13,142,120,81,214,34,340,18,500,43,615,130,641,239,643,350,601,425,534,494,358,534,282,532,180,526,77,456,117,378,163,413,242,442,331,454,425,443,499,417,576,344,596,304,598,221,571,157,481,90,385,61,313,56,217,72,135,113,77,165,46,217,44,269,65,326,119,379");
+for($t=19;$t<=40;$t++) {
+    if(($village->resarray['f99t'] == 40 AND ($t)=='25') or ($village->resarray['f99t'] == 40 AND ($t)=='26') or ($village->resarray['f99t'] == 40 AND ($t)=='29') or ($village->resarray['f99t'] == 40 AND ($t)=='30') or ($village->resarray['f99t'] == 40 AND ($t)=='33')) {
+    echo "<area href=\"build.php?id=99\" title=\"WorldWonder Level ".$village->resarray['f99']."\" coords=\"$coords[$t]\" shape=\"poly\"/>";
+    } else {
 if($village->resarray['f'.$t.'t'] != 0) {
 $title = $building->procResType($village->resarray['f'.$t.'t']). " Level ".$village->resarray['f'.$t];
 }
@@ -38,92 +48,121 @@ else {
         $title = "Rally Point building site";
         }
 }
-	echo "<area href=\"build.php?id=$t\" title=\"$title\" coords=\"$coords[$t]\" shape=\"poly\"/>";
+    echo "<area href=\"build.php?id=$t\" alt= \"$title\" title=\"$title\" coords=\"$coords[$t]\" shape=\"poly\"/>";
 }
 }
 ?>
-	
-    <area href="build.php?id=40" title="<?php echo $wtitle; ?>" coords="312,338,347,338,377,320,406,288,421,262,421,222,396,275,360,311" shape="poly" alt="" />
-	<area href="build.php?id=40" title="<?php echo $wtitle; ?>" coords="49,338,0,274,0,240,33,286,88,338" shape="poly" alt="" />
-	<area href="build.php?id=40" title="<?php echo $wtitle; ?>" coords="0,144,34,88,93,39,181,15,252,15,305,31,358,63,402,106,421,151,421,93,378,47,280,0,175,0,78,28,0,92" shape="poly" alt="" />
-</map>
-<?php
-	if($session->tribe == 3){
-		$session->tribe = '';
-	}
-	
-if($building->walling()) {
-$vmapc = "d2_1".$session->tribe;
-}
-else {
-$vmapc = ($village->resarray['f40'] == 0)? "d2_0" : "d2_1".$session->tribe;
-}
-?>
-<div id="village_map" class="<?php echo $vmapc; ?>">
-<?php
+
+</map> 
+     <?php
 for ($i=1;$i<=20;$i++) {
-	if(($village->resarray['f99t'] == 40 AND ($i+18)=='25') or ($village->resarray['f99t'] == 40 AND ($i+18)=='26') or ($village->resarray['f99t'] == 40 AND ($i+18)=='29') or ($village->resarray['f99t'] == 40 AND ($i+18)=='30') or ($village->resarray['f99t'] == 40 AND ($i+18)=='33')) {
-		} else {
-	$text = "Building site";
-	$img = "iso";
-    	if($village->resarray['f'.($i+18).'t'] != 0) {
-        	$text = $building->procResType($village->resarray['f'.($i+18).'t'])." Level ".$village->resarray['f'.($i+18)];
+
+
+    if(($village->resarray['f99t'] == 40 AND ($i+18)=='25') or ($village->resarray['f99t'] == 40 AND ($i+18)=='26') or ($village->resarray['f99t'] == 40 AND ($i+18)=='29') or ($village->resarray['f99t'] == 40 AND ($i+18)=='30') or ($village->resarray['f99t'] == 40 AND ($i+18)=='33')) {
+        } else {
+        switch($i) {
+    case 1:
+    $style = "left: 81px; top: 57px; z-index: 19;";
+    break;
+    case 2:
+    $style =  "left: 174px; top: 15px; z-index: 17;";
+    break;
+    case 3:
+    $style = "left: 261px; top: -3px; z-index: 15;"; 
+    break;
+    case 4:
+    $style = "left: 354px; top: 26px; z-index: 17;";
+    break;
+    case 5:
+    $style = "left: 428px; top: 69px; z-index: 20;"; 
+    break;
+    case 6:
+    $style = "left: 42px; top: 107px; z-index: 23;"; 
+    break;
+    case 7:
+     $style = "left: 485px; top: 119px; z-index: 24;"; 
+    break;
+    case 8:
+    $style =  "left: 249px; top: 71px; z-index: 20;";  
+    break;
+    case 9:
+    $style = "left: 68px; top: 241px; z-index: 32;"; 
+    break;
+    case 10:
+    $style = "left: 31px; top: 167px; z-index: 27;"; 
+    break;
+    case 11:
+    $style =  "left: 448px; top: 170px; z-index: 27;"; 
+    break;
+    case 12:
+    $style = "left: 153px; top: 183px; z-index: 28;";  
+    break;
+    case 13:
+    $style = "left: 155px; top: 110px; z-index: 23;"; 
+    break;
+    case 14:
+     $style = "left: 227px; top: 230px; z-index: 32;";  
+    break;
+    case 15:
+    $style = "left: 476px; top: 238px; z-index: 32;"; 
+    break;
+    case 16:
+    $style = "left: 153px; top: 300px; z-index: 36;";
+    break;
+    case 17:
+    $style = "left: 295px; top: 291px; z-index: 36;";
+    break;
+    case 18:
+    $style = "left: 404px; top: 254px; z-index: 33;";
+    break;
+    case 19:
+    $style = "left: 241px; top: 333px; z-index: 39;";
+    break;
+    case 20:
+    $style = "left: 365px; top: 318px; z-index: 38;"; 
+    break;
+    }
+    $text = "Building site";
+    $img = "iso";
+        if($village->resarray['f'.($i+18).'t'] != 0) {
+            $text = $building->procResType($village->resarray['f'.($i+18).'t'])." Level ".$village->resarray['f'.($i+18)];
             $img = "g".$village->resarray['f'.($i+18).'t'];
        }
     foreach($building->buildArray as $job) {
-    	if($job['field'] == ($i+18)) {
-        	$img = 'g'.$job['type'].'b';
+        if($job['field'] == ($i+18)) {
+            $img = 'g'.$job['type'].'b';
             $text = $building->procResType($job['type'])." Level ".$village->resarray['f'.$job['field']];
         }
     }
-	echo "<img src=\"img/x.gif\" class=\"building d$i $img\" alt=\"$text\" />";
-	}
+    echo "<img src=\"img/x.gif\" style=\"$style\" class=\"building g$i $img\" alt=\"$text\" />";
+    }
 }
     if($village->resarray['f39'] == 0) {
             if($building->rallying()) {
-            echo "<img src=\"img/x.gif\" class=\"dx1 g16b\" alt=\"Rally Point Level ".$village->resarray['f39']."\" />";
+            echo "<img src=\"img/x.gif\" style=\"z-index:28\" class=\"building g16b\" alt=\"Rally Point Level ".$village->resarray['f39']."\" />";
             }
             else {
-            echo "<img src=\"img/x.gif\" class=\"dx1 g16e\" alt=\"Rally Point building site\" />";
+            echo "<img src=\"img/x.gif\" style=\"z-index:28\" class=\"building g16e\" alt=\"Rally Point building site\" />";
             }
         }
       else {
-      	echo "<img src=\"img/x.gif\" class=\"dx1 g16\" alt=\"Rally Point Level ".$village->resarray['f39']."\" />";
+          echo "<img src=\"img/x.gif\" style=\"z-index:28\" class=\"building g16\" alt=\"Rally Point Level ".$village->resarray['f39']."\" />";
       }
-?>
-<?php
-if($village->resarray['f99t'] == 40) {
-if($village->resarray['f99'] >= 0 && $village->resarray['f99'] <= 19) {
-echo '<img class="ww g40" src="img/x.gif" alt="Worldwonder">'; }
-if($village->resarray['f99'] >= 20 && $village->resarray['f99'] <= 39) {
-echo '<img class="ww g40_1" src="img/x.gif" alt="Worldwonder">'; }
-if($village->resarray['f99'] >= 40 && $village->resarray['f99'] <= 59) {
-echo '<img class="ww g40_2" src="img/x.gif" alt="Worldwonder">'; }
-if($village->resarray['f99'] >= 60 && $village->resarray['f99'] <= 79) {
-echo '<img class="ww g40_3" src="img/x.gif" alt="Worldwonder">'; }
-if($village->resarray['f99'] >= 80 && $village->resarray['f99'] <= 99) {
-echo '<img class="ww g40_4" src="img/x.gif" alt="Worldwonder">'; }
-if($village->resarray['f99'] == 100) {
-echo '<img class="ww g40_5" src="img/x.gif" alt="Worldwonder">'; }
-}
-?>
-    <div id="levels" <?php if(isset($_COOKIE['t3l'])) { echo "class=\"on\""; } ?> >
-<?php
-for($i=1;$i<=20;$i++) {
-if ($village->resarray['f'.($i+18)] != 0) {
-echo "<div class=\"d$i\">".$village->resarray['f'.($i+18)]."</div>";
-}
-}
-if($village->resarray['f39'] != 0) {
-echo "<div class=\"l39\">".$village->resarray['f39']."</div>";
-}
-if($village->resarray['f40'] != 0) {
-echo "<div class=\"l40\">".$village->resarray['f40']."</div>";
 
+?>     
+<?php
+ if($village->resarray['f40'] == 0) { 
+if($building->walling()) {
+    $wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
+     echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."bBottom \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
+
+    }
+}else {
+          $wtitle = $building->procResType($building->walling())." Level ".$village->resarray['f40'];
+    echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Top \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
+    echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Bottom \" alt=\"$wtitle level ".$village->resarray['f40']."\">";
 }
 ?>
-		</div>
-	<img class="map1" usemap="#map1" src="img/x.gif" alt="" />
-	<img class="map2" usemap="#map2" src="img/x.gif" alt="" />
-</div>
-<img src="img/x.gif" id="lswitch"  <?php if(isset($_COOKIE['t3l'])) { echo "class=\"on\""; } ?> onclick="vil_levels_toggle()" />
+        
+        <img class="clickareas" usemap="#clickareas" src="img/x.gif" alt="">
+    </div>

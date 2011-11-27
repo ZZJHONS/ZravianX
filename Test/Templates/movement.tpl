@@ -3,12 +3,25 @@
 ##              -= YOU MAY NOT REMOVE OR CHANGE THIS NOTICE =-                 ##
 ## --------------------------------------------------------------------------- ##
 ##  Filename       movement.tpl                                                ##
-##  Developed by:  Dzoki                                                       ##
-##  License:       TravianX Project                                            ##
-##  Copyright:     TravianX (c) 2010-2011. All rights reserved.                ##
+##  Developed by:  Advocaite                                                       ##
+##  License:       TravianX  T4 Project                                            ##
+##  Copyright:     TravianX (c) 2010-2015. All rights reserved.                ##
 ##                                                                             ##
 #################################################################################
 ?>
+ <div class="movements">
+ <div class="boxes villageList movements">
+ <div class="boxes-tl"></div>
+ <div class="boxes-tr"></div>
+ <div class="boxes-tc"></div>
+ <div class="boxes-ml"></div>
+ <div class="boxes-mr"></div>
+ <div class="boxes-mc"></div>
+ <div class="boxes-bl"></div>
+ <div class="boxes-br"></div>
+ <div class="boxes-bc"></div>
+ <div class="boxes-contents">
+ 
 <?php
 $aantal=(count($database->getMovement(4,$village->wid,1))+count($database->getMovement(4,$village->wid,0))+count($database->getMovement(3,$village->wid,1))+count($database->getMovement(3,$village->wid,0)));
 if($aantal > 0){
@@ -224,4 +237,5 @@ $timer += 1;
 ?>
 	</tbody>
 
-</table>
+</table>   </div>
+                </div></div>

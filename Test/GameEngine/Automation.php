@@ -212,13 +212,7 @@ class Automation {
 	private function pruneResource() {
 		global $database;
 		if(!ALLOW_BURST) {
-			$q = "UPDATE ".TB_PREFIX."vdata set `wood` = `maxstore` WHERE `wood` > `maxstore`";
-			$database->query($q);
-			$q = "UPDATE ".TB_PREFIX."vdata set `clay` = `maxstore` WHERE `clay` > `maxstore`";
-			$database->query($q);
-			$q = "UPDATE ".TB_PREFIX."vdata set `iron` = `maxstore` WHERE `iron` > `maxstore`";
-			$database->query($q);
-			$q = "UPDATE ".TB_PREFIX."vdata set `crop` = `maxcrop` WHERE `crop` > `maxcrop`";
+			$q = "UPDATE ".TB_PREFIX."vdata set `wood` = `maxstore`, `clay` = `maxstore`, `iron` = `maxstore`, `crop` = `maxcrop` WHERE `wood` > `maxstore`, `clay` > `maxstore`, `iron` > `maxstore`, `crop` > `maxcrop`";
 			$database->query($q);
 			$q = "UPDATE ".TB_PREFIX."vdata set `crop` = 100 WHERE `crop` < 0";
 			$database->query($q);
@@ -339,7 +333,7 @@ class Automation {
 			$tocoor = $database->getCoor($data['from']);
 			$fromcoor = $database->getCoor($data['to']);
 			$targettribe = $database->getUserField($database->getVillageField($data['from'],"owner"),"tribe",0);
-			$endtime = $this->procDistanceTime($tocoor,$fromcoor,$targettribe,0) + $data['endtime'];
+			$endtime = $this->procDistanceTime($tocoor,$fromcoor,$targettribe,0) + $time;
 			$database->addMovement(2,$data['to'],$data['from'],$data['merchant'],$endtime);
 			$database->setMovementProc($data['moveid']);
 		}
@@ -1237,20 +1231,20 @@ class Automation {
 		$this->bountyocounter = $this->bountysortOasis();
 		$this->bountypop = $this->bountyinfoarray['pop'];
 		
-		//$unitarray = $database->getUnit($bountywid);
-		//if(count($unitarray) > 0) {
-		//	for($i=1;$i<=50;$i++) {
-		//		$this->bountyunitall['u'.$i] = $unitarray['u'.$i];
-		//	}
-		//}
-		//$enforcearray = $database->getEnforceVillage($bountywid,0);
-		//if(count($enforcearray) > 0) {
-		//	foreach($enforcearray as $enforce) {
-		//		for($i=1;$i<=50;$i++) {
-		//			$this->bountyunitall['u'.$i] += $enforce['u'.$i];
-		//		}
-		//	}
-		//}
+		$unitarray = $database->getUnit($bountywid);
+		if(count($unitarray) > 0) {
+			for($i=1;$i<=50;$i++) {
+				$this->bountyunitall['u'.$i] = $unitarray['u'.$i];
+			}
+		}
+		$enforcearray = $database->getEnforceVillage($bountywid,0);
+		if(count($enforcearray) > 0) {
+			foreach($enforcearray as $enforce) {
+				for($i=1;$i<=50;$i++) {
+					$this->bountyunitall['u'.$i] += $enforce['u'.$i];
+				}
+			}
+		}
 	}
 	
 	private function bountysortOasis() {
@@ -1298,7 +1292,19 @@ class Automation {
 		$this->bountyproduction['wood'] = $this->bountyGetWoodProd();
 		$this->bountyproduction['clay'] = $this->bountyGetClayProd();
 		$this->bountyproduction['iron'] = $this->bountyGetIronProd();
-		$this->bountyproduction['crop'] = $this->bountyGetCropProd()-$this->bountypop-$technology->getUpkeep($technology->getAllUnits($bountywid),0);
+		
+		$upkeep = 0;
+		
+		for($i=0;$i<=50;$i++) {
+			$unit = "u".$i;
+			global $$unit;
+			$dataarray = $$unit;
+			if(isset($this->bountyunitall[$unit])) {
+				$upkeep += $this->bountyunitall[$unit] * $dataarray['pop'];
+			}
+		}
+				
+		$this->bountyproduction['crop'] = $this->bountyGetCropProd()-$this->bountypop-$upkeep;
 	}
 	
 	private function bountyprocessProduction($bountywid) {

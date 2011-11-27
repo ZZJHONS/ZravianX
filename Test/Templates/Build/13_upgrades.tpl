@@ -18,7 +18,7 @@
 <a href=\"#\" onClick=\"return Popup(".$i.",1);\">".$technology->getUnitName($i)."</a> (Level ".$abdata['a'.$j].")
 </div>
 <div class=\"details\"><img class=\"r1\" src=\"img/x.gif\" alt=\"Lumber\" title=\"Lumber\" />".${'ab'.$i}[$abdata['a'.$j]+1]['wood']."|<img class=\"r2\" src=\"img/x.gif\" alt=\"Clay\" title=\"Clay\" />".${'ab'.$i}[$abdata['a'.$j]+1]['clay']."|<img class=\"r3\" src=\"img/x.gif\" alt=\"Iron\" title=\"Iron\" />".${'ab'.$i}[$abdata['a'.$j]+1]['iron']."|<img class=\"r4\" src=\"img/x.gif\" alt=\"Crop\" title=\"Crop\" />".${'ab'.$i}[$abdata['a'.$j]+1]['crop']."|<img class=\"clock\" src=\"img/x.gif\" alt=\"duration\" title=\"duration\" />";
-				echo $generator->getTimeFormat(round(${'ab'.$i}[$abdata['a'.$j]+1]['time']*($bid13[$building->getTypeLevel(13)]['attri'] / 100)/SPEED));
+				echo $generator->getTimeFormat(round(${'ab'.$i}[$abdata['a'.$j]+1]['time']*($bid12[$building->getTypeLevel(12)]['attri'] / 100)/SPEED));
 				if($session->userinfo['gold'] >= 3 && $building->getTypeLevel(17) > 1) {
 					echo "|<a href=\"build.php?gid=17&t=3&r1=".${'ab'.$i}[$abdata['a'.$j]+1]['wood']."&r2=".${'ab'.$i}[$abdata['a'.$j]+1]['clay']."&r3=".${'ab'.$i}[$abdata['a'.$j]+1]['iron']."&r4=".${'ab'.$i}[$abdata['a'.$j]+1]['crop']."\" title=\"NPC trade\"><img class=\"npc\" src=\"img/x.gif\" alt=\"NPC trade\" title=\"NPC trade\" /></a>";
 		        }
@@ -29,12 +29,7 @@
 					echo "<td class=\"act\"><div class=\"none\">Expand<br>granary</div></td></tr>";
 				}
 				else if (${'ab'.$i}[$abdata['a'.$j]+1]['wood'] > $village->awood || ${'ab'.$i}[$abdata['a'.$j]+1]['clay'] > $village->aclay || ${'ab'.$i}[$abdata['a'.$j]+1]['iron'] > $village->airon || ${'ab'.$i}[$abdata['a'.$j]+1]['crop'] > $village->acrop) {
-					if($village->getProd("crop")>0){
-						$time = $technology->calculateAvaliable(13,${'ab'.$i}[$abdata['a'.$j]+1]);
-						echo "<br><span class=\"none\">Enough resources ".$time[0]." at ".$time[1]."</span></div></td>";
-					} else {
-						echo "<br><span class=\"none\">Crop production is negative so you will never reach the required resources</span></div></td>";
-					}
+					$time = $technology->calculateAvaliable($j);
 		            echo "<br><span class=\"none\">Enough resources ".$time[0]." at ".$time[1]."</span></div></td>";
 		            echo "<td class=\"act\"><div class=\"none\">Too few<br>resources</div></td></tr>";
 				}
