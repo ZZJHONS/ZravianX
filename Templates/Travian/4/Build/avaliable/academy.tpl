@@ -25,5 +25,5 @@
 </div>
 <?php
 	$_GET['bid'] = 22;
-	include("availupgrade.tpl");
+	include("Templates/Travian/4/Build/avaliable/availupgrade.tpl");
 ?>

@@ -1,4 +1,16 @@
 <h2>Academy</h2>
+<div class="build_desc">
+	<a href="#" onclick="return Travian.Game.iPopup(22,4);" class="build_logo">
+		<img class="building big white g22" src="img/x.gif" alt="Academy" title="Academy" />
+	</a>
+	In the academy new unit types can be researched. By increasing its level you can order the research of better units.
+</div>
+<?php
+	$_GET['bid'] = 22;
+	include("Templates/Travian/4/Build/soon/soonupgrade.tpl");
+?>
+
+<h2>Academy</h2>
 	<table class="new_building" cellpadding="1" cellspacing="1">
 		<tbody><tr>
 			<td class="desc">In the academy new unit types can be researched. By increasing its level you can order the research of better units.</td>
