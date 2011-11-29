@@ -71,7 +71,7 @@
         <div id="stime" class="stime">
             <div class="content-background-l">&nbsp;</div>
             <div class="content-background-r">&nbsp;</div>
-            <div class="content <?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"day":"night";?>" title="<?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"$lang['day']":"$lang['night']";?>">
+            <div class="content <?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"day":"night"; ?>" title="<?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?$lang['day']:$lang['night']; ?>">
                 <?php echo $lang['server_time']; ?>:&nbsp;<span id="tp1"><?php echo date('H:i:s'); ?></span>
             </div>
         </div>
@@ -141,7 +141,7 @@
         </script>
         <?php
 			$displayarray = $database->getUserArray($session->uid,1);
-			if($displayarray['protect'] > time() or $session->access < ADMIN){
+			if($displayarray['protect'] > time() or $session->access == ADMIN){
 				$uurover = date('H:i:s', ($displayarray['protect']-time())-3600);
 		 ?>
         <div id="sideInfoCountdown">
@@ -149,8 +149,8 @@
             <div class="content">
             	<?php if($displayarray['protect'] > time()){ ?>
                 You has <span id="timer1"><?php echo $uurover; ?></span> hours of beginners protection left.
-                <?php } if($session->access < ADMIN){ ?>
-                <a href="admin.php" title="To the Admin Control Panel">Admin Control Panel</a>
+                <?php } if($session->access == ADMIN){ ?>
+                <a href="admin.php" title="Admin Control Panel">Admin Control Panel</a>
                 <?php } } ?>
             </div>
         </div>
