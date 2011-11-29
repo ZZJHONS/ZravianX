@@ -257,7 +257,8 @@ foreach ($database->getJobs($_SESSION['wid']) as $bdata) {
                     include("soon/grainmill.tpl");
                 }
                 if($marketplace == 0 && ($mainbuilding <= 2 || $granary <= 0 || $warehouse <= 0)) {
-                    include("soon/marketplace.tpl");
+					$b_id = "17";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($residence == 0 && $mainbuilding <= 4) {
                     include("soon/residence.tpl");

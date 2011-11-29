@@ -46,7 +46,7 @@
         	private $time;
         	var $logged_in = false;
         	var $referrer, $url;
-        	var $username, $uid, $access, $plus, $tribe, $isAdmin, $alliance, $gold, $oldrank, $gpack;
+        	var $username, $uid, $access, $plus, $tribe, $isAdmin, $alliance, $gold, $silver, $oldrank, $gpack;
         	var $bonus = 0;
         	var $bonus1 = 0;
         	var $bonus2 = 0;
@@ -169,6 +169,7 @@
 				$this->sit2 = $this->userarray['sit2'];
 				$this->cp = $this->userarray['cp'];
         		$this->gold = $this->userarray['gold'];
+				$this->silver = $this->userarray['silver'];
         		$this->oldrank = $this->userarray['oldrank'];
         		$_SESSION['ok'] = $this->userarray['ok'];
         		if($this->userarray['b1'] > $this->time) {

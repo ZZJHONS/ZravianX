@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.23                                                  ##
+##  Version:       2011.11.29                                                  ##
 ##  Filename:      Templates/Travian/4/foot.tpl                                ##
 ##  Developed by:  ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -61,7 +61,7 @@
                         <a class="signLink" href="spieler.php?uid=<?php echo $session->uid; ?>" title="<?php echo $lang['profile']; ?>">
                             <span class="wrap"><?php echo $_SESSION['username']; ?></span>
                         </a>
-                        <img class="nationBig nationBig<?php echo $session->tribe; ?>" alt="<?php echo $lang['tribe']; ?>" title="<?php echo $lang['tribe']; ?>" src="img/x.gif">
+                        <img class="nationBig nationBig<?php echo $session->tribe; ?>" alt="<?php echo $lang['tribe'.$session->tribe]; ?>" title="<?php echo $lang['tribe'.$session->tribe]; ?>" src="img/x.gif">
                     </div>
                     <? include("Templates/Travian/4/multivillage.tpl"); ?> 
             </div>
@@ -71,7 +71,7 @@
         <div id="stime" class="stime">
             <div class="content-background-l">&nbsp;</div>
             <div class="content-background-r">&nbsp;</div>
-            <div class="content day" title="Day">
+            <div class="content <?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"day":"night";?>" title="<?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"$lang['day']":"$lang['night']";?>">
                 <?php echo $lang['server_time']; ?>:&nbsp;<span id="tp1"><?php echo date('H:i:s'); ?></span>
             </div>
         </div>
@@ -81,7 +81,7 @@
                     <a href="plus.php?id=3" title="<?php echo $lang['gold']; ?>"><img src="img/x.gif" alt="<?php echo $lang['gold']; ?>" class="gold"><br /><?php echo $session->gold; ?></a>
                 </p>
                 <p class="silver">
-                    <a href="plus.php?id=3" title="<?php echo $lang['silver']; ?>"><img src="img/x.gif" alt="silver" class="silver"><br />0</a>
+                    <a href="plus.php?id=3" title="<?php echo $lang['silver']; ?>"><img src="img/x.gif" alt="silver" class="silver"><br /><?php echo $session->silver;?></a>
                 </p>
                 <div class="clear"></div>
             </div>
@@ -139,25 +139,21 @@
                 'close' : '<?php echo $lang["close"]; ?>'
             });
         </script>
-        <?php /* Test code */ ?>
+        <?php
+			$displayarray = $database->getUserArray($session->uid,1);
+			if($displayarray['protect'] > time() or $session->access < ADMIN){
+				$uurover = date('H:i:s', ($displayarray['protect']-time())-3600);
+		 ?>
         <div id="sideInfoCountdown">
             <div class="head"></div>
             <div class="content">
-                <?php
-                    $displayarray = $database->getUserArray($session->uid,1);
-                    if($displayarray['protect'] > time()){
-                        $uurover = date('H:i:s', ($displayarray['protect']-time())-3600);
-                ?>
-                You has <span id="timer1"><?php echo $uurover; ?></span> hours of beginners protection left.	
-                <?php
-                    } else {
-                        $geregistreerd=date('d-m-Y', ($displayarray['timestamp'])); 
-                ?>
-                Today is <?php echo $geregistreerd; ?>.
-                <?php } ?>
+            	<?php if($displayarray['protect'] > time()){ ?>
+                You has <span id="timer1"><?php echo $uurover; ?></span> hours of beginners protection left.
+                <?php } if($session->access < ADMIN){ ?>
+                <a href="admin.php" title="To the Admin Control Panel">Admin Control Panel</a>
+                <?php } } ?>
             </div>
         </div>
-        <?php /* End test code */ ?>
         <div id="anwersQuestionMark">
             <a href="<?php echo HOMEPAGE; ?>#help" target="_blank" title="<?php echo SERVER_NAME." ".$lang['help']; ?>">&nbsp;</a>
         </div>

@@ -220,6 +220,14 @@
         		return mysql_query($q, $this->connection);
         	}
 
+			function modifySilver($userid, $amt, $mode) {
+				if(!$mode) {
+					$q = "UPDATE " . TB_PREFIX . "users set silver = silver - $amt where id = $userid";
+				} else {
+					$q = "UPDATE " . TB_PREFIX . "users set silver = silver + $amt where id = $userid";
+				}
+				return mysql_query($q, $this->connection);
+			}
         	/*****************************************
         	Function to retrieve user array via Username or ID
         	Mode 0: Search by Username
