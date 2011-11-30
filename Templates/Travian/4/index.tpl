@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      Templates/Travian/4/index.tpl                               ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -30,7 +30,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Powered by ZravianX - <?php echo SERVER_NAME; ?></title>
-    <link rel="shortcut icon" href="<?php if(FAVICON == false){echo "favicon-old.ico";} else if (FAVICON == true){echo "favicon.ico";} else {echo "favicon.ico";}; ?>" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <meta content="description" content="<?php echo $lang['index2']['description']; ?>" />
     <link rel="stylesheet" type="text/css" href="gpack/travian_homepage/lang/en/compact.css"/>
 	<meta name="content-language" content="<?php echo LANG;?>"/>

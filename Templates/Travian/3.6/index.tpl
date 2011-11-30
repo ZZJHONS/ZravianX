@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.06                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      Templates/Travian/3.6/index.tpl                             ##
 ##  Developed by:  Dzoki & Advocaite & Donnchadh                               ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -29,7 +29,7 @@ include ("GameEngine/Lang/".LANG.".php");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Powered by ZravianX - <?php echo SERVER_NAME; ?></title>
-    <link rel="shortcut icon" href="<?php if(FAVICON == false){echo "favicon-old.ico";} else if (FAVICON == true){echo "favicon.ico";} else {echo "favicon.ico";}; ?>" />
+    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" type="text/css" href="gpack/travian/main.css" />
     <link rel="stylesheet" type="text/css" href="gpack/travian/flaggs.css" />
     <link rel="stylesheet" type="text/css" href="gpack/travian/main_en.css" />
