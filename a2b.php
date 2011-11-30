@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.07                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      a2b.php                                                     ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -69,12 +69,15 @@ else if (isset($w)){
 } else {
 	if (isset($process['0'])){
 		$coor = $database->getCoor($process['0']);
-		include("Templates/a2b/attack_".$session->tribe.".tpl");
+		if($session->tribe == 5){
+			include("Templates/a2b/attack_5.tpl");
+		} else {
+			include("Templates/a2b/attack.tpl");
+		}
 	}else{
 		include("Templates/a2b/units_".$session->tribe.".tpl");
 		include("Templates/a2b/search.tpl");
 	}
 }
-
-		include ("Templates/end.tpl");
-	?>
+include ("Templates/end.tpl");
+?>
