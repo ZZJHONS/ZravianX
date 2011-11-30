@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.28                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      Templates/Travian/4/Build/avaliable.tpl                     ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -27,7 +27,6 @@ $warehouse = $building->getTypeLevel(10);
 $embassy = $building->getTypeLevel(18);
 $wall = $village->resarray['f40'];
 $rallypoint = $building->getTypeLevel(16);
-$hero = $building->getTypeLevel(37);
 $market = $building->getTypeLevel(17);
 $barrack = $building->getTypeLevel(19);
 $cropland = $building->getTypeLevel(4);
@@ -128,7 +127,7 @@ foreach ($database->getJobs($_SESSION['wid']) as $bdata) {
 				$b_id = "18";
 				include("Templates/Travian/4/Build/build.tpl");
 			}
-			if($hero == 0 && $mainbuilding >= 3 && $rallypoint >= 1 && $id != 39  && $id != 40) {
+			if($herosmansion == 0 && $mainbuilding >= 3 && $rallypoint >= 1 && $id != 39  && $id != 40) {
 				$b_id = "37";
 				include("Templates/Travian/4/Build/build.tpl");
 			}
@@ -236,89 +235,116 @@ foreach ($database->getJobs($_SESSION['wid']) as $bdata) {
         <div id="build_list_soon" class="hide">
 			<?php
                 if($rallypoint == 0 && $session->tribe == 3 && $trapper == 0 ) {
-                    include("soon/trapper.tpl");
+					$b_id = "36";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($mainbuilding < 10 && $village->capital == 0 && $largeA['owner'] == $session->uid || $normalA['vref'] == $village->wid ) {
-                    include("soon/greatwarehouse.tpl");
+					$b_id = "38";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($mainbuilding < 10 && $village->capital == 0 && $largeA['owner'] == $session->uid || $normalA['vref'] == $village->wid ) {
-                    include("soon/greatgranary.tpl");
+					$b_id = "39";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 } 
-                if($hero == 0 && ($mainbuilding <= 2 || $rallypoint == 0)){
-                    include("soon/hero.tpl");
+                if($herosmansion == 0 && ($mainbuilding <= 2 || $rallypoint == 0)){
+					$b_id = "37";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($barrack == 0 && ($rallypoint == 0 || $mainbuilding <= 2) ) {
-                    include("soon/barracks.tpl");
+					$b_id = "19";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($armoury == 0 && ($mainbuilding <= 2 || $academy == 0)) {
-                    include("soon/armoury.tpl");
+					$b_id = "13";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($cropland <= 4) {
-                    include("soon/grainmill.tpl");
+					$b_id = "8";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($marketplace == 0 && ($mainbuilding <= 2 || $granary <= 0 || $warehouse <= 0)) {
 					$b_id = "17";
                     include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($residence == 0 && $mainbuilding <= 4) {
-                    include("soon/residence.tpl");
+					$b_id = "25";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($academy == 0 && ($mainbuilding <= 2 || $barrack <= 2)) {
-                    include("soon/academy.tpl");
+					$b_id = "22";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($embassy == 0 || $mainbuilding >= 2 && $mainbuilding <= 4) {
-                    include("soon/palace.tpl");
+					$b_id = "26";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($blacksmith == 0 && ($academy <= 2 || $mainbuilding <= 2)) {
-                    include("soon/blacksmith.tpl");
+					$b_id = "12";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($stonemasonslodge == 0 && $palace <= 2  && $palace != 0 && $mainbuilding >= 2 && $mainbuilding <= 4 && $residence == 0) {
-                    include("soon/stonemason.tpl");
+					$b_id = "34";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($stable == 0 && (($blacksmith <= 2 && $blacksmith != 0) || ($academy >= 2 && $academy <= 4))) {
-                    include("soon/stable.tpl");
+					$b_id = "20";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($treasury == 0 && $mainbuilding <= 9 && $mainbuilding >= 5) {
-                    include("soon/treasury.tpl");
+					$b_id = "27";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($brickyard == 0 && $claypit <= 9  && $claypit >= 5 && $mainbuilding >= 2  && $mainbuilding <= 4) {
-                    include("soon/brickyard.tpl");
+					$b_id = "6";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($sawmill == 0 && $woodcutter <= 9 && $woodcutter >= 5 && $mainbuilding >= 2 && $mainbuilding <= 4) {
-                    include("soon/sawmill.tpl");
+					$b_id = "5";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($ironfoundry == 0 && $ironmine <= 9 && $ironmine >= 5 && $mainbuilding >= 2 && $mainbuilding <= 4) {
-                    include("soon/ironfoundry.tpl");
+					$b_id = "7";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($workshop == 0 && $academy <= 9 && $academy >= 5 && $mainbuilding >= 2 && $mainbuilding <= 4) {
-                    include("soon/workshop.tpl");
+					$b_id = "21";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($tournamentsquare == 0 && $rallypoint <= 14 && $rallypoint >= 7) {
-                    include("soon/tsquare.tpl");
+					$b_id = "14";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($bakery == 0 && $grainmill <= 4 && $grainmill != 0 && $cropland >= 5 &&  $cropland <= 9 && $mainbuilding >= 2 && $mainbuilding <= 4) {
-                    include("soon/bakery.tpl");
+					$b_id = "9";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($townhall == 0 && ($mainbuilding <= 9 && $mainbuilding >= 5) || ($academy >= 5 && $academy <= 9)) {
-                    include("soon/townhall.tpl");
+					$b_id = "24";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($tradeoffice == 0 && $market <= 19 && $market >= 10 || $stable >= 5 && $stable <= 9) {
-                    include("soon/tradeoffice.tpl");
+					$b_id = "28";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($session->tribe == 1 && $horsedrinkingtrough == 0 && $rallypoint <= 9 && $rallypoint >= 5 || $stable <= 19 && $stable >= 10 && $session->tribe == 1) {
-                    include("soon/horsedrinking.tpl");
+					$b_id = "41";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($brewery == 0 && $rallypoint <= 9 && $rallypoint >= 5 || $granary <= 19 && $granary >= 10 && $session->tribe == 2) {
-                    include("soon/brewery.tpl");
+					$b_id = "35";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($greatbarracks == 0 && $barrack >= 18 && $village->capital == 0) {
-                    include("soon/greatbarracks.tpl");
+					$b_id = "29";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($greatstable == 0 && $stable >= 18 && $village->capital == 0) {
-                    include("soon/greatstable.tpl");
+					$b_id = "30";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
                 if($greatworkshop == 0 && $workshop >= 18 && $village->capital == 0 && GREAT_WKS) {
-                    include("soon/greatworkshop.tpl");
+					$b_id = "42";
+                    include("Templates/Travian/4/Build/buildsoon.tpl");
                 }
             ?>
             <div class="switch">
@@ -327,61 +353,80 @@ foreach ($database->getJobs($_SESSION['wid']) as $bdata) {
             <div id="build_list_all" class="hide">
                 <?php
                     if($academy == 0 && ($mainbuilding == 1 || $barrack == 0)) {
-                        include("soon/academy.tpl");
+						$b_id = "22";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($palace == 0 && ($embassy == 0 || $mainbuilding <= 2)) {
-                        include("soon/palace.tpl");
+						$b_id = "26";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($blacksmith == 0 && ($academy == 0 || $mainbuilding == 1)) {
-                        include("soon/blacksmith.tpl");
+						$b_id = "12";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($stonemason == 0 && ($palace == 0 || $mainbuilding <= 2) && $residence == 0) {
-                        include("soon/stonemason.tpl");
+						$b_id = "34";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($stable == 0 && ($blacksmith == 0 || $academy <= 2)) {
-                        include("soon/stable.tpl");
+						$b_id = "20";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($treasury == 0 && $mainbuilding <= 5) {
-                        include("soon/treasury.tpl");
+						$b_id = "27";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($brickyard == 0 && ($claypit <= 5 || $mainbuilding <= 2)) {
-                        include("soon/brickyard.tpl");
+						$b_id = "6";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($sawmill == 0 && ($woodcutter <= 5 || $mainbuilding <= 2)) {
-                        include("soon/sawmill.tpl");
+						$b_id = "5";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($ironfoundry == 0 && ($ironmine <= 5 || $mainbuilding <= 2)) {
-                        include("soon/ironfoundry.tpl");
+						$b_id = "7";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($workshop == 0 && ($academy <= 5 || $mainbuilding <= 2)) {
-                        include("soon/workshop.tpl");
+						$b_id = "21";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($tournamentsquare == 0 && $rallypoint <= 7) {
-                        include("soon/tsquare.tpl");
+						$b_id = "14";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($bakery == 0 && ($grainmill == 0 || $cropland <= 5 || $mainbuilding <= 2)) {
-                        include("soon/bakery.tpl");
+						$b_id = "9";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($townhall == 0 && ($mainbuilding <= 5 || $academy <= 5)) {
-                        include("soon/townhall.tpl");
+						$b_id = "24";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($tradeoffice == 0 && ($market <= 10 || $stable <= 5)) {
-                        include("soon/tradeoffice.tpl");
+						$b_id = "28";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($session->tribe == 1 && $horsedrinkingtrough == 0 && ($rallypoint <= 5 || $stable <= 10)) {
-                        include("soon/horsedrinking.tpl");
+						$b_id = "41";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($brewery == 0 && ($rallypoint <= 5 || $granary <= 10) && $session->tribe == 2) {
-                        include("soon/brewery.tpl");
+						$b_id = "35";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($greatbarracks == 0 && $barrack >= 15 && $village->capital == 0) {
-                        include("soon/greatbarracks.tpl");
+						$b_id = "29";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($greatstable == 0 && $stable >= 15 && $village->capital == 0) {
-                        include("soon/greatstable.tpl");
+						$b_id = "30";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                     if($greatworkshop == 0 && $workshop >= 15 && $village->capital == 0 && GREAT_WKS) {
-                        include("soon/greatworkshop.tpl");
+						$b_id = "42";
+						include("Templates/Travian/4/Build/buildsoon.tpl");
                     }
                 ?>
             </div>
