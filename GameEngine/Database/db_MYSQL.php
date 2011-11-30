@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.02                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      GameEngine/Database/db_MYSQL.php                            ##
 ##  Developed by:  Dzoki & Advocaite & Donnchadh                               ##
 ##  Edited by:     ZZJHONS                                                     ##
@@ -1837,8 +1837,10 @@
 				}
         	}
 
-        	function getHero($uid=0) {
-				if (!$uid) {
+			function getHero($uid=0,$all=0) {
+				if ($all) {
+					$q = "SELECT * FROM ".TB_PREFIX."hero WHERE uid=$uid";
+				} else if (!$uid) {
 					$q = "SELECT * FROM ".TB_PREFIX."hero";
 				} else {
 	        		$q = "SELECT * FROM ".TB_PREFIX."hero WHERE dead=0 AND uid=$uid LIMIT 1";

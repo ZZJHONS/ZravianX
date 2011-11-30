@@ -210,7 +210,7 @@
 	$lang['build_build'] = 'construct building';
 	$lang['day'] = 'Day';
 	$lang['night'] = 'Night';
-	$lang['test'] = 'Test';
+	$lang['capital'] = 'Capital';
 	$lang['test'] = 'Test';
 
 # End new translation version #
@@ -443,7 +443,7 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['index2']['register free'] = 'Register here for free!';
 	$lang['index2']['title1'] = 'Latest game world';
 	$lang['index2']['desc1'] = 'Register on the latest<br />game world and enjoy<br />the advantages of<br />being one of the<br />first players.';
-	$lang['index2']['text1'] = 'Play ".SERVER_NAME." now';
+	$lang['index2']['text1'] = 'Play '.SERVER_NAME.' now';
 	$lang['index2']['link1'] = '#serverRegister';
 	$lang['index2']['title2'] = 'The new '.SERVER_NAME;
 	$lang['index2']['desc2'] = 'Now with a revolutionized<br />hero system,<br />completely new graphics<br />and an interactive<br />map!';
@@ -453,7 +453,7 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['index2']['desc3'] = 'Become a part of one<br />of the biggest gaming<br />communities in the<br />world.';
 	$lang['index2']['text3'] = 'Become part of our community now!';
 	$lang['index2']['link3'] = '#';
-	$lang['index2']['learn more'] = 'Learn more<br />about ".SERVER_NAME."!';
+	$lang['index2']['learn more'] = 'Learn more<br />about '.SERVER_NAME.'!';
 	$lang['index2']['strip1'] = 'Upgrade your fields and mines to increase your resource production. You will need resources to construct buildings and train soldiers.';
 	$lang['index2']['strip2'] = 'Construct and expand the buildings in your village. Buildings improve your overall infrastructure, increase your resource production and allow you to research, train and upgrade your troops.';
 	$lang['index2']['strip3'] = 'View and interact with your surroundings. You can make new friends or new enemies, make use of the nearby oases and observe as your empire grows and becomes stronger.';
@@ -478,7 +478,7 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['screenshots']['desc4'] = 'There are lots of buildings to be built in your villages. Choose wisely or ask the Taskmaster for his opinion.';
 	$lang['screenshots']['desc5'] = 'Do not forget to build up your own army. You will need it to protect yourself and of course for attacks to gather resources from opposing players.';
 	$lang['screenshots']['desc6'] = 'Gain honourable medals in several categories. The top 10 players and alliances of each week will gain such an achievement.';
-	$lang['screenshots']['desc7'] = 'Do not miss the Taskmaster. He will guide you through the first steps of ".SERVER_NAME." and will help you with free resources. Just click on the image on the right side of the screen to activate him.';
+	$lang['screenshots']['desc7'] = 'Do not miss the Taskmaster. He will guide you through the first steps of '.SERVER_NAME.' and will help you with free resources. Just click on the image on the right side of the screen to activate him.';
 
 // Screenshots Travian 4
 
