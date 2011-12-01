@@ -26,9 +26,9 @@ include("GameEngine/Admin/database.php");
 <head>
     <link rel="shortcut icon" href="../favicon.ico" />
     <title><?php if($_SESSION['access'] == ADMIN){ echo 'Admin Control Panel - '.SERVER_NAME; } else if($_SESSION['access'] == MULTIHUNTER){ echo 'Multihunter Control Panel - '.SERVER_NAME; } ?></title>    
-	<link href="travian3.6/lang/en/compact.css" rel="stylesheet" type="text/css" />
-	<link href="travian3.6/lang/en/lang.css" rel="stylesheet" type="text/css" />
-    <link href="travian3.6/travian.css" rel='stylesheet' type='text/css' />
+	<link href="gpack/travian3.6/lang/en/compact.css" rel="stylesheet" type="text/css" />
+	<link href="gpack/travian3.6/lang/en/lang.css" rel="stylesheet" type="text/css" />
+    <link href="gpack/travian3.6/travian.css" rel='stylesheet' type='text/css' />
     <link rel=stylesheet type="text/css" href="img/admin/admin.css">
     <link rel=stylesheet type="text/css" href="img/admin/acp.css">
     <link rel=stylesheet type="text/css" href="img/img.css">
