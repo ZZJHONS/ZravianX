@@ -237,30 +237,11 @@ define("SERVER", "%DOMAIN%");
 
 $requse = 0;
 
-////////////////////////////////////////
-//   ****  TRAVIAN 4 SETTINGS  ****   //
-////////////////////////////////////////
+//////////////////////////////////////////////
+//   ****  TRAVIAN VERSION SETTINGS  ****   //
+//////////////////////////////////////////////
 
-define("TRAVIAN4",true);
-
-// ***** Landing page
-// false = Travian 3.6 Homepage
-// true = Travian 4 Homepage
-define("INDEX", %INDEX%);
-
-// ***** Favicon
-// false = Travian 3.6 Favicon
-// true = Travian 4 Favicon
-// Cambiar nombre: define("FAVICON", "%FAVICON%");
-
-// ***** Login
-// false = Travian 3.6 Login
-// true = Travian 4 Login
-// Cambiar nombre: define("LOGIN", "%LOGIN%");
-
-// ***** Register
-// false = Travian 3.6 Register
-// true = Travian 4 Register
-// Cambiar nombre: define("REGISTER", "%REGISTER%");
-
+# true = Travian 4
+# false = Travian 3.6
+define("TRAVIAN4",%GAME_VERSION%);
 ?>

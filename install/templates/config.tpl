@@ -257,42 +257,15 @@ echo "<div class=\"headline\"><span class=\"f10 c5\">Error creating constant.php
 	</p>
 
 	<p>
-    <span class="f10 c">TRAVIAN 4 OPTIONS</span>
+    <span class="f10 c">VERSION OF GAME OPTIONS</span>
     <table>
     	<tr>
-        	<td><span class="f9 c6">Index:</span></td>
+        	<td><span class="f9 c6">Graphics:</span></td>
             <td>
-            	<select name="index">
+            	<select name="game_version">
 					<option value="false">Travian 3.6</option>
 					<option value="true" selected="selected">Travian 4</option>
 				</select>
-            </td>
-        </tr>
-        <tr>
-        	<td><span class="f9 c6">Favicon:</span></td>
-            <td>
-				<select name="favicon">
-					<option value="false">Travian 3.6</option>
-					<option value="true" selected="selected">Travian 4</option>
-				</select>
-            </td>
-        </tr>
-        <tr>
-        	<td><span class="f9 c6">Login:</span></td>
-            <td>
-                <select name="login">
-                    <option value="false">Travian 3.6</option>
-                    <option value="true" selected="selected">Travian 4</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-        	<td><span class="f9 c6">Register:</span></td>
-            <td>
-                <select name="register">
-                    <option value="false">Travian 3.6</option>
-                    <option value="true" selected="selected">Travian 4</option>
-                </select>
             </td>
         </tr>
     </table>
