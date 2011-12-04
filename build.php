@@ -51,7 +51,7 @@ if(isset($_GET['id'])) {
 if (isset($_POST['a']) == 533374 && isset($_POST['id']) == 39){  
 	$units->Settlers($_POST);
 }
-if(TRAVIAN4 == true){
+if(ZRAVIANX4 == true){
 	include("Templates/Travian/4/build.tpl");
 } else {
 	include("Templates/Travian/3.6/build.tpl");

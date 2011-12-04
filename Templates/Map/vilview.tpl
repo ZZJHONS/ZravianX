@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.29                                                  ##
+##  Version:       2011.11.30                                                  ##
 ##  Filename:      Templates/Map/vilview.tpl                                   ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -154,52 +154,47 @@
 				</tr>
 			</tbody>
         </table>
-        <?php } else { ?>
-        <table cellpadding="1" cellspacing="1" id="village_info" class="tableNone">
-            <thead>
-                <tr>
-                    <th colspan="2"><div><?php echo $basearray['name']; ?></div>&nbsp;(<?php echo $basearray['x']; ?>|<?php echo $basearray['y']; ?>)</th>
-                </tr>
-            </thead>
-            <?php $uinfo = $database->getUserArray($basearray['owner'],1); ?>
-            <tbody>
-                <tr>
-                    <th>Tribe</th>
-                    <td><?php switch($uinfo['tribe']) { case 1: echo TRIBE1; break; case 2: echo TRIBE2; break; case 3: echo TRIBE3; break; case 4: echo TRIBE4; break; case 5: echo TRIBE5; break;} ?></td>
-                </tr>
-                <tr>
-                    <th>Alliance</th>
-                    <?php
-                        if($uinfo['alliance'] == 0){
-                            echo '<td>-</td>';
-                        } else {
-                            echo '<td><a href="allianz.php?aid='.$uinfo['alliance'].' ">'.$database->getUserAlliance($basearray['owner']).'</a></td>';
+		<?php } else if ($basearray['conqured']) { ?>
+		<table cellpadding="1" cellspacing="1" id="village_info" class="tableNone">
+			<?php $uinfo = $database->getUserArray($basearray['owner'],1); ?>
+			<tbody>
+				<tr>
+					<th>Tribe</th>
+					<td><?php switch($uinfo['tribe']) { case 1: echo TRIBE1; break; case 2: echo TRIBE2; break; case 3: echo TRIBE3; break; case 4: echo TRIBE4; break; case 5: echo TRIBE5; break;} ?></td>
+				</tr>
+				<tr>
+					<th>Alliance</th>
+					<?php
+                    	if($uinfo['alliance'] == 0){
+							echo '<td>-</td>';
+						} else { echo '
+							<td><a href="allianz.php?aid='.$uinfo['alliance'].' ">'.$database->getUserAlliance($basearray['owner']).'</a></td>';
                         }
                     ?>
-                </tr>
-                <tr>
-                    <th>Owner</th>
-                    <td><a href="spieler.php?uid=<?php echo $basearray['owner']; ?>"><?php echo $database->getUserField($basearray['owner'],'username',0); ?></a></td>
-                </tr>
-                <tr>
-                    <th>Population</th>
-                    <td><?php echo $basearray['pop']; ?></td>
-                </tr>
-            </tbody>
-        </table>
-        <table cellpadding="1" cellspacing="1" id="troop_info" class="tableNone rep">
-            <thead>
-                <tr>
-                    <th>Reports:</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>There is no<br />information available.</td>
-                </tr>
-            </tbody>
-        </table>
-        <?php } ?>
+				</tr>
+				<tr>
+					<th>Owner</th>
+					<td><a href="spieler.php?uid=<?php echo $basearray['owner']; ?>"><?php echo $database->getUserField($basearray['owner'],'username',0); ?></a></td>
+				</tr>
+				<tr>
+					<th>Village</th>
+					<td><a href="karte.php?d=<?php echo $basearray['conqured']; ?>&amp;c=<?php echo $generator->getMapCheck($basearray['conqured']); ?>"><?php echo $database->getVillageField($basearray['conqured'],"name"); ?></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<table cellpadding="1" cellspacing="1" id="troop_info" class="tableNone rep">
+			<thead>
+				<tr>
+					<th>Reports:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>There is no<br />information available.</td>
+				</tr>
+			</tbody>
+		</table>
+		<?php } ?>
     </div>
     <table cellpadding="1" cellspacing="1" id="options" class="tableNone">
         <thead>

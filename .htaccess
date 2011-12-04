@@ -2,4 +2,4 @@ Options +FollowSymLinks
 RewriteEngine on 
 RewriteBase /
 
-ErrorDocument 404 http://zravianx.zzjhons.com/404.php
+ErrorDocument 404 http://beta.zravianx.zzjhons.com/404.php

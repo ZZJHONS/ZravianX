@@ -95,7 +95,7 @@
         		$text = preg_replace("'%GREAT_WKS%'", $_POST['great_wks'], $text);
         		$text = preg_replace("'%TS_THRESHOLD%'", $_POST['ts_threshold'], $text);
         		$text = preg_replace("'%WW%'", $_POST['ww'], $text);
-				$text = preg_replace("'%GAME_VERSION%'", $_POST['game_version'], $text);
+				$text = preg_replace("'%ZRAVIANX4%'", $_POST['zravianx4'], $text);
 				$text = preg_replace("'%HOME1%'", $_POST['home1'], $text);
 				$text = preg_replace("'%HOME2%'", $_POST['home2'], $text);
 				$text = preg_replace("'%HOME3%'", $_POST['home3'], $text);

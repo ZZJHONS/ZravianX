@@ -30,4 +30,4 @@
 	<div id="cfoot"></div>
 </div>
 </div>
-<?php mysql_close() ?>
+<?php @mysql_close(); ?>

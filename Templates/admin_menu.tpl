@@ -31,8 +31,9 @@ include_once ("GameEngine/Ranking.php");
     <div id="side_navi">
         <a id="logo" href="<?php echo HOMEPAGE; ?>" name="logo"><img src="img/x.gif" class="logo" alt="Travian"></a>
         <?php     
-          if($funct->CheckLogin()){ ?>
-            <?php if($_SESSION['access'] == ADMIN){ ?>
+          if($funct->CheckLogin()){ 
+          	if($_SESSION['access'] == ADMIN){
+		?>
             <p>
                 <a href="admin.php"><b>ACP Home</b></a> 
                 <a href="<?php echo HOMEPAGE; ?>">Homepage</a>

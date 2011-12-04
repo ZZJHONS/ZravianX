@@ -105,7 +105,7 @@ include ("GameEngine/Lang/".LANG.".php");
                         </table>
                     </div>
                     <div id="about_the_game">
-                        <h2><?php echo CLICK_HERE; ?>:</h2>
+                        <h2>About the game:</h2>
                         <ul>
                             <li><?php echo ABOUT1; ?></li>
                             <li><?php echo ABOUT2; ?></li>

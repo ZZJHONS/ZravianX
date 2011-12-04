@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.20                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      index.php                                                   ##
 ##  Developed by:  ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -16,17 +16,13 @@
 ##                                                                             ##
 #################################################################################
 
-	if(!file_exists('GameEngine/config.php')) {
-		header("Location: install/");
-	}
-
-	include ("GameEngine/config.php");
-	
-	if(INDEX == false){
-		include "Templates/Travian/3.6/index.tpl";
-	} else if (INDEX == true){
-		include "Templates/Travian/4/index.tpl";
-	} else {
-		include "Templates/Travian/3.6/index.tpl";
-	}
+if(!file_exists('GameEngine/config.php')){
+	header('Location: install/');
+}
+include('GameEngine/config.php');
+if(ZRAVIANX4 == true){
+	include('Templates/Travian/4/index.tpl');
+}else{
+	include('Templates/Travian/3.6/index.tpl');
+}
 ?>

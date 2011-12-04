@@ -258,6 +258,7 @@ td.email {
 .r5 {background-position:-84px 0;}
 
 input.give_gold{border:1px solid #71D000;width:45px;margin-right:8px;text-align:center;}
+input.give_silver{border:1px solid #71D000;width:45px;margin-right:8px;text-align:center;}
 input.addTroops{border:1px solid #71D000;text-align:center;width:80px;margin-right:8px;}
 table td.addTroops{width:150px;}
 input.hidden{overflow:hidden;}

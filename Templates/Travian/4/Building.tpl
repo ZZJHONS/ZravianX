@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.23                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      Templates/Travian/4/Building.tpl                            ##
 ##  Developed by:  Advocaite                                                   ##
 ##  Improved by:   ZZJHONS                                                     ##
@@ -52,13 +52,13 @@
                     if(!isset($timer)) {
                         $timer = 1;
                     }
-    
+    				$BuildingList = array();
                     foreach($building->buildArray as $jobs) {
                         echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
                         echo "<img src=\"img/x.gif\" class=\"del\" title=\"".$lang['cancel']."\" alt=\"".$lang['cancel']."\" /></a></td><td>";
-                        echo $building->procResType($jobs['type'])." <span class=\"lvl\"> ".$lang['level']." ".($village->resarray['f'.$jobs['field']]+($jobs['field']==$BuildFirst?2:1 ))."</span>";
-                        if($jobs['loopcon'] == 0) { $BuildFirst = $jobs['field']; }
-                        if($jobs['loopcon'] == 1) {
+					    echo $building->procResType($jobs['type'])." <span class=\"lvl\"> ".$lang['level']." ".($village->resarray['f'.$jobs['field']]+(in_array($jobs['field'],$BuildingList)?2:1 ))."</span>";
+						if($jobs['loopcon'] == 0) { $BuildingList[] = $jobs['field']; }
+						if($jobs['loopcon'] == 1) {
                             echo ' <span class="none">('.$lang['waiting_loop'].')</span>';
                         }
                         echo "</td><td colspan=\"2\" class='buildingTime'><span id=\"timer".$timer."\">";

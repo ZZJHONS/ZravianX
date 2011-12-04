@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.29                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      Templates/Travian/4/multivillage.tpl                        ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -38,7 +38,7 @@
 					$village_attack = "";
 					$village_title = htmlspecialchars($returnVillageArray[$i-1]['name']);
 				}
-				echo "<li class=\"entry ".$village_attack.$select."\" title=\"\">";
+				echo "<li class=\"entry ".$village_attack.$select."\" title=\"".$village_title."\">";
 				echo '<a href="?newdid='.$returnVillageArray[$i-1]['wref'].(($id>=19) ? "&id=".$id : "&id=0").'" accesskey="b" class="'.$select.'" title="'.htmlspecialchars($returnVillageArray[$i-1]['name']).' ('.$returnVillageArray[$i-1]['x'].'|'.$returnVillageArray[$i-1]['y'].')">'.$returnVillageArray[$i-1]['name'].'</a>';
 				echo '</li>';
 			}

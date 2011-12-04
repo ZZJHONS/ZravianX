@@ -66,7 +66,7 @@
         <?php
             } else if($bid == 8) {
 		?>
-        <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(2,4, 'gid');"><?php echo $lang['build2']; ?></a> <span><?php echo $lang['level']; ?> 5</span></span>
+        <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(4,4, 'gid');"><?php echo $lang['build4']; ?></a> <span><?php echo $lang['level']; ?> 5</span></span>
         <?php
             } else if($bid == 9) {
 		?>
@@ -110,7 +110,7 @@
         <?php
             } else if($bid == 19) {
 		?>
-        <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(14,4, 'gid');"><?php echo $lang['build14']; ?></a> <span><?php echo $lang['level']; ?> 1</span></span>, <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(15,4, 'gid');"><?php echo $lang['build15']; ?></a> <span><?php echo $lang['level']; ?> 3</span></span>
+        <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(16,4, 'gid');"><?php echo $lang['build16']; ?></a> <span><?php echo $lang['level']; ?> 1</span></span>, <span class="buildingCondition"><a href="#" onClick="return Travian.Game.iPopup(15,4, 'gid');"><?php echo $lang['build15']; ?></a> <span><?php echo $lang['level']; ?> 3</span></span>
         <?php
             } else if($bid == 20) {
 		?>

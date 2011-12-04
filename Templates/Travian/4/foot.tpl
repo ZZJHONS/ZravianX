@@ -63,7 +63,45 @@
                         </a>
                         <img class="nationBig nationBig<?php echo $session->tribe; ?>" alt="<?php echo $lang['tribe'.$session->tribe]; ?>" title="<?php echo $lang['tribe'.$session->tribe]; ?>" src="img/x.gif">
                     </div>
-                    <? include("Templates/Travian/4/multivillage.tpl"); ?> 
+                    <?php
+                    	if($_SESSION['alliance_user']){
+							$aid = $_SESSION['alliance_user'];
+							$allianceinfo = $database->getAlliance($aid);
+                    ?>
+					<div class="sideInfoAlly">
+						<a class="signLink" href="allianz.php" title="Alliance"><span class="wrap"><?php echo htmlspecialchars($allianceinfo['name']); ?></span></a>
+						<a href="allianz.php?s=2" class="crest" title="Alliance Forum"><img src="img/x.gif" alt="Alliance" title="Alliance Forum"></a>
+					</div>
+                    <?php } ?>
+                    <? include("Templates/Travian/4/multivillage.tpl"); ?>
+                    <!--
+                    <div id="linkList" class="listing">
+                        <div class="head"><a href="spieler.php?s=2" accesskey="L">Links</a></div>
+                        <div class="list none">
+                            <ul>
+                                <li class="entry"><a href="http://tx3.travian.de/dorf3.php?s=5">Army</a></li>
+                                <li class="entry"><a href="http://tx3.travian.de/statistiken.php?id=7">TOP 10</a></li>
+                                <li class="entry"><a href="http://tx3.travian.de/build.php?id=39&amp;tt=99">FarmList</a></li>
+                                <li class="entry"><a href="http://google.cz">Google</a></li>
+                                <li class="entry"><a href="http://travian-reports.net/cz/">Tvorba reportu</a></li>
+                                <li class="entry"><a href="http://tx3.travian.de/cropfinder.php">Crop Finder</a></li>
+                                <li class="entry"><a href="http://tx3.travian.de/dorf3.php?s=4">Oslavy</a></li>
+                            </ul>
+                            <div class="pager">
+                                <a href="#" class="back" style="display: none; "></a>
+                                <a href="#" class="next" style="display: none; "></a>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            new Travian.Game.PageScroller({
+                                elementPrev: $('linkList').down('a.back'),
+                                elementNext: $('linkList').down('a.next'),
+                                elementList: $('linkList').down('div.list'),
+                                elementBackground: $('linkList').down('div.list')
+                            });
+                        </script>
+                    </div>
+                    -->
             </div>
             <div class="clear"></div>
         </div>
@@ -71,7 +109,7 @@
         <div id="stime" class="stime">
             <div class="content-background-l">&nbsp;</div>
             <div class="content-background-r">&nbsp;</div>
-            <div class="content <?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?"day":"night"; ?>" title="<?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?$lang['day']:$lang['night']; ?>">
+            <div class="content <?php echo (date('H:i:s') < "22:00:00" && date('H:i:s') > "08:00:00")?"day":"night"; ?>" title="<?php echo (date('H:i:s') < "23:00:00" && date('H:i:s') > "07:00:00")?$lang['day']:$lang['night']; ?>">
                 <?php echo $lang['server_time']; ?>:&nbsp;<span id="tp1"><?php echo date('H:i:s'); ?></span>
             </div>
         </div>
@@ -118,27 +156,7 @@
                 </span>
             </div>
         </div>
-    
-    
-        <div class="questMaster">
-            <div id="anm" style="width:120px; height:140px; visibility:hidden;"></div>
-            <div id="qge">
-                <img onclick="qst_handle();" src="img/x.gif" id="qgei" class="master nation<?php echo $session->tribe; ?>" title="<?php echo $lang['to_the_quest']; ?>" alt="<?php echo $lang['to_the_quest']; ?>" />
-            </div>
-            <script type="text/javascript">
-                quest.number = -15;
-                quest.last = 24;
-                cache_preload = new Image();
-                cache_preload.src = "img/x.gif";
-                cache_preload.className = "cranny";
-            </script>
-        </div>
-        <script type="text/javascript">
-            Travian.Translation.add(
-            {
-                'close' : '<?php echo $lang["close"]; ?>'
-            });
-        </script>
+    	<?php include 'Templates/Travian/4/quest.tpl'; ?>    
         <?php
 			$displayarray = $database->getUserArray($session->uid,1);
 			if($displayarray['protect'] > time() or $session->access == ADMIN){
@@ -151,9 +169,10 @@
                 You has <span id="timer1"><?php echo $uurover; ?></span> hours of beginners protection left.
                 <?php } if($session->access == ADMIN){ ?>
                 <a href="admin.php" title="Admin Control Panel">Admin Control Panel</a>
-                <?php } } ?>
+                <?php } ?>
             </div>
         </div>
+        <?php } ?>
         <div id="anwersQuestionMark">
             <a href="<?php echo HOMEPAGE; ?>#help" target="_blank" title="<?php echo SERVER_NAME." ".$lang['help']; ?>">&nbsp;</a>
         </div>

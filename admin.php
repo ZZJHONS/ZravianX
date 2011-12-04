@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.08                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      admin.php                                                   ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -64,7 +64,7 @@ include("GameEngine/Admin/database.php");
             </div>
         </div>
         <div id="mid">
-			<?php include ("Templates/admin_menu.tpl"); ?>
+			<?php include ("Templates/Admin/menu.tpl"); ?>
         </div>
         <div id="content"  class="player">
 			<?php     

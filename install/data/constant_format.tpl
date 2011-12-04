@@ -54,7 +54,7 @@ define("WORLD_MAX", "%MAX%");
 //!!!!!!!!!!!! DO NOT ENABLE !!!!!!!!!!!!
 define("GP_ENABLE",false);
 // Graphic pack location (default: gpack/travian_default/)
-define("GP_LOCATE", "gpack/travian_default/");
+define("GP_LOCATE", "gpack/travian3.6/");
 
 // ***** Troop Speed
 // Values: 1 (normal), 3 (3x speed) etc...
@@ -237,11 +237,11 @@ define("SERVER", "%DOMAIN%");
 
 $requse = 0;
 
-//////////////////////////////////////////////
-//   ****  TRAVIAN VERSION SETTINGS  ****   //
-//////////////////////////////////////////////
+///////////////////////////////////////////////
+//   ****  ZRAVIANX VERSION SETTINGS  ****   //
+///////////////////////////////////////////////
 
-# true = Travian 4
-# false = Travian 3.6
-define("TRAVIAN4",%GAME_VERSION%);
+# true = ZravianX 4
+# false = ZravianX 3.6
+define("ZRAVIANX4",%ZRAVIANX4%);
 ?>

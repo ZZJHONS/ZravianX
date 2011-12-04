@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.27                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      Templates/Travian/4/build.tpl                               ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -18,6 +18,9 @@
 #################################################################################
 
 $filecontent = "build";
+if($_GET['id'] <= 18){
+	$filecontent = "build gidRessources";
+}
 include("Templates/Travian/4/header.tpl");
 if(isset($_GET['id'])) {
 	if(isset($_GET['s'])) {

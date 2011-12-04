@@ -24,7 +24,7 @@ ol,ul{list-style:none;}body{height:100%;font-family:Arial,Helvetica,sans-serif;f
 #content-container{margin-top:88px;}.ie6 #content-container{position:relative;}#content-menu{width:204px;float:left;margin-left:6px;}
 .ie6 #content-menu{position:relative;}#country_select{height:23px;}#top-nav{position:relative;clear:both;float:right;width:100%;height:43px;}
 #top-nav-menu{float:left;text-align:right;width:750px;position:relative;}#logo{position:absolute;left:10px;top:48px;}
-#logo img.logo{background-image:url(../../img/logo.jpg);width:221px;height:79px;}
+#logo img.logo{background-image:url(../../img/logo.png);width:221px;height:79px;}
 .ie6 #logo{width:221px;height:79px;}#top-nav-login{position:relative;float:right;width:220px;height:43px;}
 ul#top-navigation{margin-left:233px;list-style-type:none;padding:0;list-style-position:outside;position:relative;font-size:14px;font-weight:bold;float:left;width:458px;}
 .ie6 ul#top-navigation{margin-left:0;left:233px;}ul#top-navigation li{float:left;position:relative;height:43px;text-align:center;margin-right:1px;}

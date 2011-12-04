@@ -1,0 +1,29 @@
+<?php
+#################################################################################
+##                                                                             ##
+##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
+##                                                                             ##
+## --------------------------------------------------------------------------- ##
+##                                                                             ##
+##  Project:       ZravianX                                                    ##
+##  Version:       2011.11.27                                                  ##
+##  Filename:      TEmplates/Travian/4/Build/avaliable/embassy.tpl             ##
+##  Developed by:  ZZJHONS                                                     ##
+##  License:       Creative Commons BY-NC-SA 3.0                               ##
+##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
+##  URLs:          http://zravianx.zzjhons.com                                 ##
+##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
+##                                                                             ##
+#################################################################################
+?>
+<h2>Embassy</h2>
+<div class="build_desc">
+	<a href="#" onclick="return Travian.Game.iPopup(18,4);" class="build_logo">
+		<img class="building big white g18" src="img/x.gif" alt="Embassy">
+	</a>
+	The embassy is a place for diplomats. The higher its level the more options the king gains.
+</div>
+<?php
+	$_GET['bid'] = 18;
+	include("availupgrade.tpl");
+?>

@@ -155,6 +155,7 @@
 		if($village->resarray['f40'] == 0) { 
 			if($building->walling()) {
 				$wtitle = $building->procResType($building->walling())." ".$lang['level']." ".$village->resarray['f40'];
+				echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."Top \" alt=\"$wtitle ".$lang['level']." ".$village->resarray['f40']."\">";
 				echo "<img src=\"img/x.gif\" class=\"wall g3".$session->tribe."bBottom \" alt=\"$wtitle ".$lang['level']." ".$village->resarray['f40']."\">";
 			}
 		}else {

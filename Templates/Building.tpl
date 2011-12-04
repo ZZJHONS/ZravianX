@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.23                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      Templates/Building.tpl                                      ##
 ##  Improved by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -39,13 +39,14 @@
         if(!isset($timer)) {
         $timer = 1;
         }
+        $BuildingList = array();
         foreach($building->buildArray as $jobs) {
-            echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
+        	echo "<tr><td class=\"ico\"><a href=\"?d=".$jobs['id']."&a=0&c=$session->checker\">";
             echo "<img src=\"img/x.gif\" class=\"del\" title=\"cancel\" alt=\"cancel\" /></a></td><td>";
-            echo $building->procResType($jobs['type'])." (Level ".($village->resarray['f'.$jobs['field']]+($jobs['field']==$BuildFirst?2:1 )).")";
-            if($jobs['loopcon'] == 0) { $BuildFirst = $jobs['field']; }
+			echo $building->procResType($jobs['type'])." (Level ".($village->resarray['f'.$jobs['field']]+(in_array($jobs['field'],$BuildingList)?2:1 )).")";
+			if($jobs['loopcon'] == 0) { $BuildingList[] = $jobs['field']; }
             if($jobs['loopcon'] == 1) {
-                echo ' <span class="none">(waiting loop)</span>';
+                echo ' <span class="none">('.$lang['waiting_loop'].')</span>';
             }
             echo "</td><td><span id=\"timer".$timer."\">";
             echo $generator->getTimeFormat($jobs['timestamp']-time());

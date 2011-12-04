@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.06                                                  ##
+##  Version:       2011.12.03                                                  ##
 ##  Filename:      tutorial.php                                                ##
 ##  Developed by:  ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -15,8 +15,10 @@
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-include ("GameEngine/config.php");
-if(INDEX == false){include ("Templates/Travian/3.6/tutorial.tpl");} 
-else if (INDEX == true){include ("Templates/Travian/4/tutorial.tpl");} 
-else {include ("Templates/Travian/3.6/tutorial.tpl");};
+include 'GameEngine/config.php';
+if(ZRAVIANX4 == true){
+	include 'Templates/Travian/4/tutorial.tpl';
+}else{
+	include 'Templates/Travian/3.6/tutorial.tpl';
+}
 ?>

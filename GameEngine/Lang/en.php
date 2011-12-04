@@ -437,7 +437,7 @@ define("MASS_SENT","Mass IGM was sent");
 	$lang['index2']['shop title'] = SERVER_NAME.' shop';
 	$lang['index2']['shop'] = 'Go to shop';
 	$lang['index2']['shop link'] = '#';
-	$lang['index2']['facebook'] = 'http://www.facebook.com/travianx';
+	$lang['index2']['facebook'] = 'http://www.facebook.com/ZravianX';
 	$lang['index2']['strategy game'] = SERVER_NAME.' - The multiplayer strategy game';
 	$lang['index2']['what is'] = SERVER_NAME.' is one of the most popular browser games in the world. As a player in '.SERVER_NAME.', you will build your own empire, recruit a mighty army, and fight with your allies for game world hegemony.';
 	$lang['index2']['register free'] = 'Register here for free!';

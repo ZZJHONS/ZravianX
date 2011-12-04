@@ -30,7 +30,7 @@ else {
 	$building->procBuild($_GET);
 }
 
-if(TRAVIAN4 == true){
+if(ZRAVIANX4 == true){
 	include("Templates/Travian/4/dorf1.tpl");
 } else {
 	include("Templates/Travian/3.6/dorf1.tpl");

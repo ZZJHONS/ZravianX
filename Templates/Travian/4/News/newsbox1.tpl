@@ -1,14 +1,19 @@
 <div class="news news1">
 	<a href="#" class="newsContent newsContentWithLink" onclick="$H({data: {cmd: 'news', id: '1'}}).dialog(); return false;">
-		New version of ZravianX is coming.
+        <strong>Test with this players:</strong>
         <br />
         <br />
-        Now you can test it
+        <strong>User 1:</strong> Romams
         <br />
-        <strong>User:</strong> Test
+        <strong>User 2:</strong> Teutons
         <br />
-        <strong>Pass:</strong> test
+        <strong>User 3:</strong> Gauls
         <br />
+        <strong>User 4:</strong> Nature-test
+        <br />
+        <strong>User 5:</strong> Natars-test
+        <br />
+        <strong>Pass for all:</strong> test
     </a>
-	<a class="newsContentMoreInfoLink" target="_blank" href="http://beta.zravianx.zzjhons.com/login.php">Beta server</a>
+	<a class="newsContentMoreInfoLink" target="_blank" href="http://zravianx.zzjhons.com/login.php">Beta server</a>
 </div>

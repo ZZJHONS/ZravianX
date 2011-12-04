@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.26                                                  ##
+##  Version:       2011.12.04                                                  ##
 ##  Filename:      Templates/Travian/4/header.tpl                              ##
 ##  Reworked by:   ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -17,15 +17,15 @@
 #################################################################################
 
     function CheckBrowser() {
-        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], "WebKit");
+        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'WebKit');
         if ($bpos !== false){
-            $bpos = strpos($_SERVER['HTTP_USER_AGENT'], "Chrome");
-            if ($bpos !== false){return "webkit chrome";}
-            else {return "webkit safari";}
+            $bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome');
+            if ($bpos !== false){return 'webkit chrome';}
+            else {return 'webkit safari';}
         }
-        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], "Gecko");
+        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'Gecko');
         if ($bpos !== false){return "gecko";}
-        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], "MSIE");
+        $bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE');
         if ($bpos !== false){return "ie ie" . substr($_SERVER['HTTP_USER_AGENT'], $bpos + 5, 1);}
     }
 ?>
@@ -74,10 +74,10 @@
     <script type="text/javascript">
         Travian.Translation.add(
         {
-            'allgemein.anleitung':    '<?php echo $lang["instructions"]; ?>',
-            'allgemein.cancel':    '<?php echo $lang["cancel"]; ?>',
-            'allgemein.ok':    '<?php echo $lang["ok"]; ?>',
-            'cropfinder.keine_ergebnisse': '<?php echo $lang["no_search_results_found"]; ?>.'
+            'allgemein.anleitung': '<?php echo $lang['instructions']; ?>',
+            'allgemein.cancel': '<?php echo $lang['cancel']; ?>',
+            'allgemein.ok': '<?php echo $lang['ok']; ?>',
+            'cropfinder.keine_ergebnisse': '<?php echo $lang['no_search_results_found']; ?>.'
         });
         Travian.applicationId = 'ZravianX Game';
         Travian.Game.version = '2011.11.23';
@@ -102,26 +102,26 @@
                         <li id="n4" class="stats"><a class="<?php echo $statsactive; ?>" href="statistiken.php" accesskey="4" title="<?php echo $lang['statistics']; ?>"></a></li>
                         <li id="n5" class="reports">
                             <?php
-                                if($message->unread && !$message->nunread) {
-                                    $display_reports = "0";
-                                    $display_report = "none";
+                                if($message->unread && !$message->nunread){
+                                    $display_reports = '0';
+                                    $display_report = 'none';
                                     $display_messages = $lang['new'];
-                                    $display_message = "block";
-                                } else if(!$message->unread && $message->nunread) {
+                                    $display_message = 'block';
+                                }elseif(!$message->unread && $message->nunread){
                                     $display_reports = $lang['new'];
-                                    $display_report = "block";
-                                    $display_messages = "0";
-                                    $display_message = "hide";
-                                } else if($message->unread && $message->nunread) {
+                                    $display_report = 'block';
+                                    $display_messages = '0';
+                                    $display_message = 'none';
+                                }elseif($message->unread && $message->nunread){
                                     $display_reports = $lang['new'];
-                                    $display_report = "block";
+                                    $display_report = 'block';
                                     $display_messages = $lang['new'];
-                                    $display_message = "block";
-                                } else {
-                                    $display_reports = "0";
-                                    $display_report = "none";
+                                    $display_message = 'block';
+                                }else{
+                                    $display_reports = '0';
+                                    $display_report = 'none';
                                     $display_messages = "0";
-                                    $display_message = "none";
+                                    $display_message = 'none';
                                 }
                             ?>
                 
