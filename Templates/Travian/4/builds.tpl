@@ -165,7 +165,82 @@
 		}
 	?>
 	<div id="levels">
-    	<?php /* Demo: <div style="left:300px; top:122px" class="aid26">1</div> */ ?>
+    	<?php
+			/* Demo: <div style="left:300px; top:122px" class="aid26">1</div> */
+			for($i=1;$i<=22;$i++){
+				if ($village->resarray['f'.($i+18).'t'] != 0) {
+					switch($i) {
+						case 1:
+							$style = "left:132px; top:108px;";
+							break;
+						case 2:
+							$style =  "left:225px; top:66px;";
+							break;
+						case 3:
+							$style = "left:312px; top:48px;"; 
+							break;
+						case 4:
+							$style = "left:405px; top:77px;";
+							break;
+						case 5:
+							$style = "left:479px; top:120px;"; 
+							break;
+						case 6:
+							$style = "left:93px; top:158px;"; 
+							break;
+						case 7:
+							$style = "left:536px; top:170px;"; 
+							break;
+						case 8:
+							$style =  "left:300px; top:122px;";  
+							break;
+						case 9:
+							$style = "left:119px; top:292px;"; 
+							break;
+						case 10:
+							$style = "left:82px; top:218px;"; 
+							break;
+						case 11:
+							$style =  "left:499px; top:221px;"; 
+							break;
+						case 12:
+							$style = "left:204px; top:234px;";  
+							break;
+						case 13:
+							$style = "left:206px; top:161px;"; 
+							break;
+						case 14:
+							$style = "left:278px; top:281px;";  
+							break;
+						case 15:
+							$style = "left:527px; top:289px;"; 
+							break;
+						case 16:
+							$style = "left:204px; top:351px;";
+							break;
+						case 17:
+							$style = "left:346px; top:342px;";
+							break;
+						case 18:
+							$style = "left:455px; top:305px;";
+							break;
+						case 19:
+							$style = "left:292px; top:384px;";
+							break;
+						case 20:
+							$style = "left:416px; top:369px;";
+							break;
+						case 21:
+							$style = "left:406px; top:225px;";
+							break;
+						case 22:
+							$style = "";
+							break;
+					}
+					echo "<div style=\"".$style."\" class=\"aid".($i+18)."\">".$village->resarray['f'.($i+18)]."</div>";
+				}
+			}
+		?>
     </div>
     <img src="img/x.gif" id="lswitch" class="lswitchPlus" title="show / hide building levels" onclick="
 				$('lswitch').toggleClass('lswitchMinus');
