@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.06                                                  ##
+##  Version:       2011.12.06                                                  ##
 ##  Filename:      GameEngine/config.php & install/data/constant_format.tpl    ##
 ##  Developed by:  Dzoki and Dixie Edited by Advocaite                         ##
 ##  Edited by:     ZZJHONS                                                     ##
@@ -225,7 +225,7 @@ define("AUTH",1);
 define("USER",2);
 define("MULTIHUNTER",8);
 define("ADMIN",9);
-define("COOKIE_EXPIRE", 60*60*24*7); 
+define("COOKIE_EXPIRE", 60*60*24*7);
 define("COOKIE_PATH", "/"); 
 
 ////////////////////////////////////////////

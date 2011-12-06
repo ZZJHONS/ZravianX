@@ -15,15 +15,13 @@
 ##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
 ##                                                                             ##
 #################################################################################
-
-include_once ("GameEngine/Database/db_MYSQL.php");
 ?>
 <div id="side_navi">
 	<ul>
 		<li class=""><a href="index.php"><?php echo HOME; ?></a></li>
         <li class="<?php echo $logactive; ?>"><a href="login.php" title="<?php echo LOGIN; ?>"><?php echo LOGIN; ?></a></li>
         <li class="<?php echo $regactive; ?>"><a href="anmelden.php" title="<?php echo REG; ?>"><?php echo REG; ?></a></li>
-		<li class=""><a href="<?php echo FORUM_LINK; ?>" target="_blank"><?php echo FORUM; ?></a></li>       
+		<li class=""><a href="<?php echo FORUM_LINK; ?>" target="_blank"><?php echo FORUM; ?></a></li>
         <li class="support"><a href="support.php"><?php echo SUPPORT; ?></a></li>
     </ul>
 </div>

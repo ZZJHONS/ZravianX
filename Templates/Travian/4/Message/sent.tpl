@@ -8,8 +8,114 @@
 |                                                         |
 | Copyright:   TravianX Project All rights reserved       |
 \** --------------------------------------------------- **/
-
 ?>
+<!--
+<div id="content" class="messages">
+	<h1 class="titleInHeader">Messages</h1>
+	<div class="contentNavi subNavi">
+		<div title="" class="container normal" >
+			<div class="background-start">&nbsp;</div> <div class="background-end">&nbsp;</div>
+			<div class="content"><a title="" href="msg.php"><span class="tabItem">Inbox</span></a></div>
+		</div>
+		<div title="" class="container normal" >
+			<div class="background-start">&nbsp;</div> <div class="background-end">&nbsp;</div>
+			<div class="content"><a title="" href="msg.php?t=1"><span class="tabItem"> Write </span></a></div>
+		</div>
+		<div title="" class="container active" >
+			<div class="background-start">&nbsp;</div> <div class="background-end">&nbsp;</div>
+			<div class="content"><a title="" href="msg.php?t=2"><span class="tabItem"> Sent </span></a></div>
+				</div>		<div class="clear"></div>
+		</div>
+<form method="post" action="msg.php?p=0&t=2" name="msg">
+<table cellpadding="1" cellspacing="1" id="overview" class="row_table_data">
+	<thead>
+		<tr>
+			<th><input type="checkbox" onclick="checkedAll();"></th>
+			<th>Subject</th>
+			<th></th>
+			<th class="sent">Sent</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="233"></td>
+			<td class="top"><a href="msg.php?id=233">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="232"></td>
+			<td class="top"><a href="msg.php?id=232">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="231"></td>
+			<td class="top"><a href="msg.php?id=231">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="230"></td>
+			<td class="top"><a href="msg.php?id=230">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="229"></td>
+			<td class="top"><a href="msg.php?id=229">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="228"></td>
+			<td class="top"><a href="msg.php?id=228">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="227"></td>
+			<td class="top"><a href="msg.php?id=227">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="226"></td>
+			<td class="top"><a href="msg.php?id=226">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="225"></td>
+			<td class="top"><a href="msg.php?id=225">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:48</td>
+		</tr>
+				<tr>
+			<td class="sel"><input class="check" type="checkbox" name="dm[]" value="224"></td>
+			<td class="top"><a href="msg.php?id=224">Hi</a> </td>
+			<td class="send"><a href="profile.php?uid=505">Harcos</a></td>
+			<td class="dat">11/12/05 01:47</td>
+		</tr>
+			</tbody>
+	<tfoot>
+	<tr>
+		<th>&nbsp;</th>
+			<th colspan="2" class="buttons">
+	<div class="clear"></div>
+		<div class="buttons">
+		<button type="submit" value="Delete" name="delmsg" id="delmsg"><div class="button-container">
+		<div class="button-position"><div class="btl"><div class="btr"><div class="btc"></div></div></div>
+		<div class="bml"><div class="bmr"><div class="bmc"></div></div></div><div class="bbl">
+		<div class="bbr"><div class="bbc"></div></div></div></div><div class="button-contents">Delete</div></div>
+		</button> <input type="hidden" name="s" value="0" />
+	</div></th>
+	<th class="navi"><a href="msg.php?t=2">&laquo; newer </a>|<a href="msg.php?t=2&amp;p=2"> older &raquo;</a></th>
+		</tr>
+	</tfoot>
+</table>
+</form>
+-->
 <div id="content"  class="messages">
     <h1>Messages</h1>
         <?php include("menu.tpl"); ?>

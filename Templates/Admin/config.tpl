@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.08                                                  ##
+##  Version:       2011.12.04                                                  ##
 ##  Filename:      Templates/Admin/config.tpl                                  ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Improved by:   ZZJHONS                                                     ##
@@ -230,7 +230,7 @@ if ($_SESSON['access'] == MULTIHUNTER) die("<br /><br /><br /><br /><br /><br />
 	</tr>  
 	<tr>
 		<td>DB Password</td>
-		<td>**********</td> 
+		<td><?php echo md5(SQL_PASS);?></td> 
 	</tr>  
 	<tr>
 		<td>DB Table Prefix</td>

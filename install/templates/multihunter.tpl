@@ -17,26 +17,27 @@
 ##                                                                             ##
 #################################################################################
 
-	rename("include/constant.php","../GameEngine/config.php");
+rename("include/constant.php","../GameEngine/config.php");
 ?>
 <form action="include/multihunter.php" method="post" id="dataform">
 	<p>
-        <span class="f10 c">Create Multihunter account</span>
+		<span class="f10 c">Create Multihunter account with your password</span>
 		<table>
 			<tr>
-                <td>Name:</td>
-                <td><input type="text" name="mhpw" id="mhpw" value="Multihunter" disabled="disabled"></td>
-            </tr>
+				<td>Name:</td>
+				<td><input type="text" name="mhpw" id="mhpw" value="Multihunter" disabled="disabled"></td>
+			</tr>
 			<tr>
-                <td>Password:</td>
-                <td><input type="text" name="mhpw" id="mhpw" value=""></td>
-            </tr>
+				<td>Password:</td>
+				<td><input type="text" name="mhpw" id="mhpw" value="password"></td>
+			</tr>
 			<tr>
-                <td>Note: Remember this password! You need it for the ACP</td>
-                <td></td>
-            </tr>
+				<td>Note: Remember this password! You need it for the ACP</td>
+				<td></td>
+			</tr>
 		</table>
 	</p>
-   	<center>
-    <input type="submit" name="Submit" id="Submit" value="Submit"></center>
+	<center>
+		<input type="submit" name="Submit" id="Submit" value="Submit">
+	</center>
 </form>

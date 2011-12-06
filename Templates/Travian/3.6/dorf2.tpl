@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.24                                                  ##
+##  Version:       2011.12.06                                                  ##
 ##  Filename:      Templates/Travian/3.6/dorf2.tpl                             ##
 ##  Developed by:  Dzoki                                                       ##
 ##  Reworked by:   ZZJHONS                                                     ##
@@ -17,14 +17,14 @@
 ##                                                                             ##
 #################################################################################
 
-include ("Templates/head.tpl");
-include ("Templates/body.tpl");
+include 'Templates/head.tpl';
+include 'Templates/body.tpl';
 ?>
 <div id="content"  class="village2">
 	<h1><?php echo $village->vname; ?><br /></h1>
 	<?php
-    include("Templates/dorf2.tpl");
-	if($building->NewBuilding) {include("Templates/Building.tpl");}
+	include 'Templates/Travian/3.6/builds.tpl';
+	if($building->NewBuilding) {include 'Templates/Travian/3.6/Building.tpl';}
 	?>
 </div>
-<?php include ("Templates/end.tpl"); ?>
+<?php include 'Templates/end.tpl'; ?>

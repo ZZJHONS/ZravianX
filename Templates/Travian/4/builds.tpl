@@ -166,7 +166,6 @@
 	?>
 	<div id="levels">
     	<?php
-			/* Demo: <div style="left:300px; top:122px" class="aid26">1</div> */
 			for($i=1;$i<=22;$i++){
 				if ($village->resarray['f'.($i+18).'t'] != 0) {
 					switch($i) {

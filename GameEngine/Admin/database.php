@@ -29,7 +29,7 @@ class adm_DB {
 		mysql_select_db(SQL_DB, $this->connection) or die(mysql_error()); 	            		
 	}
 	
-	function Login($username,$password) {
+	function Login($username,$password){
 		$q = "SELECT password FROM ".TB_PREFIX."users where username = '$username' and access >= ".MULTIHUNTER;
 		$result = mysql_query($q, $this->connection);
 		$dbarray = mysql_fetch_array($result);

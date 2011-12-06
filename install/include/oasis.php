@@ -6,7 +6,7 @@
 ## --------------------------------------------------------------------------- ##
 ##                                                                             ##
 ##  Project:       ZravianX                                                    ##
-##  Version:       2011.11.07                                                  ##
+##  Version:       2011.12.06                                                  ##
 ##  Filename:      install/include/oasis.php                                   ##
 ##  Edited by:     ZZJHONS                                                     ##
 ##  License:       Creative Commons BY-NC-SA 3.0                               ##
@@ -16,16 +16,13 @@
 ##                                                                             ##
 #################################################################################
 
-	include ("../../GameEngine/Database.php");
-	include ("../../GameEngine/Admin/database.php");
-	include ("../../GameEngine/config.php");
-	
-	mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
-	mysql_select_db(SQL_DB);
-	
-	$database->populateOasisdata();  
-	$database->populateOasis();
-	$database->populateOasisUnitsHigh();
-	
-	header("Location: ../index.php?s=6");
+include '../../GameEngine/Database.php';
+include '../../GameEngine/Admin/database.php';
+include '../../GameEngine/config.php';
+mysql_connect(SQL_SERVER, SQL_USER, SQL_PASS);
+mysql_select_db(SQL_DB);
+$database->populateOasisdata();
+$database->populateOasis();
+$database->populateOasisUnitsHigh();
+header("Location: ../index.php?s=6");
 ?>

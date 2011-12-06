@@ -307,55 +307,42 @@
         		}
         	}
 
-        	function generateBase($sector) {
-        		$qeinde = "9999";
-        		$sector = rand(1, 4);
-        		$query = "select * from ".TB_PREFIX."wdata where fieldtype = 3 and occupied = 0";
-        		$result = mysql_query($query, $this->connection);
-        		for($i = 0; $row = mysql_fetch_assoc($result); $i++) {
-        			$oke = '1';
-        			$x = $row['x'];
-        			$y = $row['y'];
-        			if($x[0] == "-") {
-        				$x = ($x * -1);
-        				if($sector == '2' or $sector == '4') {
-        					$oke = '0';
-        				}
-        			} else {
-        				if($sector == '1' or $sector == '3') {
-        					$oke = '0';
-        				}
-        			}
-        			if($y[0] == "-") {
-        				$y = ($y * -1);
-        				if($sector == '1' or $sector == '2') {
-        					$oke = '0';
-        				}
-        			} else {
-        				if($sector == '3' or $sector == '4') {
-        					$oke = '0';
-        				}
-        			}
-        			$afstand = sqrt(pow($x, 2) + pow($y, 2));
-        			if($oke == '1') {
-        				if($qeinde > $afstand) {
-        					$rand = rand(1, 10);
-        					if($rand == '3') {
-        						$qeinde = $afstand;
-        						$qid = $row['id'];
-        					}
-        				}
-        			}
-        		}
-        		if(isset($qid)) {
-        			return $qid;
-        		} else {
-        			$query = "select * from ".TB_PREFIX."wdata where fieldtype = 3 and occupied = 0 LIMIT 0,1";
-        			$result = mysql_query($query, $this->connection);
-        			$row = mysql_fetch_array($result);
-        			return $row['id'];
-        		}
-        	}
+			//Choice placement where sector
+			function generateBase($sector){
+				$sector = ($sector == 0) ? rand(1, 4) : $sector;
+				// (-/+) Nord ouest
+				if($sector == 1){
+					$x_a = -100;
+					$x_b = 0;
+					$y_a = -100;
+					$y_b = 0;
+				}
+				// (+/+) Nord est
+				elseif($sector == 2){
+					$x_a = -100;
+					$x_b = 0;
+					$y_a = 0;
+					$y_b = 100;
+				}
+				// (-/-)sud ouest
+				elseif($sector == 3){
+					$x_a = 0;
+					$x_b = 100;
+					$y_a = 0;
+					$y_b = 100;
+				}
+				// (+/-) sud est
+				elseif($sector == 4){
+					$x_a = 0;
+					$x_b = 100;
+					$y_a = -100;
+					$y_b = 0;
+				}
+				$query2 = "select id from ".TB_PREFIX."wdata where fieldtype != 0 and fieldtype != 6 and occupied = 0 and (x BETWEEN $x_a AND $x_b) and (y BETWEEN $y_a AND $y_b) order by rand() limit 1";
+				$result2 = mysql_query($query2);
+				$id = mysql_fetch_array($result2);
+				return $id['id'];
+			}
 
         	function setFieldTaken($id) {
         		$q = "UPDATE ".TB_PREFIX."wdata set occupied = 1 where id = $id";

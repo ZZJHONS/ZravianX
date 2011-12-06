@@ -28,12 +28,12 @@ if($_SESSION['qst']<24 && QUEST==true){
             <?php if ($_SESSION['qst']==0){ ?>
                 quest.number=null;
             <?php }else{ ?>
-                quest.number=0;
+                quest.number=0,1;
             <?php } ?>
-            quest.last = 23;
+            quest.last = 24;
             cache_preload = new Image();
             cache_preload.src = "img/x.gif";
-            cache_preload.className = "wood";
+            cache_preload.className = "main";
         </script>	
     </div>
     <script type="text/javascript">

@@ -17,25 +17,28 @@
 ##                                                                             ##
 #################################################################################
 
-if(isset($_GET['c']) && $_GET['c'] == 1) {
-echo "<div class=\"headline\"><span class=\"f10 c5\">Error importing database. Check configuration.</span></div><br>";
-}
+if(isset($_GET['c']) && $_GET['c'] == 1){
 ?>
+<div class="headline">
+	<span class="f10 c5">Error importing database. Check configuration.</span>
+</div>
+<br />
+<?php } ?>
 <form action="process.php" method="post" id="dataform">
-    <input type="hidden" name="substruc" value="1">
+	<input type="hidden" name="substruc" value="1">
 	<p>
-        <span class="f10 c">Create SQL Structure</span>
+		<span class="f10 c">Create SQL Structure</span>
 		<table>
 			<tr>
-                <td>Warning: This can take some time. Do not click, just wait till the next page has been loaded!</td>
-            </tr>
+				<td><b>Warning</b>: This can take some time. Don't click, just wait till the next page has been loaded!</td>
+			</tr>
 			<tr>
-                <td>
-                    <center>
-                        <input type="submit" name="Submit" id="Submit" value="Create..">
-                    </center>
-                </td>
-            </tr>
+				<td>
+					<center>
+						<input type="submit" name="Submit" id="Submit" value="Create...">
+					</center>
+				</td>
+			</tr>
 		</table>
 	</p>
 </form>

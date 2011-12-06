@@ -18,11 +18,11 @@
 #################################################################################
 ?>
 <p>
-    Thanks for installing ZravianX.
-    <h4>Please remove/rename the installation folder.</h4>
-    All the files are placed. The database is created, so you can now start playing on your own Travian.
+	Thanks for install ZravianX.
+		<h4>Please remove/rename the installation folder.</h4>
+		All the files are placed. The database is created, so you can now start playing on your own ZravianX server.
 </p>
-<?php include("../GameEngine/config.php"); ?>
+<?php include '../GameEngine/config.php'; ?>
 <p>
-    <center><font size="4"><a href="<?php echo HOMEPAGE; ?>">&raquo; My TravianX homepage &laquo;</a></font></center>
+	<center><font size="4"><a href="<?php echo HOMEPAGE; ?>">&raquo; My ZravianX homepage &laquo;</a></font></center>
 </p>
