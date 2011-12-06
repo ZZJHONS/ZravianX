@@ -1,35 +1,21 @@
-<?php
-#################################################################################
-##                                                                             ##
-##              -= YOU MUST NOT REMOVE OR CHANGE THIS NOTICE =-                ##
-##                                                                             ##
-## --------------------------------------------------------------------------- ##
-##                                                                             ##
-##  Project:       ZravianX                                                    ##
-##  Version:       2011.12.03                                                  ##
-##  Filename:      Templates/Map/mapview.tpl                                   ##
-##  Improved by:   ZZJHONS                                                     ##
-##  License:       Creative Commons BY-NC-SA 3.0                               ##
-##  Copyright:     ZravianX (c) 2011 - All rights reserved                     ##
-##  URLs:          http://zravianx.zzjhons.com                                 ##
-##  Source code:   http://www.github.com/ZZJHONS/ZravianX                      ##
-##                                                                             ##
-#################################################################################
-
+<?php 
 if(isset($_GET['z'])) {
-	$currentcoor = $database->getCoor($_GET['z']);
-	$y = $currentcoor['y'];
+	$currentcoor = $database->getCoor($_GET['z']);++$requse2;
+    $y = $currentcoor['y'];
 	$x = $currentcoor['x'];
-	$bigmid = $_GET['z'];
-} else if(isset($_POST['xp']) && isset($_POST['yp'])){
-	$x = $_POST['xp'];
-	$y = $_POST['yp'];
-	$bigmid = $generator->getBaseID($x,$y);
-} else {
-	$y = $village->coor['y'];
-	$x = $village->coor['x'];
-	$bigmid = $village->wid;
+    $bigmid = $_GET['z'];
 }
+else if(isset($_POST['xp']) && isset($_POST['yp'])){
+	$x = $_POST['xp'];
+    $y = $_POST['yp'];
+    $bigmid = $generator->getBaseID($x,$y);
+}
+else {
+    $y = $village->coor['y'];
+	$x = $village->coor['x'];
+    $bigmid = $village->wid;
+}
+
 
 $xm7 = ($x-7) < -WORLD_MAX? $x+WORLD_MAX+WORLD_MAX-6 : $x-7;
 $xm3 = ($x-3) < -WORLD_MAX? $x+WORLD_MAX+WORLD_MAX-2 : $x-3;
@@ -67,7 +53,44 @@ for($i=0; $i<=6; $i++){
 $maparray = (substr($maparray, 0, -1));
 //echo $maparray;
 
-$query2 = "SELECT ".TB_PREFIX."wdata.id AS map_id, ".TB_PREFIX."wdata.fieldtype AS map_fieldtype, ".TB_PREFIX."wdata.oasistype AS map_oasis, ".TB_PREFIX."wdata.x AS map_x, ".TB_PREFIX."wdata.y AS map_y, ".TB_PREFIX."wdata.occupied AS map_occupied, ".TB_PREFIX."wdata.image AS map_image,	".TB_PREFIX."odata.conqured AS oasis_conqured, info_user_oasis.username AS oasis_user, info_user_oasis.tribe AS oasis_tribe, info_alliance_oasis.tag AS oasis_alli_name, ".TB_PREFIX."vdata.wref AS ville_id, ".TB_PREFIX."vdata.owner AS ville_user, ".TB_PREFIX."vdata.name AS ville_name, ".TB_PREFIX."vdata.capital AS ville_capital, ".TB_PREFIX."vdata.pop AS ville_pop, ".TB_PREFIX."users.id AS user_id, ".TB_PREFIX."users.username AS user_username, ".TB_PREFIX."users.tribe AS user_tribe, ".TB_PREFIX."users.alliance AS user_alliance, ".TB_PREFIX."alidata.id AS aliance_id, ".TB_PREFIX."alidata.tag AS aliance_name FROM ((((((".TB_PREFIX."wdata LEFT JOIN ".TB_PREFIX."vdata ON ".TB_PREFIX."vdata.wref = ".TB_PREFIX."wdata.id ) LEFT JOIN ".TB_PREFIX."odata ON ".TB_PREFIX."odata.wref = ".TB_PREFIX."wdata.id ) LEFT JOIN ".TB_PREFIX."users AS info_user_oasis ON info_user_oasis.id = ".TB_PREFIX."odata.owner ) LEFT JOIN ".TB_PREFIX."alidata AS info_alliance_oasis ON info_alliance_oasis.id = info_user_oasis.alliance ) LEFT JOIN ".TB_PREFIX."users ON ".TB_PREFIX."users.id = ".TB_PREFIX."vdata.owner ) LEFT JOIN ".TB_PREFIX."alidata ON ".TB_PREFIX."alidata.id = ".TB_PREFIX."users.alliance ) where ".TB_PREFIX."wdata.id IN ($maparray) ORDER BY FIND_IN_SET(".TB_PREFIX."wdata.id,'$maparray2')";
+$query2 = "SELECT
+					s1_wdata.id AS map_id,
+					s1_wdata.fieldtype AS map_fieldtype,
+					s1_wdata.oasistype AS map_oasis,
+					s1_wdata.x AS map_x,
+					s1_wdata.y AS map_y,
+					s1_wdata.occupied AS map_occupied,
+					s1_wdata.image AS map_image,
+
+					s1_odata.conqured AS oasis_conqured,
+					info_user_oasis.username AS oasis_user,
+					info_user_oasis.tribe AS oasis_tribe,
+					info_alliance_oasis.tag AS oasis_alli_name,
+
+					s1_vdata.wref AS ville_id,
+					s1_vdata.owner AS ville_user,
+					s1_vdata.name AS ville_name,
+					s1_vdata.capital AS ville_capital,
+					s1_vdata.pop AS ville_pop,
+
+					s1_users.id AS user_id,
+					s1_users.username AS user_username,
+					s1_users.tribe AS user_tribe,
+					s1_users.alliance AS user_alliance,
+
+					s1_alidata.id AS aliance_id,
+					s1_alidata.tag AS aliance_name
+
+				FROM ((((((s1_wdata
+					LEFT JOIN s1_vdata ON s1_vdata.wref = s1_wdata.id )
+					LEFT JOIN s1_odata ON s1_odata.wref = s1_wdata.id )
+					LEFT JOIN s1_users AS info_user_oasis ON info_user_oasis.id = s1_odata.owner )
+					LEFT JOIN s1_alidata AS info_alliance_oasis ON info_alliance_oasis.id = info_user_oasis.alliance )
+					LEFT JOIN s1_users ON s1_users.id = s1_vdata.owner )
+					LEFT JOIN s1_alidata ON s1_alidata.id = s1_users.alliance )
+			where s1_wdata.id IN ($maparray)
+			ORDER BY FIND_IN_SET(s1_wdata.id,'$maparray2')";
+//echo $query2;
 $result2 = mysql_query($query2) or die(mysql_error());
 
 $targetalliance = array();
@@ -89,7 +112,7 @@ while ($donnees = mysql_fetch_assoc($result2)){
 	$map_content .= "<div id='i_".$row."_".$i."' class='".$image."'></div>\r";
 	//Map create
 	$map_gen .= "<area id='a_".$row."_".$i."' shape='poly' coords='".$coorarray[$coorindex]."' title='".htmlspecialchars($donnees['ville_name'])."' href='karte.php?d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."' />\n";
-
+	
 	//Javascript map info
 	if($yrow!=7){
 		$map_js .= "[".$donnees['map_x'].",".$donnees['map_y'].",".$donnees['map_fieldtype'].",". ((!empty($donnees['map_oasis'])) ? $donnees['map_oasis'] : 0) .",\"d=".$donnees['map_id']."&c=".$generator->getMapCheck($donnees['map_id'])."\",\"".$image."\"";
@@ -97,35 +120,35 @@ while ($donnees = mysql_fetch_assoc($result2)){
 			if($donnees['map_fieldtype'] != 0){
 				$map_js.= ",\"".htmlspecialchars($donnees['ville_name'])."\",\"".htmlspecialchars($donnees['user_username'])."\",\"".$donnees['ville_pop']."\",\"".htmlspecialchars($donnees['aliance_name'])."\",\"".$donnees['user_tribe']."\"]\n";
 			}
-		} elseif($donnees['map_oasis'] != 0){
+		}
+		elseif($donnees['map_oasis'] != 0){
 			if ($donnees['oasis_conqured'] != 0){
-				$map_js.= ",\"\",\"".$donnees['oasis_user']."\",\"-\",\"".$donnees['oasis_alli_name']."\",\"".$donnees['oasis_tribe']."\"]";
-			} else {
+					$map_js.= ",\"\",\"".$donnees['oasis_user']."\",\"-\",\"".$donnees['oasis_alli_name']."\",\"".$donnees['oasis_tribe']."\"]";
+			} 
+			else{
 				$map_js.="]";
 			}
-		} else{$map_js .= "]\n";}
+		}
+		else{$map_js .= "]\n";}
 
 		if($i2 == 6 && $yrow !=6){
 			$i2 = -1;
 			$yrow +=1;
 			$map_js .= "],\n[";
-		} else {
-			if($yrow == 6 && $i2 == 6) {
-				$map_js .= "]\n";
-			} else {
-				$map_js .= ",";
-			}
+		}
+		else {
+			if($yrow == 6 && $i2 == 6) {$map_js .= "]\n";}
+			else {$map_js .= ",";}
 		}
 		$regcount += 1;
-	} else {
-		$map_js .= "]";
 	}
+	else {$map_js .= "]";}
 	
 	if($i == 6 && $row <= 5){	$row += 1;	$i = -1;}
-		$i++;
-		$i2++;
-		$coorindex+=1;
-	}
+	$i++;
+	$i2++;
+	$coorindex+=1;
+}
 ?>
 <div id="content"  class="map">
 	<h1>Map(<span id="x"><?php echo $x;?></span>|<span id="y"><?php echo $y;?></span>)</h1>
@@ -146,8 +169,7 @@ while ($donnees = mysql_fetch_assoc($result2)){
 			text_x.r4 = 'Crop';
 		</script>
 		<div id="map_content"><?php echo $map_content;?></div>
-		<div id="map_rulers">
-		<?php
+		<div id="map_rulers"><?php
 			for($i=0;$i<=6;$i++) {
 				echo "<div id=\"mx".$i."\">".$xarray[$i]."</div>\n";
 				echo "<div id=\"my".$i."\">".$yarray[$i]."</div>\n";
@@ -169,12 +191,10 @@ while ($donnees = mysql_fetch_assoc($result2)){
 			var mdim = {"x":7,"y":7,"rad":3}
 			var mmode = 0;
 			function init_local(){map_init();}
-		</script>
-		<?php
-			if($session->plus){
-				echo '<a id="map_makelarge" target="_blank" href="karte2.php?z=$bigmid"><img class="ml" src="img/x.gif" alt="large map" title="large map"/></a>';
-			}
-		?>
+		</script><?php
+		if($session->plus){
+			echo '<a id="map_makelarge" href="#" onclick="PopupMap('.$bigmid.');" ><img class="ml" src="img/x.gif" alt="large map" title="large map"/></a>';
+		}?>
 		<img id="map_navibox" src="img/x.gif" usemap="#map_navibox"/>
 		<map name="map_navibox">
 			<area id="ma_n1p7" href="karte.php?z=<?php echo $generator->getBaseID($x,$yp7) ?>" coords="51,15,73,3,95,15,73,27" shape="poly" title="North"/>
@@ -190,26 +210,6 @@ while ($donnees = mysql_fetch_assoc($result2)){
 				<?php if($session->plus != 0){echo "<a href=\"crop_finder.php\"><img src=\"".GP_LOCATE."img/misc/cropfinder.gif\" /> Crop Finder</a>";}?>
 			</form>
 		</div>
-		<table cellpadding="1" cellspacing="1" id="map_infobox" class="default">
-			<thead>
-				<tr>
-					<th colspan="2">Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>Player</th>
-					<td>-</td>
-				</tr>
-				<tr>
-					<th>Population</th>
-					<td>-</td>
-				</tr>
-				<tr>
-					<th>Alliance</th>
-					<td></td>
-				</tr>
-			</tbody>
-        </table>
+		<table cellpadding="1" cellspacing="1" id="map_infobox" class="default"><thead><tr><th colspan="2">Details</th></tr></thead><tbody><tr><th>Player</th><td>-</td></tr><tr><th>Population</th><td>-</td></tr><tr><th>Alliance</th><td></td></tr></tbody></table>
 	</div>            
 </div>
