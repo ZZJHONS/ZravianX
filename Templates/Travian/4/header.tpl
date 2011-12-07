@@ -16,22 +16,22 @@
 ##                                                                             ##
 #################################################################################
 
-function CheckBrowser(){
+function CheckBrowser() {
 	$bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'WebKit');
-	if($bpos !== false){
+	if($bpos !== false) {
 		$bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'Chrome');
-		if($bpos !== false){
+		if($bpos !== false) {
 			return 'webkit chrome';
 		}else{
 			return 'webkit safari';
 		}
 	}
 	$bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'Gecko');
-	if($bpos !== false){
+	if($bpos !== false) {
 		return "gecko";
 	}
 	$bpos = strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE');
-	if $bpos !== false){
+	if($bpos !== false) {
 		return "ie ie".substr($_SERVER['HTTP_USER_AGENT'], $bpos + 5, 1);
 	}
 }
