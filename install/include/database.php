@@ -22,7 +22,8 @@ class MYSQLi_DB {
 	var $connection;
 	function MYSQLi_DB(){
 		$this->connection = mysqli_connect(SQL_SERVER, SQL_USER, SQL_PASS, SQL_DB) or die(mysqli_error());
-		function query($query) {
+	}
+	function query($query) {
 		return $this->connection->query($query);
 	}
 };
